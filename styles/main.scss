@@ -1,0 +1,32 @@
+@import "./_normalize";
+
+:root {
+  --primary-color: #241f11;
+  --accent-main-color: #9b1818;
+  --light-color: #ffffff;
+  --bg-main-color: #9b1818;
+  --text-team-name: #f3ebe4;
+  --light-bg: #f9f5f0;
+  --test: #f0d2ad;
+}
+
+body {
+  font-family: "NotoSerif-Regular", sans-serif;
+  background: #fff;
+  color: var(--primary-color);
+  line-height: 1.23;
+}
+
+.container {
+  width: 414px;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+  @media screen and (min-width: 1920px) {
+    width: 1920px;
+  }
+}
