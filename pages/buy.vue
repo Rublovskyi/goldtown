@@ -20,11 +20,18 @@ import Header from "~/components/header.vue";
 import Footer from "~/components/footer.vue";
 import Houses from "../components/buyPage/buy.vue";
 
+import { mapState } from "vuex";
+
 export default {
   components: {
     Header,
     Footer,
     Houses,
+  },
+  computed: {
+    ...mapState({
+      housesData: (state) => state.app.housesData,
+    }),
   },
 };
 </script>

@@ -15,7 +15,7 @@
   padding: 6.25vw 4.861vw;
   position: relative;
   margin-left: auto;
-  background-image: linear-gradient(to bottom, #fff, rgba(187, 148, 119, 0.5));
+  // background-image: linear-gradient(to bottom, #fff, rgba(187, 148, 119, 0.5));
 
   &__text {
     position: absolute;
@@ -25,19 +25,21 @@
     // height: 75%;
     background-color: #fff;
     padding: 3vw;
+    box-shadow: -0.394vw 0.394vw 0.556vw 0.139vw var(--accent-main-color);
 
     &-title {
       display: inline-block;
       font-family: NotoSerif-Regular;
-      color: var(--primary-color);
+      color: var(--accent-main-color);
       font-size: 2.778vw;
-      border-bottom: 0.347vw solid var(--primary-color);
+      border-bottom: 0.347vw solid var(--accent-main-color);
     }
     &-subtitle {
       font-family: NotoSerif-Regular;
       color: var(--primary-color);
       font-size: 1.736vw;
       margin-top: 1.531vw;
+      line-height: 1.3;
     }
   }
   &__image {

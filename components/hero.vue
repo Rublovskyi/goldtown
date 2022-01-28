@@ -28,7 +28,7 @@ export default {
   height: 55vh;
   position: relative;
   &__btn {
-    padding: 2.042vw 3.389vw;
+    padding: 1.042vw 2.389vw;
     background-color: var(--light-bg);
 
     color: var(--primary-color);

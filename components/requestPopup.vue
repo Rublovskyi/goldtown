@@ -3,14 +3,20 @@
         .popup__wrap
             h2.popup__title Оставить заявку
             label.popup__label Ваше имя
-                input.popup__name(type="text" placeholder="Владислав" )
-            label.popup__label Номер телефона
-                input.popup__number(type="number" placeholder="0661234567")
-            button.popup__btn Отправить
+                input.popup__name(type="text" placeholder="Владислав" v-model="name")
+            label.popup__label Номер телефона 
+                input.popup__number(type="number" placeholder="0661234567" v-model="phone")
+            button.popup__btn(@click="postRequestData") Отправить
             .popup__close
 </template>
 <script>
 export default {
+  data() {
+    return {
+      name: "",
+      phone: "",
+    };
+  },
   methods: {
     closePopup(e) {
       if (
@@ -19,6 +25,23 @@ export default {
       ) {
         this.$parent.showPopup = false;
       }
+    },
+    async postRequestData() {
+      // this.clearInputs()
+      // this.$parent.showPopup = false;
+      let data = {
+        name: this.name,
+        phone: this.phone,
+      };
+
+      console.log(data);
+
+      // const response = await this.$axios.post(`/clients`, data);
+      // console.log(response);
+    },
+    clearInputs() {
+      this.tel = "";
+      this.name = "";
     },
   },
 };
