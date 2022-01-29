@@ -4,12 +4,44 @@
         .request__box 
             h2.request__box-title Оставить заявку
             label.request__box-label Ваше имя
-                input.request__box-name(type="text" placeholder="Владислав" )
+                input.request__box-name(type="text" placeholder="Владислав" v-model="name")
             label.request__box-label Номер телефона
-                input.request__box-number(type="number" placeholder="0661234567")
-            button.request__box-btn Отправить
+                input.request__box-number(type="number" placeholder="0661234567" v-model="phone")
+            button.request__box-btn(@click="postRequestData") Отправить
         
 </template>
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      phone: "",
+    };
+  },
+  methods: {
+    async postRequestData() {
+      let data = {
+        data: {
+          name: this.name,
+          phone: this.phone,
+        },
+      };
+      try {
+        const response = await this.$axios.post(`/api/clients`, data);
+        this.clearInputs();
+        this.$parent.showPopup = false;
+        console.log(response);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    clearInputs() {
+      this.phone = "";
+      this.name = "";
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .request {
   padding: 6.25vw 4.861vw;

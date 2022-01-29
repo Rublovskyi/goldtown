@@ -7,6 +7,7 @@
     Request
     RequestPopup(v-if="showPopup")
     Footer
+    //- PhoneBtn
 </template>
 <script>
 import Header from "~/components/header.vue";
@@ -17,6 +18,7 @@ import AboutUs from "~/components/aboutUs.vue";
 import Request from "~/components/request.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import Footer from "~/components/footer.vue";
+import PhoneBtn from "~/components/phoneBtn.vue";
 
 export default {
   components: {
@@ -27,6 +29,7 @@ export default {
     Request,
     RequestPopup,
     Footer,
+    PhoneBtn,
   },
   data() {
     return {
@@ -35,4 +38,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main-page {
+  position: relative;
+}
+</style>

@@ -27,20 +27,22 @@ export default {
       }
     },
     async postRequestData() {
-      // this.clearInputs()
-      // this.$parent.showPopup = false;
       let data = {
-        name: this.name,
-        phone: this.phone,
+        data: {
+          name: this.name,
+          phone: this.phone,
+        },
       };
-
-      console.log(data);
-
-      // const response = await this.$axios.post(`/clients`, data);
-      // console.log(response);
+      try {
+        const response = await this.$axios.post(`/api/clients`, data);
+        this.clearInputs();
+        this.$parent.showPopup = false;
+      } catch (err) {
+        console.log(err);
+      }
     },
     clearInputs() {
-      this.tel = "";
+      this.phone = "";
       this.name = "";
     },
   },
