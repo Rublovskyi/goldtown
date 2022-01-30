@@ -60,8 +60,8 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(`/api/products?${query}`);
-      console.log("product", response);
-      commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0]);
+      // console.log("product", response);
+      commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0].attributes);
     } catch (err) {
       console.log(err);
     }

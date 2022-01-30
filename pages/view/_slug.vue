@@ -1,7 +1,7 @@
 <template lang="pug">
-    div 
+    div(v-if="CurrentPeaseData")
         p New page 
-        p {{CurrentPeaseData.attributes.title}}
+        p(v-if="CurrentPeaseData.title") {{CurrentPeaseData.title}}
 </template>
 <script>
 import { mapState } from "vuex";
