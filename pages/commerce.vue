@@ -16,6 +16,9 @@ export default {
     Footer,
     Houses,
   },
+  mounted() {
+    this.$store.dispatch("app/getDataCommerce");
+  },
 };
 </script>
 <style lang="scss" scoped>

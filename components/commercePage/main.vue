@@ -7,7 +7,7 @@
             //- .buy__console-filter
             //-     h2 Фільтри
         .buy__cards()
-            Card(v-for="(card, i) in PurchaseData" :key="i" :card="card")
+            Card(v-for="(card, i) in CommerceData" :key="i" :card="card")
 </template>
 <script>
 import Card from "../card.vue";
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     ...mapState({
-      PurchaseData: (state) => state.app.PurchaseData,
+      CommerceData: (state) => state.app.CommerceData,
     }),
   },
   components: {

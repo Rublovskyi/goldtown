@@ -4,9 +4,9 @@
             img(src="../assets/logo.png")
         ul.header__list
             li.header__item 
-                n-link.header__item-link.header__item-link-buy(:to="('/buy')") Купить 
+                n-link.header__item-link.header__item-link-buy(:to="('/purchase')") Купить 
             li.header__item 
-                n-link.header__item-link(:to="('/buyBussiness')") Купить готовый бизнес 
+                n-link.header__item-link(:to="('/commerce')") Купить готовый бизнес 
             li.header__item Подать заявку 
             li.header__item О нас
         a.header__number(href="tel:+380679986959") 

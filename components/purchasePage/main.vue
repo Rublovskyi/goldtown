@@ -6,7 +6,7 @@
                 p(v-for="(type, i) in categoryes" :key="i") {{type.text}}
             //- .buy__console-filter
             //-     h2 Фільтри
-        .buy__cards()
+        .buy__cards
             Card(v-for="(card, i) in PurchaseData" :key="i" :card="card")
 </template>
 <script>
@@ -16,7 +16,6 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      houses: require("~/assets/data.json"),
       categoryes: [
         {
           text: "Комори",
@@ -35,9 +34,18 @@ export default {
       PurchaseData: (state) => state.app.PurchaseData,
     }),
   },
+  methods: {
+    test() {
+      console.log("gfgdhd");
+      this.PurchaseData.forEach((el) => {
+        console.log(el.attributes.purchase_type);
+      });
+    },
+  },
   components: {
     Card,
   },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

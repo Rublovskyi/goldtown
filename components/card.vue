@@ -1,6 +1,6 @@
 <template lang="pug">
     //- .card(v-if="card")
-    n-link.card(:to="('/house/' + card.id)") 
+    n-link.card(:to="('/view/' + card.id)") 
         .card__image(v-if="card.attributes.src")
             img(:src="card.src")
         .card__image(v-if="!card.attributes.src")
