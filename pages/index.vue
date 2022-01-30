@@ -3,8 +3,8 @@
     Header.header
     HeroTop
     Hero
-    AboutUs
-    Request
+    AboutUs(id="about")
+    Request(id="request")
     RequestPopup(v-if="showPopup")
     Footer
     //- PhoneBtn
@@ -35,6 +35,14 @@ export default {
     return {
       showPopup: false,
     };
+  },
+  methods: {
+    goto(id) {
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+      });
+      console.log("scrollTo");
+    },
   },
 };
 </script>

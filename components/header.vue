@@ -7,15 +7,23 @@
                 n-link.header__item-link.header__item-link-buy(:to="('/purchase')") Купить 
             li.header__item 
                 n-link.header__item-link(:to="('/commerce')") Купить готовый бизнес 
-            li.header__item Подать заявку 
-            li.header__item О нас
+            li.header__item(@click="scroll('request')") Подать заявку 
+            li.header__item(@click="scroll('about')") О нас
         a.header__number(href="tel:+380679986959") 
             span.header__number-icon
                 //- img(src="../assets/svg/symbol-defs.svg#mobile")
             span +380679986959
         .buy 
 </template>
-
+<script>
+export default {
+  methods: {
+    scroll(name) {
+      this.$parent.goto(name);
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .header {
   display: flex;
