@@ -43,6 +43,29 @@ export const actions = {
       console.log(err);
     }
   },
+  async getDataCurrentPease({ commit }, id) {
+    const qs = require("qs");
+    const query = qs.stringify(
+      {
+        filters: {
+          id: {
+            $eq: id,
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true, // prettify url
+      }
+    );
+
+    try {
+      const response = await this.$axios.get(`/api/products?${query}`);
+      console.log("product", response);
+      commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0]);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
 export const mutations = {
   UPDATE_PUECHASE_DATA(state, data) {
@@ -51,8 +74,12 @@ export const mutations = {
   UPDATE_COMMERCE_DATA(state, data) {
     state.CommerceData = data;
   },
+  UPDATE_CURRENT_PEASE_DATA(state, data) {
+    state.CurrentPeaseData = data;
+  },
 };
 export const state = () => ({
   PurchaseData: [],
   CommerceData: [],
+  CurrentPeaseData: {},
 });

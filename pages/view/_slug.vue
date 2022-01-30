@@ -1,26 +1,20 @@
 <template lang="pug">
     div 
         p New page 
-        p {{currentHouse.id}}
-        p(v-if="currentHouse") {{currentHouse.title}}
+        p {{CurrentPeaseData.attributes.title}}
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
-  data() {
-    return {
-      houses: require("~/assets/data.json"),
-      currentHouse: {},
-    };
+  computed: {
+    ...mapState({
+      CurrentPeaseData: (state) => state.app.CurrentPeaseData,
+    }),
   },
   mounted() {
-    let url = window.location.href.split("/").pop();
-
-    this.houses.forEach((house) => {
-      if (house.id == url) {
-        this.currentHouse = house;
-        // console.log(this.currentHouse);
-      }
-    });
+    let id = window.location.href.split("/").pop();
+    this.$store.dispatch("app/getDataCurrentPease", id);
   },
 };
 </script>
