@@ -1,7 +1,6 @@
 <template lang="pug">
 .main-page
     Header.header
-    HeroTop
     Hero
     AboutUs(id="about")
     Request(id="request")
@@ -11,7 +10,6 @@
 </template>
 <script>
 import Header from "~/components/header.vue";
-import HeroTop from "~/components/heroTop.vue";
 
 import Hero from "~/components/hero.vue";
 import AboutUs from "~/components/aboutUs.vue";
@@ -23,7 +21,6 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 export default {
   components: {
     Header,
-    HeroTop,
     Hero,
     AboutUs,
     Request,
@@ -35,14 +32,6 @@ export default {
     return {
       showPopup: false,
     };
-  },
-  methods: {
-    goto(id) {
-      document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-      });
-      console.log("scrollTo");
-    },
   },
 };
 </script>

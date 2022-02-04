@@ -1,10 +1,10 @@
 <template lang="pug">
     .about 
         .about__text
-            h2.about__text-title О компании
+            h2.about__text-title О нас
             p.about__text-subtitle Привіт! Ми агенція нерухомості GoldToun Лідер з продажу нерухомості на Петропавлівській та Софіївській Борщагівці. Працюємо по всій Київській області та м. Київ. Досконало знаємо свою справу щоб Вам було: легко, зручно, надійно. З нами Ви можете продати, купити, здати, орендувати квартиру, будинок, таунхаус, дуплекс, комерційну нерухомість або земельну ділянку. Ми працюємо відкрито і чесно, з максимальною віддачею на результат.
         .about__image
-            img(src="../assets/workPlace.jpeg")
+            img(src="../assets/workPlace.png")
 </template>
 <style lang="scss" scoped>
 .about {
@@ -15,36 +15,35 @@
   padding: 6.25vw 4.861vw;
   position: relative;
   margin-left: auto;
-  // background-image: linear-gradient(to bottom, #fff, rgba(187, 148, 119, 0.5));
 
   &__text {
-    position: absolute;
-    top: 8%;
-    left: 15%;
-    width: 40%;
-    // height: 75%;
+    // position: absolute;
+    // top: 8%;
+    // left: 15%;
+    width: 50%;
     background-color: #fff;
     padding: 3vw;
-    box-shadow: -0.394vw 0.394vw 0.556vw 0.139vw var(--accent-main-color);
+    // box-shadow: -0.394vw 0.394vw 0.556vw 0.139vw var(--accent-main-color);
 
     &-title {
       display: inline-block;
-      font-family: NotoSerif-Regular;
-      color: var(--accent-main-color);
-      font-size: 2.778vw;
-      border-bottom: 0.347vw solid var(--accent-main-color);
+      color: var(--primary-color);
+      font-weight: 400;
+      font-size: 2.083vw;
     }
     &-subtitle {
-      font-family: NotoSerif-Regular;
       color: var(--primary-color);
-      font-size: 1.736vw;
+      font-weight: 400;
+      font-size: 1.111vw;
       margin-top: 1.531vw;
-      line-height: 1.3;
+      line-height: 1.5;
+      padding-right: 8.819vw;
     }
   }
   &__image {
-    width: 60%;
+    width: 50%;
     overflow: hidden;
+    height: 25.139vw;
     & img {
       height: 100%;
       object-fit: cover;

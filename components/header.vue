@@ -2,26 +2,19 @@
     .header
         n-link.header__logo(:to="('/')")
             img(src="../assets/logo.png")
-        ul.header__list
-            li.header__item 
-                n-link.header__item-link.header__item-link-buy(:to="('/purchase')") Купить 
-            li.header__item 
-                n-link.header__item-link(:to="('/commerce')") Купить готовый бизнес 
-            li.header__item(@click="scroll('request')") Подать заявку 
-            li.header__item(@click="scroll('about')") О нас
+        .header__list
+            n-link.header__item(:to="('/#about')") О нас
+            n-link.header__item(:to="('/purchase')") Недвижимость 
+            n-link.header__item(:to="('/commerce')") Готовый бизнес  
+            n-link.header__item(:to="('/#request')") Подать заявку 
         a.header__number(href="tel:+380679986959") 
             span.header__number-icon
-                //- img(src="../assets/svg/symbol-defs.svg#mobile")
             span +380679986959
         .buy 
 </template>
 <script>
 export default {
-  methods: {
-    scroll(name) {
-      this.$parent.goto(name);
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang="scss" scoped>
@@ -32,11 +25,7 @@ export default {
   color: var(--primary-color);
   height: 10vh;
   padding: 0 3.472vw;
-  background-image: linear-gradient(
-    to right,
-    rgba(223, 187, 159, 0.1),
-    rgba(206, 187, 173, 0.1)
-  );
+  background-color: #fff;
 
   position: fixed;
   top: 0;
@@ -58,20 +47,19 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 1.042vw;
   }
   &__item:not(:last-child) {
     margin-right: 2.083vw;
   }
-  &__item,
-  &__item a {
+  &__item {
     transition: all 500ms ease;
     cursor: pointer;
+    font-family: "Gilroy";
+    font-weight: 400;
+    font-size: 1.111vw;
+    line-height: 1.25;
   }
-  &__item:hover,
-  &__item:hover a {
+  &__item:hover {
     color: var(--bg-main-color);
   }
   &__number {
@@ -80,20 +68,17 @@ export default {
     align-items: center;
     justify-content: space-between;
     transition: all 700ms ease;
+    font-size: 1.111vw;
+    font-weight: 400;
     &-icon {
       display: block;
-      width: 1.242vw;
-      height: 1.242vw;
+      width: 1.667vw;
+      height: 1.667vw;
       background-image: url(../assets/svg/mobile.svg);
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       margin-right: 0.486vw;
-      & img {
-        width: 100%;
-        height: 100%;
-        object-position: center;
-      }
     }
     &:hover {
       color: var(--bg-main-color);
