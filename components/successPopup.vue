@@ -13,7 +13,7 @@ export default {
     },
   },
   mounted() {
-    setTimeout(this.closePopup, 3000);
+    setTimeout(this.closePopup, 2300);
   },
 };
 </script>

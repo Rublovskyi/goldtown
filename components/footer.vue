@@ -1,24 +1,21 @@
 <template lang="pug">
     .footer 
+        n-link.footer__logo(:to="('/')")
+            img(src="../assets/logoLight.svg")
         a.footer__number(href="tel:+380679986959") 
             span.footer__number-icon
-                //- img(src="../assets/svg/mobile.svg")
-            span +380679986959
-        p hello world
-        n-link.footer__logo(:to="('/')")
-            img(src="../assets/logo.png")
+            span +38(067)9986959
 </template>
 <style lang="scss" scoped>
 .footer {
-  height: 10vh;
-  background-color: #fff;
-  border-top: 1px solid var(--bg-main-color);
+  height: 9.722vw;
+  background-color: var(--primary-color);
   display: flex;
-  padding: 0 3.472vw;
+  padding: 0 5.556vw;
   justify-content: space-between;
   align-items: center;
   &__logo {
-    height: 3.556vw;
+    height: 4.653vw;
     transition: all 700ms ease;
     & img {
       height: 100%;
@@ -28,16 +25,18 @@
     }
   }
   &__number {
-    color: var(--primary-color);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 700ms ease;
+    font-size: 1.111vw;
+    font-weight: 400;
     &-icon {
       display: block;
       width: 1.242vw;
       height: 1.242vw;
-      background-image: url(../assets/svg/mobile.svg);
+      background-image: url(../assets/svg/mobileLight.svg);
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -48,11 +47,12 @@
       }
     }
     &:hover {
-      color: var(--bg-main-color);
+      // color: var(--bg-main-color);
+      transform: scale(1.1);
     }
-    &:hover &-icon {
-      background-image: url(../assets/svg/mobileHover.svg);
-    }
+    // &:hover &-icon {
+    //   background-image: url(../assets/svg/mobileHover.svg);
+    // }
   }
 }
 </style>

@@ -3,6 +3,7 @@
     Header.header
     Hero
     AboutUs(id="about")
+    Sample
     Request(id="request")
     RequestPopup(v-if="showPopup")
     Footer
@@ -19,6 +20,7 @@ import RequestPopup from "~/components/requestPopup.vue";
 import Footer from "~/components/footer.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
 import SuccessPopup from "~/components/successPopup.vue";
+import Sample from "~/components/sample.vue";
 
 export default {
   components: {
@@ -30,6 +32,7 @@ export default {
     Footer,
     PhoneBtn,
     SuccessPopup,
+    Sample,
   },
   data() {
     return {
