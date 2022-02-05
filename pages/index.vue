@@ -8,7 +8,7 @@
     RequestPopup(v-if="showPopup")
     Footer
     SuccessPopup(v-if="successPopup")
-    //- PhoneBtn
+    PhoneBtn
 </template>
 <script>
 import Header from "~/components/header.vue";

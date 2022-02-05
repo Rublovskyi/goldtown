@@ -24,7 +24,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 
-  height: 40.278vw;
+  height: 41.078vw;
   position: relative;
   margin-top: 10vh;
   &__wrap {
@@ -64,7 +64,7 @@ export default {
     font-weight: 400;
 
     &:hover {
-      background-color: var(--bg-main-color);
+      background-color: var(--hover-color);
       color: #fff;
     }
     &:hover .hero__btn-icon {

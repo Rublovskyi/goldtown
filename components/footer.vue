@@ -47,7 +47,7 @@
       }
     }
     &:hover {
-      // color: var(--bg-main-color);
+      // color: var(--accent-main-color);
       transform: scale(1.1);
     }
     // &:hover &-icon {

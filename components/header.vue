@@ -60,7 +60,7 @@ export default {
     line-height: 1.25;
   }
   &__item:hover {
-    color: var(--bg-main-color);
+    color: var(--hover-color);
   }
   &__number {
     color: var(--primary-color);
@@ -81,27 +81,13 @@ export default {
       margin-right: 0.486vw;
     }
     &:hover {
-      color: var(--bg-main-color);
+      color: var(--hover-color);
     }
     &:hover &-icon {
       background-image: url(../assets/svg/mobileHover.svg);
-      // fill: var(--bg-main-color);
+      // fill: var(--accent-main-color);
     }
   }
 }
-.buy {
-  width: 100%;
-  height: 300px;
-  position: absolute;
-  background-color: var(--test);
-  top: 10vh;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-// .header__item-link:hover .buy {
-//   opacity: 1;
-//   pointer-events: visible;
-// }
+
 </style>

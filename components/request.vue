@@ -89,7 +89,7 @@ export default {
       border-radius: 0.417vw;
     }
     &-btn {
-      background-color: var(--bg-main-color);
+      background-color: var(--accent-main-color);
       color: #fff;
       font-size: 1.5vw;
       margin-top: 5.556vw;
@@ -100,7 +100,7 @@ export default {
 
       &:hover {
         color: #fff;
-        background-color: var(--bg-main-color);
+        background-color: var(--hover-color);
       }
     }
   }

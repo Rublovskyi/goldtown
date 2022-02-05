@@ -106,12 +106,16 @@ export default {
   &__btn {
     width: 100%;
     height: 3.542vw;
-    background-color: var(--bg-main-color);
+    background-color: var(--accent-main-color);
     font-family: NotoSerif-Regular;
     color: #fff;
     font-size: 1.2vw;
     margin-top: 2.778vw;
     border-radius: 0.417vw;
+    transition: all 500ms ease;
+    &:hover {
+      background-color: var(--hover-color);
+    }
   }
 }
 </style>

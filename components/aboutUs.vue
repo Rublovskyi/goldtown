@@ -9,21 +9,16 @@
 <style lang="scss" scoped>
 .about {
   display: flex;
-
   justify-content: flex-end;
   align-items: center;
-  padding: 6.25vw 4.861vw;
+  padding: 8.333vw 5.556vw;
   position: relative;
   margin-left: auto;
 
   &__text {
-    // position: absolute;
-    // top: 8%;
-    // left: 15%;
     width: 50%;
     background-color: #fff;
     padding: 3vw;
-    // box-shadow: -0.394vw 0.394vw 0.556vw 0.139vw var(--accent-main-color);
 
     &-title {
       display: inline-block;
@@ -41,7 +36,6 @@
     }
   }
   &__image {
-    width: 50%;
     overflow: hidden;
     height: 25.139vw;
     & img {

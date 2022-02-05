@@ -3,17 +3,20 @@
         Header.header
         Houses
         Footer
+        PhoneBtn
 </template>
 <script>
 import Header from "~/components/header.vue";
 import Footer from "~/components/footer.vue";
 import Houses from "~/components/purchasePage/main.vue";
+import PhoneBtn from "~/components/phoneBtn.vue";
 
 export default {
   components: {
     Header,
     Footer,
     Houses,
+    PhoneBtn,
   },
   mounted() {
     this.$store.dispatch("app/getDataPurchase");

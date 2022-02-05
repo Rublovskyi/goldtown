@@ -1,12 +1,8 @@
 <template lang="pug">
     .buy 
         .buy__console 
-            .buy__console-category
-                h2 Вибір категоріі
-                p(v-for="(type, i) in categoryes" :key="i") {{type.text}}
-            //- .buy__console-filter
-            //-     h2 Фільтри
-        .buy__cards()
+            FilterWrap(:categoryes="categoryes")
+        .buy__cards
             Card(v-for="(card, i) in CommerceData" :key="i" :card="card")
 </template>
 <script>
@@ -16,7 +12,6 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      houses: require("~/assets/data.json"),
       categoryes: [
         {
           text: "Комори",
@@ -48,20 +43,23 @@ export default {
 </script>
 <style lang="scss" scoped>
 .buy {
-  padding: 10vh 5.944vw 0;
-  // background-image: linear-gradient(to bottom, #fff, rgba(194, 146, 90, 0.5));
-  display: grid;
-  grid-template-columns: 25% 75%;
-  column-gap: 3.472vw;
+  padding: 10vh 5.556vw 0 0;
+  background-color: var(--light-bg);
+  position: relative;
   &__console {
-    border-right: 1px solid black;
-    padding: 3.472vw 0;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 26.736vw;
+
+    padding: 5.208vw 0 5.208vw 5.556vw;
+    background-color: #fff;
   }
   &__cards {
+    padding: 5.556vw 0 8.333vw 28.125vw;
     display: grid;
-    grid-template-columns: repeat(2, 27.778vw);
+    grid-template-columns: repeat(3, 21.181vw);
     gap: 2.083vw;
-    padding: 3.472vw 0;
   }
 }
 </style>
