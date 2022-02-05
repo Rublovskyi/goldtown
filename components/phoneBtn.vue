@@ -27,6 +27,7 @@
     display: none;
     opacity: 0;
     color: #fff;
+    font-size: 1.389vw;
   }
   &:hover {
     border-radius: 0.347vw;
