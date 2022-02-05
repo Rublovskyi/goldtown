@@ -6,6 +6,7 @@
     Request(id="request")
     RequestPopup(v-if="showPopup")
     Footer
+    SuccessPopup(v-if="successPopup")
     //- PhoneBtn
 </template>
 <script>
@@ -17,6 +18,7 @@ import Request from "~/components/request.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import Footer from "~/components/footer.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
+import SuccessPopup from "~/components/successPopup.vue";
 
 export default {
   components: {
@@ -27,10 +29,12 @@ export default {
     RequestPopup,
     Footer,
     PhoneBtn,
+    SuccessPopup,
   },
   data() {
     return {
       showPopup: false,
+      successPopup: false,
     };
   },
 };
