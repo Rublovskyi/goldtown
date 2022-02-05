@@ -3,12 +3,12 @@
         .request__img
             img(src="~/assets/requestImg.png")
         .request__box 
-            h2.request__box-title Оставте заявку и наш <br/> менеджер Вам перезвонит
-            .request__box-label Ваше имя
+            h2.request__box-title Залишіть заявку і наш <br/> менеджер зв'яжеться з Вами!
+            .request__box-label Ваше ім'я
             input.request__box-input(type="text" v-model="name")
-            .request__box-label Номер телефона
+            .request__box-label Номер телефону
             input.request__box-input(type="number" v-model="phone")
-            button.request__box-btn(@click="postRequestData") Отправить
+            button.request__box-btn(@click="postRequestData") Відправити
         
 </template>
 <script>

@@ -1,10 +1,10 @@
 <template lang="pug">
     .hero 
         .hero__wrap
-            h2.hero__title Агентство недвижимости Goldtown 
-            p.hero__text Поможем Вам продать/купить квартиру в <br/> новострое выгодно и быстро
+            h2.hero__title Агентство нерухомості Goldtown 
+            p.hero__text Допоможемо Вам продати/купити квартиру в <br/> новобудові вигідно і швидко
             button.hero__btn(@click="makeRequest")
-                span Оставить заявку
+                span Залишити заявку
                 //- span.hero__btn-icon 
                 
 </template>

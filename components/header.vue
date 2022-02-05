@@ -3,14 +3,13 @@
         n-link.header__logo(:to="('/')")
             img(src="../assets/logo.png")
         .header__list
-            n-link.header__item(:to="('/#about')") О нас
-            n-link.header__item(:to="('/purchase')") Недвижимость 
-            n-link.header__item(:to="('/commerce')") Готовый бизнес  
-            n-link.header__item(:to="('/#request')") Подать заявку 
+            n-link.header__item(:to="('/#about')") Про нас
+            n-link.header__item(:to="('/purchase')") Нерухомість
+            n-link.header__item(:to="('/commerce')") Готовий бізнес
+            n-link.header__item(:to="('/#request')") Залишити заявку
         a.header__number(href="tel:+380679986959") 
             span.header__number-icon
             span +380679986959
-        .buy 
 </template>
 <script>
 export default {
@@ -89,5 +88,4 @@ export default {
     }
   }
 }
-
 </style>

@@ -1,12 +1,12 @@
 <template lang="pug">
     .popup(@click="closePopup")
         .popup__wrap
-            h2.popup__title Оставте заявку и наш менеджер Вам перезвонит
-            .popup__label Ваше имя
+            h2.popup__title Залишіть заявку і наш <br/> менеджер Вам перетелефонує
+            .popup__label Ваше ім'я
             input.popup__input(type="text" v-model="name")
-            .popup__label Номер телефона 
+            .popup__label Номер телефону
             input.popup__input(type="number" v-model="phone")
-            button.popup__btn(@click="postRequestData") Отправить
+            button.popup__btn(@click="postRequestData") Відправити
             .popup__close
 </template>
 <script>
