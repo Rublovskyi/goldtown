@@ -14,7 +14,9 @@ export const actions = {
       }
     );
     try {
-      const response = await this.$axios.get(`/api/products?${query}`);
+      const response = await this.$axios.get(
+        `/api/products?populate=*&${query}`
+      );
       console.log("products", response);
       commit("UPDATE_PUECHASE_DATA", response.data.data);
       commit("UPDATE_FILTERS", response.data.data);
@@ -38,7 +40,9 @@ export const actions = {
       }
     );
     try {
-      const response = await this.$axios.get(`/api/products?${query}`);
+      const response = await this.$axios.get(
+        `/api/products?populate=*&${query}`
+      );
       // console.log("products", response);
       commit("UPDATE_COMMERCE_DATA", response.data.data);
       commit("UPDATE_FILTERS", response.data.data);

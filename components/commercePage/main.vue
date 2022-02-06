@@ -11,30 +11,7 @@ import { mapState } from "vuex";
 
 export default {
   data() {
-    return {
-      // categoryes: [
-      //   {
-      //     text: "Комори",
-      //     selected: false,
-      //   },
-      //   {
-      //     text: "Parking",
-      //     selected: false,
-      //   },
-      //   {
-      //     text: "Квартири",
-      //     selected: false,
-      //   },
-      //   {
-      //     text: "Комерція",
-      //     selected: false,
-      //   },
-      //   {
-      //     text: "Земельні ділянки",
-      //     selected: false,
-      //   },
-      // ],
-    };
+    return {};
   },
   computed: {
     ...mapState({

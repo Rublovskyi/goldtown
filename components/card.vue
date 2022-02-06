@@ -22,7 +22,10 @@
             .card__living-area(v-if="card.attributes.livingArea") 
                 span.title  Жилая прощадь: 
                 span.amount {{card.livingArea}}
-            button.card__btn-more Детальнішe
+            .card__living-area(v-if="card.attributes.parking_type") 
+                span.title  Тип паркомісця: 
+                span.amount {{card.attributes.parking_type}}
+        button.card__btn-more Детальнішe
 </template>
 <script>
 export default {
@@ -61,7 +64,7 @@ export default {
   }
 
   &__info {
-    padding: 1.389vw;
+    padding: 1.389vw 1.389vw 6.222vw 1.389vw;
   }
 
   .title {
@@ -92,8 +95,8 @@ export default {
     color: var(--accent-main-color);
   }
   &__btn-more {
-    padding: 1.111vw 0;
-    width: 100%;
+    padding: 1.111vw 5.372vw;
+    // width: 100%;
     font-size: 1.583vw;
     display: block;
     margin-left: auto;
@@ -103,6 +106,11 @@ export default {
     margin-top: 2.083vw;
     transition: all 700ms ease;
     border-radius: 0.417vw;
+    position: absolute;
+    bottom: 1.389vw;
+    left: 50%;
+    transform: translateX(-50%);
+
     &:hover {
       background-color: var(--hover-color);
       border: 1px solid var(--hover-color);
