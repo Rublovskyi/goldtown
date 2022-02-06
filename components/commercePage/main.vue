@@ -1,9 +1,11 @@
 <template lang="pug">
     .buy 
         .buy__console 
-            FilterWrap(:categoryes="Categories")
-        .buy__cards
+            FilterWrap(:categoryes="Categories" :typePage="type")
+        .buy__cards(v-if="CommerceData.length !== 0")
             Card(v-for="(card, i) in CommerceData" :key="i" :card="card")
+        .buy__cards(v-if="CommerceData.length === 0")
+            p Варіанти відсутні
 </template>
 <script>
 import Card from "../card.vue";
@@ -11,12 +13,14 @@ import { mapState } from "vuex";
 
 export default {
   data() {
-    return {};
+    return {
+      type: "commerce",
+    };
   },
   computed: {
     ...mapState({
       CommerceData: (state) => state.app.CommerceData,
-      Categories: (state) => state.app.Categories,
+      Categories: (state) => state.app.CommerceCaregoryes,
     }),
   },
   components: {

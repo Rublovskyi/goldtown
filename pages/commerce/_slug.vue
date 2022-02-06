@@ -17,7 +17,8 @@ export default {
     Houses,
   },
   mounted() {
-    this.$store.dispatch("app/getDataCommerce");
+    let slug = this.$route.params.slug;
+    this.$store.dispatch("app/getDataCommerce", slug);
   },
 };
 </script>

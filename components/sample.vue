@@ -1,6 +1,6 @@
 <template lang="pug">
     .sample
-        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="('/')" :style="{'background-image': `url('${card.img}')`}" :class="`item${i}`")
+        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="(`${card.link}`)" :style="{'background-image': `url('${card.img}')`}" :class="`item${i}`")
             p.sample__item-text {{card.text}}
 </template>
 <script>
@@ -10,27 +10,27 @@ export default {
       cards: [
         {
           text: "Квартири",
-          link: "/",
+          link: "/purchase/house",
           img: require("~/assets/sample/house.png"),
         },
         {
           text: "Комерцiя",
-          link: "/",
+          link: "/commerce/all",
           img: require("~/assets/sample/commerce.png"),
         },
         {
           text: "Parking",
-          link: "/",
+          link: "/purchase/parking",
           img: require("~/assets/sample/parking.png"),
         },
         {
           text: "Комори",
-          link: "/",
+          link: "/purchase/storage",
           img: require("~/assets/sample/storage.png"),
         },
         {
           text: "Земельнi дiлянки",
-          link: "/",
+          link: "/purchase/stead",
           img: require("~/assets/sample/plot.png"),
         },
       ],

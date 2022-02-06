@@ -13,8 +13,8 @@ export default {
     }),
   },
   mounted() {
-    let id = window.location.href.split("/").pop();
-    this.$store.dispatch("app/getDataCurrentPease", id);
+    let slug = this.$route.params.slug;
+    this.$store.dispatch("app/getDataCurrentPease", slug);
   },
 };
 </script>

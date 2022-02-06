@@ -4,8 +4,8 @@
             img(src="../assets/logo.png")
         .header__list
             n-link.header__item(:to="('/#about')") Про нас
-            n-link.header__item(:to="('/purchase')") Нерухомість
-            n-link.header__item(:to="('/commerce')") Готовий бізнес
+            n-link.header__item(:to="('/purchase/all')") Нерухомість
+            n-link.header__item(:to="('/commerce/all')") Готовий бізнес
             n-link.header__item(:to="('/#request')") Залишити заявку
         a.header__number(href="tel:+380679986959") 
             span.header__number-icon

@@ -1,9 +1,11 @@
 <template lang="pug">
     .buy 
         .buy__console 
-            FilterWrap(:categoryes="Categories")
-        .buy__cards
+            FilterWrap(:categoryes="Categories" :typePage="type")
+        .buy__cards(v-if="PurchaseData.length !== 0")
             Card(v-for="(card, i) in PurchaseData" :key="i" :card="card")
+        .buy__cards(v-if="PurchaseData.length === 0")
+            p Варіанти відсутні
 </template>
 <script>
 import Card from "../card.vue";
@@ -11,29 +13,16 @@ import FilterWrap from "~/components/FilterWrap.vue";
 import { mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      // categoryes: [
-      //   {
-      //     text: "Квартири",
-      //     selected: false,
-      //   },
-      //   {
-      //     text: "Parking",
-      //     selected: false,
-      //   },
-      //   {
-      //     text: "Комори",
-      //     selected: false,
-      //   },
-      // ],
-    };
-  },
   computed: {
     ...mapState({
       PurchaseData: (state) => state.app.PurchaseData,
-      Categories: (state) => state.app.Categories,
+      Categories: (state) => state.app.PurchaseCategories,
     }),
+  },
+  data() {
+    return {
+      type: "purchase",
+    };
   },
   components: {
     Card,

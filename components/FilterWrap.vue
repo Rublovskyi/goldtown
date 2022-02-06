@@ -1,8 +1,8 @@
 <template lang="pug">
     .filter 
-        .filter__category()
+        .filter__category
             h2.title Вибiр категорії
-            p.filter__category-item( v-for="(type, i) in categoryes" :key="i" @click="selectCategoryes(type.text)" :class="{'select': type.selected}") {{type.text}}
+            n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="(`/${typePage}/${category.slug}`)") {{category.name}}
         .filter__wrap
             h2.title Фiльтри
             .filter__price 
@@ -31,7 +31,7 @@
 import { mapState } from "vuex";
 
 export default {
-  props: ["categoryes"],
+  props: ["categoryes", "typePage"],
   data() {
     return {
       from: "",
@@ -69,9 +69,9 @@ export default {
         this.type = e.target.textContent;
       }
     },
-    selectCategoryes(type) {
-      this.$store.commit("app/UPDATE_CATEGORIES", type);
-    },
+    // selectCategoryes(type) {
+    //   this.$store.commit("app/UPDATE_CATEGORIES", type);
+    // },
   },
 };
 </script>
@@ -83,6 +83,7 @@ export default {
     &-item {
       font-weight: 500;
       font-size: 1.111vw;
+      display: block;
       &.select {
         color: var(--accent-main-color);
       }
