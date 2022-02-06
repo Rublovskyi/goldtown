@@ -72,4 +72,10 @@ export default {
     overflow: hidden;
   }
 }
+a {
+  transition: all 400ms ease;
+}
+a:hover {
+  transform: scale(1.02);
+}
 </style>
