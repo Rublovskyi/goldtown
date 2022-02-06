@@ -6,7 +6,9 @@
         .card__image(v-if="!card.attributes.src")
             img(src="~/assets/test.jpeg")
         .card__info 
-            .card__title(v-if="card.attributes.title") {{card.attributes.title}}
+            .card__title(v-if="card.attributes.title || card.attributes.adress")
+                .card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
+                .card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
             .card__price(v-if="card.attributes.price") {{card.attributes.price}} $
             .card__rooms(v-if="card.attributes.number_of_rooms")
                 span.title  Кількість кімнат: 
@@ -15,7 +17,7 @@
                 span.title  Поверх: 
                 span.amount {{card.attributes.floor}}
             .card__area(v-if="card.attributes.apartment_area")
-                span.title  Площа: 
+                span.title  Площа(м2): 
                 span.amount {{card.attributes.apartment_area}}
             .card__living-area(v-if="card.attributes.livingArea") 
                 span.title  Жилая прощадь: 
@@ -49,6 +51,13 @@ export default {
     color: var(--primary-color);
     font-size: 1.389vw;
     height: 6.944vw;
+  }
+  &__address {
+    font-weight: 500;
+    color: rgba(54, 54, 54, 0.4);
+    font-size: 0.972vw;
+    height: 6.944vw;
+    margin-top: 0.417vw;
   }
 
   &__info {
