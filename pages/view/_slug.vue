@@ -2,7 +2,7 @@
     .view(v-if="CurrentPeaseData")
         Header
         MainInfo
-        SimilarCards
+        //- SimilarCards(v-if="CurrentPeaseData")
         Footer
         PhoneBtn
 </template>
@@ -17,7 +17,7 @@ import SimilarCards from "~/components/view/similarCards.vue";
 export default {
   computed: {
     ...mapState({
-      CurrentPeaseData: (state) => state.app.CurrentPeaseData,
+      CurrentPeaseData: (state) => state.app.CurrentPeaseData.attributes,
     }),
   },
   components: {
@@ -38,7 +38,7 @@ export default {
   position: absolute;
 }
 .view {
-  min-height: 87vh;
+  min-height: 89vh;
   background-color: var(--light-bg);
 }
 </style>

@@ -1,7 +1,7 @@
 <template lang="pug">
     .header
         n-link.header__logo(:to="('/')")
-            img(src="../assets/logo.png")
+            img(src="../assets/logo.svg")
         .header__list
             n-link.header__item(:to="('/#about')") Про нас
             n-link.header__item(:to="('/purchase/all')") Нерухомість
@@ -34,9 +34,13 @@ export default {
 
   &__logo {
     height: 5.556vw;
+    width: 12.431vw;
     transition: all 700ms ease;
     & img {
       height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
     }
     &:hover {
       transform: scale(0.95);

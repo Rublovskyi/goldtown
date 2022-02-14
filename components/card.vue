@@ -1,10 +1,8 @@
 <template lang="pug">
     //- .card(v-if="card")
     n-link.card(:to="('/view/' + card.id)") 
-        .card__image(v-if="card.attributes.src")
-            img(:src="card.src")
-        .card__image(v-if="!card.attributes.src")
-            img(src="~/assets/test.jpeg")
+        .card__image
+            img(:src="test()")
         .card__info 
             .card__title(v-if="card.attributes.title || card.attributes.adress")
                 .card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
@@ -32,6 +30,23 @@
 <script>
 export default {
   props: ["card"],
+  data() {
+    return {
+      reserveImg: require("~/assets/test.jpeg"),
+    };
+  },
+  methods: {
+    test() {
+      if (this.card.attributes.image.data) {
+        let url;
+        url = this.card.attributes.image.data[0].attributes.url;
+        let link = `https://api.goldtowncompany.com${url}`;
+        return link;
+      } else {
+        return this.reserveImg;
+      }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

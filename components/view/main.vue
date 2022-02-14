@@ -43,7 +43,7 @@ import { mapState } from "vuex";
 export default {
   computed: {
     ...mapState({
-      info: (state) => state.app.CurrentPeaseData,
+      info: (state) => state.app.CurrentPeaseData.attributes,
     }),
   },
 };

@@ -111,9 +111,42 @@ export const actions = {
     );
 
     try {
-      const response = await this.$axios.get(`/api/products?${query}`);
-      // console.log("product", response);
-      commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0].attributes);
+      const response = await this.$axios.get(
+        `/api/products?populate=*&${query}`
+      );
+      console.log("product", response);
+      commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0]);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  async getSimilarProposal({ commit }, data) {
+    const qs = require("qs");
+
+    let filters = {
+      filters: {
+        purchase_type: {
+          $eq: data.type,
+        },
+        product_type: {
+          $eq: data.filter,
+        },
+      },
+    };
+
+    let query = qs.stringify(filters, {
+      encodeValuesOnly: true, // prettify url
+    });
+
+    // console.log(filters);
+    // console.log("hello");
+
+    try {
+      const response = await this.$axios.get(
+        `/api/products?populate=*&${query}`
+      );
+
+      commit("UPDATE_SIMILAR_PROPOSAL", response.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -145,7 +178,7 @@ export const mutations = {
   },
   UPDATE_CURRENT_PEASE_DATA(state, data) {
     state.CurrentPeaseData = data;
-    console.log(data);
+    // console.log(data);
   },
   UPDATE_FILTERS(state, data) {
     let arrNew = [];
@@ -158,6 +191,16 @@ export const mutations = {
       return arrNew.indexOf(item) == pos;
     });
     state.Address = uniqueArray;
+  },
+  UPDATE_SIMILAR_PROPOSAL(state, data) {
+    let currentPease = state.CurrentPeaseData;
+    let newArr = [];
+    data.forEach((el) => {
+      if (el.id !== currentPease.id) {
+        newArr.push(el);
+      }
+    });
+    state.SimilarCardsData = newArr;
   },
 };
 export const state = () => ({
@@ -224,4 +267,5 @@ export const state = () => ({
       selected: false,
     },
   ],
+  SimilarCardsData: [],
 });
