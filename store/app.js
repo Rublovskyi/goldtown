@@ -145,6 +145,7 @@ export const mutations = {
   },
   UPDATE_CURRENT_PEASE_DATA(state, data) {
     state.CurrentPeaseData = data;
+    console.log(data);
   },
   UPDATE_FILTERS(state, data) {
     let arrNew = [];

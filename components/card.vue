@@ -9,7 +9,9 @@
             .card__title(v-if="card.attributes.title || card.attributes.adress")
                 .card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
                 .card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
-            .card__price(v-if="card.attributes.price") {{card.attributes.price}} $
+            .card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
+            .card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
+            .card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.annual_income") {{card.attributes.annual_income}} роки окупність
             .card__rooms(v-if="card.attributes.number_of_rooms")
                 span.title  Кількість кімнат: 
                 span.amount {{card.attributes.number_of_rooms}}
@@ -19,9 +21,9 @@
             .card__area(v-if="card.attributes.apartment_area")
                 span.title  Площа(м2): 
                 span.amount {{card.attributes.apartment_area}}
-            .card__living-area(v-if="card.attributes.livingArea") 
-                span.title  Жилая прощадь: 
-                span.amount {{card.livingArea}}
+            .card__living-area(v-if="card.attributes.living_area") 
+                span.title  Житлова площа: 
+                span.amount {{card.living_area}}
             .card__living-area(v-if="card.attributes.parking_type") 
                 span.title  Тип паркомісця: 
                 span.amount {{card.attributes.parking_type}}
@@ -82,17 +84,32 @@ export default {
   &__area {
     margin-bottom: 10px;
   }
-  &__price {
+  &__price,
+  &__price-commerse,
+  &__annual-commerse {
     position: absolute;
-    top: 9.444vw;
-    left: -1vw;
     border-radius: 0.417vw;
-    background-color: var(--text-team-name);
-    color: #fff;
-    padding: 1.111vw 2.222vw;
+    padding: 1vw 2vw;
     font-weight: 600;
     font-size: 1.389vw;
+  }
+  &__price {
+    top: 9.444vw;
+    left: -1vw;
+    background-color: var(--text-team-name);
     color: var(--accent-main-color);
+  }
+  &__price-commerse {
+    top: 5.972vw;
+    left: -1vw;
+    background-color: var(--text-team-name);
+    color: var(--accent-main-color);
+  }
+  &__annual-commerse {
+    top: 10vw;
+    left: -1vw;
+    background-color: var(--accent-main-color);
+    color: var(--text-team-name);
   }
   &__btn-more {
     padding: 1.111vw 5.372vw;
