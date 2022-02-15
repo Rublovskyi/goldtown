@@ -4,7 +4,7 @@
             .view__images
                 .view__images-wrap(v-if="info.image.data" v-for="(img, i) in images()" :key="i" :class="['type'+i]" @click="openPhotoPopup(i)")
                     img(:src="`https://api.goldtowncompany.com${img.attributes.url}`")
-                    p.plus-photo(v-if="i === 2") +{{amountPhoto()}} фото
+                    p.plus-photo(v-if="i === 2") {{amountPhoto()}} 
                 .view__images-wrap.type0(v-if="!info.image.data")
                     img(:src="testImg")
                 //- .view__images-wrap.type2(v-if="info.image.data && info.image.data.length === 2")
@@ -67,7 +67,11 @@ export default {
     },
     amountPhoto() {
       if (this.info.image.data) {
-        return this.info.image.data.length - 3;
+        let x = this.info.image.data.length - 3;
+        let y = `+ ${x} фото`;
+        if (x > 0) {
+          return y;
+        }
       }
     },
     openPhotoPopup(i) {
