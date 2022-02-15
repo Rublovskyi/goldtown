@@ -2,7 +2,7 @@
     .view(v-if="CurrentPeaseData")
         Header
         MainInfo
-        //- SimilarCards(v-if="CurrentPeaseData")
+        SimilarCards(v-if="CurrentPeaseData")
         Footer
         PhoneBtn
 </template>
@@ -38,7 +38,7 @@ export default {
   position: absolute;
 }
 .view {
-  min-height: 89vh;
+  // min-height: 89vh;
   background-color: var(--light-bg);
 }
 </style>

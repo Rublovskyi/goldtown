@@ -10,19 +10,19 @@
             .card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
             .card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
             .card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.annual_income") {{card.attributes.annual_income}} роки окупність
-            .card__rooms(v-if="card.attributes.number_of_rooms")
+            .card__item(v-if="card.attributes.number_of_rooms")
                 span.title  Кількість кімнат: 
                 span.amount {{card.attributes.number_of_rooms}}
-            .card__floor(v-if="card.attributes.floor")
+            .card__item(v-if="card.attributes.floor")
                 span.title  Поверх: 
                 span.amount {{card.attributes.floor}}
-            .card__area(v-if="card.attributes.apartment_area")
+            .card__item(v-if="card.attributes.apartment_area")
                 span.title  Площа(м2): 
                 span.amount {{card.attributes.apartment_area}}
-            .card__living-area(v-if="card.attributes.living_area") 
+            .card__item(v-if="card.attributes.living_area") 
                 span.title  Житлова площа: 
-                span.amount {{card.living_area}}
-            .card__living-area(v-if="card.attributes.parking_type") 
+                span.amount {{card.attributes.living_area}}
+            .card__item(v-if="card.attributes.parking_type") 
                 span.title  Тип паркомісця: 
                 span.amount {{card.attributes.parking_type}}
         button.card__btn-more Детальнішe
@@ -94,9 +94,7 @@ export default {
     font-weight: 500;
     color: rgba(54, 54, 54, 0.8);
   }
-  &__rooms,
-  &__floor,
-  &__area {
+  &__item {
     margin-bottom: 10px;
   }
   &__price,

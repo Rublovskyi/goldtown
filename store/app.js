@@ -138,9 +138,6 @@ export const actions = {
       encodeValuesOnly: true, // prettify url
     });
 
-    // console.log(filters);
-    // console.log("hello");
-
     try {
       const response = await this.$axios.get(
         `/api/products?populate=*&${query}`
@@ -200,7 +197,9 @@ export const mutations = {
         newArr.push(el);
       }
     });
+    newArr.slice(0, 4);
     state.SimilarCardsData = newArr;
+    console.log(newArr);
   },
 };
 export const state = () => ({
