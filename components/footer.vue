@@ -8,7 +8,7 @@
 </template>
 <style lang="scss" scoped>
 .footer {
-  height: 9.722vw;
+  height: 10vh;
   background-color: var(--primary-color);
   display: flex;
   padding: 0 5.556vw;

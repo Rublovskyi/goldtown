@@ -1,7 +1,14 @@
 <template lang="pug">
     .view(v-if="info")
         .view__wrap
-            .view__images hrjd
+            .view__images
+                .view__images-wrap(v-if="info.image.data" v-for="(img, i) in images()" :key="i" :class="['type'+i]" @click="openPhotoPopup(i)")
+                    img(:src="`https://api.goldtowncompany.com${img.attributes.url}`")
+                    p.plus-photo(v-if="i === 2") +{{amountPhoto()}} фото
+                .view__images-wrap.type0(v-if="!info.image.data")
+                    img(:src="testImg")
+                //- .view__images-wrap.type2(v-if="info.image.data && info.image.data.length === 2")
+                //-     img(:src="testImg")
             .view__info 
                 .view__info-main 
                     .view__info-main-title {{info.title}}
@@ -35,7 +42,6 @@
                         span.title Адреса:
                         span.amount {{info.adress}}
                 .view__desc(v-if="info.sub_title") {{info.sub_title}}
-
 </template>
 <script>
 import { mapState } from "vuex";
@@ -45,6 +51,36 @@ export default {
     ...mapState({
       info: (state) => state.app.CurrentPeaseData.attributes,
     }),
+  },
+  data() {
+    return {
+      testImg: require("~/assets/noPhoto.png"),
+    };
+  },
+  methods: {
+    images() {
+      if (this.info.image.data) {
+        if (this.info.image.data.length > 0) {
+          return this.info.image.data.slice(0, 3);
+        }
+      }
+    },
+    amountPhoto() {
+      if (this.info.image.data) {
+        return this.info.image.data.length - 3;
+      }
+    },
+    openPhotoPopup(i) {
+      let currentImg = this.info.image.data[i].attributes.url;
+      console.log(currentImg);
+      let images = this.info.image.data;
+      this.$parent.photosData = {
+        i,
+        images,
+        currentImg,
+      };
+      this.$parent.showPhotoPopup = true;
+    },
   },
 };
 </script>
@@ -56,9 +92,6 @@ export default {
     display: grid;
     grid-template-columns: 36.25vw 1fr;
     column-gap: 1.389vw;
-  }
-  &__images {
-    background-color: wheat;
   }
   &__info {
     background-color: #fff;
@@ -103,6 +136,42 @@ export default {
     color: var(--primary-color);
     line-height: 1.5;
     margin-top: 2.778vw;
+  }
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.389vw;
+
+    &-wrap {
+      height: 9.514vw;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0.417vw;
+      position: relative;
+      &.type0 {
+        height: 100%;
+        width: 36.25vw;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      & .plus-photo {
+        position: absolute;
+        bottom: 1.389vw;
+        right: 1.389vw;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.111vw;
+        border-bottom: 1px solid #fff;
+      }
+    }
   }
 }
 </style>

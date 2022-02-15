@@ -1,7 +1,7 @@
 <template lang="pug">
     .buyBussiness
         Header.header
-        Houses
+        Houses.houses
         Footer
 
 </template>
@@ -23,6 +23,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.buyBussiness {
+  background-color: var(--light-bg);
+}
+.houses {
+  min-height: 90vh;
+}
 .header {
   position: absolute;
 }

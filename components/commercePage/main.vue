@@ -33,9 +33,9 @@ export default {
 <style lang="scss" scoped>
 .buy {
   padding: 10vh 5.556vw 0 0;
-  background-color: var(--light-bg);
+
   position: relative;
-  min-height: 86vw;
+
   &__console {
     position: absolute;
     top: 10vh;

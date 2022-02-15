@@ -1,7 +1,7 @@
 <template lang="pug">
     .buy
         Header.header
-        Houses
+        Houses.houses
         Footer
         PhoneBtn
 </template>
@@ -27,5 +27,8 @@ export default {
 <style lang="scss" scoped>
 .header {
   position: absolute;
+}
+.houses {
+  min-height: 90vh;
 }
 </style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-    .similar(v-if="CurrentPeaseData && SimilarCardsData.length > 0")
+    .similar(v-if="CurrentPeaseData && SimilarCardsData && ViewPageGetData")
         .similar__title(v-if="SimilarCardsData.length > 0") Рекомендовано для Вас
         .similar__cards
             Card(v-for="(card, i) in SimilarCardsData" :key="i" :card="card")
@@ -13,6 +13,7 @@ export default {
     ...mapState({
       CurrentPeaseData: (state) => state.app.CurrentPeaseData.attributes,
       SimilarCardsData: (state) => state.app.SimilarCardsData,
+      ViewPageGetData: (state) => state.app.ViewPageGetData,
     }),
   },
   mounted() {

@@ -3,29 +3,29 @@
         .filter__category
             h2.title Вибiр категорії
             n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="(`/${typePage}/${category.slug}`)") {{category.name}}
-        .filter__wrap
-            h2.title Фiльтри
-            .filter__price 
-                .filter__title Цiна
-                .filter__price-select
-                    .filter__price-input
-                        input(type="number"  v-model="from" placeholder="Min")
-                        span $
-                    span -
-                    .filter__price-input
-                        input(type="number"  v-model="to" placeholder="Max")
-                        span $
-            .filter__address(v-if="addressSelect.length > 0" @click="handlerSelectAddress")
-                .filter__title Адреса
-                .filter__select {{address}}
-                ul.filter__select-list(v-if="showAddress")
-                    li.filter__select-item(v-for="(option, i) in addressSelect" :key="i") {{option}}
-            .filter__type(v-if="roomsSelect.length > 0" @click="handlerSelectType")
-                .filter__title Кількість кімнат
-                .filter__select {{type}}
-                ul.filter__select-list(v-if="showType")
-                    li.filter__select-item(v-for="(option, i) in roomsSelect" :key="i") {{option}}
-            button.filter__btn Застосувати
+        //- .filter__wrap
+        //-     h2.title Фiльтри
+        //-     .filter__price 
+        //-         .filter__title Цiна
+        //-         .filter__price-select
+        //-             .filter__price-input
+        //-                 input(type="number"  v-model="from" placeholder="Min")
+        //-                 span $
+        //-             span -
+        //-             .filter__price-input
+        //-                 input(type="number"  v-model="to" placeholder="Max")
+        //-                 span $
+        //-     .filter__address(v-if="addressSelect.length > 0" @click="handlerSelectAddress")
+        //-         .filter__title Адреса
+        //-         .filter__select {{address}}
+        //-         ul.filter__select-list(v-if="showAddress")
+        //-             li.filter__select-item(v-for="(option, i) in addressSelect" :key="i") {{option}}
+        //-     .filter__type(v-if="roomsSelect.length > 0" @click="handlerSelectType")
+        //-         .filter__title Кількість кімнат
+        //-         .filter__select {{type}}
+        //-         ul.filter__select-list(v-if="showType")
+        //-             li.filter__select-item(v-for="(option, i) in roomsSelect" :key="i") {{option}}
+        //-     button.filter__btn Застосувати
 </template>
 <script>
 import { mapState } from "vuex";

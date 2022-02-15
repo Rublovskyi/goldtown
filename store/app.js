@@ -175,6 +175,7 @@ export const mutations = {
   },
   UPDATE_CURRENT_PEASE_DATA(state, data) {
     state.CurrentPeaseData = data;
+    state.ViewPageGetData = true;
     // console.log(data);
   },
   UPDATE_FILTERS(state, data) {
@@ -199,7 +200,12 @@ export const mutations = {
     });
     newArr.slice(0, 4);
     state.SimilarCardsData = newArr;
-    console.log(newArr);
+    // console.log(newArr);
+  },
+  CLEAR_SIMILAR_DATA(state) {
+    state.SimilarCardsData = [];
+    state.CurrentPeaseData = [];
+    state.ViewPageGetData = false;
   },
 };
 export const state = () => ({
@@ -267,4 +273,5 @@ export const state = () => ({
     },
   ],
   SimilarCardsData: [],
+  ViewPageGetData: false,
 });
