@@ -24,7 +24,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 
-  height: 41.078vw;
+  height: 90vh;
   position: relative;
   margin-top: 10vh;
   &__wrap {
