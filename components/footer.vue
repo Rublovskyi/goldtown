@@ -15,10 +15,15 @@
   justify-content: space-between;
   align-items: center;
   &__logo {
-    height: 4.653vw;
+    height: 3.653vw;
+    width: 12.431vw;
     transition: all 700ms ease;
+
     & img {
       height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
     }
     &:hover {
       transform: scale(0.95);
