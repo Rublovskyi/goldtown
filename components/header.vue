@@ -4,8 +4,8 @@
             img(src="../assets/logo.svg")
         .header__list
             n-link.header__item(:to="('/#about')") Про нас
-            n-link.header__item(:to="('/purchase/all')") Нерухомість
-            n-link.header__item(:to="('/commerce/all')") Готовий бізнес
+            n-link.header__item(:to="('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
+            n-link.header__item(:to="('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
             n-link.header__item(:to="('/#request')") Залишити заявку
         a.header__number(href="tel:+380679986959") 
             span.header__number-icon
@@ -13,7 +13,12 @@
 </template>
 <script>
 export default {
-  methods: {},
+  props: {
+    show: {
+      type: String,
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -61,6 +66,9 @@ export default {
     font-weight: 400;
     font-size: 1.111vw;
     line-height: 1.25;
+    &.show {
+      color: var(--accent-main-color);
+    }
   }
   &__item:hover {
     color: var(--hover-color);

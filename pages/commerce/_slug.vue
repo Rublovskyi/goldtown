@@ -1,20 +1,28 @@
 <template lang="pug">
     .buyBussiness
-        Header.header
+        Header.header(:show="pageType")
         Houses.houses
         Footer
+        PhoneBtn
 
 </template>
 <script>
 import Header from "~/components/header.vue";
 import Houses from "~/components/commercePage/main.vue";
 import Footer from "~/components/footer.vue";
+import PhoneBtn from "~/components/phoneBtn.vue";
 
 export default {
+  data() {
+    return {
+      pageType: "commerce",
+    };
+  },
   components: {
     Header,
     Footer,
     Houses,
+    PhoneBtn,
   },
   mounted() {
     let slug = this.$route.params.slug;

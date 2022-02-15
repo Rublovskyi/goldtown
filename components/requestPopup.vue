@@ -102,6 +102,7 @@ export default {
     height: 4.167vw;
     margin-top: 0.972vw;
     border-radius: 0.417vw;
+    border: 0.069vw solid rgba(54, 54, 54, 0.4);
   }
   &__btn {
     width: 100%;

@@ -1,6 +1,6 @@
 <template lang="pug">
     .buy
-        Header.header
+        Header.header(:show="pageType")
         Houses.houses
         Footer
         PhoneBtn
@@ -12,6 +12,11 @@ import Houses from "~/components/purchasePage/main.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
 
 export default {
+  data() {
+    return {
+      pageType: "purchase",
+    };
+  },
   components: {
     Header,
     Footer,
