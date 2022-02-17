@@ -2,13 +2,17 @@
     .footer 
         n-link.footer__logo(:to="('/')")
             img(src="../assets/logoLight.svg")
-        a.footer__number(href="tel:+380679986959") 
-            span.footer__number-icon
-            span +38(067)-998-69-59
+        .footer__info
+            a.footer__number(href="tel:+380679986959") 
+                span.footer__number-icon
+                span +38(067)-998-69-59
+            a.footer__address(href="/") 
+                span.footer__address-icon
+                span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1В
 </template>
 <style lang="scss" scoped>
 .footer {
-  height: 10vh;
+  height: 12vh;
   background-color: var(--primary-color);
   display: flex;
   padding: 0 5.556vw;
@@ -31,11 +35,12 @@
       transform: scale(0.95);
     }
   }
-  &__number {
+  &__number,
+  &__address {
     color: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     transition: all 700ms ease;
     font-size: 1.111vw;
     font-weight: 400;
@@ -43,23 +48,23 @@
       display: block;
       width: 1.242vw;
       height: 1.242vw;
-      background-image: url(../assets/svg/mobileLight.svg);
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       margin-right: 0.486vw;
-      & img {
-        width: 100%;
-        object-position: center;
-      }
     }
     &:hover {
-      // color: var(--accent-main-color);
       transform: scale(1.1);
     }
-    // &:hover &-icon {
-    //   background-image: url(../assets/svg/mobileHover.svg);
-    // }
+  }
+  &__number {
+    margin-bottom: 10px;
+  }
+  &__number-icon {
+    background-image: url(../assets/svg/mobileLight.svg);
+  }
+  &__address-icon {
+    background-image: url(../assets/svg/carbon_location.svg);
   }
 }
 </style>

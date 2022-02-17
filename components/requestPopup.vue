@@ -3,9 +3,11 @@
         .popup__wrap
             h2.popup__title Залишіть заявку і наш <br/> менеджер Вам перетелефонує
             .popup__label Ваше ім'я
-            input.popup__input(type="text" v-model="name")
+            input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
+            p.error-text {{errorName}}
             .popup__label Номер телефону
-            input.popup__input(type="number" v-model="phone")
+            input.popup__input(type="number" v-model="phone" v-on:input="validate('phone')")
+            p.error-text {{errorPhone}}
             button.popup__btn(@click="postRequestData") Відправити
             .popup__close
 </template>
@@ -15,6 +17,8 @@ export default {
     return {
       name: "",
       phone: "",
+      errorName: "",
+      errorPhone: "",
     };
   },
   methods: {
@@ -26,20 +30,49 @@ export default {
         this.$parent.showPopup = false;
       }
     },
+    validate(type) {
+      if (type === "name") {
+        if (
+          (this.name.length > 0 && this.name.length < 3) ||
+          this.name.length > 20
+        ) {
+          this.errorName = "Ім'я має містити від 2 до 20 літер";
+        } else {
+          this.errorName = "";
+        }
+      } else {
+        if (
+          (this.phone.length > 0 && this.phone.length < 9) ||
+          this.phone.length > 13
+        ) {
+          this.errorPhone = "Телефон має містити від 9 до 13 цифр";
+        } else {
+          this.errorPhone = "";
+        }
+      }
+    },
     async postRequestData() {
-      let data = {
-        data: {
-          name: this.name,
-          phone: this.phone,
-        },
-      };
-      try {
-        const response = await this.$axios.post(`/api/clients`, data);
-        this.clearInputs();
-        this.$parent.showPopup = false;
-        this.$parent.successPopup = true;
-      } catch (err) {
-        console.log(err);
+      if (this.name === "") {
+        this.errorName = "Потрібно ввести дані";
+      } else if (this.phone === "") {
+        this.errorPhone = "Потрібно ввести дані";
+      } else if (this.errorName.length !== 0 || this.errorPhone.length !== 0) {
+        return;
+      } else {
+        let data = {
+          data: {
+            name: this.name,
+            phone: this.phone,
+          },
+        };
+        try {
+          const response = await this.$axios.post(`/api/clients`, data);
+          this.clearInputs();
+          this.$parent.showPopup = false;
+          this.$parent.successPopup = true;
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     clearInputs() {
@@ -105,6 +138,8 @@ export default {
     border: 0.069vw solid rgba(54, 54, 54, 0.4);
   }
   &__btn {
+    font-family: Gilroy;
+    font-weight: 700;
     width: 100%;
     height: 3.542vw;
     background-color: var(--accent-main-color);
@@ -118,5 +153,12 @@ export default {
       background-color: var(--hover-color);
     }
   }
+}
+.error-text {
+  color: var(--accent-main-color);
+  font-family: Gilroy;
+  font-size: 1.11vw;
+  font-weight: 400;
+  margin-top: 0.7vw;
 }
 </style>
