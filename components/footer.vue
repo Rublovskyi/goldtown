@@ -4,7 +4,7 @@
             img(src="../assets/logoLight.svg")
         a.footer__number(href="tel:+380679986959") 
             span.footer__number-icon
-            span +38(067)9986959
+            span +38(067)-998-69-59
 </template>
 <style lang="scss" scoped>
 .footer {
@@ -14,6 +14,8 @@
   padding: 0 5.556vw;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 120;
   &__logo {
     height: 3.653vw;
     width: 12.431vw;

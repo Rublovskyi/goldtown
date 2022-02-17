@@ -55,6 +55,7 @@ export default {
   background-color: #fff;
   border-radius: 0.694vw;
   overflow: hidden;
+  max-height: 38.194vw;
   &__image {
     width: 100%;
     overflow: hidden;

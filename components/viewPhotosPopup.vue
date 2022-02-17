@@ -2,17 +2,18 @@
     .photo(v-if="photosData" @click="closePopup")
         .photo__wrap
             img(:src="`https://api.goldtowncompany.com${photosData.currentImg}`")
-            .photo__btns-slide(v-if="photosData.images.length > 1" @click="handlerPhotoChange")
-                button.photo__btns-slide-left(data-arrow="left")
-                button.photo__btns-slide-right(data-arrow="right")
-        //- .photo__btn-close
+        .photo__btns-slide(v-if="photosData.images.length > 1" @click="handlerPhotoChange")
+            button.photo__btns-slide-left(data-arrow="left")
+            button.photo__btns-slide-right(data-arrow="right")
+        .photo__btn-close
 </template>
 <script>
 export default {
   props: ["photosData"],
   methods: {
     closePopup(e) {
-      if (e.target === e.currentTarget) {
+      // console.log();
+      if (e.target.className === "photo__btn-close") {
         this.$parent.showPhotoPopup = false;
       }
     },
@@ -53,7 +54,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.84);
   z-index: 201;
   &__wrap {
     position: absolute;
@@ -61,8 +62,8 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 80%;
-    height: 80%;
+    width: 73.889vw;
+    height: 42.361vw;
     z-index: 220;
     overflow: hidden;
     border-radius: 0.417vw;
@@ -77,26 +78,42 @@ export default {
   }
   &__btn-close {
     position: absolute;
-    top: 40px;
-    right: 40px;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
+    top: 3.472vw;
+    right: 5.556vw;
+    width: 3.472vw;
+    height: 3.472vw;
+    // background-color: #fff;
+    background-image: url(../assets/svg/close.svg);
+    background-repeat: no-repeat;
+    background-size: 1.389vw 1.389vw;
+    background-position: center;
   }
   &__btns-slide {
     &-left,
     &-right {
-      width: 40px;
-      height: 40px;
-      background-color: #fff;
+      width: 3.472vw;
+      height: 3.472vw;
+      // background-color: #fff;
       position: absolute;
       top: 50%;
+      background-repeat: no-repeat;
+      background-size: 1.528vw 1.528vw;
+      background-position: center;
+      background-image: url(../assets/svg/vector.svg);
+      transition: all 500ms ease;
     }
     &-left {
-      left: 0;
+      left: 5.556vw;
+      transform: rotate(180deg);
+      &:hover {
+        transform: rotate(180deg) scale(1.3);
+      }
     }
     &-right {
-      right: 0;
+      right: 5.556vw;
+      &:hover {
+        transform: scale(1.3);
+      }
     }
   }
 }

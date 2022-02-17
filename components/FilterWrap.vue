@@ -3,29 +3,33 @@
         .filter__category
             h2.title Вибiр категорії
             n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="(`/${typePage}/${category.slug}`)") {{category.name}}
-        //- .filter__wrap
-        //-     h2.title Фiльтри
-        //-     .filter__price 
-        //-         .filter__title Цiна
-        //-         .filter__price-select
-        //-             .filter__price-input
-        //-                 input(type="number"  v-model="from" placeholder="Min")
-        //-                 span $
-        //-             span -
-        //-             .filter__price-input
-        //-                 input(type="number"  v-model="to" placeholder="Max")
-        //-                 span $
-        //-     .filter__address(v-if="addressSelect.length > 0" @click="handlerSelectAddress")
-        //-         .filter__title Адреса
-        //-         .filter__select {{address}}
-        //-         ul.filter__select-list(v-if="showAddress")
-        //-             li.filter__select-item(v-for="(option, i) in addressSelect" :key="i") {{option}}
-        //-     .filter__type(v-if="roomsSelect.length > 0" @click="handlerSelectType")
-        //-         .filter__title Кількість кімнат
-        //-         .filter__select {{type}}
-        //-         ul.filter__select-list(v-if="showType")
-        //-             li.filter__select-item(v-for="(option, i) in roomsSelect" :key="i") {{option}}
-        //-     button.filter__btn Застосувати
+        .filter__wrap
+            h2.title Фiльтри
+            .filter__price 
+                .filter__title Цiна
+                .filter__price-select
+                    .filter__price-input
+                        input(type="number"  v-model="from" placeholder="Min")
+                        span $
+                    span -
+                    .filter__price-input
+                        input(type="number"  v-model="to" placeholder="Max")
+                        span $
+                p.error-text {{validate('price')}}
+            //- button.filter__btn Застосувати
+            .filter__address(v-if="addressSelect.length > 0" @click="handlerSelectAddress")
+                .filter__title Адреса
+                .filter__select {{address}}
+                ul.filter__select-list(v-if="showAddress")
+                    li.filter__select-item(v-for="(option, i) in addressSelect" :key="i") {{option}}
+                p.error-text {{validate('address')}}
+            .filter__type(v-if="numOfRooms.length > 0" @click="handlerSelectRooms")
+                .filter__title Кількість кімнат
+                .filter__select {{rooms}}
+                ul.filter__select-list(v-if="showRooms")
+                    li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
+                p.error-text {{validate('rooms')}}
+            button.filter__btn(@click="handlerFilteredData") Застосувати
 </template>
 <script>
 import { mapState } from "vuex";
@@ -37,15 +41,19 @@ export default {
       from: "",
       to: "",
       address: "",
-      type: "",
+      rooms: "",
       roomsSelect: [],
-      showType: false,
+      showRooms: false,
       showAddress: false,
+      errorTextPrice: "",
+      errorTextAddress: "",
+      errorTextRooms: "",
     };
   },
   computed: {
     ...mapState({
       addressSelect: (state) => state.app.Address,
+      numOfRooms: (state) => state.app.NumOfRooms,
     }),
   },
   methods: {
@@ -59,19 +67,57 @@ export default {
         this.address = e.target.textContent;
       }
     },
-    handlerSelectType(e) {
-      if (this.showType) {
-        this.showType = false;
+    handlerSelectRooms(e) {
+      if (this.showRooms) {
+        this.showRooms = false;
       } else {
-        this.showType = true;
+        this.showRooms = true;
       }
       if (e.target.className === "filter__select-item") {
-        this.type = e.target.textContent;
+        this.rooms = e.target.textContent;
       }
     },
-    // selectCategoryes(type) {
-    //   this.$store.commit("app/UPDATE_CATEGORIES", type);
-    // },
+    validate(type) {
+      if (type === "price") {
+        if (this.from < 0 || this.to < 0) {
+          this.errorTextPrice = "Ціна не повінна мати мінусових значень";
+        } else if (this.from.length !== 0 && this.to.length !== 0) {
+          let numFrom = Number(this.from);
+          let numTo = Number(this.to);
+          if (numFrom > numTo) {
+            this.errorTextPrice = "Початкова ціна має бути меньше за кінцеву";
+          } else {
+            this.errorTextPrice = "";
+          }
+        } else {
+          this.errorTextPrice = "";
+        }
+        return this.errorTextPrice;
+      } else if (type === "address") {
+        this.errorTextAddress = "";
+        return this.errorTextAddress;
+      } else if (type === "rooms") {
+        this.errorTextRooms = "";
+        return this.errorTextRooms;
+      }
+    },
+    handlerFilteredData() {
+      let slug = this.$route.params.slug;
+      let type = this.typePage;
+      if (this.errorTextPrice === "") {
+        let data = {
+          from: this.from,
+          to: this.to,
+          address: this.address,
+          rooms: this.rooms,
+        };
+        this.$store.dispatch("app/getFilteredDataPurchase", {
+          slug,
+          data,
+          type,
+        });
+      }
+    },
   },
 };
 </script>
@@ -131,12 +177,14 @@ export default {
   }
   &__select {
     width: 100%;
-    height: 3.472vw;
+    min-height: 3.472vw;
     border: 1px solid rgba(54, 54, 54, 0.4);
     border-radius: 0.417vw;
     position: relative;
-    padding-top: 1.042vw;
-    padding-left: 1.042vw;
+    font-size: 1.11vw;
+    // padding-top: 1.042vw;
+    // padding-left: 1.042vw;
+    padding: 1.042vw;
 
     &::after {
       content: "";
@@ -158,15 +206,18 @@ export default {
       left: 0;
       right: 0;
       background: #fff;
-      border: 1px solid rgba(54, 54, 54, 0.4);
+      border: 0.069vw solid rgba(54, 54, 54, 0.4);
 
       z-index: 100;
+      min-height: 2.083vw;
+      max-height: 5.903vw;
+      overflow: scroll;
     }
     &-item {
       position: relative;
       border-bottom: 1px solid rgba(222, 178, 218, 0.6);
 
-      font-size: 1.25vw;
+      font-size: 1.11vw;
 
       padding: 0.694vw 1.042vw;
       cursor: pointer;
@@ -182,10 +233,20 @@ export default {
     border-radius: 0.417vw;
     font-weight: 700;
     font-size: 1.111vw;
+    transition: all 500ms ease;
+    &:hover {
+      background-color: var(--hover-color);
+    }
   }
 }
 input:focus {
   outline: 0 !important;
   outline-offset: 0;
+}
+.error-text {
+  color: var(--hover-color);
+  margin-top: 0.694vw;
+  font-weight: 400;
+  font-size: 0.972vw;
 }
 </style>

@@ -9,7 +9,7 @@
             n-link.header__item(:to="('/#request')") Залишити заявку
         a.header__number(href="tel:+380679986959") 
             span.header__number-icon
-            span +380679986959
+            span +38(067)-998-69-59
 </template>
 <script>
 export default {

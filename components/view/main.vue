@@ -90,7 +90,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .view {
-  padding: 10.417vw 5.556vw;
+  padding: 10.417vw 5.556vw 5.417vw 5.556vw;
 
   &__wrap {
     display: grid;
