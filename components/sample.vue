@@ -1,6 +1,6 @@
 <template lang="pug">
     .sample
-        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="(`${card.link}`)" :style="{'background-image': `url('${card.img}')`}" :class="`item${i}`")
+        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="(`${card.link}`)" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url('${card.img}')`}" :class="`item${i}`")
             p.sample__item-text {{card.text}}
 </template>
 <script>
@@ -86,6 +86,11 @@ export default {
       border-radius: 8px;
       position: relative;
       height: 28.646vw;
+      // background-image: linear-gradient(
+      //   to left,
+      //   rgba(0, 0, 0, 0.8),
+      //   rgba(0, 0, 0, 0)
+      // );
       &-text {
         position: absolute;
         bottom: 18px;

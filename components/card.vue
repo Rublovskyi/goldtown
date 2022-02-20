@@ -9,7 +9,7 @@
                 .card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
             .card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
             .card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
-            .card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.annual_income") {{card.attributes.annual_income}} роки окупність
+            .card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.payback") {{card.attributes.payback}} роки окупність
             .card__item(v-if="card.attributes.number_of_rooms")
                 span.title  Кількість кімнат: 
                 span.amount {{card.attributes.number_of_rooms}}
@@ -25,6 +25,9 @@
             .card__item(v-if="card.attributes.parking_type") 
                 span.title  Тип паркомісця: 
                 span.amount {{card.attributes.parking_type}}
+            .card__item(v-if="card.attributes.annual_income") 
+                span.title  Річний дохід($): 
+                span.amount {{card.attributes.annual_income}}
         button.card__btn-more Детальнішe
 </template>
 <script>
@@ -92,7 +95,7 @@ export default {
   }
   .amount {
     font-size: 1.111vw;
-    font-weight: 500;
+    font-weight: 400;
     color: rgba(54, 54, 54, 0.8);
   }
   &__item {

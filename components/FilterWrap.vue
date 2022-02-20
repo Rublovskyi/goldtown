@@ -17,18 +17,30 @@
                         span $
                 p.error-text {{validate('price')}}
             //- button.filter__btn Застосувати
-            .filter__address(v-if="addressSelect.length > 0" @click="handlerSelectAddress")
+            .filter__address(v-if="addressSelect.length > 0 && addressSelect.length > 1" @click="handlerSelectAddress")
                 .filter__title Адреса
                 .filter__select {{address}}
                 ul.filter__select-list(v-if="showAddress")
                     li.filter__select-item(v-for="(option, i) in addressSelect" :key="i") {{option}}
                 p.error-text {{validate('address')}}
-            .filter__type(v-if="numOfRooms.length > 0" @click="handlerSelectRooms")
+            .filter__type(v-if="numOfRooms.length > 0 && numOfRooms.length > 1" @click="handlerSelectRooms")
                 .filter__title Кількість кімнат
                 .filter__select {{rooms}}
                 ul.filter__select-list(v-if="showRooms")
                     li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
                 p.error-text {{validate('rooms')}}
+            .filter__type(v-if="paybackArr.length > 0 && paybackArr.length > 1" @click="handlerSelectPayback")
+                .filter__title Окупність (років)
+                .filter__select {{payback}}
+                ul.filter__select-list(v-if="showPayback")
+                    li.filter__select-item(v-for="(option, i) in paybackArr" :key="i") {{option}}
+                p.error-text {{validate('payback')}}
+            .filter__type(v-if="annualIncome.length > 0 && annualIncome.length > 1" @click="handlerSelectIncome")
+                .filter__title Річний дохід ($)
+                .filter__select {{income}}
+                ul.filter__select-list(v-if="showIncome")
+                    li.filter__select-item(v-for="(option, i) in annualIncome" :key="i") {{option}}
+                p.error-text {{validate('annual_income')}}
             button.filter__btn(@click="handlerFilteredData") Застосувати
 </template>
 <script>
@@ -42,18 +54,26 @@ export default {
       to: "",
       address: "",
       rooms: "",
+      payback: "",
+      income: "",
       roomsSelect: [],
       showRooms: false,
       showAddress: false,
+      showPayback: false,
+      showIncome: false,
       errorTextPrice: "",
       errorTextAddress: "",
       errorTextRooms: "",
+      errorTextPayback: "",
+      errorTextIncome: "",
     };
   },
   computed: {
     ...mapState({
       addressSelect: (state) => state.app.Address,
       numOfRooms: (state) => state.app.NumOfRooms,
+      paybackArr: (state) => state.app.Payback,
+      annualIncome: (state) => state.app.AnnualIncome,
     }),
   },
   methods: {
@@ -75,6 +95,26 @@ export default {
       }
       if (e.target.className === "filter__select-item") {
         this.rooms = e.target.textContent;
+      }
+    },
+    handlerSelectPayback(e) {
+      if (this.showPayback) {
+        this.showPayback = false;
+      } else {
+        this.showPayback = true;
+      }
+      if (e.target.className === "filter__select-item") {
+        this.payback = e.target.textContent;
+      }
+    },
+    handlerSelectIncome(e) {
+      if (this.showIncome) {
+        this.showIncome = false;
+      } else {
+        this.showIncome = true;
+      }
+      if (e.target.className === "filter__select-item") {
+        this.income = e.target.textContent;
       }
     },
     validate(type) {
@@ -99,6 +139,12 @@ export default {
       } else if (type === "rooms") {
         this.errorTextRooms = "";
         return this.errorTextRooms;
+      } else if (type === "payback") {
+        this.errorTextPayback = "";
+        return this.errorTextPayback;
+      } else if (type === "annual_income") {
+        this.errorTextIncome = "";
+        return this.errorTextIncome;
       }
     },
     handlerFilteredData() {
@@ -110,6 +156,8 @@ export default {
           to: this.to,
           address: this.address,
           rooms: this.rooms,
+          payback: this.payback,
+          annual_income: this.income,
         };
         this.$store.dispatch("app/getFilteredDataPurchase", {
           slug,

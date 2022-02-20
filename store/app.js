@@ -160,6 +160,16 @@ export const actions = {
         $eq: data.rooms,
       };
     }
+    if (data.payback !== "") {
+      filters.filters.payback = {
+        $eq: data.payback,
+      };
+    }
+    if (data.annual_income !== "") {
+      filters.filters.annual_income = {
+        $eq: data.annual_income,
+      };
+    }
 
     let query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
@@ -267,12 +277,21 @@ export const mutations = {
   UPDATE_FILTERS(state, data) {
     let arrNewAddress = [];
     let arrNewRooms = [];
+    let arrNewPayback = [];
+    let arrNewIncome = [];
+    console.log(data);
     data.forEach((el) => {
       if (el.attributes.adress) {
         arrNewAddress.push(el.attributes.adress);
       }
       if (el.attributes.number_of_rooms) {
         arrNewRooms.push(el.attributes.number_of_rooms);
+      }
+      if (el.attributes.payback) {
+        arrNewPayback.push(el.attributes.payback);
+      }
+      if (el.attributes.annual_income) {
+        arrNewIncome.push(el.attributes.annual_income);
       }
     });
     let uniqueArrayAddress = arrNewAddress.filter(function (item, pos) {
@@ -281,9 +300,19 @@ export const mutations = {
     let uniqueArrayRooms = arrNewRooms.filter(function (item, pos) {
       return arrNewRooms.indexOf(item) == pos;
     });
+    let uniqueArrayPayback = arrNewPayback.filter(function (item, pos) {
+      return arrNewPayback.indexOf(item) == pos;
+    });
+    let uniqueArrayIncome = arrNewIncome.filter(function (item, pos) {
+      return arrNewIncome.indexOf(item) == pos;
+    });
+
+    console.log(uniqueArrayPayback);
 
     state.Address = uniqueArrayAddress;
     state.NumOfRooms = uniqueArrayRooms;
+    state.Payback = uniqueArrayPayback;
+    state.AnnualIncome = uniqueArrayIncome;
   },
   UPDATE_SIMILAR_PROPOSAL(state, data) {
     let currentPease = state.CurrentPeaseData;
@@ -319,6 +348,8 @@ export const state = () => ({
   CurrentPeaseData: {},
   Address: [],
   NumOfRooms: [],
+  Payback: [],
+  AnnualIncome: [],
   CommerceCaregoryes: [
     {
       name: "Всі варіанти",

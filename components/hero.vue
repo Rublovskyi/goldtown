@@ -139,6 +139,12 @@ export default {
 @media screen and (min-width: 1240px) {
   .hero {
     padding-top: 5.556vw;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.16)
+      ),
+      url(../assets/heroBG.png);
     &__wrap {
       padding: 0 5.417vw;
     }
