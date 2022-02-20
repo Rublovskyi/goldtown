@@ -167,6 +167,9 @@ export default {
         border: none;
         width: 85%;
         margin-bottom: 0.694vw;
+        &::placeholder {
+          font-size: 1.111vw;
+        }
       }
     }
   }

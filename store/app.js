@@ -22,7 +22,7 @@ export const actions = {
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Parking",
+        $eq: "Пакомісце",
       };
     }
     if (slug == "stead") {
@@ -69,7 +69,7 @@ export const actions = {
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Parking",
+        $eq: "Пакомісце",
       };
     }
     if (slug == "stead") {
@@ -120,7 +120,7 @@ export const actions = {
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Parking",
+        $eq: "Пакомісце",
       };
     }
     if (slug == "stead") {
@@ -336,7 +336,7 @@ export const state = () => ({
       selected: false,
     },
     {
-      name: "Parking",
+      name: "Пакомісце",
       slug: "parking",
       selected: false,
     },
@@ -368,7 +368,7 @@ export const state = () => ({
       selected: false,
     },
     {
-      name: "Parking",
+      name: "Пакомісце",
       slug: "parking",
       selected: false,
     },

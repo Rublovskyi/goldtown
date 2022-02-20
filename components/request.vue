@@ -1,6 +1,6 @@
 <template lang="pug">
     .request
-        .request__img
+        .request__img-desctop
             img(src="~/assets/requestImg.png")
         .request__box 
             h2.request__box-title Залишіть заявку і наш <br/> менеджер зв'яжеться з Вами!
@@ -11,7 +11,8 @@
             input.request__box-input(type="number" v-model="phone" v-on:input="validate('phone')")
             p.error-text {{errorPhone}}
             button.request__box-btn(@click="postRequestData") Відправити
-        
+        .request__img
+            img(src="~/assets/requestImg.png")
 </template>
 <script>
 export default {
@@ -77,75 +78,230 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.request {
-  padding: 8.333vw 5.556vw;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  justify-content: space-around;
+@media screen and (max-width: 767.98px) {
+  .request {
+    padding: 60px 16px;
 
-  &__img {
-    overflow: hidden;
-    height: 29.653vw;
-    width: 100%;
-    border-radius: 0.417vw;
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-
-  &__box {
-    padding-left: 8.889vw;
-    &-title {
-      display: inline-block;
-      font-family: Gilroy;
-      font-weight: 500;
-      color: var(--primary-color);
-      font-size: 2.083vw;
-      line-height: 1.33;
-    }
-    &-label {
+    &__img {
       display: block;
-      color: var(--primary-color);
-      margin-top: 2.083vw;
-      font-weight: 500;
-      font-size: 1.111vw;
-      line-height: 1.25;
-      margin-left: 0.694vw;
-    }
-    &-input {
+      overflow: hidden;
+      height: 360px;
       width: 100%;
-      height: 4.167vw;
-      margin-top: 0.972vw;
-      border-radius: 0.417vw;
-      border: 0.069vw solid rgba(54, 54, 54, 0.4);
+      border-radius: 6px;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
-    &-btn {
-      font-family: Gilroy;
-      font-weight: 700;
-      background-color: var(--accent-main-color);
-      color: #fff;
-      font-size: 1.5vw;
-      margin-top: 5.556vw;
-      padding: 1.111vw 2.222vw;
-      display: block;
-      transition: all 700ms ease;
-      border-radius: 0.417vw;
+    &__img-desctop {
+      display: none;
+    }
 
-      &:hover {
+    &__box {
+      margin-bottom: 30px;
+      &-title {
+        display: inline-block;
+        font-family: Gilroy;
+        font-weight: 500;
+        color: var(--primary-color);
+        font-size: 24px;
+        line-height: 1.33;
+      }
+      &-label {
+        display: block;
+        color: var(--primary-color);
+        margin-top: 30px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.25;
+        margin-left: 10px;
+      }
+      &-input {
+        width: 100%;
+        height: 50px;
+        margin-top: 14px;
+        border-radius: 6px;
+        border: 0.069vw solid rgba(54, 54, 54, 0.4);
+      }
+      &-btn {
+        font-family: Gilroy;
+        font-weight: 700;
+        background-color: var(--accent-main-color);
         color: #fff;
-        background-color: var(--hover-color);
+        font-size: 16px;
+        margin-top: 30px;
+        padding: 16px 24px;
+        display: block;
+        transition: all 700ms ease;
+        border-radius: 6px;
+
+        &:hover {
+          color: #fff;
+          background-color: var(--hover-color);
+        }
       }
     }
   }
+  .error-text {
+    color: var(--accent-main-color);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 0.7vw;
+  }
 }
-.error-text {
-  color: var(--accent-main-color);
-  font-family: Gilroy;
-  font-size: 1.11vw;
-  font-weight: 400;
-  margin-top: 0.7vw;
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+  .request {
+    padding: 7.813vw 4.688vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-around;
+    &__img {
+      display: none;
+    }
+
+    &__img-desctop {
+      overflow: hidden;
+      height: 48.307vw;
+      width: 100%;
+      border-radius: 0.417vw;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &__box {
+      padding-left: 3.906vw;
+      &-title {
+        display: inline-block;
+        font-family: Gilroy;
+        font-weight: 500;
+        color: var(--primary-color);
+        font-size: 3.125vw;
+        line-height: 1.33;
+      }
+      &-label {
+        display: block;
+        color: var(--primary-color);
+        margin-top: 2.083vw;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 1.25;
+        margin-left: 0.694vw;
+      }
+      &-input {
+        width: 100%;
+        height: 6.51vw;
+        margin-top: 0.972vw;
+        border-radius: 0.781vw;
+        border: 0.069vw solid rgba(54, 54, 54, 0.4);
+      }
+      &-btn {
+        font-family: Gilroy;
+        font-weight: 700;
+        background-color: var(--accent-main-color);
+        color: #fff;
+        font-size: 2.083vw;
+        margin-top: 5.556vw;
+        padding: 2.083vw 3.125vw;
+        display: block;
+        transition: all 700ms ease;
+        border-radius: 0.781vw;
+
+        &:hover {
+          color: #fff;
+          background-color: var(--hover-color);
+        }
+      }
+    }
+  }
+  .error-text {
+    color: var(--accent-main-color);
+    font-family: Gilroy;
+    font-size: 1.483vw;
+    font-weight: 400;
+    margin-top: 0.7vw;
+  }
+}
+@media screen and (min-width: 1240px) {
+  .request {
+    padding: 8.333vw 5.556vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-around;
+    &__img {
+      display: none;
+    }
+
+    &__img-desctop {
+      overflow: hidden;
+      height: 29.653vw;
+      width: 100%;
+      border-radius: 0.417vw;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &__box {
+      padding-left: 8.889vw;
+      &-title {
+        display: inline-block;
+        font-family: Gilroy;
+        font-weight: 500;
+        color: var(--primary-color);
+        font-size: 2.083vw;
+        line-height: 1.33;
+      }
+      &-label {
+        display: block;
+        color: var(--primary-color);
+        margin-top: 2.083vw;
+        font-weight: 500;
+        font-size: 1.111vw;
+        line-height: 1.25;
+        margin-left: 0.694vw;
+      }
+      &-input {
+        width: 100%;
+        height: 4.167vw;
+        margin-top: 0.972vw;
+        border-radius: 0.417vw;
+        border: 0.069vw solid rgba(54, 54, 54, 0.4);
+      }
+      &-btn {
+        font-family: Gilroy;
+        font-weight: 700;
+        background-color: var(--accent-main-color);
+        color: #fff;
+        font-size: 1.5vw;
+        margin-top: 5.556vw;
+        padding: 1.111vw 2.222vw;
+        display: block;
+        transition: all 700ms ease;
+        border-radius: 0.417vw;
+
+        &:hover {
+          color: #fff;
+          background-color: var(--hover-color);
+        }
+      }
+    }
+  }
+  .error-text {
+    color: var(--accent-main-color);
+    font-family: Gilroy;
+    font-size: 1.11vw;
+    font-weight: 400;
+    margin-top: 0.7vw;
+  }
 }
 </style>
