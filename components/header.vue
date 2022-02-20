@@ -11,7 +11,7 @@
                     .header__item(:to="('/#request')" @click="replase('request')") Залишити заявку
                 a.header__number(href="tel:+380679986959") 
                     span.header__number-icon
-                    span +38(067)-998-69-59
+                    span +38(067)998-69-59
                 .header__menu-close(v-if="showMenu" @click="openMobileMenu") 
         .header__burger(@click="openMobileMenu")
 </template>
@@ -94,7 +94,7 @@ export default {
       height: 100%;
       background-color: var(--primary-color);
       overflow: scroll;
-      padding: 95px 25px 0 18px;
+      padding: 95px 0 0 18px;
     }
     &__menu-close {
       position: absolute;
