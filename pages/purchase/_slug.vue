@@ -31,7 +31,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-  position: absolute;
+  position: relative;
 }
 .houses {
   min-height: 90vh;

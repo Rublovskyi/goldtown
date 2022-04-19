@@ -38,6 +38,6 @@ export default {
   min-height: 90vh;
 }
 .header {
-  position: absolute;
+  position: relative;
 }
 </style>

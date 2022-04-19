@@ -31,8 +31,10 @@ export default {
   methods: {
     openMobileMenu() {
       if (this.showMenu) {
+        document.body.style.overflow = "";
         this.showMenu = false;
       } else {
+        document.body.style.overflow = "hidden";
         this.showMenu = true;
       }
     },
@@ -40,6 +42,9 @@ export default {
       this.showMenu = false;
       this.$router.replace({ path: `/#${type}` });
     },
+  },
+  mounted() {
+    document.body.style.overflow = "";
   },
 };
 </script>
@@ -50,7 +55,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     color: var(--primary-color);
-    padding: 20px 16px;
+    padding: 6.25vw 5vw;
     background-color: #fff;
 
     position: fixed;
@@ -59,8 +64,8 @@ export default {
     right: 0;
     z-index: 200;
     &__logo {
-      height: 40px;
-      width: 158px;
+      height: 12.5vw;
+      width: 49.375vw;
       transition: all 700ms ease;
       & img {
         height: 100%;
@@ -90,18 +95,18 @@ export default {
       position: absolute;
       top: 0;
       right: 0;
-      width: 219px;
+      width: 68.438vw;
       height: 100%;
       background-color: var(--primary-color);
       overflow: scroll;
-      padding: 95px 0 0 18px;
+      padding: 29.688vw 0 0 5.625vw;
     }
     &__menu-close {
       position: absolute;
-      top: 63px;
-      right: 21px;
-      width: 16px;
-      height: 16px;
+      top: 19.688vw;
+      right: 6.563vw;
+      width: 5vw;
+      height: 5vw;
       background-image: url(../assets/svg/close.svg);
       background-repeat: no-repeat;
       background-position: center;
@@ -109,15 +114,15 @@ export default {
     }
     &__burger {
       display: block;
-      width: 30px;
-      height: 14px;
+      width: 9.375vw;
+      height: 4.375vw;
       background-image: url(../assets/svg/burger.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
     }
     &__item:not(:last-child) {
-      margin-bottom: 36px;
+      margin-bottom: 11.25vw;
     }
     &__item {
       display: block;
@@ -125,7 +130,7 @@ export default {
       cursor: pointer;
       font-family: "Gilroy";
       font-weight: 400;
-      font-size: 16px;
+      font-size: 5vw;
       line-height: 1.25;
       color: #fff;
       &.show {
@@ -139,20 +144,20 @@ export default {
       color: #fff;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       transition: all 700ms ease;
-      font-size: 16px;
+      font-size: 5vw;
       font-weight: 400;
-      margin-top: 62px;
+      margin-top: 19.375vw;
       &-icon {
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 7.5vw;
+        height: 7.5vw;
         background-image: url(../assets/svg/mobileLight.svg);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        margin-right: 8px;
+        margin-right: 2.5vw;
       }
       &:hover {
         color: var(--hover-color);
@@ -164,13 +169,13 @@ export default {
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--primary-color);
-    padding: 30px 36px;
+    padding: 3.906vw 4.688vw;
     background-color: #fff;
 
     position: fixed;
@@ -179,8 +184,8 @@ export default {
     right: 0;
     z-index: 200;
     &__logo {
-      height: 40px;
-      width: 158px;
+      height: 5.208vw;
+      width: 20.573vw;
       transition: all 700ms ease;
       & img {
         height: 100%;
@@ -209,18 +214,18 @@ export default {
       position: absolute;
       top: 0;
       right: 0;
-      width: 255px;
+      width: 33.203vw;
       height: 100%;
       background-color: var(--primary-color);
       overflow: scroll;
-      padding: 105px 40px 0 40px;
+      padding: 13.672vw 5.208vw 0 5.208vw;
     }
     &__menu-close {
       position: absolute;
-      top: 53px;
-      right: 37px;
-      width: 16px;
-      height: 16px;
+      top: 6.901vw;
+      right: 4.818vw;
+      width: 2.083vw;
+      height: 2.083vw;
       background-image: url(../assets/svg/close.svg);
       background-repeat: no-repeat;
       background-position: center;
@@ -228,15 +233,15 @@ export default {
     }
     &__burger {
       display: block;
-      width: 30px;
-      height: 14px;
+      width: 3.906vw;
+      height: 1.823vw;
       background-image: url(../assets/svg/burger.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
     }
     &__item:not(:last-child) {
-      margin-bottom: 36px;
+      margin-bottom: 4.688vw;
     }
     &__item {
       display: block;
@@ -244,7 +249,7 @@ export default {
       cursor: pointer;
       font-family: "Gilroy";
       font-weight: 400;
-      font-size: 16px;
+      font-size: 2.083vw;
       line-height: 1.25;
       color: #fff;
       &.show {
@@ -260,18 +265,18 @@ export default {
       align-items: center;
       justify-content: space-between;
       transition: all 700ms ease;
-      font-size: 16px;
+      font-size: 2.083vw;
       font-weight: 400;
-      margin-top: 62px;
+      margin-top: 8.073vw;
       &-icon {
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 3.125vw;
+        height: 3.125vw;
         background-image: url(../assets/svg/mobileLight.svg);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        margin-right: 8px;
+        margin-right: 1.042vw;
       }
       &:hover {
         color: var(--hover-color);
@@ -283,7 +288,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1440px) {
   .header {
     display: grid;
     grid-template-columns: 35% 65%;

@@ -15,6 +15,7 @@ export default {
       // console.log();
       if (e.target.className === "photo__btn-close") {
         this.$parent.showPhotoPopup = false;
+        document.body.style.overflow = "";
       }
     },
     handlerPhotoChange(e) {
@@ -61,13 +62,25 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 288px;
+    height: 400px;
 
-    width: 73.889vw;
-    height: 42.361vw;
     z-index: 220;
     overflow: hidden;
-    border-radius: 0.417vw;
+    border-radius: 6px;
+    z-index: 100;
     // background-color: #fff;
+
+    @media screen and (min-width: 768px) {
+      width: 696px;
+      height: 600px;
+      border-radius: 6px;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 73.889vw;
+      height: 42.361vw;
+      border-radius: 0.417vw;
+    }
 
     & img {
       width: 100%;
@@ -78,41 +91,86 @@ export default {
   }
   &__btn-close {
     position: absolute;
-    top: 3.472vw;
-    right: 5.556vw;
-    width: 3.472vw;
-    height: 3.472vw;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
     // background-color: #fff;
     background-image: url(../assets/svg/close.svg);
     background-repeat: no-repeat;
-    background-size: 1.389vw 1.389vw;
+    background-size: 20px 20px;
     background-position: center;
+
+    @media screen and (min-width: 768px) {
+      top: 50px;
+      right: 50px;
+      width: 50px;
+      height: 50px;
+      background-size: 20px 20px;
+    }
+    @media screen and (min-width: 1440px) {
+      top: 3.472vw;
+      right: 5.556vw;
+      width: 3.472vw;
+      height: 3.472vw;
+      background-size: 1.389vw 1.389vw;
+    }
   }
   &__btns-slide {
     &-left,
     &-right {
-      width: 3.472vw;
-      height: 3.472vw;
+      width: 30px;
+      height: 30px;
       // background-color: #fff;
       position: absolute;
       top: 50%;
       background-repeat: no-repeat;
-      background-size: 1.528vw 1.528vw;
+      background-size: 22px 22px;
       background-position: center;
       background-image: url(../assets/svg/vector.svg);
       transition: all 500ms ease;
+      z-index: 2000;
     }
     &-left {
-      left: 5.556vw;
+      left: 16px;
       transform: rotate(180deg);
-      &:hover {
-        transform: rotate(180deg) scale(1.3);
-      }
     }
     &-right {
-      right: 5.556vw;
-      &:hover {
-        transform: scale(1.3);
+      right: 16px;
+    }
+
+    @media screen and (min-width: 768px) {
+      &-left,
+      &-right {
+        width: 50px;
+        height: 50px;
+        background-size: 22px 22px;
+      }
+      &-left {
+        left: 10px;
+      }
+      &-right {
+        right: 10px;
+      }
+    }
+    @media screen and (min-width: 1440px) {
+      &-left,
+      &-right {
+        width: 3.472vw;
+        height: 3.472vw;
+        background-size: 1.528vw 1.528vw;
+      }
+      &-left {
+        left: 5.556vw;
+        &:hover {
+          transform: rotate(180deg) scale(1.3);
+        }
+      }
+      &-right {
+        right: 5.556vw;
+        &:hover {
+          transform: scale(1.3);
+        }
       }
     }
   }
