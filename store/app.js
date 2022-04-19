@@ -322,8 +322,8 @@ export const mutations = {
         newArr.push(el);
       }
     });
-    newArr.slice(0, 4);
-    state.SimilarCardsData = newArr;
+    let slisedArr = newArr.slice(0, 4);
+    state.SimilarCardsData = slisedArr;
     // console.log(newArr);
   },
   CLEAR_SIMILAR_DATA(state) {
