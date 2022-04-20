@@ -3,12 +3,12 @@
         n-link.footer__logo(:to="('/')")
             img(src="../assets/logoLight.png")
         .footer__info
-            a.footer__number(href="tel:+380679986959") 
+            a.footer__number(href="tel:+380984732501") 
                 span.footer__number-icon
-                span +38(067)-998-69-59
+                span +380(98)473-25-01
             a.footer__address(href="/") 
                 span.footer__address-icon
-                span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1В
+                span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1Б
 </template>
 <style lang="scss" scoped>
 @media screen and (max-width: 767.98px) {

@@ -9,9 +9,9 @@
                     n-link.header__item(:to="('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
                     n-link.header__item(:to="('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
                     .header__item(:to="('/#request')" @click="replase('request')") Залишити заявку
-                a.header__number(href="tel:+380679986959") 
+                a.header__number(href="tel:+380984732501") 
                     span.header__number-icon
-                    span +38(067)998-69-59
+                    span +380(98)473-25-01
                 .header__menu-close(v-if="showMenu" @click="openMobileMenu") 
         .header__burger(@click="openMobileMenu")
 </template>
@@ -263,7 +263,7 @@ export default {
       color: #fff;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       transition: all 700ms ease;
       font-size: 2.083vw;
       font-weight: 400;

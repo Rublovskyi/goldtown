@@ -63,7 +63,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90vw;
-    height: 125vw;
+    height: 90vh;
 
     z-index: 220;
     overflow: hidden;
@@ -73,12 +73,12 @@ export default {
 
     @media screen and (min-width: 768px) {
       width: 90.625vw;
-      height: 78.125vw;
+      height: 90vh;
       border-radius: 0.781vw;
     }
     @media screen and (min-width: 1440px) {
       width: 73.889vw;
-      height: 42.361vw;
+      height: 90vh;
       border-radius: 0.417vw;
     }
 
@@ -100,10 +100,11 @@ export default {
     background-repeat: no-repeat;
     background-size: 6.25vw 6.25vw;
     background-position: center;
+    z-index: 10000;
 
     @media screen and (min-width: 768px) {
-      top: 6.51vw;
-      right: 6.51vw;
+      top: 2.604vw;
+      right: 2.604vw;
       width: 6.51vw;
       height: 6.51vw;
       background-size: 2.604vw 2.604vw;
