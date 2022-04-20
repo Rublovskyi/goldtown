@@ -89,7 +89,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .view {
-  padding: 5.417vw 5.556vw 5.417vw 5.556vw;
+  padding: 6.25vw 5vw 6.25vw 5vw;
+
+  @media screen and (min-width: 768px) {
+    padding: 3.906vw 4.688vw 3.906vw 4.688vw;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 5.417vw 5.556vw 5.417vw 5.556vw;
+  }
 
   &__wrap {
     @media screen and (min-width: 1440px) {
@@ -100,37 +108,37 @@ export default {
   }
   &__info {
     background-color: #fff;
-    border-radius: 6px;
-    padding: 40px 16px;
-    margin-top: 60px;
+    border-radius: 1.875vw;
+    padding: 12.5vw 5vw;
+    margin-top: 18.75vw;
     &-main {
-      margin-bottom: 30px;
+      margin-bottom: 9.375vw;
       &-title {
         font-weight: 500;
-        font-size: 24px;
+        font-size: 7.5vw;
         color: var(--primary-color);
       }
       &-price {
         color: var(--accent-main-color);
         font-weight: 600;
-        font-size: 20px;
-        margin-top: 30px;
+        font-size: 6.25vw;
+        margin-top: 9.375vw;
       }
     }
     @media screen and (min-width: 768px) {
-      margin-top: 60px;
-      padding: 40px 30px;
-      border-radius: 6px;
+      margin-top: 7.813vw;
+      padding: 5.208vw 3.906vw;
+      border-radius: 0.781vw;
       &-main {
-        margin-bottom: 40px;
+        margin-bottom: 5.208vw;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         &-title {
-          font-size: 24px;
+          font-size: 3.125vw;
         }
         &-price {
-          font-size: 20px;
+          font-size: 2.604vw;
           margin-top: 0;
         }
       }
@@ -152,27 +160,27 @@ export default {
   }
   &__data {
     &-type {
-      margin-bottom: 20px;
+      margin-bottom: 6.25vw;
       & .title {
         font-weight: 500;
-        font-size: 16px;
-        margin-right: 10px;
+        font-size: 5vw;
+        margin-right: 3.125vw;
         color: var(--primary-color);
       }
       & .amount {
         font-weight: 400;
-        font-size: 14px;
+        font-size: 4.375vw;
         color: rgba(54, 54, 54, 0.8);
       }
 
       @media screen and (min-width: 768px) {
-        margin-bottom: 20px;
+        margin-bottom: 2.604vw;
         & .title {
-          font-size: 16px;
-          margin-right: 10px;
+          font-size: 2.083vw;
+          margin-right: 1.302vw;
         }
         & .amount {
-          font-size: 14px;
+          font-size: 1.823vw;
         }
       }
       @media screen and (min-width: 1440px) {
@@ -189,14 +197,14 @@ export default {
   }
   &__desc {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 5vw;
     color: var(--primary-color);
     line-height: 1.5;
-    margin-top: 30px;
+    margin-top: 9.375vw;
 
     @media screen and (min-width: 768px) {
-      font-size: 16px;
-      margin-top: 40px;
+      font-size: 2.083vw;
+      margin-top: 5.208vw;
     }
     @media screen and (min-width: 1440px) {
       font-size: 1.111vw;
@@ -206,15 +214,16 @@ export default {
   &__images {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 5vw;
 
     &-wrap {
       width: 100%;
       overflow: hidden;
-      border-radius: 6px;
+      border-radius: 1.875vw;
       position: relative;
-      height: 120px;
+      height: 37.5vw;
       &.type0 {
+        max-height: 171.875vw;
         height: 100%;
         width: 100%;
         grid-column-start: 1;
@@ -233,23 +242,24 @@ export default {
         color: #fff;
         font-weight: 700;
         border-bottom: 1px solid #fff;
-        bottom: 16px;
-        right: 16px;
-        font-size: 16px;
+        bottom: 5vw;
+        right: 5vw;
+        font-size: 5vw;
       }
     }
     @media screen and (min-width: 768px) {
-      gap: 20px;
+      gap: 2.604vw;
       &-wrap {
-        height: 220px;
-        border-radius: 6px;
+        height: 28.646vw;
+        border-radius: 0.781vw;
         &.type0 {
+          max-height: 84.635vw;
           width: 100%;
         }
         & .plus-photo {
-          bottom: 16px;
-          right: 16px;
-          font-size: 16px;
+          bottom: 2.083vw;
+          right: 2.083vw;
+          font-size: 2.083vw;
         }
       }
     }
@@ -261,6 +271,7 @@ export default {
         border-radius: 0.417vw;
         &.type0 {
           width: 36.25vw;
+          max-height: 650px;
         }
         & .plus-photo {
           bottom: 1.389vw;

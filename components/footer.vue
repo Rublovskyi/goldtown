@@ -15,13 +15,13 @@
   .footer {
     // height: 218px;
     background-color: var(--primary-color);
-    padding: 30px 16px;
+    padding: 9.375vw 5vw;
     position: relative;
     z-index: 120;
     &__logo {
       display: block;
-      height: 40px;
-      width: 158px;
+      height: 12.5vw;
+      width: 49.375vw;
       transition: all 700ms ease;
       & img {
         height: 100%;
@@ -34,7 +34,7 @@
       }
     }
     &__info {
-      margin-top: 30px;
+      margin-top: 9.375vw;
     }
     &__number,
     &__address {
@@ -43,23 +43,23 @@
       align-items: center;
       justify-content: flex-start;
       transition: all 700ms ease;
-      font-size: 16px;
+      font-size: 5vw;
       font-weight: 400;
       &-icon {
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 7.5vw;
+        height: 7.5vw;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        margin-right: 8px;
+        margin-right: 2.5vw;
       }
       &:hover {
         transform: scale(1.1);
       }
     }
     &__number {
-      margin-bottom: 10px;
+      margin-bottom: 3.125vw;
     }
     &__number-icon {
       background-image: url(../assets/svg/mobileLight.svg);
@@ -74,14 +74,14 @@
     // height: 12vh;
     background-color: var(--primary-color);
     display: flex;
-    padding: 28px 36px;
+    padding: 3.646vw 4.688vw;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 120;
     &__logo {
-      height: 50px;
-      width: 179px;
+      height: 6.51vw;
+      width: 23.307vw;
       transition: all 700ms ease;
 
       & img {
@@ -101,23 +101,23 @@
       align-items: center;
       justify-content: flex-start;
       transition: all 700ms ease;
-      font-size: 16px;
+      font-size: 2.083vw;
       font-weight: 400;
       &-icon {
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 3.125vw;
+        height: 3.125vw;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        margin-right: 8px;
+        margin-right: 1.042vw;
       }
       &:hover {
         transform: scale(1.1);
       }
     }
     &__number {
-      margin-bottom: 10px;
+      margin-bottom: 1.302vw;
     }
     &__number-icon {
       background-image: url(../assets/svg/mobileLight.svg);
@@ -127,7 +127,7 @@
     }
   }
 }
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1440px) {
   .footer {
     padding: 2.639vw 5.556vw;
 

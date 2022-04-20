@@ -172,29 +172,35 @@ export default {
 <style lang="scss" scoped>
 .filter {
   position: relative;
-  padding: 40px 34px 40px 34px;
-  border-radius: 10px;
+  padding: 12.5vw 10.625vw 12.5vw 10.625vw;
+  border-radius: 3.125vw;
   background-color: #fff;
 
-  @media screen and (min-width: 1440px) {
-    padding: 40px 30px 40px 30px;
-    border-radius: 10px;
+  @media screen and (min-width: 768px) {
+    padding: 5.208vw 3.906vw 5.208vw 3.906vw;
+    border-radius: 1.302vw;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 40px 34px 40px 34px;
+    padding: 2.778vw 2.361vw 2.778vw 2.361vw;
     border-radius: 0;
   }
   &__close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 16px;
-    height: 16px;
+    top: 6.25vw;
+    right: 6.25vw;
+    width: 5vw;
+    height: 5vw;
     background-image: url(../assets/svg/cross.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    @media screen and (min-width: 768px) {
+      top: 2.604vw;
+      right: 2.604vw;
+      width: 2.083vw;
+      height: 2.083vw;
+    }
 
     @media screen and (min-width: 1440px) {
       display: none;
@@ -205,18 +211,18 @@ export default {
 
     &-item {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 5vw;
       display: flex;
       align-items: center;
       justify-content: flex-start;
 
       & .box {
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 7.5vw;
+        height: 7.5vw;
         border: 1px solid rgba(54, 54, 54, 0.4);
-        border-radius: 4px;
-        margin-right: 16px;
+        border-radius: 1.25vw;
+        margin-right: 5vw;
       }
       &.select {
         & .text {
@@ -227,80 +233,200 @@ export default {
         }
       }
       &:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: 6.25vw;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 2.083vw;
+        & .box {
+          width: 3.125vw;
+          height: 3.125vw;
+          border-radius: 0.521vw;
+          margin-right: 2.083vw;
+        }
+        &:not(:last-child) {
+          margin-bottom: 2.604vw;
+        }
+      }
+      @media screen and (min-width: 1440px) {
+        font-size: 1.111vw;
+        & .box {
+          width: 1.667vw;
+          height: 1.667vw;
+          border-radius: 0.278vw;
+          margin-right: 1.111vw;
+        }
+        &:not(:last-child) {
+          margin-bottom: 1.389vw;
+        }
       }
     }
   }
   &__wrap {
-    margin-top: 40px;
+    margin-top: 12.5vw;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 5.208vw;
+    }
+    @media screen and (min-width: 1440px) {
+      margin-top: 2.778vw;
+    }
   }
   .title {
     font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 7.5vw;
+    margin-bottom: 9.375vw;
+    @media screen and (min-width: 768px) {
+      font-size: 3.125vw;
+      margin-bottom: 3.906vw;
+    }
+    @media screen and (min-width: 1440px) {
+      font-size: 1.667vw;
+      margin-bottom: 2.083vw;
+    }
   }
   &__title {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 5vw;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 6.25vw;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.083vw;
+      margin-bottom: 2.604vw;
+    }
+    @media screen and (min-width: 1440px) {
+      font-size: 1.111vw;
+      margin-bottom: 1.389vw;
+    }
   }
   &__price {
     &-select {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 6.25vw;
 
       & .slash {
-        font-size: 20px;
+        font-size: 6.25vw;
       }
     }
     &-input {
-      width: 120px;
+      width: 37.5vw;
       border-bottom: 1px solid rgba(54, 54, 54, 0.4);
       display: flex;
       & input {
         border: none;
         width: 85%;
-        margin-bottom: 10px;
+        margin-bottom: 3.125vw;
         &::placeholder {
-          font-size: 14px;
+          font-size: 4.375vw;
         }
       }
       & .dollar {
-        font-size: 16px;
+        font-size: 5vw;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      &-select {
+        margin-top: 2.604vw;
+
+        & .slash {
+          font-size: 2.604vw;
+        }
+      }
+      &-input {
+        width: 15.625vw;
+        & input {
+          margin-bottom: 1.302vw;
+          &::placeholder {
+            font-size: 1.823vw;
+          }
+        }
+        & .dollar {
+          font-size: 2.083vw;
+        }
+      }
+    }
+    @media screen and (min-width: 1440px) {
+      &-select {
+        margin-top: 1.389vw;
+
+        & .slash {
+          font-size: 1.389vw;
+        }
+      }
+      &-input {
+        width: 8.333vw;
+        & input {
+          margin-bottom: 0.694vw;
+          &::placeholder {
+            font-size: 0.972vw;
+          }
+        }
+        & .dollar {
+          font-size: 1.111vw;
+        }
       }
     }
   }
   &__address,
   &__type {
-    margin-top: 20px;
+    margin-top: 6.25vw;
     position: relative;
+    @media screen and (min-width: 768px) {
+      margin-top: 2.604vw;
+    }
+    @media screen and (min-width: 1440px) {
+      margin-top: 1.389vw;
+    }
   }
   &__select {
     width: 100%;
-    min-height: 40px;
+    min-height: 12.5vw;
     border: 1px solid rgba(54, 54, 54, 0.4);
-    border-radius: 6px;
+    border-radius: 1.875vw;
     position: relative;
-    font-size: 16px;
-    // padding-top: 1.042vw;
-    // padding-left: 1.042vw;
-    padding: 10px;
+    font-size: 5vw;
+    padding: 3.125vw;
+
+    @media screen and (min-width: 768px) {
+      min-height: 5.208vw;
+      border-radius: 0.781vw;
+      font-size: 2.083vw;
+      padding: 1.302vw;
+    }
+    @media screen and (min-width: 1440px) {
+      min-height: 2.778vw;
+      border-radius: 0.417vw;
+      font-size: 1.111vw;
+      padding: 0.694vw;
+    }
 
     &::after {
       content: "";
       position: absolute;
       top: 50%;
-      right: 20px;
-      width: 18px;
-      height: 18px;
+      right: 6.25vw;
+      width: 5.625vw;
+      height: 5.625vw;
       transform: translateY(-50%);
       background-image: url(../assets/svg/selectVector.svg);
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+
+      @media screen and (min-width: 768px) {
+        right: 2.604vw;
+        width: 2.344vw;
+        height: 2.344vw;
+      }
+      @media screen and (min-width: 1440px) {
+        right: 1.389vw;
+        width: 1.25vw;
+        height: 1.25vw;
+      }
     }
 
     &-list {
@@ -312,42 +438,79 @@ export default {
       border: 1px solid rgba(54, 54, 54, 0.4);
 
       z-index: 100;
-      min-height: 30px;
-      max-height: 80px;
+      min-height: 9.375vw;
+      max-height: 25vw;
       overflow: scroll;
+
+      @media screen and (min-width: 768px) {
+        min-height: 3.906vw;
+        max-height: 10.417vw;
+      }
+      @media screen and (min-width: 1440px) {
+        min-height: 2.083vw;
+        max-height: 5.556vw;
+      }
     }
     &-item {
       position: relative;
       border-bottom: 1px solid rgba(222, 178, 218, 0.6);
 
-      font-size: 16px;
+      font-size: 5vw;
 
-      padding: 10px 11px;
+      padding: 3.125vw 3.438vw;
       cursor: pointer;
-      // list-style-type: none;
+      @media screen and (min-width: 768px) {
+        font-size: 2.083vw;
+        padding: 1.302vw 1.432vw;
+      }
+      @media screen and (min-width: 1440px) {
+        font-size: 1.111vw;
+        padding: 0.694vw 0.764vw;
+      }
     }
   }
   &__btn {
     width: 100%;
-    padding: 16px 0;
-    margin-top: 30px;
+    padding: 5vw 0;
+    margin-top: 9.375vw;
     background-color: var(--accent-main-color);
     color: #fff;
-    border-radius: 10px;
+    border-radius: 3.125vw;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 5vw;
     transition: all 500ms ease;
     &:hover {
       background-color: var(--hover-color);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 2.083vw 0;
+      margin-top: 3.906vw;
+      border-radius: 1.302vw;
+      font-size: 2.083vw;
+    }
+    @media screen and (min-width: 1440px) {
+      padding: 1.111vw 0;
+      margin-top: 2.083vw;
+      border-radius: 0.694vw;
+      font-size: 1.111vw;
     }
   }
 }
 
 .error-text {
   color: var(--hover-color);
-  margin-top: 10px;
+  margin-top: 3.125vw;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 3.75vw;
+  @media screen and (min-width: 768px) {
+    margin-top: 1.302vw;
+    font-size: 1.563vw;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 0.694vw;
+    font-size: 0.833vw;
+  }
 }
 input:focus {
   outline: 0 !important;

@@ -49,20 +49,20 @@ export default {
 </script>
 <style lang="scss" scoped>
 .similar {
-  padding: 60px 16px 60px 16px;
+  padding: 18.75vw 5vw 18.75vw 5vw;
   &__title {
     font-weight: 500;
-    font-size: 24px;
+    font-size: 7.5vw;
     color: var(--primary-color);
-    margin-bottom: 30px;
+    margin-bottom: 9.375vw;
   }
 
   @media screen and (min-width: 768px) {
-    padding: 60px 34px 60px 34px;
+    padding: 7.813vw 4.427vw 7.813vw 4.427vw;
 
     &__title {
-      font-size: 24px;
-      margin-bottom: 30px;
+      font-size: 3.125vw;
+      margin-bottom: 3.906vw;
     }
     &__cards {
       display: grid;

@@ -80,14 +80,14 @@ export default {
 <style lang="scss" scoped>
 @media screen and (max-width: 767.98px) {
   .request {
-    padding: 60px 16px;
+    padding: 18.75vw 5vw;
 
     &__img {
       display: block;
       overflow: hidden;
-      height: 360px;
+      height: 112.5vw;
       width: 100%;
-      border-radius: 6px;
+      border-radius: 1.875vw;
       & img {
         width: 100%;
         height: 100%;
@@ -100,42 +100,44 @@ export default {
     }
 
     &__box {
-      margin-bottom: 30px;
+      margin-bottom: 9.375vw;
       &-title {
         display: inline-block;
         font-family: Gilroy;
         font-weight: 500;
         color: var(--primary-color);
-        font-size: 24px;
+        font-size: 7.5vw;
         line-height: 1.33;
       }
       &-label {
         display: block;
         color: var(--primary-color);
-        margin-top: 30px;
+        margin-top: 9.375vw;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 5vw;
         line-height: 1.25;
-        margin-left: 10px;
+        margin-left: 3.125vw;
       }
       &-input {
         width: 100%;
-        height: 50px;
-        margin-top: 14px;
-        border-radius: 6px;
+        height: 15.625vw;
+        margin-top: 4.375vw;
+        border-radius: 1.875vw;
         border: 0.069vw solid rgba(54, 54, 54, 0.4);
+        font-size: 4vw;
+        padding: 0 4vw;
       }
       &-btn {
         font-family: Gilroy;
         font-weight: 700;
         background-color: var(--accent-main-color);
         color: #fff;
-        font-size: 16px;
-        margin-top: 30px;
-        padding: 16px 24px;
+        font-size: 5vw;
+        margin-top: 9.375vw;
+        padding: 5vw 7.5vw;
         display: block;
         transition: all 700ms ease;
-        border-radius: 6px;
+        border-radius: 1.875vw;
 
         &:hover {
           color: #fff;
@@ -147,12 +149,12 @@ export default {
   .error-text {
     color: var(--accent-main-color);
     font-family: Gilroy;
-    font-size: 14px;
+    font-size: 4.375vw;
     font-weight: 400;
     margin-top: 0.7vw;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .request {
     padding: 7.813vw 4.688vw;
     display: grid;
@@ -200,6 +202,8 @@ export default {
         margin-top: 0.972vw;
         border-radius: 0.781vw;
         border: 0.069vw solid rgba(54, 54, 54, 0.4);
+        font-size: 2.083vw;
+        padding: 0 2.083vw;
       }
       &-btn {
         font-family: Gilroy;
@@ -228,7 +232,7 @@ export default {
     margin-top: 0.7vw;
   }
 }
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1440px) {
   .request {
     padding: 8.333vw 5.556vw;
     display: grid;
@@ -276,6 +280,8 @@ export default {
         margin-top: 0.972vw;
         border-radius: 0.417vw;
         border: 0.069vw solid rgba(54, 54, 54, 0.4);
+        font-size: 1.111vw;
+        padding: 0 1.111vw;
       }
       &-btn {
         font-family: Gilroy;

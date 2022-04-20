@@ -32,9 +32,9 @@ export default {
 
     height: 100vh;
     position: relative;
-    padding-top: 80px;
+    padding-top: 25vw;
     &__wrap {
-      padding: 0 16px;
+      padding: 0 5vw;
       position: absolute;
       top: 50%;
       left: 0;
@@ -42,29 +42,29 @@ export default {
     }
     &__title {
       color: #fff;
-      font-size: 24px;
+      font-size: 7.5vw;
       line-height: 1.11;
       font-weight: 400;
-      margin-bottom: 20px;
+      margin-bottom: 6.25vw;
     }
     &__text {
       color: #fff;
-      font-size: 16px;
+      font-size: 5vw;
 
       line-height: 1.3;
       font-weight: 400;
 
-      margin-bottom: 30px;
+      margin-bottom: 9.375vw;
     }
     &__btn {
-      padding: 16px 24px;
+      padding: 5vw 7.5vw;
       background-color: var(--accent-main-color);
 
       color: #fff;
 
-      font-size: 16px;
+      font-size: 5vw;
       transition: all 700ms ease;
-      border-radius: 6px;
+      border-radius: 1.875vw;
       font-weight: 400;
 
       &:hover {
@@ -88,7 +88,7 @@ export default {
 
     height: 100vh;
     position: relative;
-    padding-top: 100px;
+    padding-top: 13.021vw;
     &__wrap {
       padding: 0 4.688vw;
       position: absolute;
@@ -136,7 +136,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1440px) {
   .hero {
     padding-top: 5.556vw;
     background-image: linear-gradient(

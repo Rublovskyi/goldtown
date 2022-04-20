@@ -41,22 +41,22 @@ export default {
 <style lang="scss" scoped>
 @media screen and (max-width: 767.98px) {
   .sample {
-    padding: 60px 16px;
+    padding: 18.75vw 5vw;
     background-color: var(--light-bg);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 5vw;
     &__item {
-      border-radius: 6px;
+      border-radius: 1.875vw;
       position: relative;
       height: 39.688vw;
       &-text {
         position: absolute;
-        bottom: 16px;
-        left: 16px;
+        bottom: 5vw;
+        left: 5vw;
         color: #fff;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 5vw;
         line-height: 1;
       }
     }
@@ -75,29 +75,25 @@ export default {
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .sample {
-    padding: 60px 36px;
+    padding: 7.813vw 4.688vw;
     background-color: var(--light-bg);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 2.604vw;
     &__item {
-      border-radius: 8px;
+      border-radius: 1.042vw;
       position: relative;
       height: 28.646vw;
-      // background-image: linear-gradient(
-      //   to left,
-      //   rgba(0, 0, 0, 0.8),
-      //   rgba(0, 0, 0, 0)
-      // );
+
       &-text {
         position: absolute;
-        bottom: 18px;
-        left: 20px;
+        bottom: 2.344vw;
+        left: 2.604vw;
         color: #fff;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 2.083vw;
         line-height: 1;
       }
     }
@@ -116,7 +112,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1440px) {
   .sample {
     padding: 8.333vw 5.556vw;
     background-color: var(--light-bg);

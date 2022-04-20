@@ -9,7 +9,7 @@
 <style lang="scss" scoped>
 @media screen and (max-width: 767.99px) {
   .about {
-    padding: 60px 16px;
+    padding: 18.75vw 5vw;
     position: relative;
     margin-left: auto;
 
@@ -21,13 +21,13 @@
         display: inline-block;
         color: var(--primary-color);
         font-weight: 400;
-        font-size: 24px;
-        margin-bottom: 30px;
+        font-size: 7.5vw;
+        margin-bottom: 9.375vw;
       }
       &-subtitle {
         color: var(--primary-color);
         font-weight: 400;
-        font-size: 16px;
+        font-size: 5vw;
         line-height: 1.5;
       }
     }
@@ -36,9 +36,9 @@
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .about {
-    padding: 60px 36px;
+    padding: 7.813vw 4.688vw;
     position: relative;
     margin-left: auto;
 
@@ -50,13 +50,13 @@
         display: inline-block;
         color: var(--primary-color);
         font-weight: 400;
-        font-size: 24px;
-        margin-bottom: 40px;
+        font-size: 3.125vw;
+        margin-bottom: 5.208vw;
       }
       &-subtitle {
         color: var(--primary-color);
         font-weight: 400;
-        font-size: 16px;
+        font-size: 2.083vw;
         line-height: 1.5;
       }
     }
@@ -65,7 +65,7 @@
     }
   }
 }
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1440px) {
   .about {
     display: flex;
     justify-content: flex-end;

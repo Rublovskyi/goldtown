@@ -62,19 +62,19 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 288px;
-    height: 400px;
+    width: 90vw;
+    height: 125vw;
 
     z-index: 220;
     overflow: hidden;
-    border-radius: 6px;
+    border-radius: 1.875vw;
     z-index: 100;
     // background-color: #fff;
 
     @media screen and (min-width: 768px) {
-      width: 696px;
-      height: 600px;
-      border-radius: 6px;
+      width: 90.625vw;
+      height: 78.125vw;
+      border-radius: 0.781vw;
     }
     @media screen and (min-width: 1440px) {
       width: 73.889vw;
@@ -91,22 +91,22 @@ export default {
   }
   &__btn-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
+    top: 6.25vw;
+    right: 6.25vw;
+    width: 15.625vw;
+    height: 15.625vw;
     // background-color: #fff;
     background-image: url(../assets/svg/close.svg);
     background-repeat: no-repeat;
-    background-size: 20px 20px;
+    background-size: 6.25vw 6.25vw;
     background-position: center;
 
     @media screen and (min-width: 768px) {
-      top: 50px;
-      right: 50px;
-      width: 50px;
-      height: 50px;
-      background-size: 20px 20px;
+      top: 6.51vw;
+      right: 6.51vw;
+      width: 6.51vw;
+      height: 6.51vw;
+      background-size: 2.604vw 2.604vw;
     }
     @media screen and (min-width: 1440px) {
       top: 3.472vw;
@@ -119,38 +119,38 @@ export default {
   &__btns-slide {
     &-left,
     &-right {
-      width: 30px;
-      height: 30px;
+      width: 9.375vw;
+      height: 9.375vw;
       // background-color: #fff;
       position: absolute;
       top: 50%;
       background-repeat: no-repeat;
-      background-size: 22px 22px;
+      background-size: 6.875vw 6.875vw;
       background-position: center;
       background-image: url(../assets/svg/vector.svg);
       transition: all 500ms ease;
       z-index: 2000;
     }
     &-left {
-      left: 16px;
+      left: 5vw;
       transform: rotate(180deg);
     }
     &-right {
-      right: 16px;
+      right: 5vw;
     }
 
     @media screen and (min-width: 768px) {
       &-left,
       &-right {
-        width: 50px;
-        height: 50px;
-        background-size: 22px 22px;
+        width: 6.51vw;
+        height: 6.51vw;
+        background-size: 2.865vw 2.865vw;
       }
       &-left {
-        left: 10px;
+        left: 1.302vw;
       }
       &-right {
-        right: 10px;
+        right: 1.302vw;
       }
     }
     @media screen and (min-width: 1440px) {
