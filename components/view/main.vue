@@ -252,7 +252,7 @@ export default {
         height: 28.646vw;
         border-radius: 0.781vw;
         &.type0 {
-          max-height: 84.635vw;
+          max-height: 75vh;
           width: 100%;
         }
         & .plus-photo {
@@ -270,7 +270,7 @@ export default {
         border-radius: 0.417vw;
         &.type0 {
           width: 36.25vw;
-          max-height: 650px;
+          max-height: 34.722vw;
         }
         & .plus-photo {
           bottom: 1.389vw;

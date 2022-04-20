@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     document.body.style.overflow = "";
-    this.scrollViewHeader();
+    // this.scrollViewHeader();
   },
 };
 </script>

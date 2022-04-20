@@ -1,6 +1,6 @@
 <template lang="pug">
 .main-page
-    Header.header
+    Header.header(ref="header")
     Hero
     AboutUs(id="about")
     Sample
@@ -39,6 +39,9 @@ export default {
       showPopup: false,
       successPopup: false,
     };
+  },
+  mounted() {
+    this.$refs.header.scrollViewHeader();
   },
 };
 </script>

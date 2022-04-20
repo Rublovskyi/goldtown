@@ -6,7 +6,7 @@
             a.footer__number(href="tel:+380984732501") 
                 span.footer__number-icon
                 span +380(98)473-25-01
-            a.footer__address(href="/") 
+            a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
                 span.footer__address-icon
                 span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1Б
 </template>

@@ -61,8 +61,8 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90vw;
-    height: 90vh;
+    width: 75vw;
+    height: 80vh;
 
     z-index: 220;
     overflow: hidden;
@@ -72,7 +72,7 @@ export default {
 
     @media screen and (min-width: 768px) {
       width: 90.625vw;
-      height: 90vh;
+      height: 85vh;
       border-radius: 0.781vw;
     }
     @media screen and (min-width: 1240px) {

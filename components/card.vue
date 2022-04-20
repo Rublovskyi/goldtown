@@ -1,7 +1,7 @@
 <template lang="pug">
     //- .card(v-if="card")
     .card
-        .card__image
+        n-link.card__image(:to="('/view/' + card.id)")
             img(:src="test()")
         .card__info 
             .card__title(v-if="card.attributes.title || card.attributes.adress")
@@ -76,6 +76,7 @@ export default {
     width: 100%;
     overflow: hidden;
     height: 62.5vw;
+    display: block;
 
     @media screen and (min-width: 768px) {
       height: 26.042vw;
@@ -100,7 +101,7 @@ export default {
     }
     @media screen and (min-width: 1240px) {
       font-size: 1.389vw;
-      height: 6.944vw;
+      // height: 6.944vw;
     }
   }
   &__address {
@@ -115,7 +116,7 @@ export default {
     }
     @media screen and (min-width: 1240px) {
       font-size: 0.972vw;
-      height: 6.944vw;
+      // height: 6.944vw;
       margin-top: 0.417vw;
     }
   }
