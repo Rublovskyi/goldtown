@@ -41,7 +41,6 @@ export const actions = {
       );
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
-      console.log(response);
       commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
       console.log(err);
@@ -90,7 +89,6 @@ export const actions = {
       const response = await this.$axios.get(
         `/api/products?populate=*&${query}`
       );
-      // console.log("products", response);
       commit("UPDATE_COMMERCE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
@@ -208,7 +206,6 @@ export const actions = {
       const response = await this.$axios.get(
         `/api/products?populate=*&${query}`
       );
-      console.log("product", response);
       commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0]);
     } catch (err) {
       console.log(err);
@@ -272,14 +269,12 @@ export const mutations = {
   UPDATE_CURRENT_PEASE_DATA(state, data) {
     state.CurrentPeaseData = data;
     state.ViewPageGetData = true;
-    // console.log(data);
   },
   UPDATE_FILTERS(state, data) {
     let arrNewAddress = [];
     let arrNewRooms = [];
     let arrNewPayback = [];
     let arrNewIncome = [];
-    console.log(data);
     data.forEach((el) => {
       if (el.attributes.adress) {
         arrNewAddress.push(el.attributes.adress);
@@ -307,8 +302,6 @@ export const mutations = {
       return arrNewIncome.indexOf(item) == pos;
     });
 
-    console.log(uniqueArrayPayback);
-
     state.Address = uniqueArrayAddress;
     state.NumOfRooms = uniqueArrayRooms;
     state.Payback = uniqueArrayPayback;
@@ -324,7 +317,6 @@ export const mutations = {
     });
     let slisedArr = newArr.slice(0, 4);
     state.SimilarCardsData = slisedArr;
-    // console.log(newArr);
   },
   CLEAR_SIMILAR_DATA(state) {
     state.SimilarCardsData = [];

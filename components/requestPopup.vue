@@ -90,75 +90,152 @@ export default {
   right: 0;
   bottom: 0;
   background-color: rgba($color: #000000, $alpha: 0.4);
+  z-index: 20000;
   &__wrap {
-    width: 40.278vw;
-    height: 37.986vw;
+    width: 90vw;
+    min-height: 147.813vw;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    padding: 4.167vw;
-    border-radius: 0.694vw;
+    padding: 12.5vw 5vw;
+    border-radius: 3.125vw;
+
+    @media screen and (min-width: 768px) {
+      width: 57.292vw;
+      min-height: 57.292vw;
+      padding: 5.208vw;
+      border-radius: 1.302vw;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 40.278vw;
+      min-height: 37.986vw;
+      padding: 4.167vw;
+      border-radius: 0.694vw;
+    }
   }
   &__close {
-    width: 1.389vw;
-    height: 1.389vw;
+    width: 6.25vw;
+    height: 6.25vw;
     position: absolute;
-    top: 2.778vw;
-    right: 2.778vw;
+    top: 6.25vw;
+    right: 6.25vw;
     background-image: url(../assets/svg/cross.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    @media screen and (min-width: 768px) {
+      width: 2.604vw;
+      height: 2.604vw;
+      top: 3.906vw;
+      right: 4.948vw;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 1.389vw;
+      height: 1.389vw;
+      top: 2.778vw;
+      right: 2.778vw;
+    }
   }
 
   &__title {
     display: inline-block;
     color: var(--primary-color);
-    font-size: 2.083vw;
+    font-size: 7.5vw;
     font-weight: 500;
     text-align: center;
     line-height: 1.33;
+
+    @media screen and (min-width: 768px) {
+      font-size: 3.125vw;
+    }
+    @media screen and (min-width: 1440px) {
+      font-size: 2.083vw;
+    }
   }
   &__label {
     display: block;
     color: var(--primary-color);
-    margin-top: 2.083vw;
+    margin-top: 6.25vw;
     font-weight: 500;
-    font-size: 1.111vw;
+    font-size: 5vw;
     line-height: 1.25;
-    margin-left: 0.694vw;
+    margin-left: 3.125vw;
+    @media screen and (min-width: 768px) {
+      margin-top: 2.604vw;
+      font-size: 2.083vw;
+      margin-left: 1.302vw;
+    }
+    @media screen and (min-width: 1440px) {
+      margin-top: 2.083vw;
+      font-size: 1.111vw;
+      margin-left: 0.694vw;
+    }
   }
   &__input {
     width: 100%;
-    height: 4.167vw;
-    margin-top: 0.972vw;
-    border-radius: 0.417vw;
-    border: 0.069vw solid rgba(54, 54, 54, 0.4);
+    height: 15.625vw;
+    margin-top: 4.375vw;
+    border-radius: 1.875vw;
+    border: 0.313vw solid rgba(54, 54, 54, 0.4);
+    @media screen and (min-width: 768px) {
+      height: 6.51vw;
+      margin-top: 1.823vw;
+      border-radius: 0.781vw;
+      border: 0.13vw solid rgba(54, 54, 54, 0.4);
+    }
+    @media screen and (min-width: 1440px) {
+      height: 4.167vw;
+      margin-top: 0.972vw;
+      border-radius: 0.417vw;
+      border: 0.069vw solid rgba(54, 54, 54, 0.4);
+    }
   }
   &__btn {
     font-family: Gilroy;
     font-weight: 700;
     width: 100%;
-    height: 3.542vw;
+    height: 15.938vw;
     background-color: var(--accent-main-color);
     font-family: NotoSerif-Regular;
     color: #fff;
-    font-size: 1.2vw;
-    margin-top: 2.778vw;
-    border-radius: 0.417vw;
+    font-size: 5vw;
+    margin-top: 14.375vw;
+    border-radius: 1.875vw;
     transition: all 500ms ease;
     &:hover {
       background-color: var(--hover-color);
+    }
+    @media screen and (min-width: 768px) {
+      height: 6.641vw;
+      font-size: 2.083vw;
+      margin-top: 5.99vw;
+      border-radius: 0.781vw;
+    }
+    @media screen and (min-width: 1440px) {
+      height: 3.542vw;
+      font-size: 1.2vw;
+      margin-top: 2.778vw;
+      border-radius: 0.417vw;
     }
   }
 }
 .error-text {
   color: var(--accent-main-color);
   font-family: Gilroy;
-  font-size: 1.11vw;
+  font-size: 3.75vw;
   font-weight: 400;
-  margin-top: 0.7vw;
+  margin-top: 3.125vw;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.563vw;
+    margin-top: 1.302vw;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 1.11vw;
+    margin-top: 0.7vw;
+  }
 }
 </style>

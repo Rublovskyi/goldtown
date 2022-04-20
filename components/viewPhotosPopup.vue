@@ -12,7 +12,6 @@ export default {
   props: ["photosData"],
   methods: {
     closePopup(e) {
-      // console.log();
       if (e.target.className === "photo__btn-close") {
         this.$parent.showPhotoPopup = false;
         document.body.style.overflow = "";

@@ -74,7 +74,6 @@ export default {
     },
     openPhotoPopup(i) {
       let currentImg = this.info.image.data[i].attributes.url;
-      console.log(currentImg);
       let images = this.info.image.data;
       this.$parent.photosData = {
         i,
