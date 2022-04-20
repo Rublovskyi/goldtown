@@ -26,7 +26,7 @@ export default {
       let x = [];
       if (this.windowW < 768) {
         x = this.SimilarCardsData.slice(0, 1);
-      } else if (this.windowW >= 768 && this.windowW < 1440) {
+      } else if (this.windowW >= 768 && this.windowW < 1240) {
         x = this.SimilarCardsData.slice(0, 2);
       } else {
         x = this.SimilarCardsData.slice(0, 4);
@@ -70,7 +70,7 @@ export default {
       column-gap: 1.944vw;
     }
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1240px) {
     padding: 0 5.556vw 2vw 5.556vw;
     &__title {
       font-size: 2.083vw;

@@ -154,7 +154,7 @@ export default {
     margin-top: 0.7vw;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1439.98px) {
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
   .request {
     padding: 7.813vw 4.688vw;
     display: grid;
@@ -232,7 +232,7 @@ export default {
     margin-top: 0.7vw;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1240px) {
   .request {
     padding: 8.333vw 5.556vw;
     display: grid;

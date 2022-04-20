@@ -127,7 +127,7 @@
     }
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1240px) {
   .footer {
     padding: 2.639vw 5.556vw;
 

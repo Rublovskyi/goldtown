@@ -75,7 +75,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1439.98px) {
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
   .sample {
     padding: 7.813vw 4.688vw;
     background-color: var(--light-bg);
@@ -112,7 +112,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1240px) {
   .sample {
     padding: 8.333vw 5.556vw;
     background-color: var(--light-bg);

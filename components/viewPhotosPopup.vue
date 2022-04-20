@@ -75,7 +75,7 @@ export default {
       height: 90vh;
       border-radius: 0.781vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       width: 73.889vw;
       height: 90vh;
       border-radius: 0.417vw;
@@ -108,7 +108,7 @@ export default {
       height: 6.51vw;
       background-size: 2.604vw 2.604vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       top: 3.472vw;
       right: 5.556vw;
       width: 3.472vw;
@@ -153,7 +153,7 @@ export default {
         right: 1.302vw;
       }
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       &-left,
       &-right {
         width: 3.472vw;

@@ -94,12 +94,12 @@ export default {
     padding: 3.906vw 4.688vw 3.906vw 4.688vw;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1240px) {
     padding: 5.417vw 5.556vw 5.417vw 5.556vw;
   }
 
   &__wrap {
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       display: grid;
       grid-template-columns: 36.25vw 1fr;
       column-gap: 1.389vw;
@@ -142,7 +142,7 @@ export default {
         }
       }
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       margin-top: 0;
       padding: 3.472vw;
       border-radius: 0.417vw;
@@ -182,7 +182,7 @@ export default {
           font-size: 1.823vw;
         }
       }
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1240px) {
         margin-bottom: 1.389vw;
         & .title {
           font-size: 1.111vw;
@@ -205,7 +205,7 @@ export default {
       font-size: 2.083vw;
       margin-top: 5.208vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       font-size: 1.111vw;
       margin-top: 2.778vw;
     }
@@ -262,7 +262,7 @@ export default {
         }
       }
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       gap: 1.389vw;
 
       &-wrap {

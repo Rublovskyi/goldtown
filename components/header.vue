@@ -1,5 +1,5 @@
 <template lang="pug">
-    .header(:class="{'show': showMenu}")
+    .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
         n-link.header__logo(:to="('/')")
             img(src="../assets/Logo.png")
         .header__wrap(:class="{'show': showMenu}")
@@ -26,6 +26,8 @@ export default {
   data() {
     return {
       showMenu: false,
+      scrollPrev: 0,
+      headerUnvisible: false,
     };
   },
   methods: {
@@ -42,9 +44,22 @@ export default {
       this.showMenu = false;
       this.$router.replace({ path: `/#${type}` });
     },
+    scrollViewHeader() {
+      window.addEventListener("scroll", () => {
+        let scrolled = window.scrollY;
+
+        if (scrolled > 100 && scrolled > this.scrollPrev) {
+          this.headerUnvisible = true;
+        } else {
+          this.headerUnvisible = false;
+        }
+        this.scrollPrev = scrolled;
+      });
+    },
   },
   mounted() {
     document.body.style.overflow = "";
+    this.scrollViewHeader();
   },
 };
 </script>
@@ -57,6 +72,7 @@ export default {
     color: var(--primary-color);
     padding: 6.25vw 5vw;
     background-color: #fff;
+    transition: all 500ms ease;
 
     position: fixed;
     top: 0;
@@ -169,14 +185,15 @@ export default {
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1439.98px) {
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--primary-color);
-    padding: 3.906vw 4.688vw;
+    padding: 2.106vw 4.688vw;
     background-color: #fff;
+    transition: all 500ms ease;
 
     position: fixed;
     top: 0;
@@ -288,14 +305,15 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1240px) {
   .header {
     display: grid;
     grid-template-columns: 35% 65%;
     align-items: center;
     color: var(--primary-color);
-    padding: 1.111vw 5.556vw;
+    padding: 0.5vw 5.556vw;
     background-color: #fff;
+    transition: all 500ms ease;
 
     position: fixed;
     top: 0;
@@ -379,5 +397,9 @@ export default {
       display: none;
     }
   }
+}
+
+.header.headerUnvisible {
+  transform: translateY(-100%);
 }
 </style>

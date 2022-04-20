@@ -136,7 +136,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1240px) {
   .hero {
     padding-top: 5.556vw;
     background-image: linear-gradient(

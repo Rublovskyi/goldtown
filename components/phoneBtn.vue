@@ -1,6 +1,6 @@
 <template lang="pug">
     .btn
-        a.btn__num(href="tel:+380679986959") +38(067)9986959
+        a.btn__num(href="tel:+380984732501") +380(98)473-25-01
         .btn__icon
             img(src="~/assets/svg/phoneFixed.svg")
 </template>
@@ -22,7 +22,7 @@
     padding: 2.083vw;
     border-radius: 0.781vw;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1240px) {
     bottom: 9.722vw;
     padding: 1.389vw;
     border-radius: 0.417vw;
@@ -38,7 +38,7 @@
         width: 2.083vw;
         height: 2.083vw;
       }
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1240px) {
         width: 1.806vw;
         height: 1.806vw;
       }
@@ -52,7 +52,7 @@
     @media screen and (min-width: 768px) {
       font-size: 1.823vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       font-size: 1.389vw;
     }
   }
@@ -63,7 +63,7 @@
     @media screen and (min-width: 768px) {
       border-radius: 0.781vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       border-radius: 0.347vw;
     }
   }
@@ -74,7 +74,7 @@
     @media screen and (min-width: 768px) {
       margin-right: 0.651vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       margin-right: 1.042vw;
     }
   }

@@ -73,7 +73,7 @@ export default {
   @media screen and (min-width: 768px) {
     padding: 3.906vw 4.688vw 0 4.688vw;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1240px) {
     padding: 0 0 0 0;
     background-color: var(--light-bg);
     position: relative;
@@ -121,7 +121,7 @@ export default {
       }
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       display: none;
     }
   }
@@ -148,7 +148,7 @@ export default {
         transform: translateX(-50%);
       }
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       display: block;
       position: relative;
       // width: 26.736vw;
@@ -191,7 +191,7 @@ export default {
       }
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       padding: 5.556vw 0 8.333vw 2.5vw;
 
       &-wraper {
@@ -206,7 +206,7 @@ export default {
       left: 50%;
       transform: translateX(-50%);
 
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1240px) {
         top: 13.889vw;
         left: auto;
         right: 30.764vw;
@@ -227,7 +227,7 @@ export default {
         width: 6.25vw;
         height: 6.25vw;
       }
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1240px) {
         width: 3.333vw;
         height: 3.333vw;
       }
@@ -241,7 +241,7 @@ export default {
         font-size: 2.25vw;
         margin-top: 2.083vw;
       }
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1240px) {
         font-size: 1.667vw;
         margin-top: 1.111vw;
       }
@@ -285,7 +285,7 @@ export default {
         font-size: 1.823vw;
       }
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       padding-bottom: 2.083vw;
       margin-top: 2.778vw;
       &-left {

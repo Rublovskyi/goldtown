@@ -36,7 +36,7 @@
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1439.98px) {
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
   .about {
     padding: 7.813vw 4.688vw;
     position: relative;
@@ -65,7 +65,7 @@
     }
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1240px) {
   .about {
     display: flex;
     justify-content: flex-end;

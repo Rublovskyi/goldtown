@@ -109,7 +109,7 @@ export default {
       border-radius: 1.302vw;
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       width: 40.278vw;
       min-height: 37.986vw;
       padding: 4.167vw;
@@ -132,7 +132,7 @@ export default {
       top: 3.906vw;
       right: 4.948vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       width: 1.389vw;
       height: 1.389vw;
       top: 2.778vw;
@@ -151,7 +151,7 @@ export default {
     @media screen and (min-width: 768px) {
       font-size: 3.125vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       font-size: 2.083vw;
     }
   }
@@ -168,7 +168,7 @@ export default {
       font-size: 2.083vw;
       margin-left: 1.302vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       margin-top: 2.083vw;
       font-size: 1.111vw;
       margin-left: 0.694vw;
@@ -186,7 +186,7 @@ export default {
       border-radius: 0.781vw;
       border: 0.13vw solid rgba(54, 54, 54, 0.4);
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       height: 4.167vw;
       margin-top: 0.972vw;
       border-radius: 0.417vw;
@@ -214,7 +214,7 @@ export default {
       margin-top: 5.99vw;
       border-radius: 0.781vw;
     }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1240px) {
       height: 3.542vw;
       font-size: 1.2vw;
       margin-top: 2.778vw;
@@ -233,7 +233,7 @@ export default {
     font-size: 1.563vw;
     margin-top: 1.302vw;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1240px) {
     font-size: 1.11vw;
     margin-top: 0.7vw;
   }
