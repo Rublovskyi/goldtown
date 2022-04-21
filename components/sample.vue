@@ -19,7 +19,7 @@ export default {
           img: require("~/assets/sample/commerce.png"),
         },
         {
-          text: "Пакомісце",
+          text: "Паркомісце",
           link: "/purchase/parking",
           img: require("~/assets/sample/parking.png"),
         },
