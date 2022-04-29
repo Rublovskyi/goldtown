@@ -5,12 +5,11 @@
             span.text Фiльтри
         .buy__console(:class="{'open': showFilters}")
             FilterWrap.buy__console-wrap(:categoryes="Categories" :typePage="type")
-        .buy__cards(v-if="PurchaseData.length !== 0")
+        .buy__cards(v-if="PurchaseData.length !== 0" id="cards")
             .buy__cards-wraper
                 Card(v-for="(card, i) in PurchaseCardsData" :key="i" :card="card")
-            .buy__pagination(v-if="PurchaseData.length > 6")
-                button.buy__pagination-left(@click="handlerPagination('back')" :disabled="page === 0") Назад
-                button.buy__pagination-left(@click="handlerPagination('next')" :disabled="disabledNext")  Вперед
+            .buy__pagination
+                vs-pagination( :total-pages="totalPages()" @change="changePage" :hide-prev-next="true")
         .buy__cards(v-if="PurchaseData.length === 0")
             .buy__cards-wrap
                 p.buy__cards-icon
@@ -30,24 +29,23 @@ export default {
     }),
   },
   methods: {
-    handlerPagination(type) {
-      let arrLength = this.PurchaseData.length;
-      if (type === "back") {
-        this.disabledNext = false;
-        this.page = this.page - 1;
-        this.$store.commit("app/PAGINATION_PUECHASE", this.page);
-      }
-      if (type === "next") {
-        this.page = this.page + 1;
-        let x = 6 * (this.page + 1);
-        this.$store.commit("app/PAGINATION_PUECHASE", this.page);
-        if (arrLength - x < 6) {
-          this.disabledNext = true;
-        }
-      }
+    changePage(page) {
+      this.page = page - 1;
+      this.$store.commit("app/PAGINATION_PUECHASE", this.page);
+      this.goto();
+    },
+    totalPages() {
+      let x = this.PurchaseData.length / 6;
+      let y = Math.ceil(x);
+      return y;
     },
     openFilters() {
       this.showFilters = true;
+    },
+    goto() {
+      document.getElementById("cards").scrollIntoView({
+        behavior: "smooth",
+      });
     },
   },
   data() {
@@ -61,6 +59,7 @@ export default {
   components: {
     Card,
     FilterWrap,
+    // Paginate,
   },
 };
 </script>
@@ -171,6 +170,8 @@ export default {
     padding: 5.556vw 0 8.333vw 0;
     position: relative;
     z-index: 0;
+    width: 100%;
+    height: 100%;
 
     &-wraper {
       & > :not(:last-child) {
@@ -248,13 +249,14 @@ export default {
     }
   }
   &__pagination {
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
     padding-bottom: 9.375vw;
 
     margin-top: 12.5vw;
-    margin-right: auto;
-    margin-left: auto;
+    // margin-right: auto;
+    margin-left: 0%;
+    // margin-left: auto;
     &-left {
       margin-right: 4.688vw;
     }

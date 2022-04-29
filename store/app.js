@@ -22,7 +22,7 @@ export const actions = {
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Пакомісце",
+        $eq: "Паркомісце",
       };
     }
     if (slug == "stead") {
@@ -39,6 +39,8 @@ export const actions = {
       const response = await this.$axios.get(
         `/api/products?populate=*&${query}`
       );
+
+      console.log(response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
@@ -68,7 +70,7 @@ export const actions = {
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Пакомісце",
+        $eq: "Паркомісце",
       };
     }
     if (slug == "stead") {
@@ -118,7 +120,7 @@ export const actions = {
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Пакомісце",
+        $eq: "Паркомісце",
       };
     }
     if (slug == "stead") {
@@ -359,7 +361,7 @@ export const state = () => ({
       selected: false,
     },
     {
-      name: "Пакомісце",
+      name: "Паркомісце",
       slug: "parking",
       selected: false,
     },
@@ -391,7 +393,7 @@ export const state = () => ({
       selected: false,
     },
     {
-      name: "Пакомісце",
+      name: "Паркомісце",
       slug: "parking",
       selected: false,
     },
