@@ -290,6 +290,7 @@ export default {
     @media screen and (min-width: 1240px) {
       padding-bottom: 2.083vw;
       margin-top: 2.778vw;
+      margin-left: -9%;
       &-left {
         margin-right: 1.042vw;
       }
