@@ -9,7 +9,6 @@ export default {
   methods: {
     test() {
       this.openbtn = !this.openbtn;
-      console.log(this.openbtn);
     },
   },
   data() {

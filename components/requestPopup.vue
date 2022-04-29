@@ -178,18 +178,21 @@ export default {
     width: 100%;
     height: 15.625vw;
     margin-top: 4.375vw;
+    font-size: 4vw;
     border-radius: 1.875vw;
     border: 0.313vw solid rgba(54, 54, 54, 0.4);
     @media screen and (min-width: 768px) {
       height: 6.51vw;
       margin-top: 1.823vw;
       border-radius: 0.781vw;
+      font-size: 2.083vw;
       border: 0.13vw solid rgba(54, 54, 54, 0.4);
     }
     @media screen and (min-width: 1240px) {
       height: 4.167vw;
       margin-top: 0.972vw;
       border-radius: 0.417vw;
+      font-size: 1.111vw;
       border: 0.069vw solid rgba(54, 54, 54, 0.4);
     }
   }
