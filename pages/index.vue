@@ -49,4 +49,7 @@ export default {
 .main-page {
   position: relative;
 }
+.header {
+  position: fixed;
+}
 </style>

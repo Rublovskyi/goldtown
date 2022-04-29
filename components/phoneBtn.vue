@@ -1,9 +1,24 @@
 <template lang="pug">
-    .btn
+    .btn( :class="{'openbtn': openbtn }")
         a.btn__num(href="tel:+380984732501") +380(98)473-25-01
-        .btn__icon
+        .btn__icon(@click="test")
             img(src="~/assets/svg/phoneFixed.svg")
 </template>
+<script>
+export default {
+  methods: {
+    test() {
+      this.openbtn = !this.openbtn;
+      console.log(this.openbtn);
+    },
+  },
+  data() {
+    return {
+      openbtn: false,
+    };
+  },
+};
+</script>
 <style lang="scss" scoped>
 .btn {
   position: fixed;
@@ -57,7 +72,7 @@
     }
   }
   &:hover,
-  &:focus {
+  &.openbtn {
     border-radius: 1.875vw;
     background-color: var(--hover-color);
 
@@ -69,7 +84,7 @@
     }
   }
   &:hover .btn__num,
-  &:focus .btn__num {
+  &.openbtn .btn__num {
     display: block;
     opacity: 1;
     margin-right: 1.563vw;

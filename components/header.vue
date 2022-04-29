@@ -74,7 +74,7 @@ export default {
     background-color: #fff;
     transition: all 500ms ease;
 
-    position: fixed;
+    // position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -195,7 +195,7 @@ export default {
     background-color: #fff;
     transition: all 500ms ease;
 
-    position: fixed;
+    // position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -315,7 +315,7 @@ export default {
     background-color: #fff;
     transition: all 500ms ease;
 
-    position: fixed;
+    // position: fixed;
     top: 0;
     left: 0;
     right: 0;
