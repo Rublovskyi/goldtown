@@ -1,7 +1,7 @@
 <template lang="pug">
     .btn(@click="test" :class="{'openbtn': openbtn }")
         a.btn__num(href="tel:+380984732501") +380(98)473-25-01
-        .btn__icon(@click="test")
+        .btn__icon
             img(src="~/assets/svg/phoneFixed.svg")
 </template>
 <script>
@@ -71,28 +71,54 @@ export default {
       font-size: 1.389vw;
     }
   }
-  &:hover,
-  &.openbtn {
-    border-radius: 1.875vw;
-    background-color: var(--hover-color);
 
-    @media screen and (min-width: 768px) {
-      border-radius: 0.781vw;
+  @media screen and (max-width: 1239.98px) {
+    &.openbtn {
+      border-radius: 1.875vw;
+      background-color: var(--hover-color);
+
+      @media screen and (min-width: 768px) {
+        border-radius: 0.781vw;
+      }
+      @media screen and (min-width: 1240px) {
+        border-radius: 0.347vw;
+      }
     }
-    @media screen and (min-width: 1240px) {
-      border-radius: 0.347vw;
+    &.openbtn .btn__num {
+      display: block;
+      opacity: 1;
+      margin-right: 1.563vw;
+      @media screen and (min-width: 768px) {
+        margin-right: 0.651vw;
+      }
+      @media screen and (min-width: 1240px) {
+        margin-right: 1.042vw;
+      }
     }
   }
-  &:hover .btn__num,
-  &.openbtn .btn__num {
-    display: block;
-    opacity: 1;
-    margin-right: 1.563vw;
-    @media screen and (min-width: 768px) {
-      margin-right: 0.651vw;
+
+  @media screen and (min-width: 1240px) {
+    &:hover {
+      border-radius: 1.875vw;
+      background-color: var(--hover-color);
+
+      @media screen and (min-width: 768px) {
+        border-radius: 0.781vw;
+      }
+      @media screen and (min-width: 1240px) {
+        border-radius: 0.347vw;
+      }
     }
-    @media screen and (min-width: 1240px) {
-      margin-right: 1.042vw;
+    &:hover .btn__num {
+      display: block;
+      opacity: 1;
+      margin-right: 1.563vw;
+      @media screen and (min-width: 768px) {
+        margin-right: 0.651vw;
+      }
+      @media screen and (min-width: 1240px) {
+        margin-right: 1.042vw;
+      }
     }
   }
 }

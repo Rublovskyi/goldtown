@@ -1,11 +1,11 @@
 <template lang="pug">
-    .buy 
+    .buy(id="cards")
         .buy__filter(:class="{'close': showFilters}" @click="openFilters")
             span.icon
             span.text Фiльтри
         .buy__console(:class="{'open': showFilters}")
             FilterWrap.buy__console-wrap(:categoryes="Categories" :typePage="type")
-        .buy__cards(v-if="CommerceData.length !== 0" id="cards")
+        .buy__cards(v-if="CommerceData.length !== 0" )
             .buy__cards-wraper
                 Card(v-for="(card, i) in CommerceCardsData" :key="i" :card="card")
             .buy__pagination
