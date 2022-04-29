@@ -1,5 +1,5 @@
 <template lang="pug">
-    .btn( :class="{'openbtn': openbtn }")
+    .btn(@click="test" :class="{'openbtn': openbtn }")
         a.btn__num(href="tel:+380984732501") +380(98)473-25-01
         .btn__icon(@click="test")
             img(src="~/assets/svg/phoneFixed.svg")
