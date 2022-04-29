@@ -5,10 +5,10 @@
         .header__wrap(:class="{'show': showMenu}")
             .header__menu
                 .header__list
-                    .header__item(:to="('/#about')" @click="replase('about')") Про нас
+                    .header__item( @click="replase('about')") Про нас
                     n-link.header__item(:to="('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
                     n-link.header__item(:to="('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
-                    .header__item(:to="('/#request')" @click="replase('request')") Залишити заявку
+                    .header__item( @click="replase('request')") Залишити заявку
                 a.header__number(href="tel:+380984732501") 
                     span.header__number-icon
                     span +380(98)473-25-01
@@ -42,6 +42,7 @@ export default {
     },
     replase(type) {
       this.showMenu = false;
+      document.body.style.overflow = "";
       this.$router.replace({ path: `/#${type}` });
     },
     scrollViewHeader() {
