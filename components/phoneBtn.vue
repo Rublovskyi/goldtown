@@ -56,7 +56,8 @@
       font-size: 1.389vw;
     }
   }
-  &:hover {
+  &:hover,
+  &:focus {
     border-radius: 1.875vw;
     background-color: var(--hover-color);
 
@@ -67,7 +68,8 @@
       border-radius: 0.347vw;
     }
   }
-  &:hover .btn__num {
+  &:hover .btn__num,
+  &:focus .btn__num {
     display: block;
     opacity: 1;
     margin-right: 1.563vw;
