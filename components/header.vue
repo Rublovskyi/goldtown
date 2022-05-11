@@ -37,12 +37,16 @@ export default {
         this.showMenu = false;
       } else {
         document.body.style.overflow = "hidden";
+        this.$gtag("event", "showMenu", {
+          event_category: "show menu",
+        });
         this.showMenu = true;
       }
     },
     replase(type) {
       this.showMenu = false;
       document.body.style.overflow = "";
+
       this.$router.replace({ path: `/#${type}` });
     },
     scrollViewHeader() {
