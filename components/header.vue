@@ -37,9 +37,6 @@ export default {
         this.showMenu = false;
       } else {
         document.body.style.overflow = "hidden";
-        this.$gtag("event", "showMenu", {
-          event_category: "show menu",
-        });
         this.showMenu = true;
       }
     },
