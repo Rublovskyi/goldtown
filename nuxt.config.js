@@ -27,7 +27,31 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", "@nuxtjs/google-gtag"],
+  modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/google-gtag",
+    [
+      "nuxt-i18n",
+      {
+        //trailingSlashes: true,
+        //trailingSlash: true,
+        seo: true,
+        detectBrowserLanguage: false,
+        locales: [
+          { code: "ru", iso: "ru_RU" },
+          { code: "ua", iso: "uk_UA" },
+        ],
+        defaultLocale: "ua",
+        vueI18n: {
+          fallbackLocale: "ua",
+          messages: {
+            ru: require("./lang/ru.json"),
+            ua: require("./lang/ua.json"),
+          },
+        },
+      },
+    ],
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

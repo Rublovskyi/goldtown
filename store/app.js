@@ -1,5 +1,5 @@
 export const actions = {
-  async getDataPurchase({ commit }, slug) {
+  async getDataPurchase({ commit }, { slug, locale }) {
     const qs = require("qs");
 
     let filters = {
@@ -37,10 +37,10 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}`
+        `/api/products?populate=*&${query}&locale=${locale}`
       );
 
-      console.log(response);
+      console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
@@ -48,7 +48,7 @@ export const actions = {
       console.log(err);
     }
   },
-  async getDataCommerce({ commit }, slug) {
+  async getDataCommerce({ commit }, { slug, locale }) {
     const qs = require("qs");
 
     let filters = {
@@ -89,8 +89,9 @@ export const actions = {
     });
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}`
+        `/api/products?populate=*&${query}&locale=${locale}`
       );
+
       commit("UPDATE_COMMERCE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
@@ -189,13 +190,13 @@ export const actions = {
       console.log(err);
     }
   },
-  async getDataCurrentPease({ commit }, id) {
+  async getDataCurrentPease({ commit }, { slug, locale }) {
     const qs = require("qs");
     const query = qs.stringify(
       {
         filters: {
           id: {
-            $eq: id,
+            $eq: slug,
           },
         },
       },
@@ -206,8 +207,10 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}`
+        `/api/products?populate=*&${query}&locale=${locale}`
       );
+
+      console.log("response", response);
       commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0]);
     } catch (err) {
       console.log(err);
@@ -337,6 +340,7 @@ export const mutations = {
   },
 };
 export const state = () => ({
+  lang: "en",
   PurchaseData: [],
   CommerceData: [],
   CurrentPeaseData: {},

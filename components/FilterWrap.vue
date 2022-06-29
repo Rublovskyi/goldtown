@@ -3,7 +3,7 @@
         .filter__close(@click="filterClose")
         .filter__category
             h2.title Вибiр категорії
-            n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="(`/${typePage}/${category.slug}`)") 
+            n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="localePath(`/${typePage}/${category.slug}`)") 
                 span.box
                 span.text {{category.name}}
         .filter__wrap

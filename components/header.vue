@@ -1,13 +1,13 @@
 <template lang="pug">
     .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
-        n-link.header__logo(:to="('/')")
+        n-link.header__logo(:to="localePath('/')")
             img(src="../assets/Logo.png")
         .header__wrap(:class="{'show': showMenu}")
             .header__menu
                 .header__list
                     .header__item( @click="replase('about')") Про нас
-                    n-link.header__item(:to="('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
-                    n-link.header__item(:to="('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
+                    n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
+                    n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
                     .header__item( @click="replase('request')") Залишити заявку
                 a.header__number(href="tel:+380984732501") 
                     span.header__number-icon

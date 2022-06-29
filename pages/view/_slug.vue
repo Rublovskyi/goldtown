@@ -43,8 +43,22 @@ export default {
   },
   mounted() {
     this.$store.commit("app/CLEAR_SIMILAR_DATA");
-    let slug = this.$route.params.slug;
-    this.$store.dispatch("app/getDataCurrentPease", slug);
+    // let slug = this.$route.params.slug;
+
+    let locale = this._i18n.locale;
+
+    if (locale === "ru") {
+      locale = "ru";
+    } else {
+      locale = "en";
+    }
+
+    let data = {
+      slug: this.$route.params.slug,
+      locale: locale,
+    };
+
+    this.$store.dispatch("app/getDataCurrentPease", data);
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template lang="pug">
     //- .card(v-if="card")
     .card
-        n-link.card__image(:to="('/view/' + card.id)")
+        n-link.card__image(:to="localePath('/view/' + card.id)")
             img(:src="test()")
         .card__info 
             .card__title(v-if="card.attributes.title || card.attributes.adress")
@@ -29,7 +29,7 @@
                 .card__item(v-if="card.attributes.annual_income") 
                     span.title  Річний дохід($): 
                     span.amount {{card.attributes.annual_income}}
-            n-link.card__btn-more(:to="('/view/' + card.id)")  Детальнішe
+            n-link.card__btn-more( :to="localePath('/view/' + card.id)" )  Детальнішe
 </template>
 <script>
 export default {

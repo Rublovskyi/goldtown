@@ -1,15 +1,32 @@
 <template lang="pug">
     .footer 
-        n-link.footer__logo(:to="('/')")
-            img(src="../assets/logoLight.png")
+        .footer__wrap
+            n-link.footer__logo(:to="localePath('/')")
+                img(src="../assets/logoLight.png")
+            Lang.footer__lang.footer__mobile
         .footer__info
-            a.footer__number(href="tel:+380984732501") 
-                span.footer__number-icon
-                span +380(98)473-25-01
-            a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
-                span.footer__address-icon
-                span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1Б
+            .footer__social 
+                Lang.footer__lang.footer__desc
+                .footer__social-wrap
+                    .footer__social-item
+                    .footer__social-item
+                Lang.footer__lang.footer__tablet
+            .footer__wrapper
+                a.footer__number(href="tel:+380984732501") 
+                    span.footer__number-icon
+                    span +380(98)473-25-01
+                a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
+                    span.footer__address-icon
+                    span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1Б
 </template>
+<script>
+import Lang from "~/components/lang.vue";
+export default {
+  components: {
+    Lang,
+  },
+};
+</script>
 <style lang="scss" scoped>
 @media screen and (max-width: 767.98px) {
   .footer {
@@ -18,6 +35,39 @@
     padding: 9.375vw 5vw;
     position: relative;
     z-index: 120;
+
+    &__wrap {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    &__desc,
+    &__tablet {
+      display: none;
+    }
+
+    &__lang {
+      margin-bottom: 10px;
+    }
+    &__social {
+      color: #fff;
+      font-size: 5vw;
+      margin-bottom: 5vw;
+
+      &-item {
+        width: 10.25vw;
+        height: 10.25vw;
+        border-radius: 50%;
+        background-color: #fff;
+
+        margin-right: 3vw;
+      }
+
+      &-wrap {
+        display: flex;
+      }
+    }
     &__logo {
       display: block;
       height: 12.5vw;
@@ -94,6 +144,30 @@
         transform: scale(0.95);
       }
     }
+    &__mobile,
+    &__desc {
+      display: none;
+    }
+    &__social {
+      color: #fff;
+      font-size: 2.083vw;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.083vw;
+
+      &-wrap {
+        display: flex;
+      }
+      &-item {
+        width: 4.25vw;
+        height: 4.25vw;
+        border-radius: 50%;
+        background-color: #fff;
+
+        margin-right: 1.4vw;
+      }
+    }
     &__number,
     &__address {
       color: #fff;
@@ -134,6 +208,36 @@
     &__logo {
       height: 3.653vw;
       width: 12.431vw;
+    }
+
+    &__tablet {
+      display: none;
+    }
+    &__desc {
+      display: block;
+      margin-right: 2vw;
+    }
+
+    &__lang {
+      margin-bottom: 0.5vw;
+    }
+
+    &__info {
+      display: flex;
+    }
+
+    &__social {
+      font-size: 1.111vw;
+      margin-bottom: 1.111vw;
+      &-item {
+        width: 2.25vw;
+        height: 2.25vw;
+
+        margin-right: 0.7vw;
+      }
+      &-wrap {
+        margin-right: 2vw;
+      }
     }
     &__number,
     &__address {

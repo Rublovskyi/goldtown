@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
 .btn {
   position: fixed;
-  bottom: 19.722vw;
+  bottom: 79.722vw;
   right: 5.6vw;
   display: flex;
   align-items: flex-end;
@@ -32,12 +32,12 @@ export default {
   z-index: 121;
 
   @media screen and (min-width: 768px) {
-    bottom: 9.722vw;
+    bottom: 25.722vw;
     padding: 2.083vw;
     border-radius: 0.781vw;
   }
   @media screen and (min-width: 1240px) {
-    bottom: 9.722vw;
+    bottom: 13.722vw;
     padding: 1.389vw;
     border-radius: 0.417vw;
   }

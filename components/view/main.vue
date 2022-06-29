@@ -50,6 +50,9 @@ export default {
       info: (state) => state.app.CurrentPeaseData.attributes,
     }),
   },
+  mounted() {
+    console.log("main this info", this.info);
+  },
   data() {
     return {
       testImg: require("~/assets/noPhoto.png"),

@@ -24,9 +24,28 @@ export default {
     Houses,
     PhoneBtn,
   },
+  methods: {
+    getData(data) {
+      this.$store.dispatch("app/getDataPurchase", data);
+    },
+  },
   mounted() {
-    let slug = this.$route.params.slug;
-    this.$store.dispatch("app/getDataPurchase", slug);
+    let locale = this._i18n.locale;
+
+    let x;
+
+    if (locale === "ru") {
+      x = "ru";
+    } else {
+      x = "en";
+    }
+
+    let data = {
+      slug: this.$route.params.slug,
+      locale: x,
+    };
+
+    this.getData(data);
   },
 };
 </script>
