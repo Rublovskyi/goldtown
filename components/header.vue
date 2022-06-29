@@ -5,7 +5,7 @@
         .header__wrap(:class="{'show': showMenu}")
             .header__menu
                 .header__list
-                    .header__item( @click="replase('about')") Про нас
+                    .header__item( @click="replase('about')") {{ $t('header.about_us') }}
                     n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
                     n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
                     .header__item( @click="replase('request')") Залишити заявку

@@ -3,15 +3,9 @@
   "our_vacancies": "Наши вакансии",
   "lang_url": "",
   "title": "Ru",
-  "main": {
-    "view_all_cases": "Смотреть все кейсы",
-    "next": "далее",
-    "open_case": "открыть кейс",
-    "open": "открыть",
-    "case": "кейс",
-    "kyiv_ukraine": "Киев, Украина",
-    "privacy_policy": "Privacy Policy",
-    "terms_of_use": "Terms of Use"
+
+  "header": {
+    "about_us": "О нас"
   },
   "cases": {
     "realized": "реализованных",
