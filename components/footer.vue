@@ -3,14 +3,17 @@
         .footer__wrap
             n-link.footer__logo(:to="localePath('/')")
                 img(src="../assets/logoLight.png")
-            Lang.footer__lang.footer__mobile
+            .footer__mobile
+                Lang.footer__lang
         .footer__info
             .footer__social 
-                Lang.footer__lang.footer__desc
+                .footer__desc
+                    Lang.footer__lang
                 .footer__social-wrap
                     .footer__social-item
                     .footer__social-item
-                Lang.footer__lang.footer__tablet
+                .footer__tablet
+                    Lang.footer__lang
             .footer__wrapper
                 a.footer__number(href="tel:+380984732501") 
                     span.footer__number-icon
