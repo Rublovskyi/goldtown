@@ -25,7 +25,8 @@ export default {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.16)
       ),
-      url(../assets/heroBG.jpg);
+      image-set(url(../assets/heroBG.jpg) 1x, url(../assets/heroBG.webp) 1x);
+
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -81,7 +82,7 @@ export default {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.16)
       ),
-      url(../assets/heroBG.jpg);
+      image-set(url(../assets/heroBG.jpg) 1x, url(../assets/heroBG.webp) 1x);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -144,7 +145,7 @@ export default {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.16)
       ),
-      url(../assets/heroBG.jpg);
+      image-set(url(../assets/heroBG.jpg) 1x, url(../assets/heroBG.webp) 1x);
     &__wrap {
       padding: 0 5.417vw;
     }
