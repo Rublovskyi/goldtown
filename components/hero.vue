@@ -144,7 +144,7 @@ export default {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.16)
       ),
-      url(../assets/heroBG.png);
+      url(../assets/heroBG.webP);
     &__wrap {
       padding: 0 5.417vw;
     }
