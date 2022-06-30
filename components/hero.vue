@@ -25,7 +25,7 @@ export default {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.16)
       ),
-      url(../assets/heroBG.png);
+      url(../assets/heroBG.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -81,7 +81,7 @@ export default {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 0.16)
       ),
-      url(../assets/heroBG.png);
+      url(../assets/heroBG.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
