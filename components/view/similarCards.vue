@@ -35,7 +35,16 @@ export default {
     },
   },
   mounted() {
+    let locale = this._i18n.locale;
+
+    if (locale === "ru") {
+      locale = "ru";
+    } else {
+      locale = "en";
+    }
+
     let data = {
+      locale: locale,
       type: this.CurrentPeaseData.purchase_type,
       filter: this.CurrentPeaseData.product_type,
     };

@@ -144,6 +144,13 @@ export default {
       }
     },
     handlerFilteredData() {
+      let locale = this._i18n.locale;
+
+      if (locale === "ru") {
+        locale = "ru";
+      } else {
+        locale = "en";
+      }
       let slug = this.$route.params.slug;
       let type = this.typePage;
       if (this.errorTextPrice === "") {
@@ -159,6 +166,7 @@ export default {
           slug,
           data,
           type,
+          locale,
         });
         this.$parent.showFilters = false;
       }

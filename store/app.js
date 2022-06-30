@@ -98,7 +98,7 @@ export const actions = {
       console.log(err);
     }
   },
-  async getFilteredDataPurchase({ commit }, { slug, data, type }) {
+  async getFilteredDataPurchase({ commit }, { slug, data, type, locale }) {
     const qs = require("qs");
 
     let filters = {
@@ -178,7 +178,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}`
+        `/api/products?populate=*&${query}&locale=${locale}`
       );
 
       if (type === "purchase") {
@@ -236,7 +236,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}`
+        `/api/products?populate=*&${query}&locale=${data.locale}`
       );
 
       commit("UPDATE_SIMILAR_PROPOSAL", response.data.data);
