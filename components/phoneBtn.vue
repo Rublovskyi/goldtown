@@ -1,8 +1,8 @@
 <template lang="pug">
     .btn(@click="test" :class="{'openbtn': openbtn }")
         a.btn__num(href="tel:+380984732501") +380(98)473-25-01
-        .btn__icon
-            img(src="~/assets/svg/phoneFixed.svg")
+        button.btn__icon
+            img(src="~/assets/svg/phoneFixed.svg" alt="phone button")
 </template>
 <script>
 export default {
@@ -37,7 +37,7 @@ export default {
     border-radius: 0.781vw;
   }
   @media screen and (min-width: 1240px) {
-    bottom: 13.722vw;
+    bottom: 5.722vw;
     padding: 1.389vw;
     border-radius: 0.417vw;
   }

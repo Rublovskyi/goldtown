@@ -2,31 +2,31 @@
     //- .card(v-if="card")
     .card
         n-link.card__image(:to="localePath('/view/' + card.id)")
-            img(:src="test()")
+            img(:src="test()" :alt="card.attributes.title")
         .card__info 
             .card__title(v-if="card.attributes.title || card.attributes.adress")
-                .card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
-                .card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
-            .card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
-            .card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
-            .card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.payback") {{card.attributes.payback}} роки окупність
+                h3.card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
+                p.card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
+            p.card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
+            p.card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
+            p.card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.payback") {{card.attributes.payback}} роки окупність
             .card__list
-                .card__item(v-if="card.attributes.number_of_rooms")
+                p.card__item(v-if="card.attributes.number_of_rooms")
                     span.title  Кількість кімнат: 
                     span.amount {{card.attributes.number_of_rooms}}
-                .card__item(v-if="card.attributes.floor")
+                p.card__item(v-if="card.attributes.floor")
                     span.title  Поверх: 
                     span.amount {{card.attributes.floor}}
-                .card__item(v-if="card.attributes.apartment_area")
+                p.card__item(v-if="card.attributes.apartment_area")
                     span.title  Площа(м2): 
                     span.amount {{card.attributes.apartment_area}}
-                .card__item(v-if="card.attributes.living_area") 
+                p.card__item(v-if="card.attributes.living_area") 
                     span.title  Житлова площа: 
                     span.amount {{card.attributes.living_area}}
-                .card__item(v-if="card.attributes.parking_type") 
+                p.card__item(v-if="card.attributes.parking_type") 
                     span.title  Тип паркомісця: 
                     span.amount {{card.attributes.parking_type}}
-                .card__item(v-if="card.attributes.annual_income") 
+                p.card__item(v-if="card.attributes.annual_income") 
                     span.title  Річний дохід($): 
                     span.amount {{card.attributes.annual_income}}
             n-link.card__btn-more( :to="localePath('/view/' + card.id)" )  Детальнішe
@@ -92,7 +92,8 @@ export default {
       object-position: center;
     }
   }
-  &__title {
+  &__title,
+  &__subtitle {
     font-weight: 500;
     color: var(--primary-color);
     font-size: 6.25vw;
@@ -104,6 +105,7 @@ export default {
       // height: 6.944vw;
     }
   }
+
   &__address {
     font-weight: 500;
     color: rgba(54, 54, 54, 0.4);

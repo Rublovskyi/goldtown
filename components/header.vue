@@ -1,19 +1,19 @@
 <template lang="pug">
     .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
         n-link.header__logo(:to="localePath('/')")
-            img(src="../assets/Logo.png")
+            img(src="../assets/Logo.png" alt="Logo Gold Town")
         .header__wrap(:class="{'show': showMenu}")
             .header__menu
                 .header__list
-                    .header__item( @click="replase('about')") {{ $t('header.about_us') }}
+                    p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
                     n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
                     n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
-                    .header__item( @click="replase('request')") Залишити заявку
+                    p.header__item( @click="replase('request')") Залишити заявку
                 a.header__number(href="tel:+380984732501") 
                     span.header__number-icon
                     span +380(98)473-25-01
-                .header__menu-close(v-if="showMenu" @click="openMobileMenu") 
-        .header__burger(@click="openMobileMenu")
+                button.header__menu-close(v-if="showMenu" @click="openMobileMenu") 
+        button.header__burger(@click="openMobileMenu")
 </template>
 <script>
 export default {

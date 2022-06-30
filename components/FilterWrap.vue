@@ -1,15 +1,15 @@
 <template lang="pug">
     .filter 
-        .filter__close(@click="filterClose")
+        button.filter__close(@click="filterClose")
         .filter__category
-            h2.title Вибiр категорії
+            p.title Вибiр категорії
             n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="localePath(`/${typePage}/${category.slug}`)") 
                 span.box
                 span.text {{category.name}}
         .filter__wrap
-            h2.title Фiльтри
+            p.title Фiльтри
             .filter__price 
-                .filter__title Цiна
+                p.filter__title Цiна
                 .filter__price-select
                     .filter__price-input
                         input(type="number"  v-model="from" placeholder="Min")
@@ -20,20 +20,20 @@
                         span.dollar $
                 p.error-text {{validate('price')}}
             .filter__type(v-if="numOfRooms.length > 0 && numOfRooms.length > 1" @click="handlerSelectRooms")
-                .filter__title Кількість кімнат
-                .filter__select {{rooms}}
+                p.filter__title Кількість кімнат
+                p.filter__select {{rooms}}
                 ul.filter__select-list(v-if="showRooms")
                     li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
                 p.error-text {{validate('rooms')}}
             .filter__type(v-if="paybackArr.length > 0 && paybackArr.length > 1" @click="handlerSelectPayback")
-                .filter__title Окупність (років)
-                .filter__select {{payback}}
+                p.filter__title Окупність (років)
+                p.filter__select {{payback}}
                 ul.filter__select-list(v-if="showPayback")
                     li.filter__select-item(v-for="(option, i) in paybackArr" :key="i") {{option}}
                 p.error-text {{validate('payback')}}
             .filter__type(v-if="annualIncome.length > 0 && annualIncome.length > 1" @click="handlerSelectIncome")
-                .filter__title Річний дохід ($)
-                .filter__select {{income}}
+                p.filter__title Річний дохід ($)
+                p.filter__select {{income}}
                 ul.filter__select-list(v-if="showIncome")
                     li.filter__select-item(v-for="(option, i) in annualIncome" :key="i") {{option}}
                 p.error-text {{validate('annual_income')}}

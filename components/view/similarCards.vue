@@ -1,6 +1,6 @@
 <template lang="pug">
     .similar(v-if="CurrentPeaseData && SimilarCardsData && ViewPageGetData")
-        .similar__title(v-if="SimilarCardsData.length > 0") Рекомендовано для Вас
+        p.similar__title(v-if="SimilarCardsData.length > 0") Рекомендовано для Вас
         .similar__cards
             Card(v-for="(card, i) in test()" :key="i" :card="card")
 </template>

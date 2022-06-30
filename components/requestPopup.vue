@@ -1,15 +1,15 @@
 <template lang="pug">
     .popup(@click="closePopup")
         .popup__wrap
-            h2.popup__title Залишіть заявку і наш <br/> менеджер Вам перетелефонує
-            .popup__label Ваше ім'я
+            h3.popup__title Залишіть заявку і наш <br/> менеджер Вам перетелефонує
+            p.popup__label Ваше ім'я
             input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
             p.error-text {{errorName}}
-            .popup__label Номер телефону
+            p.popup__label Номер телефону
             input.popup__input(type="number" v-model="phone" v-on:input="validate('phone')")
             p.error-text {{errorPhone}}
             button.popup__btn(@click="postRequestData") Відправити
-            .popup__close
+            button.popup__close
 </template>
 <script>
 export default {

@@ -11,17 +11,17 @@ export default {
         {
           text: "Квартири",
           link: "/purchase/house",
-          img: require("~/assets/sample/house.png"),
+          img: require("~/assets/sample/house.svg"),
         },
         {
           text: "Комерцiя",
           link: "/commerce/all",
-          img: require("~/assets/sample/commerce.png"),
+          img: require("~/assets/sample/commerce.svg"),
         },
         {
           text: "Паркомісце",
           link: "/purchase/parking",
-          img: require("~/assets/sample/parking.png"),
+          img: require("~/assets/sample/parking.svg"),
         },
         {
           text: "Комори",
@@ -31,7 +31,7 @@ export default {
         {
           text: "Земельнi дiлянки",
           link: "/purchase/stead",
-          img: require("~/assets/sample/plot.png"),
+          img: require("~/assets/sample/plot.svg"),
         },
       ],
     };

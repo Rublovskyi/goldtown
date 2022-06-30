@@ -1,9 +1,9 @@
 <template lang="pug">
     .popup 
         .popup__wrap
-            .popup__title Дякуємо! 
-            .popup__subtitle Ваші дані успішно відправлені
-            .popup__text Найближчим часом наші менеджери зв'яжуться з Вами!
+            p.popup__title Дякуємо! 
+            p.popup__subtitle Ваші дані успішно відправлені
+            p.popup__text Найближчим часом наші менеджери зв'яжуться з Вами!
 </template>
 <script>
 export default {

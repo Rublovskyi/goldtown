@@ -1,11 +1,11 @@
 <template lang="pug">
     .photo(v-if="photosData" @click="closePopup")
         .photo__wrap
-            img(:src="`https://api.goldtowncompany.com${photosData.currentImg}`")
+            img(:src="`https://api.goldtowncompany.com${photosData.currentImg}`" alt="Фото")
         .photo__btns-slide(v-if="photosData.images.length > 1" @click="handlerPhotoChange")
             button.photo__btns-slide-left(data-arrow="left")
             button.photo__btns-slide-right(data-arrow="right")
-        .photo__btn-close
+        button.photo__btn-close
 </template>
 <script>
 export default {

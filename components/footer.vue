@@ -2,7 +2,7 @@
     .footer 
         .footer__wrap
             n-link.footer__logo(:to="localePath('/')")
-                img(src="../assets/logoLight.png")
+                img(src="../assets/logoLight.png" alt="Logo Gold Town")
             .footer__mobile
                 Lang.footer__lang
         .footer__info
@@ -10,8 +10,10 @@
                 .footer__desc
                     Lang.footer__lang
                 .footer__social-wrap
-                    .footer__social-item
-                    .footer__social-item
+                    a.footer__social-item(:href="('/')")
+                        img(src="~/assets/svg/facebook.svg" alt="facefook icon")
+                    a.footer__social-item(:href="('/')")
+                        img(src="~/assets/svg/instagram.svg" alt="instagram icon")
                 .footer__tablet
                     Lang.footer__lang
             .footer__wrapper
@@ -59,12 +61,24 @@ export default {
       margin-bottom: 5vw;
 
       &-item {
-        width: 10.25vw;
-        height: 10.25vw;
+        width: 5.25vw;
+        height: 5.25vw;
         border-radius: 50%;
-        background-color: #fff;
+        // background-color: #fff;
 
         margin-right: 3vw;
+        transition: all 500ms ease;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+
+        &:hover {
+          transform: scale(0.95);
+        }
       }
 
       &-wrap {
@@ -134,8 +148,9 @@ export default {
     z-index: 120;
     &__logo {
       height: 6.51vw;
-      width: 23.307vw;
+      width: 10.307vw;
       transition: all 700ms ease;
+      overflow: hidden;
 
       & img {
         height: 100%;
@@ -163,12 +178,26 @@ export default {
         display: flex;
       }
       &-item {
-        width: 4.25vw;
-        height: 4.25vw;
+        width: 2.25vw;
+        height: 2.25vw;
         border-radius: 50%;
-        background-color: #fff;
+        // background-color: #fff;
 
         margin-right: 1.4vw;
+
+        transition: all 500ms ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+        // padding: 2vw;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
       }
     }
     &__number,
@@ -233,10 +262,11 @@ export default {
       font-size: 1.111vw;
       margin-bottom: 1.111vw;
       &-item {
-        width: 2.25vw;
-        height: 2.25vw;
+        width: 1.25vw;
+        height: 1.25vw;
 
-        margin-right: 0.7vw;
+        margin-right: 1vw;
+        margin-bottom: 0.4vw;
       }
       &-wrap {
         margin-right: 2vw;

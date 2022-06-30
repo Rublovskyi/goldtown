@@ -1,0 +1,8 @@
+Host: https://goldtowncompany.com/
+
+Sitemap: https://goldtowncompany.com/sitemap.xml
+
+User-agent: * 
+Disallow: /components/
+Disallow: /plugins/
+Disallow: /lang/

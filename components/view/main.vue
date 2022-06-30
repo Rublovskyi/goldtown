@@ -3,43 +3,43 @@
         .view__wrap
             .view__images
                 .view__images-wrap(v-if="info.image.data" v-for="(img, i) in images()" :key="i" :class="['type'+i]" @click="openPhotoPopup(i)")
-                    img(:src="`https://api.goldtowncompany.com${img.attributes.url}`")
+                    img(:src="`https://api.goldtowncompany.com${img.attributes.url}`" :alt="info.title")
                     p.plus-photo(v-if="i === 2") {{amountPhoto()}} 
                 .view__images-wrap.type0(v-if="!info.image.data")
-                    img(:src="testImg")
+                    img(:src="testImg" alt="Фото отсутствует")
             .view__info 
                 .view__info-main 
-                    .view__info-main-title {{info.title}}
-                    .view__info-main-price {{info.price}}$
+                    h3.view__info-main-title {{info.title}}
+                    p.view__info-main-price {{info.price}}$
                 .view__data
-                    .view__data-type(v-if="info.number_of_rooms") 
+                    p.view__data-type(v-if="info.number_of_rooms") 
                         span.title Кількість кімнат: 
                         span.amount {{info.number_of_rooms}}
-                    .view__data-type(v-if="info.floor") 
+                    p.view__data-type(v-if="info.floor") 
                         span.title Поверх: 
                         span.amount {{info.floor}}
-                    .view__data-type(v-if="info.apartment_area") 
+                    p.view__data-type(v-if="info.apartment_area") 
                         span.title Площа(м2): 
                         span.amount {{info.apartment_area}} м2
-                    .view__data-type(v-if="info.living_area") 
+                    p.view__data-type(v-if="info.living_area") 
                         span.title Житлова площа: 
                         span.amount {{info.living_area}} м2
-                    .view__data-type(v-if="info.parking_type") 
+                    p.view__data-type(v-if="info.parking_type") 
                         span.title Тип паркомісця:
                         span.amount {{info.parking_type}}
-                    .view__data-type(v-if="info.city") 
+                    p.view__data-type(v-if="info.city") 
                         span.title Місто:
                         span.amount {{info.city}}
-                    .view__data-type(v-if="info.annual_income") 
+                    p.view__data-type(v-if="info.annual_income") 
                         span.title Річний дохід:
                         span.amount {{info.annual_income}}
-                    .view__data-type(v-if="info.payback") 
+                    p.view__data-type(v-if="info.payback") 
                         span.title Окупність:
                         span.amount {{info.payback}}
-                    .view__data-type(v-if="info.adress") 
+                    p.view__data-type(v-if="info.adress") 
                         span.title Адреса:
                         span.amount {{info.adress}}
-                .view__desc(v-if="info.sub_title") {{info.sub_title}}
+                p.view__desc(v-if="info.sub_title") {{info.sub_title}}
 </template>
 <script>
 import { mapState } from "vuex";
