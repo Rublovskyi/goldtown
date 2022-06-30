@@ -1,7 +1,7 @@
 <template lang="pug">
     .request
         .request__img-desctop
-            img(src="~/assets/requestImg.png" alt="Залишіть заявку")
+            img(src="~/assets/requestImg.svg" alt="Залишіть заявку")
         .request__box 
             h3.request__box-title Залишіть заявку і наш <br/> менеджер зв'яжеться з Вами!
             p.request__box-label Ваше ім'я
