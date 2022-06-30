@@ -1,6 +1,6 @@
 <template lang="pug">
     .sample
-        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="localePath(`${card.link}`)" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url('${card.img}')`}" :class="`item${i}`")
+        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="localePath(`${card.link}`)" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url('${card.img}') `}" :class="`item${i}`")
             p.sample__item-text {{card.text}}
 </template>
 <script>
@@ -11,27 +11,32 @@ export default {
         {
           text: "Квартири",
           link: "/purchase/house",
-          img: require("~/assets/sample/house.svg"),
+          img: require("~/assets/sample/house.png"),
+          imgW: require("~/assets/sample/house.webp"),
         },
         {
           text: "Комерцiя",
           link: "/commerce/all",
-          img: require("~/assets/sample/commerce.svg"),
+          img: require("~/assets/sample/commerce.png"),
+          imgW: require("~/assets/sample/commerce.webp"),
         },
         {
           text: "Паркомісце",
           link: "/purchase/parking",
-          img: require("~/assets/sample/parking.svg"),
+          img: require("~/assets/sample/parking.png"),
+          imgW: require("~/assets/sample/parking.webp"),
         },
         {
           text: "Комори",
           link: "/purchase/storage",
           img: require("~/assets/sample/storage.png"),
+          imgW: require("~/assets/sample/storage.webp"),
         },
         {
           text: "Земельнi дiлянки",
           link: "/purchase/stead",
-          img: require("~/assets/sample/plot.svg"),
+          img: require("~/assets/sample/plot.png"),
+          imgW: require("~/assets/sample/plot.webp"),
         },
       ],
     };
