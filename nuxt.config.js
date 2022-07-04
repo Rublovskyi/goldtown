@@ -10,6 +10,10 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
+      {
+        name: "google-site-verification",
+        content: "u_37E3Rpb4SfMxGXACc1o3y8lrb0htB95vvsCVlMqO4",
+      },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
   },
