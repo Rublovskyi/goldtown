@@ -42,14 +42,6 @@ export default {
   },
   mounted() {
     this.$refs.header.scrollViewHeader();
-
-    // localStorage.locale = this._i18n.locale;
-
-    // this._i18n.setLocale(localStorage.locale);
-
-    console.log("locale", this._i18n.locale);
-
-    localStorage.locale = this._i18n.locale;
   },
 };
 </script>
