@@ -6,9 +6,9 @@
             .header__menu
                 .header__list
                     p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
-                    n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") Нерухомість
-                    n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") Готовий бізнес
-                    p.header__item( @click="replase('request')") Залишити заявку
+                    n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") {{ $t('header.purchase') }}
+                    n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
+                    p.header__item( @click="replase('request')") {{ $t('header.request') }}
                 a.header__number(href="tel:+380984732501") 
                     span.header__number-icon
                     span +380(98)473-25-01

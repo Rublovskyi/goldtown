@@ -59,14 +59,14 @@ export default {
         detectBrowserLanguage: false,
         locales: [
           { code: "ru", iso: "ru" },
-          { code: "uk", iso: "uk" },
+          { code: "ua", iso: "ua" },
         ],
-        defaultLocale: "uk",
+        defaultLocale: "ua",
         vueI18n: {
-          fallbackLocale: "uk",
+          fallbackLocale: "ua",
           messages: {
             ru: require("./lang/ru.json"),
-            ua: require("./lang/uk.json"),
+            ua: require("./lang/ua.json"),
           },
         },
       },

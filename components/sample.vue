@@ -1,44 +1,25 @@
 <template lang="pug">
     .sample
-        n-link.sample__item(v-for="(card, i) in cards" :key="i" :to="localePath(`${card.link}`)" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url('${card.img}') `}" :class="`item${i}`")
-            p.sample__item-text {{card.text}}
+        n-link.sample__item.item0( :to="localePath('/purchase/house')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${house}) `}")
+            p.sample__item-text {{ $t('sample.house') }}
+        n-link.sample__item.item1( :to="localePath('/commerce/all')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${commerce}) `}")
+            p.sample__item-text {{ $t('sample.commerce') }}
+        n-link.sample__item.item2( :to="localePath('/purchase/parking')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${parking}) `}")
+            p.sample__item-text {{ $t('sample.parking') }}
+        n-link.sample__item.item2( :to="localePath('/purchase/storage')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${storage}) `}")
+            p.sample__item-text {{ $t('sample.storage') }}
+        n-link.sample__item.item2( :to="localePath('/purchase/stead')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${plot}) `}")
+            p.sample__item-text {{ $t('sample.stead') }}
 </template>
 <script>
 export default {
   data() {
     return {
-      cards: [
-        {
-          text: "Квартири",
-          link: "/purchase/house",
-          img: require("~/assets/sample/house.png"),
-          imgW: require("~/assets/sample/house.webp"),
-        },
-        {
-          text: "Комерцiя",
-          link: "/commerce/all",
-          img: require("~/assets/sample/commerce.png"),
-          imgW: require("~/assets/sample/commerce.webp"),
-        },
-        {
-          text: "Паркомісце",
-          link: "/purchase/parking",
-          img: require("~/assets/sample/parking.png"),
-          imgW: require("~/assets/sample/parking.webp"),
-        },
-        {
-          text: "Комори",
-          link: "/purchase/storage",
-          img: require("~/assets/sample/storage.png"),
-          imgW: require("~/assets/sample/storage.webp"),
-        },
-        {
-          text: "Земельнi дiлянки",
-          link: "/purchase/stead",
-          img: require("~/assets/sample/plot.png"),
-          imgW: require("~/assets/sample/plot.webp"),
-        },
-      ],
+      house: require("~/assets/sample/house.png"),
+      commerce: require("~/assets/sample/commerce.png"),
+      parking: require("~/assets/sample/parking.png"),
+      storage: require("~/assets/sample/storage.png"),
+      plot: require("~/assets/sample/plot.png"),
     };
   },
 };

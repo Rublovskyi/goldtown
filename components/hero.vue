@@ -1,13 +1,13 @@
 <template lang="pug">
     .hero 
         .hero__photo 
-            img(src="~/static/heroBG.png")
+            img(src="~/assets/heroBG.png")
         .hero__data
             .hero__wrap
-                h1.hero__title Агентство нерухомості Goldtown 
-                p.hero__text Допоможемо Вам продати/купити квартиру в новобудові вигідно і швидко
+                h1.hero__title {{ $t('hero.title') }}
+                p.hero__text {{ $t('hero.text') }}
                 button.hero__btn(@click="makeRequest")
-                    span Залишити заявку
+                    span {{ $t('hero.button_text') }}
                     //- span.hero__btn-icon 
                 
 </template>
