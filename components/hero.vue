@@ -1,7 +1,7 @@
 <template lang="pug">
     .hero 
         .hero__photo 
-            img(src="~/assets/heroBG.jpg")
+            img(src="https://docs.google.com/gview?embedded=true&url=https://goldtowncompany.com/heroBG.png")
         .hero__data
             .hero__wrap
                 h1.hero__title Агентство нерухомості Goldtown 
