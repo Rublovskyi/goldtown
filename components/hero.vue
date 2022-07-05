@@ -1,11 +1,14 @@
 <template lang="pug">
     .hero 
-        .hero__wrap
-            h1.hero__title Агентство нерухомості Goldtown 
-            p.hero__text Допоможемо Вам продати/купити квартиру в новобудові вигідно і швидко
-            button.hero__btn(@click="makeRequest")
-                span Залишити заявку
-                //- span.hero__btn-icon 
+        .hero__photo 
+            img(src="~/assets/heroBG.jpg")
+        .hero__data
+            .hero__wrap
+                h1.hero__title Агентство нерухомості Goldtown 
+                p.hero__text Допоможемо Вам продати/купити квартиру в новобудові вигідно і швидко
+                button.hero__btn(@click="makeRequest")
+                    span Залишити заявку
+                    //- span.hero__btn-icon 
                 
 </template>
 <script>
@@ -20,26 +23,54 @@ export default {
 <style lang="scss" scoped>
 @media screen and (max-width: 767.98px) {
   .hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.16)
-      ),
-      url(../assets/heroBG.jpg);
+    // background-image: linear-gradient(
+    //   to bottom,
+    //   rgba(0, 0, 0, 0.8),
+    //   rgba(0, 0, 0, 0.16)
+    // );
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
 
     height: 100vh;
     position: relative;
     padding-top: 25vw;
+
+    &__photo {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &__data {
+      position: absolute;
+      top: 0%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.16)
+      );
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
     &__wrap {
-      padding: 0 5vw;
       position: absolute;
       top: 50%;
       left: 0;
       transform: translateY(-50%);
+      padding: 0 5vw;
     }
     &__title {
       color: #fff;
@@ -77,25 +108,54 @@ export default {
 }
 @media screen and (min-width: 768px) {
   .hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.16)
-      ),
-      url(../assets/heroBG.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background-image: linear-gradient(
+    //   to bottom,
+    //   rgba(0, 0, 0, 0.8),
+    //   rgba(0, 0, 0, 0.16)
+    // );
+    // background-position: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
 
     height: 100vh;
     position: relative;
     padding-top: 13.021vw;
-    &__wrap {
+
+    &__photo {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &__data {
       padding: 0 4.688vw;
+      position: absolute;
+      top: 0%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.16)
+      );
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    &__wrap {
       position: absolute;
       top: 50%;
       left: 0;
       transform: translateY(-50%);
+      padding: 0 4.688vw;
     }
     &__title {
       color: #fff;
@@ -140,12 +200,14 @@ export default {
 @media screen and (min-width: 1240px) {
   .hero {
     padding-top: 5.556vw;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.16)
-      ),
-      url(../assets/heroBG.jpg);
+    // background-image: linear-gradient(
+    //   to right,
+    //   rgba(0, 0, 0, 0.8),
+    //   rgba(0, 0, 0, 0.16)
+    // );
+    &__data {
+      // padding: 0 5.417vw;
+    }
     &__wrap {
       padding: 0 5.417vw;
     }
