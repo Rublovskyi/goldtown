@@ -10,9 +10,9 @@
                 .footer__desc
                     Lang.footer__lang
                 .footer__social-wrap
-                    a.footer__social-item(href="https://www.facebook.com/goldtown.company")
+                    a.footer__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
                         img(src="~/assets/svg/facebook.svg" alt="facefook icon")
-                    a.footer__social-item(href="https://www.instagram.com/gt.org.ua/")
+                    a.footer__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
                         img(src="~/assets/svg/instagram.svg" alt="instagram icon")
                 .footer__tablet
                     Lang.footer__lang

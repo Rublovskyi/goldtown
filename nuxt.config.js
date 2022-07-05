@@ -14,6 +14,22 @@ export default {
         name: "google-site-verification",
         content: "u_37E3Rpb4SfMxGXACc1o3y8lrb0htB95vvsCVlMqO4",
       },
+      {
+        property: "og:title",
+        content: "Gold Town",
+      },
+      {
+        property: "og:site_name",
+        content: "Gold town",
+      },
+      {
+        property: "og:url",
+        content: "https://goldtowncompany.com/",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
   },
@@ -42,8 +58,8 @@ export default {
         seo: true,
         detectBrowserLanguage: false,
         locales: [
-          { code: "ru", iso: "ru_RU" },
-          { code: "ua", iso: "uk_UA" },
+          { code: "ru", iso: "ru" },
+          { code: "ua", iso: "ua" },
         ],
         defaultLocale: "ua",
         vueI18n: {
