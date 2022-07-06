@@ -1,7 +1,11 @@
 <template lang="pug">
     .hero 
         .hero__photo 
-            img( src="~/assets/hero/Desk:Q100:S100.jpg" :srcset="`${imageM} 320w, ${imageT} 768w, ${imageD} 1240w`" :alt="$t('hero.title')")
+            picture
+                source(type="image/webp" srcset="~/assets/heroBG.webp")
+                source(type="image/jpeg" srcset="~/assets/heroBG.jpg")
+                img(src="~/assets/heroBG.jpg" alt="hero")
+            //- img( src="~/assets/hero/Desk:Q100:S100.jpg" :srcset="`${imageM} 320w, ${imageT} 768w, ${imageD} 1240w`" :alt="$t('hero.title')")
         .hero__data
             .hero__wrap
                 h1.hero__title {{ $t('hero.title') }}
