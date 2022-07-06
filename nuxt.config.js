@@ -62,6 +62,7 @@ export default {
           { code: "ua", iso: "ua" },
         ],
         defaultLocale: "ua",
+        baseUrl: "https://goldtowncompany.com",
         vueI18n: {
           fallbackLocale: "ua",
           messages: {
