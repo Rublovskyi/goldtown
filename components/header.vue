@@ -23,7 +23,10 @@
                         //- a.header__number(href="tel:+380984732501") 
                         //-     span.header__number-icon
                         //-     span +380(98)473-25-01
-                    //- Lang.header__lang(:type="2")
+                    .header__lang.header__lang-desc
+                        Lang(:type="2")
+                    .header__lang.header__lang-menu
+                        Lang(:type="1")
                 button.header__menu-close(v-if="showMenu" @click="openMobileMenu") 
         button.header__burger(@click="openMobileMenu")
 </template>
@@ -115,6 +118,14 @@ export default {
 
     &__lang {
       margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 15vw;
+      margin-right: 5vw;
+
+      &-desc {
+        display: none;
+      }
     }
 
     &__wrap {
@@ -242,6 +253,12 @@ export default {
     }
     &__lang {
       margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5vw;
+      &-desc {
+        display: none;
+      }
     }
     &__wrap {
       display: none;
@@ -362,6 +379,9 @@ export default {
 
     &__lang {
       margin-top: 10px;
+      &-menu {
+        display: none;
+      }
     }
 
     &__menu {

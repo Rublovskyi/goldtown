@@ -45,7 +45,10 @@
     "living_area": "Житлова площа",
     "parking_type": "Тип паркомісця",
     "annual_income": "Річний дохід",
-    "more": "Детальнішe"
+    "more": "Детальнішe",
+    "city": "Місто",
+    "payback_view": "Окупність",
+    "address": "Адреса"
   },
   "main": {
     "filters": "Фiльтри",

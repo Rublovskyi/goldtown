@@ -45,7 +45,10 @@
     "living_area": "Жилая площадь",
     "parking_type": "Тип паркоместа",
     "annual_income": "Годовой доход",
-    "more": "Детальнее"
+    "more": "Детальнее",
+    "city": "Город",
+    "payback_view": "Окупаемость",
+    "address": "Адрес"
   },
   "main": {
     "filters": "Фильтры",

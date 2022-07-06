@@ -13,33 +13,39 @@
                     p.view__info-main-price {{info.price}}$
                 .view__data
                     p.view__data-type(v-if="info.number_of_rooms") 
-                        span.title Кількість кімнат: 
+                        span.title {{ $t('card.number_of_rooms') }}: 
                         span.amount {{info.number_of_rooms}}
                     p.view__data-type(v-if="info.floor") 
-                        span.title Поверх: 
+                        span.title {{ $t('card.floor') }}: 
                         span.amount {{info.floor}}
                     p.view__data-type(v-if="info.apartment_area") 
-                        span.title Площа(м2): 
+                        span.title {{ $t('card.apartment_area') }}: 
                         span.amount {{info.apartment_area}} м2
                     p.view__data-type(v-if="info.living_area") 
-                        span.title Житлова площа: 
+                        span.title {{ $t('card.living_area') }}: 
                         span.amount {{info.living_area}} м2
                     p.view__data-type(v-if="info.parking_type") 
-                        span.title Тип паркомісця:
+                        span.title {{ $t('card.parking_type') }}:
                         span.amount {{info.parking_type}}
                     p.view__data-type(v-if="info.city") 
-                        span.title Місто:
+                        span.title {{ $t('card.city') }}:
                         span.amount {{info.city}}
                     p.view__data-type(v-if="info.annual_income") 
-                        span.title Річний дохід:
+                        span.title {{ $t('card.annual_income') }}:
                         span.amount {{info.annual_income}}
                     p.view__data-type(v-if="info.payback") 
-                        span.title Окупність:
+                        span.title {{ $t('card.payback_view') }}:
                         span.amount {{info.payback}}
                     p.view__data-type(v-if="info.adress") 
-                        span.title Адреса:
+                        span.title {{ $t('card.address') }}:
                         span.amount {{info.adress}}
                 p.view__desc(v-if="info.sub_title") {{info.sub_title}}
+                .view__social
+                    a.view__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
+                        img(src="~/assets/svg/facebook-black.svg" alt="facefook icon")
+                    a.view__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
+                        img(src="~/assets/svg/instagram-black.svg" alt="instagram icon")
+
 </template>
 <script>
 import { mapState } from "vuex";
@@ -280,6 +286,58 @@ export default {
           right: 1.389vw;
           font-size: 1.111vw;
         }
+      }
+    }
+  }
+  &__social {
+    color: #fff;
+
+    display: flex;
+    font-size: 5vw;
+    margin-top: 3vw;
+    justify-content: flex-end;
+
+    &-item {
+      width: 5.25vw;
+      height: 5.25vw;
+      border-radius: 50%;
+      // background-color: #fff;
+
+      margin-right: 3vw;
+      transition: all 500ms ease;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.083vw;
+      margin-top: 2.083vw;
+
+      &-item {
+        width: 2.25vw;
+        height: 2.25vw;
+        margin-right: 1.4vw;
+      }
+    }
+    @media screen and (min-width: 1240px) {
+      font-size: 1.111vw;
+      margin-top: 1.111vw;
+
+      &-item {
+        width: 1.25vw;
+        height: 1.25vw;
+
+        margin-right: 1vw;
+        margin-bottom: 0.4vw;
       }
     }
   }
