@@ -1,14 +1,13 @@
 <template lang="pug">
     .popup(@click="closePopup")
         .popup__wrap
-            h3.popup__title Залишіть заявку і наш <br/> менеджер Вам перетелефонує
-            p.popup__label Ваше ім'я
+            h3.popup__title(v-html="$t('request.title')") {{ $t('request.title') }}
+            p.popup__label {{ $t('request.name') }}
             input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
-            p.error-text {{errorName}}
-            p.popup__label Номер телефону
+            p.popup__label {{ $t('request.number') }}
             input.popup__input(type="number" v-model="phone" v-on:input="validate('phone')")
-            p.error-text {{errorPhone}}
-            button.popup__btn(@click="postRequestData") Відправити
+            p.error-text(v-if="errorPhone") {{ $t('request.error') }}
+            button.popup__btn(@click="postRequestData") {{ $t('request.send') }}
             button.popup__close
 </template>
 <script>
@@ -17,8 +16,7 @@ export default {
     return {
       name: "",
       phone: "",
-      errorName: "",
-      errorPhone: "",
+      errorPhone: false,
     };
   },
   methods: {
@@ -35,15 +33,15 @@ export default {
         (this.phone.length > 0 && this.phone.length < 9) ||
         this.phone.length > 13
       ) {
-        this.errorPhone = "Телефон має містити від 9 до 13 цифр";
+        this.errorPhone = true;
       } else {
-        this.errorPhone = "";
+        this.errorPhone = false;
       }
     },
     async postRequestData() {
       if (this.phone === "") {
-        this.errorPhone = "Потрібно ввести дані";
-      } else if (this.errorName.length !== 0 || this.errorPhone.length !== 0) {
+        this.errorPhone = true;
+      } else if (this.errorPhone) {
         return;
       } else {
         let data = {

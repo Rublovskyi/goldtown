@@ -8,14 +8,14 @@
         .footer__info
             .footer__social 
                 .footer__desc
-                    Lang.footer__lang
+                    Lang.footer__lang(:type="1")
                 .footer__social-wrap
                     a.footer__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
                         img(src="~/assets/svg/facebook.svg" alt="facefook icon")
                     a.footer__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
                         img(src="~/assets/svg/instagram.svg" alt="instagram icon")
                 .footer__tablet
-                    Lang.footer__lang
+                    Lang.footer__lang(:type="1")
             .footer__wrapper
                 a.footer__number(href="tel:+380984732501") 
                     span.footer__number-icon

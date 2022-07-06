@@ -1,18 +1,17 @@
 <template lang="pug">
     .request
         .request__img-desctop
-            img(src="~/assets/requestImg.svg" alt="Залишіть заявку")
+            img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
         .request__box 
-            h3.request__box-title Залишіть заявку і наш <br/> менеджер зв'яжеться з Вами!
-            p.request__box-label Ваше ім'я
+            h3.request__box-title(v-html="$t('request.title')") {{ $t('request.title') }}
+            p.request__box-label {{ $t('request.name') }}
             input.request__box-input(type="text" v-model="name" v-on:input="validate('name')")
-            p.error-text {{errorName}}
-            p.request__box-label Номер телефону
+            p.request__box-label {{ $t('request.number') }}
             input.request__box-input(type="number" v-model="phone" v-on:input="validate('phone')")
-            p.error-text {{errorPhone}}
-            button.request__box-btn(@click="postRequestData") Відправити
+            p.error-text(v-if="errorPhone") {{ $t('request.error') }}
+            button.request__box-btn(@click="postRequestData") {{ $t('request.send') }}
         .request__img
-            img(src="~/assets/requestImg.svg" alt="Залишіть заявку")
+            img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
 </template>
 <script>
 export default {
@@ -20,8 +19,7 @@ export default {
     return {
       name: "",
       phone: "",
-      errorName: "",
-      errorPhone: "",
+      errorPhone: false,
     };
   },
   methods: {
@@ -30,15 +28,16 @@ export default {
         (this.phone.length > 0 && this.phone.length < 9) ||
         this.phone.length > 13
       ) {
-        this.errorPhone = "Телефон має містити від 9 до 13 цифр";
+        this.errorPhone = true;
       } else {
-        this.errorPhone = "";
+        this.errorPhone = false;
       }
     },
     async postRequestData() {
       if (this.phone === "") {
-        this.errorPhone = "Потрібно ввести дані";
-      } else if (this.errorName.length !== 0 || this.errorPhone.length !== 0) {
+        // this.errorPhone = "Потрібно ввести дані";
+        this.errorPhone = true;
+      } else if (this.errorPhone) {
         return;
       } else {
         let data = {

@@ -119,7 +119,7 @@ export default {
 
     height: 100vh;
     position: relative;
-    padding-top: 13.021vw;
+    // padding-top: 13.021vw;
 
     &__photo {
       height: 100%;
@@ -199,7 +199,7 @@ export default {
 }
 @media screen and (min-width: 1240px) {
   .hero {
-    padding-top: 5.556vw;
+    // padding-top: 5.556vw;
     // background-image: linear-gradient(
     //   to right,
     //   rgba(0, 0, 0, 0.8),

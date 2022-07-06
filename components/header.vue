@@ -9,13 +9,27 @@
                     n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") {{ $t('header.purchase') }}
                     n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
                     p.header__item( @click="replase('request')") {{ $t('header.request') }}
-                a.header__number(href="tel:+380984732501") 
-                    span.header__number-icon
-                    span +380(98)473-25-01
+                .header__num-lang
+                    .header__numbers
+                        a.header__number(href="tel:+380984732501") 
+                            span.header__number-icon
+                            span +380(98)473-25-01
+                        //- a.header__number(href="tel:+380984732501") 
+                        //-     span.header__number-icon
+                        //-     span +380(98)473-25-01
+                        //- a.header__number(href="tel:+380984732501") 
+                        //-     span.header__number-icon
+                        //-     span +380(98)473-25-01
+                        //- a.header__number(href="tel:+380984732501") 
+                        //-     span.header__number-icon
+                        //-     span +380(98)473-25-01
+                    //- Lang.header__lang(:type="2")
                 button.header__menu-close(v-if="showMenu" @click="openMobileMenu") 
         button.header__burger(@click="openMobileMenu")
 </template>
 <script>
+import Lang from "~/components/lang.vue";
+
 export default {
   props: {
     show: {
@@ -63,6 +77,9 @@ export default {
     document.body.style.overflow = "";
     // this.scrollViewHeader();
   },
+  components: {
+    Lang,
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -94,6 +111,10 @@ export default {
       &:hover {
         transform: scale(0.95);
       }
+    }
+
+    &__lang {
+      margin-left: auto;
     }
 
     &__wrap {
@@ -216,6 +237,9 @@ export default {
         transform: scale(0.95);
       }
     }
+    &__lang {
+      margin-left: auto;
+    }
     &__wrap {
       display: none;
       position: absolute;
@@ -324,6 +348,14 @@ export default {
     z-index: 200;
     &__wrap {
       display: block;
+    }
+
+    &__num-lang {
+      display: flex;
+    }
+
+    &__lang {
+      margin-top: 10px;
     }
 
     &__menu {

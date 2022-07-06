@@ -50,6 +50,7 @@ export default {
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/google-gtag",
+    "@nuxtjs/gtm",
     [
       "nuxt-i18n",
       {
@@ -78,6 +79,9 @@ export default {
   build: {},
   axios: {
     baseURL: "https://api.goldtowncompany.com",
+  },
+  gtm: {
+    id: "GTM-MB7DQRJ",
   },
 
   "google-gtag": {

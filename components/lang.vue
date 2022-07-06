@@ -1,5 +1,5 @@
 <template lang="pug">
-    .lang 
+    .lang(:class="{'white': type === 1, 'black': type === 2}")
         .lang__current(v-text="$t('title')")
         .lang__dropdown
             .lang__item(v-if="$i18n.locale != 'ua'")
@@ -7,7 +7,11 @@
             .lang__item(v-if="$i18n.locale != 'ru'")
                 a.lang__text(:href="switchLocalePath('ru') + '/'" aria-label="Ru") Ru
 </template>
-
+<script>
+export default {
+  props: ["type"],
+};
+</script>
 <style lang="scss" scoped>
 .lang {
   font-size: 14px;
@@ -19,12 +23,17 @@
 
   position: relative;
   cursor: default;
-  margin-top: -54px;
+  // margin-top: -54px;
   margin-left: 46px;
   display: inline-block;
+  z-index: 201;
   //   position: absolute;
   //   bottom: 39px;
   //   left: 0;
+
+  &.black {
+    color: #000;
+  }
 
   &__item {
     overflow: hidden;
