@@ -1,14 +1,39 @@
 <template lang="pug">
     .sample
-        n-link.sample__item.item0( :to="localePath('/purchase/house')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${house}) `}")
+        n-link.sample__item.item0( :to="localePath('/purchase/house')" )
+            picture
+                source(type="image/webp" srcset="~/assets/sample/house.webp")
+                source(type="image/jpeg" srcset="~/assets/sample/house.jpg")
+                img(src="~/assets/sample/house.jpg" alt="hero")
+            .sample__gradient
             p.sample__item-text {{ $t('sample.house') }}
-        n-link.sample__item.item1( :to="localePath('/commerce/all')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${commerce}) `}")
+        n-link.sample__item.item1( :to="localePath('/commerce/all')")
+            picture
+                source(type="image/webp" srcset="~/assets/sample/commerce.webp")
+                source(type="image/jpeg" srcset="~/assets/sample/commerce.jpg")
+                img(src="~/assets/sample/commerce.jpg" alt="hero")
+            .sample__gradient
             p.sample__item-text {{ $t('sample.commerce') }}
-        n-link.sample__item.item2( :to="localePath('/purchase/parking')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${parking}) `}")
+        n-link.sample__item.item2( :to="localePath('/purchase/parking')")
+            picture
+                source(type="image/webp" srcset="~/assets/sample/parking.webp")
+                source(type="image/jpeg" srcset="~/assets/sample/parking.jpg")
+                img(src="~/assets/sample/parking.jpg" alt="hero")
+            .sample__gradient
             p.sample__item-text {{ $t('sample.parking') }}
-        n-link.sample__item.item2( :to="localePath('/purchase/storage')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${storage}) `}")
+        n-link.sample__item.item2( :to="localePath('/purchase/storage')")
+            picture
+                source(type="image/webp" srcset="~/assets/sample/storage.webp")
+                source(type="image/jpeg" srcset="~/assets/sample/storage.jpg")
+                img(src="~/assets/sample/storage.jpg" alt="hero")
+            .sample__gradient
             p.sample__item-text {{ $t('sample.storage') }}
-        n-link.sample__item.item2( :to="localePath('/purchase/stead')" :style="{'background-image': `linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(${plot}) `}")
+        n-link.sample__item.item2( :to="localePath('/purchase/stead')")
+            picture
+                source(type="image/webp" srcset="~/assets/sample/plot.webp")
+                source(type="image/jpeg" srcset="~/assets/sample/plot.jpg")
+                img(src="~/assets/sample/plot.jpg" alt="hero")
+            .sample__gradient
             p.sample__item-text {{ $t('sample.stead') }}
 </template>
 <script>
@@ -54,10 +79,14 @@ export default {
       grid-row-end: 3;
     }
     &__item {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
       overflow: hidden;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
   }
 }
@@ -91,10 +120,13 @@ export default {
       grid-row-end: 3;
     }
     &__item {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
       overflow: hidden;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
   }
 }
@@ -126,10 +158,25 @@ export default {
       grid-row-end: 3;
     }
     &__item {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
       overflow: hidden;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &__gradient {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right top,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0)
+      );
     }
   }
 }

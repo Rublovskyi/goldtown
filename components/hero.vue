@@ -22,13 +22,6 @@ export default {
       this.$parent.showPopup = true;
     },
   },
-  data() {
-    return {
-      imageD: require("~/assets/hero/Desk:Q100:S100.jpg"),
-      imageT: require("~/assets/hero/Tab:Q100:S100.jpg"),
-      imageM: require("~/assets/hero/Mob:Q100:S100.jpg"),
-    };
-  },
 };
 </script>
 <style lang="scss" scoped>
