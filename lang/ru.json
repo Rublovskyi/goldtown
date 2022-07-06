@@ -53,5 +53,14 @@
   "main": {
     "filters": "Фильтры",
     "no_options": "Варианты отсутствуют"
+  },
+  "filter": {
+    "select_category": "Выбор категории",
+    "filters": "Фильтры",
+    "price": "Цена",
+    "amount_of_rooms": "Количество комнат",
+    "payback": "Окупаемость (лет)",
+    "income": "Годовой доход",
+    "to_apply": "Применить"
   }
 }

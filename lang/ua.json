@@ -53,5 +53,14 @@
   "main": {
     "filters": "Фiльтри",
     "no_options": "Варіанти відсутні"
+  },
+  "filter": {
+    "select_category": "Вибiр категорії",
+    "filters": "Фiльтри",
+    "price": "Цiна",
+    "amount_of_rooms": "Кількість кімнат",
+    "payback": "Окупність (років)",
+    "income": "Річний дохід",
+    "to_apply": "Застосувати"
   }
 }

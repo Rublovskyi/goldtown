@@ -140,7 +140,13 @@ export default {
   .footer {
     // height: 12vh;
     background-color: var(--primary-color);
+    // display: grid;
+    // grid-template-columns: 1fr 4fr;
+    // justify-content: space-between;
+
     display: flex;
+
+    // display: flex;
     padding: 3.646vw 4.688vw;
     justify-content: space-between;
     align-items: center;
