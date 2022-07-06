@@ -1,7 +1,7 @@
 <template lang="pug">
     .hero 
         .hero__photo 
-            img(src="~/assets/heroBG.png")
+            img( src="~/assets/hero/Desk:Q100:S100.jpg" :srcset="`${imageM} 320w, ${imageT} 768w, ${imageD} 1240w`" :alt="$t('hero.title')")
         .hero__data
             .hero__wrap
                 h1.hero__title {{ $t('hero.title') }}
@@ -17,6 +17,13 @@ export default {
     makeRequest() {
       this.$parent.showPopup = true;
     },
+  },
+  data() {
+    return {
+      imageD: require("~/assets/hero/Desk:Q100:S100.jpg"),
+      imageT: require("~/assets/hero/Tab:Q100:S100.jpg"),
+      imageM: require("~/assets/hero/Mob:Q100:S100.jpg"),
+    };
   },
 };
 </script>

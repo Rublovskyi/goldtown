@@ -7,7 +7,7 @@
             img(src="../assets/workPlace.svg" alt="про нас")
 </template>
 <style lang="scss" scoped>
-@media screen and (max-width: 767.99px) {
+@media screen and (max-width: 767.98px) {
   .about {
     padding: 18.75vw 5vw;
     position: relative;

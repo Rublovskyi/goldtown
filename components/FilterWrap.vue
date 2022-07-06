@@ -5,7 +5,7 @@
             p.title Вибiр категорії
             n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="localePath(`/${typePage}/${category.slug}`)") 
                 span.box
-                span.text {{category.name}}
+                span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
         .filter__wrap
             p.title Фiльтри
             .filter__price 
@@ -62,6 +62,7 @@ export default {
       errorTextRooms: "",
       errorTextPayback: "",
       errorTextIncome: "",
+      locale: "ua",
     };
   },
   computed: {
@@ -174,6 +175,9 @@ export default {
     filterClose() {
       this.$parent.showFilters = false;
     },
+  },
+  mounted() {
+    this.locale = this._i18n.locale;
   },
 };
 </script>

@@ -2,7 +2,7 @@
     .buy(id="cards")
         .buy__filter(:class="{'close': showFilters}" @click="openFilters")
             span.icon
-            span.text Фiльтри
+            span.text {{ $t('main.filters') }}
         .buy__console(:class="{'open': showFilters}")
             FilterWrap.buy__console-wrap(:categoryes="Categories" :typePage="type")
         .buy__cards(v-if="PurchaseData.length !== 0" )
@@ -13,7 +13,7 @@
         .buy__cards(v-if="PurchaseData.length === 0")
             .buy__cards-wrap
                 p.buy__cards-icon
-                p.buy__cards-text Варіанти відсутні
+                p.buy__cards-text {{ $t('main.no_options') }}
 </template>
 <script>
 import Card from "../card.vue";

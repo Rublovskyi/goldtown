@@ -14,12 +14,12 @@
                         a.header__number(href="tel:+380984732501") 
                             span.header__number-icon
                             span +380(98)473-25-01
-                        //- a.header__number(href="tel:+380984732501") 
-                        //-     span.header__number-icon
-                        //-     span +380(98)473-25-01
-                        //- a.header__number(href="tel:+380984732501") 
-                        //-     span.header__number-icon
-                        //-     span +380(98)473-25-01
+                        a.header__number(href="tel:+380984732501") 
+                            span.header__number-icon
+                            span +380(98)473-25-01
+                        a.header__number(href="tel:+380984732501") 
+                            span.header__number-icon
+                            span +380(98)473-25-01
                         //- a.header__number(href="tel:+380984732501") 
                         //-     span.header__number-icon
                         //-     span +380(98)473-25-01
@@ -83,7 +83,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@media screen and (max-width: 767.99px) {
+@media screen and (max-width: 767.98px) {
   .header {
     display: flex;
     justify-content: space-between;
@@ -179,6 +179,9 @@ export default {
     &__item:hover {
       color: var(--hover-color);
     }
+    &__numbers {
+      margin-top: 19.375vw;
+    }
     &__number {
       color: #fff;
       display: flex;
@@ -187,7 +190,7 @@ export default {
       transition: all 700ms ease;
       font-size: 5vw;
       font-weight: 400;
-      margin-top: 19.375vw;
+      margin-bottom: 3.375vw;
       &-icon {
         display: block;
         width: 7.5vw;
@@ -302,6 +305,9 @@ export default {
     &__item:hover {
       color: var(--hover-color);
     }
+    &__numbers {
+      margin-top: 8.073vw;
+    }
     &__number {
       color: #fff;
       display: flex;
@@ -310,7 +316,7 @@ export default {
       transition: all 700ms ease;
       font-size: 2.083vw;
       font-weight: 400;
-      margin-top: 8.073vw;
+      margin-bottom: 1.073vw;
       &-icon {
         display: block;
         width: 3.125vw;
@@ -407,12 +413,12 @@ export default {
       align-items: center;
       justify-content: space-between;
       transition: all 700ms ease;
-      font-size: 1.111vw;
+      font-size: 0.911vw;
       font-weight: 400;
       &-icon {
         display: block;
-        width: 1.667vw;
-        height: 1.667vw;
+        width: 1.067vw;
+        height: 1.067vw;
         background-image: url(../assets/svg/mobile.svg);
         background-position: center;
         background-size: contain;
