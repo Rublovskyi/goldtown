@@ -26,30 +26,17 @@ export default {
   },
   methods: {
     validate(type) {
-      if (type === "name") {
-        if (
-          (this.name.length > 0 && this.name.length < 3) ||
-          this.name.length > 20
-        ) {
-          this.errorName = "Ім'я має містити від 2 до 20 літер";
-        } else {
-          this.errorName = "";
-        }
+      if (
+        (this.phone.length > 0 && this.phone.length < 9) ||
+        this.phone.length > 13
+      ) {
+        this.errorPhone = "Телефон має містити від 9 до 13 цифр";
       } else {
-        if (
-          (this.phone.length > 0 && this.phone.length < 9) ||
-          this.phone.length > 13
-        ) {
-          this.errorPhone = "Телефон має містити від 9 до 13 цифр";
-        } else {
-          this.errorPhone = "";
-        }
+        this.errorPhone = "";
       }
     },
     async postRequestData() {
-      if (this.name === "") {
-        this.errorName = "Потрібно ввести дані";
-      } else if (this.phone === "") {
+      if (this.phone === "") {
         this.errorPhone = "Потрібно ввести дані";
       } else if (this.errorName.length !== 0 || this.errorPhone.length !== 0) {
         return;
