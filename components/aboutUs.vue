@@ -4,7 +4,11 @@
             h2.about__text-title {{ $t('about_us.title') }}
             p.about__text-subtitle {{ $t('about_us.description') }}
         .about__image
-            img(src="../assets/workPlace.png" alt="про нас")
+            //- img(src="../assets/workPlace.png" alt="про нас")
+            picture
+                source(type="image/webp" srcset="~/assets/workPlace.webp")
+                source(type="image/jpeg" srcset="~/assets/workPlace.jpg")
+                img(src="~/assets/workPlace.jpg" alt="hero")
 </template>
 <style lang="scss" scoped>
 @media screen and (max-width: 767.98px) {
