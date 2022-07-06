@@ -2,8 +2,8 @@
     .hero 
         .hero__photo 
             picture
-                source(type="image/webp" srcset="~/assets/heroBG.webp")
-                source(type="image/jpeg" srcset="~/assets/heroBG.jpg")
+                source(media="(min-width: 768px)" type="image/jpeg" srcset="~/assets/heroBG.webp")
+                source(type="image/webp" srcset="~/assets/heroBG-mob.webp")
                 img(src="~/assets/heroBG.jpg" alt="hero")
             //- img( src="~/assets/hero/Desk:Q100:S100.jpg" :srcset="`${imageM} 320w, ${imageT} 768w, ${imageD} 1240w`" :alt="$t('hero.title')")
         .hero__data
