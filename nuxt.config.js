@@ -59,8 +59,8 @@ export default {
         seo: true,
         detectBrowserLanguage: false,
         locales: [
-          { code: "ru", iso: "ru" },
-          { code: "ua", iso: "ua" },
+          { code: "ru", iso: "ru-RU" },
+          { code: "ua", iso: "uk-UA" },
         ],
         defaultLocale: "ua",
         baseUrl: "https://goldtowncompany.com",
