@@ -14,10 +14,10 @@ export default {
         name: "google-site-verification",
         content: "u_37E3Rpb4SfMxGXACc1o3y8lrb0htB95vvsCVlMqO4",
       },
-      // {
-      //   property: "og:title",
-      //   content: "Gold Town",
-      // },
+      {
+        property: "og:title",
+        content: "Gold Town",
+      },
       {
         property: "og:site_name",
         content: "Gold town",
