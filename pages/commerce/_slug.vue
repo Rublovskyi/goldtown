@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       pageType: "commerce",
+      slug: "all",
     };
   },
   components: {
@@ -31,6 +32,7 @@ export default {
     },
   },
   mounted() {
+    this.slug = this.$route.params.slug;
     let locale = this._i18n.locale;
 
     if (locale === "ru") {
@@ -40,11 +42,33 @@ export default {
     }
 
     let data = {
-      slug: this.$route.params.slug,
+      slug: this.slug,
       locale: locale,
     };
 
     this.getData(data);
+  },
+  head() {
+    return {
+      title: this.$t(`commerce_slug_meta.${this.slug}.title`),
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t(`commerce_slug_meta.${this.slug}.description`),
+        },
+        {
+          hid: "title",
+          name: "title",
+          content: this.$t(`commerce_slug_meta.${this.slug}.title`),
+        },
+        {
+          hid: "h1",
+          name: "h1",
+          content: this.$t(`commerce_slug_meta.${this.slug}.h1`),
+        },
+      ],
+    };
   },
 };
 </script>

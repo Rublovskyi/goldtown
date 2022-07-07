@@ -43,28 +43,22 @@ export default {
   mounted() {
     this.$refs.header.scrollViewHeader();
   },
-  head: {
-    title:
-      "Продаж нерухомості у Києві та передмісті (Первинний ринок) - GOLDTOWN",
-    meta: [
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "Нерухомість від забудовників. Купуй квартиру, складське приміщення, паркомісце для себе або бізнесу. Продаж нерухомості без посередників",
-      },
-      {
-        hid: "title",
-        name: "title",
-        content:
-          "Продаж нерухомості у Києві та передмісті (Первинний ринок) - GOLDTOWN",
-      },
-      {
-        hid: "h1",
-        name: "h1",
-        content: "Продаж нерухомості від забудовників ",
-      },
-    ],
+  head() {
+    return {
+      title: this.$t(`index_meta.title`),
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t(`index_meta.description`),
+        },
+        {
+          hid: "title",
+          name: "title",
+          content: this.$t(`index_meta.title`),
+        },
+      ],
+    };
   },
 };
 </script>
