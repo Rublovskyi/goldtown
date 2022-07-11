@@ -247,7 +247,7 @@ export const actions = {
 };
 export const mutations = {
   UPDATE_PUECHASE_DATA(state, { response, slug }) {
-    state.PurchaseData = response.data.data;
+    state.PurchaseData = response.data.data.reverse();
 
     if (slug) {
       state.PurchaseCategories.forEach((el) => {
@@ -260,7 +260,7 @@ export const mutations = {
     state.PurchaseCardsData = state.PurchaseData.slice(0, 6);
   },
   UPDATE_COMMERCE_DATA(state, { response, slug }) {
-    state.CommerceData = response.data.data;
+    state.CommerceData = response.data.data.reverse();
     if (slug) {
       state.CommerceCaregoryes.forEach((el) => {
         el.selected = false;

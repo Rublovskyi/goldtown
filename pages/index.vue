@@ -1,6 +1,6 @@
 <template lang="pug">
-.main-page
-    Header.header(ref="header")
+.main-page(id="topOfPage")
+    Header.header(ref="header" )
     Hero
     AboutUs(id="about")
     Sample
@@ -9,6 +9,7 @@
     Footer
     SuccessPopup(v-if="successPopup")
     PhoneBtn
+    ScrollUpBtn(ref="scrollBtn")
 </template>
 <script>
 import Header from "~/components/header.vue";
@@ -21,6 +22,7 @@ import Footer from "~/components/footer.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import Sample from "~/components/sample.vue";
+import ScrollUpBtn from "~/components/scrollUpBtn.vue";
 
 export default {
   components: {
@@ -33,12 +35,20 @@ export default {
     PhoneBtn,
     SuccessPopup,
     Sample,
+    ScrollUpBtn,
   },
   data() {
     return {
       showPopup: false,
       successPopup: false,
     };
+  },
+  methods: {
+    goto() {
+      document.getElementById("topOfPage").scrollIntoView({
+        behavior: "smooth",
+      });
+    },
   },
   mounted() {
     this.$refs.header.scrollViewHeader();

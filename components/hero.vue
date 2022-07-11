@@ -209,9 +209,9 @@ export default {
     //   rgba(0, 0, 0, 0.8),
     //   rgba(0, 0, 0, 0.16)
     // );
-    &__data {
-      // padding: 0 5.417vw;
-    }
+    // &__data {
+    //   // padding: 0 5.417vw;
+    // }
     &__wrap {
       padding: 0 5.417vw;
     }

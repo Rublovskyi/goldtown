@@ -17,12 +17,19 @@
                 .footer__tablet
                     Lang.footer__lang(:type="1")
             .footer__wrapper
-                a.footer__number(href="tel:+380984732501") 
-                    span.footer__number-icon
-                    span +380(98)473-25-01
+                .footer__nums
+                    a.footer__number(href="tel:+380984732501") 
+                        span.footer__number-icon
+                        span +380(98)473-25-01
+                    a.footer__number(href="tel:+380984732501") 
+                        span.footer__number-icon
+                        span +380(98)473-25-01
+                    a.footer__number(href="tel:+380984732501") 
+                        span.footer__number-icon
+                        span +380(98)473-25-01
                 a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
                     span.footer__address-icon
-                    span Київська обл. с.Святопетрівське <br/> вул.Богдана Хмельницького 1Б
+                    span 08141, Киевская обл. <br/> Бучанский р-н. с. Святопетровское, <br/> ул. Богдана Хмельницкого 1Б.
 </template>
 <script>
 import Lang from "~/components/lang.vue";
@@ -110,12 +117,16 @@ export default {
       align-items: center;
       justify-content: flex-start;
       transition: all 700ms ease;
-      font-size: 5vw;
+      // font-size: 5vw;
+      font-size: 4vw;
       font-weight: 400;
       &-icon {
         display: block;
-        width: 7.5vw;
-        height: 7.5vw;
+        // width: 7.5vw;
+        // height: 7.5vw;
+        width: 6vw;
+        height: 6vw;
+
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -126,7 +137,13 @@ export default {
       }
     }
     &__number {
-      margin-bottom: 3.125vw;
+      margin-bottom: 2.125vw;
+      // font-size: 4vw;
+
+      // &-icon {
+      //   width: 6vw;
+      //   height: 6vw;
+      // }
     }
     &__number-icon {
       background-image: url(../assets/svg/mobileLight.svg);
@@ -140,11 +157,12 @@ export default {
   .footer {
     // height: 12vh;
     background-color: var(--primary-color);
-    // display: grid;
-    // grid-template-columns: 1fr 4fr;
-    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    gap: 10vw;
 
-    display: flex;
+    // display: flex;
 
     // display: flex;
     padding: 3.646vw 4.688vw;
@@ -213,12 +231,16 @@ export default {
       align-items: center;
       justify-content: flex-start;
       transition: all 700ms ease;
-      font-size: 2.083vw;
+      // font-size: 2.083vw;
+      font-size: 1.4vw;
       font-weight: 400;
       &-icon {
         display: block;
-        width: 3.125vw;
-        height: 3.125vw;
+        // width: 3.125vw;
+        // height: 3.125vw;
+
+        width: 2.125vw;
+        height: 2.125vw;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -228,8 +250,18 @@ export default {
         transform: scale(1.1);
       }
     }
+    &__wrapper {
+      // display: grid;
+      // grid-template-columns: 1fr 1fr;
+      // gap: 1vw;
+      display: flex;
+      align-items: flex-start;
+    }
     &__number {
-      margin-bottom: 1.302vw;
+      &:not(:last-child) {
+        margin-bottom: 1.302vw;
+      }
+      margin-right: 2vw;
     }
     &__number-icon {
       background-image: url(../assets/svg/mobileLight.svg);
@@ -242,6 +274,7 @@ export default {
 @media screen and (min-width: 1240px) {
   .footer {
     padding: 2.639vw 5.556vw;
+    grid-template-columns: 1fr 3fr;
 
     &__logo {
       height: 3.653vw;
@@ -262,11 +295,12 @@ export default {
 
     &__info {
       display: flex;
+      align-items: center;
     }
 
     &__social {
       font-size: 1.111vw;
-      margin-bottom: 1.111vw;
+      margin-bottom: 0;
       &-item {
         width: 1.25vw;
         height: 1.25vw;
@@ -278,6 +312,9 @@ export default {
         margin-right: 2vw;
       }
     }
+    &__wrapper {
+      align-items: center;
+    }
     &__number,
     &__address {
       font-size: 1.111vw;
@@ -288,7 +325,9 @@ export default {
       }
     }
     &__number {
-      margin-bottom: 1.111vw;
+      &:not(:last-child) {
+        margin-bottom: 1.111vw;
+      }
     }
   }
 }

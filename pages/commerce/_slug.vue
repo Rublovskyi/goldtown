@@ -1,10 +1,12 @@
 <template lang="pug">
-    .buyBussiness
+    .buyBussiness(id="topOfPage")
         Header.header(:show="pageType")
         Houses.houses
         Footer
         PhoneBtn
-
+        RequestPopup(v-if="showPopup")
+        SuccessPopup(v-if="successPopup")
+        ScrollUpBtn(ref="scrollBtn")
 </template>
 
 <script>
@@ -13,11 +15,17 @@ import Houses from "~/components/commercePage/main.vue";
 import Footer from "~/components/footer.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
 
+import RequestPopup from "~/components/requestPopup.vue";
+import SuccessPopup from "~/components/successPopup.vue";
+import ScrollUpBtn from "~/components/scrollUpBtn.vue";
+
 export default {
   data() {
     return {
       pageType: "commerce",
       slug: "all",
+      showPopup: false,
+      successPopup: false,
     };
   },
   components: {
@@ -25,10 +33,18 @@ export default {
     Footer,
     Houses,
     PhoneBtn,
+    RequestPopup,
+    SuccessPopup,
+    ScrollUpBtn,
   },
   methods: {
     getData(data) {
       this.$store.dispatch("app/getDataCommerce", data);
+    },
+    goto() {
+      document.getElementById("topOfPage").scrollIntoView({
+        behavior: "smooth",
+      });
     },
   },
   mounted() {

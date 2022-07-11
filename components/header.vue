@@ -5,10 +5,12 @@
         .header__wrap(:class="{'show': showMenu}")
             .header__menu
                 .header__list
-                    p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
+                    //- p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
                     n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") {{ $t('header.purchase') }}
                     n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
-                    p.header__item( @click="replase('request')") {{ $t('header.request') }}
+                    //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
+                    p.header__item(@click="makeRequest") {{ $t('header.request') }}
+                    p.header__item(:class="{'show': show === 'contacts'}") Контакти
                 .header__num-lang
                     .header__numbers
                         a.header__number(href="tel:+380984732501") 
@@ -74,6 +76,9 @@ export default {
         }
         this.scrollPrev = scrolled;
       });
+    },
+    makeRequest() {
+      this.$parent.showPopup = true;
     },
   },
   mounted() {
@@ -357,7 +362,7 @@ export default {
 @media screen and (min-width: 1240px) {
   .header {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 25% 75%;
     align-items: center;
     color: var(--primary-color);
     padding: 0.5vw 5.556vw;
