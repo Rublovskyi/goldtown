@@ -1,6 +1,6 @@
 <template lang="pug">
-    .scroll-up(:class="{ 'headerUnvisible': headerUnvisible}" @click="scrollUp") 
-        img.scroll-up__img(src="~/assets/svg/vector.svg")
+.scroll-up(:class="{ 'headerUnvisible': headerUnvisible}" @click="scrollUp") 
+    img.scroll-up__img(src="~/assets/svg/vector.svg")
 </template>
 <script>
 export default {

@@ -1,9 +1,9 @@
 <template lang="pug">
-    .popup 
-        .popup__wrap
-            p.popup__title {{ $t('success_popup.title') }} 
-            p.popup__subtitle {{ $t('success_popup.subtitle') }} 
-            p.popup__text {{ $t('success_popup.text') }} 
+.popup 
+    .popup__wrap
+        p.popup__title {{ $t('success_popup.title') }} 
+        p.popup__subtitle {{ $t('success_popup.subtitle') }} 
+        p.popup__text {{ $t('success_popup.text') }} 
 </template>
 <script>
 export default {

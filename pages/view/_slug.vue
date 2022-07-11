@@ -1,15 +1,15 @@
 <template lang="pug">
-    .view(v-if="ViewPageGetData" id="topOfPage")
-        Header
-        .view__wrap
-            MainInfo
-            SimilarCards(v-if="ViewPageGetData")
-        Footer
-        PhoneBtn
-        ViewPhotoPopup(v-if="showPhotoPopup" :photosData="photosData")
-        RequestPopup(v-if="showPopup")
-        SuccessPopup(v-if="successPopup")
-        ScrollUpBtn(ref="scrollBtn")
+.view(v-if="ViewPageGetData" id="topOfPage")
+    Header
+    .view__wrap
+        MainInfo
+        SimilarCards(v-if="ViewPageGetData")
+    Footer
+    PhoneBtn
+    ViewPhotoPopup(v-if="showPhotoPopup" :photosData="photosData")
+    RequestPopup(v-if="showPopup")
+    SuccessPopup(v-if="successPopup")
+    ScrollUpBtn(ref="scrollBtn")
 </template>
 
 <script>

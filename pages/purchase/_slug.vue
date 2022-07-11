@@ -1,12 +1,12 @@
 <template lang="pug">
-    .buy(id="topOfPage")
-        Header.header(:show="pageType")
-        Houses.houses
-        Footer
-        PhoneBtn
-        RequestPopup(v-if="showPopup")
-        SuccessPopup(v-if="successPopup")
-        ScrollUpBtn(ref="scrollBtn")
+.buy(id="topOfPage")
+    Header.header(:show="pageType")
+    Houses.houses
+    Footer
+    PhoneBtn
+    RequestPopup(v-if="showPopup")
+    SuccessPopup(v-if="successPopup")
+    ScrollUpBtn(ref="scrollBtn")
 </template>
 
 <script>
