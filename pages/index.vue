@@ -1,6 +1,6 @@
 <template lang="pug">
 .main-page(id="topOfPage")
-    Header.header(ref="header" )
+    Header.header(ref="header")
     Hero
     AboutUs(id="about")
     Sample
