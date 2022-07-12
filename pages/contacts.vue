@@ -3,7 +3,7 @@
     Header
     ContactsBlock
     Footer
-    PhoneBtn
+    //- PhoneBtn
     RequestPopup(v-if="showPopup")
     SuccessPopup(v-if="successPopup")
 </template>

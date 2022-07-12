@@ -5,16 +5,16 @@
         .contacts__nums
             a.contacts__number(href="tel:+380994712789") 
                 span.contacts__number-icon
-                span +380(99)471-27-89 
+                span.num +380(99)471-27-89 
             a.contacts__number(href="tel:+380739986959") 
                 span.contacts__number-icon
-                span +380(73)998-69-59
+                span.num +380(73)998-69-59
             a.contacts__number(href="tel:+380679986958") 
                 span.contacts__number-icon
-                span +380(67)998-69-58
+                span.num +380(67)998-69-58
             a.contacts__number(href="tel:+380984732501") 
                 span.contacts__number-icon
-                span +380(98)473-25-01
+                span.num +380(98)473-25-01
         .contacts__works 
             .contacts__works-schadule
                 p.days пн-пт: 
@@ -30,7 +30,7 @@
             span goldtowncompanygr@gmail.com
         a.contacts__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
             span.contacts__address-icon
-            span 08141, Киевская обл. <br/> Бучанский р-н. с. Святопетровское, <br/> ул. Богдана Хмельницкого 1Б.
+            span.text 08141, Киевская обл. <br/> Бучанский р-н. с. Святопетровское, <br/> ул. Богдана Хмельницкого 1Б.
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.4154613758433!2d30.316770700000003!3d50.3960944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cb6fde964d09%3A0xf0d93b41995ebf45!2z0J_QuNGC0L3QsCDQstC-0LTQsA!5e0!3m2!1sru!2sua!4v1657630756940!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </template>
 <style lang="scss" scoped>
@@ -125,8 +125,10 @@
       //     margin-bottom: 1.111vw;
       //   }
     }
+    &:hover,
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.02);
+      //   color: var(--hover-color);
     }
   }
   &__address {
@@ -199,6 +201,10 @@
         width: 1.242vw;
         height: 1.242vw;
       }
+    }
+    transition: all 500ms ease;
+    &:hover {
+      transform: scale(1.02);
     }
   }
 }
