@@ -82,7 +82,8 @@
   }
 
   &__number,
-  &__address {
+  &__address,
+  &__mail {
     color: #000;
     display: flex;
     align-items: center;
@@ -140,6 +141,13 @@
   &__address-icon {
     background-image: url(../assets/svg/carbon_location-black.svg);
   }
+  &__mail-icon {
+    background-image: url(../assets/svg/letter_icon.svg);
+  }
+
+  &__mail {
+    margin-bottom: 15px;
+  }
 
   &__works {
     margin: 20px 0;
@@ -164,47 +172,6 @@
     }
     @media screen and (min-width: 1240px) {
       margin: 25px 0;
-    }
-  }
-
-  &__mail {
-    font-size: 14px;
-    display: flex;
-    margin-bottom: 15px;
-
-    &-icon {
-      display: block;
-      width: 6vw;
-      height: 6vw;
-
-      background-image: url(../assets/svg/letter_icon.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      margin-right: 10px;
-    }
-
-    @media screen and (min-width: 768px) {
-      font-size: 14px;
-      margin-bottom: 25px;
-
-      &-icon {
-        width: 2.125vw;
-        height: 2.125vw;
-      }
-    }
-    @media screen and (min-width: 1240px) {
-      font-size: 14px;
-      margin-bottom: 25px;
-
-      &-icon {
-        width: 1.242vw;
-        height: 1.242vw;
-      }
-    }
-    transition: all 500ms ease;
-    &:hover {
-      transform: scale(1.02);
     }
   }
 }
