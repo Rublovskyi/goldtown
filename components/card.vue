@@ -1,35 +1,35 @@
 <template lang="pug">
-    //- .card(v-if="card")
-    .card
-        n-link.card__image(:to="localePath('/view/' + card.id)")
-            img(:src="test()" :alt="card.attributes.title")
-        .card__info 
-            .card__title(v-if="card.attributes.title || card.attributes.adress")
-                h3.card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
-                p.card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
-            p.card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
-            p.card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
-            p.card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.payback") {{card.attributes.payback}} {{ $t('card.payback') }}
-            .card__list
-                p.card__item(v-if="card.attributes.number_of_rooms")
-                    span.title  {{ $t('card.number_of_rooms') }}: 
-                    span.amount {{card.attributes.number_of_rooms}}
-                p.card__item(v-if="card.attributes.floor")
-                    span.title {{ $t('card.floor') }}: 
-                    span.amount {{card.attributes.floor}}
-                p.card__item(v-if="card.attributes.apartment_area")
-                    span.title  {{ $t('card.apartment_area') }}(м2): 
-                    span.amount {{card.attributes.apartment_area}}
-                p.card__item(v-if="card.attributes.living_area") 
-                    span.title  {{ $t('card.living_area') }}: 
-                    span.amount {{card.attributes.living_area}}
-                p.card__item(v-if="card.attributes.parking_type") 
-                    span.title  {{ $t('card.parking_type') }}: 
-                    span.amount {{card.attributes.parking_type}}
-                p.card__item(v-if="card.attributes.annual_income") 
-                    span.title  {{ $t('card.annual_income') }}($): 
-                    span.amount {{card.attributes.annual_income}}
-            n-link.card__btn-more( :to="localePath('/view/' + card.id)" )  {{ $t('card.more') }}
+//- .card(v-if="card")
+.card(v-if="card ||card.attributes")
+    n-link.card__image(:to="localePath('/view/' + card.id)")
+        img(:src="test()" :alt="card.attributes.title")
+    .card__info 
+        .card__title(v-if="card.attributes.title || card.attributes.adress")
+            h3.card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
+            p.card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
+        p.card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
+        p.card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
+        p.card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.payback") {{card.attributes.payback}} {{ $t('card.payback') }}
+        .card__list
+            p.card__item(v-if="card.attributes.number_of_rooms")
+                span.title  {{ $t('card.number_of_rooms') }}: 
+                span.amount {{card.attributes.number_of_rooms}}
+            p.card__item(v-if="card.attributes.floor")
+                span.title {{ $t('card.floor') }}: 
+                span.amount {{card.attributes.floor}}
+            p.card__item(v-if="card.attributes.apartment_area")
+                span.title  {{ $t('card.apartment_area') }}(м2): 
+                span.amount {{card.attributes.apartment_area}}
+            p.card__item(v-if="card.attributes.living_area") 
+                span.title  {{ $t('card.living_area') }}: 
+                span.amount {{card.attributes.living_area}}
+            p.card__item(v-if="card.attributes.parking_type") 
+                span.title  {{ $t('card.parking_type') }}: 
+                span.amount {{card.attributes.parking_type}}
+            p.card__item(v-if="card.attributes.annual_income") 
+                span.title  {{ $t('card.annual_income') }}($): 
+                span.amount {{card.attributes.annual_income}}
+        n-link.card__btn-more( :to="localePath('/view/'  + card.id)" )  {{ $t('card.more') }}
 </template>
 <script>
 export default {

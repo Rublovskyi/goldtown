@@ -1,18 +1,18 @@
 <template lang="pug">
-    .hero 
-        .hero__photo 
-            picture
-                source(media="(min-width: 768px)" type="image/jpeg" srcset="~/assets/heroBG.webp")
-                source(type="image/webp" srcset="~/assets/heroBG-mob.webp")
-                img(src="~/assets/heroBG.jpg" alt="hero")
-            //- img( src="~/assets/hero/Desk:Q100:S100.jpg" :srcset="`${imageM} 320w, ${imageT} 768w, ${imageD} 1240w`" :alt="$t('hero.title')")
-        .hero__data
-            .hero__wrap
-                h1.hero__title {{ $t('hero.title') }}
-                p.hero__text {{ $t('hero.text') }}
-                button.hero__btn(@click="makeRequest")
-                    span {{ $t('hero.button_text') }}
-                    //- span.hero__btn-icon 
+.hero 
+    .hero__photo 
+        picture
+            source(media="(min-width: 768px)" type="image/jpeg" srcset="~/assets/heroBG.webp")
+            source(type="image/webp" srcset="~/assets/heroBG-mob.webp")
+            img(src="~/assets/heroBG.jpg" alt="hero")
+        //- img( src="~/assets/hero/Desk:Q100:S100.jpg" :srcset="`${imageM} 320w, ${imageT} 768w, ${imageD} 1240w`" :alt="$t('hero.title')")
+    .hero__data
+        .hero__wrap
+            h1.hero__title {{ $t('hero.title') }}
+            p.hero__text {{ $t('hero.text') }}
+            button.hero__btn(@click="makeRequest")
+                span {{ $t('hero.button_text') }}
+                //- span.hero__btn-icon 
                 
 </template>
 <script>

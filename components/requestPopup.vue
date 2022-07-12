@@ -1,14 +1,14 @@
 <template lang="pug">
-    .popup(@click="closePopup")
-        .popup__wrap
-            h3.popup__title(v-html="$t('request.title')") {{ $t('request.title') }}
-            p.popup__label {{ $t('request.name') }}
-            input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
-            p.popup__label {{ $t('request.number') }}
-            input.popup__input(type="number" v-model="phone" v-on:input="validate('phone')")
-            p.error-text(v-if="errorPhone") {{ $t('request.error') }}
-            button.popup__btn(@click="postRequestData") {{ $t('request.send') }}
-            button.popup__close
+.popup(@click="closePopup")
+    .popup__wrap
+        h3.popup__title(v-html="$t('request.title')") {{ $t('request.title') }}
+        p.popup__label {{ $t('request.name') }}
+        input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
+        p.popup__label {{ $t('request.number') }}
+        input.popup__input(type="number" v-model="phone" v-on:input="validate('phone')")
+        p.error-text(v-if="errorPhone") {{ $t('request.error') }}
+        button.popup__btn(@click="postRequestData") {{ $t('request.send') }}
+        button.popup__close
 </template>
 <script>
 export default {

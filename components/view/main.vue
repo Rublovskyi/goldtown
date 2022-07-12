@@ -1,50 +1,50 @@
 <template lang="pug">
-    .view(v-if="info")
-        .view__wrap
-            .view__images
-                .view__images-wrap(v-if="info.image.data" v-for="(img, i) in images()" :key="i" :class="['type'+i]" @click="openPhotoPopup(i)")
-                    img(:src="`https://api.goldtowncompany.com${img.attributes.url}`" :alt="info.title")
-                    p.plus-photo(v-if="i === 2") {{amountPhoto()}} 
-                .view__images-wrap.type0(v-if="!info.image.data")
-                    img(:src="testImg" alt="Фото отсутствует")
-            .view__info 
-                .view__info-main 
-                    h3.view__info-main-title {{info.title}}
-                    p.view__info-main-price {{info.price}}$
-                .view__data
-                    p.view__data-type(v-if="info.number_of_rooms") 
-                        span.title {{ $t('card.number_of_rooms') }}: 
-                        span.amount {{info.number_of_rooms}}
-                    p.view__data-type(v-if="info.floor") 
-                        span.title {{ $t('card.floor') }}: 
-                        span.amount {{info.floor}}
-                    p.view__data-type(v-if="info.apartment_area") 
-                        span.title {{ $t('card.apartment_area') }}: 
-                        span.amount {{info.apartment_area}} м2
-                    p.view__data-type(v-if="info.living_area") 
-                        span.title {{ $t('card.living_area') }}: 
-                        span.amount {{info.living_area}} м2
-                    p.view__data-type(v-if="info.parking_type") 
-                        span.title {{ $t('card.parking_type') }}:
-                        span.amount {{info.parking_type}}
-                    p.view__data-type(v-if="info.city") 
-                        span.title {{ $t('card.city') }}:
-                        span.amount {{info.city}}
-                    p.view__data-type(v-if="info.annual_income") 
-                        span.title {{ $t('card.annual_income') }}:
-                        span.amount {{info.annual_income}}
-                    p.view__data-type(v-if="info.payback") 
-                        span.title {{ $t('card.payback_view') }}:
-                        span.amount {{info.payback}}
-                    p.view__data-type(v-if="info.adress") 
-                        span.title {{ $t('card.address') }}:
-                        span.amount {{info.adress}}
-                p.view__desc(v-if="info.sub_title") {{info.sub_title}}
-                .view__social
-                    a.view__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
-                        img(src="~/assets/svg/facebook-black.svg" alt="facefook icon")
-                    a.view__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
-                        img(src="~/assets/svg/instagram-black.svg" alt="instagram icon")
+.view(v-if="info")
+    .view__wrap
+        .view__images
+            .view__images-wrap(v-if="info.image.data" v-for="(img, i) in images()" :key="i" :class="['type'+i]" @click="openPhotoPopup(i)")
+                img(:src="`https://api.goldtowncompany.com${img.attributes.url}`" :alt="info.title")
+                p.plus-photo(v-if="i === 2") {{amountPhoto()}} 
+            .view__images-wrap.type0(v-if="!info.image.data")
+                img(:src="testImg" alt="Фото отсутствует")
+        .view__info 
+            .view__info-main 
+                h3.view__info-main-title {{info.title}}
+                p.view__info-main-price {{info.price}}$
+            .view__data
+                p.view__data-type(v-if="info.number_of_rooms") 
+                    span.title {{ $t('card.number_of_rooms') }}: 
+                    span.amount {{info.number_of_rooms}}
+                p.view__data-type(v-if="info.floor") 
+                    span.title {{ $t('card.floor') }}: 
+                    span.amount {{info.floor}}
+                p.view__data-type(v-if="info.apartment_area") 
+                    span.title {{ $t('card.apartment_area') }}: 
+                    span.amount {{info.apartment_area}} м2
+                p.view__data-type(v-if="info.living_area") 
+                    span.title {{ $t('card.living_area') }}: 
+                    span.amount {{info.living_area}} м2
+                p.view__data-type(v-if="info.parking_type") 
+                    span.title {{ $t('card.parking_type') }}:
+                    span.amount {{info.parking_type}}
+                p.view__data-type(v-if="info.city") 
+                    span.title {{ $t('card.city') }}:
+                    span.amount {{info.city}}
+                p.view__data-type(v-if="info.annual_income") 
+                    span.title {{ $t('card.annual_income') }}:
+                    span.amount {{info.annual_income}}
+                p.view__data-type(v-if="info.payback") 
+                    span.title {{ $t('card.payback_view') }}:
+                    span.amount {{info.payback}}
+                p.view__data-type(v-if="info.adress") 
+                    span.title {{ $t('card.address') }}:
+                    span.amount {{info.adress}}
+            p.view__desc(v-if="info.sub_title") {{info.sub_title}}
+            .view__social
+                a.view__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
+                    img(src="~/assets/svg/facebook-black.svg" alt="facefook icon")
+                a.view__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
+                    img(src="~/assets/svg/instagram-black.svg" alt="instagram icon")
 
 </template>
 <script>

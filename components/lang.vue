@@ -1,11 +1,11 @@
 <template lang="pug">
-    .lang(:class="{'white': type === 1, 'black': type === 2}")
-        .lang__current(v-text="$t('title')")
-        .lang__dropdown
-            .lang__item(v-if="$i18n.locale != 'ua'")
-                a.lang__text(:href="switchLocalePath('ua') " aria-label="Ua") Ua
-            .lang__item(v-if="$i18n.locale != 'ru'")
-                a.lang__text(:href="switchLocalePath('ru') + '/'" aria-label="Ru") Ru
+.lang(:class="{'white': type === 1, 'black': type === 2}")
+    .lang__current(v-text="$t('title')")
+    .lang__dropdown
+        .lang__item(v-if="$i18n.locale != 'ua'")
+            a.lang__text(:href="switchLocalePath('ua') " aria-label="Ua") Ua
+        .lang__item(v-if="$i18n.locale != 'ru'")
+            a.lang__text(:href="switchLocalePath('ru') + '/'" aria-label="Ru") Ru
 </template>
 <script>
 export default {

@@ -1,36 +1,36 @@
 <template lang="pug">
-    .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
-        n-link.header__logo(:to="localePath('/')")
-            img(src="../assets/Logo.png" alt="Logo Gold Town")
-        .header__wrap(:class="{'show': showMenu}")
-            .header__menu
-                .header__list
-                    //- p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
-                    n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") {{ $t('header.purchase') }}
-                    n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
-                    //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
-                    p.header__item(@click="makeRequest") {{ $t('header.request') }}
-                    p.header__item(:class="{'show': show === 'contacts'}") Контакти
-                .header__num-lang
-                    .header__numbers
-                        a.header__number(href="tel:+380984732501") 
-                            span.header__number-icon
-                            span +380(98)473-25-01
-                        a.header__number(href="tel:+380984732501") 
-                            span.header__number-icon
-                            span +380(98)473-25-01
-                        a.header__number(href="tel:+380984732501") 
-                            span.header__number-icon
-                            span +380(98)473-25-01
-                        //- a.header__number(href="tel:+380984732501") 
-                        //-     span.header__number-icon
-                        //-     span +380(98)473-25-01
-                    .header__lang.header__lang-desc
-                        Lang(:type="2")
-                    .header__lang.header__lang-menu
-                        Lang(:type="1")
-                button.header__menu-close(v-if="showMenu" @click="openMobileMenu") 
-        button.header__burger(@click="openMobileMenu")
+.header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
+    n-link.header__logo(:to="localePath('/')")
+        img(src="../assets/Logo.png" alt="Logo Gold Town")
+    .header__wrap(:class="{'show': showMenu}")
+        .header__menu
+            .header__list
+                //- p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
+                n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") {{ $t('header.purchase') }}
+                n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
+                //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
+                p.header__item(@click="makeRequest") {{ $t('header.request') }}
+                p.header__item(:class="{'show': show === 'contacts'}") Контакти
+            .header__num-lang
+                .header__numbers
+                    a.header__number(href="tel:+380994712789") 
+                        span.header__number-icon
+                        span  +380(99)471-27-89 
+                    a.header__number(href="tel:+380739986959") 
+                        span.header__number-icon
+                        span +380(73)998-69-59
+                    a.header__number(href="tel:+380679986958") 
+                        span.header__number-icon
+                        span +380(67)998-69-58
+                    //- a.header__number(href="tel:+380984732501") 
+                    //-     span.header__number-icon
+                    //-     span +380(98)473-25-01
+                .header__lang.header__lang-desc
+                    Lang(:type="2")
+                .header__lang.header__lang-menu
+                    Lang(:type="1")
+            button.header__menu-close(v-if="showMenu" @click="openMobileMenu") 
+    button.header__burger(@click="openMobileMenu")
 </template>
 <script>
 import Lang from "~/components/lang.vue";

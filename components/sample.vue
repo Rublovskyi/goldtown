@@ -1,40 +1,40 @@
 <template lang="pug">
-    .sample
-        n-link.sample__item.item0( :to="localePath('/purchase/house')" )
-            picture
-                source(type="image/webp" srcset="~/assets/sample/house.webp")
-                source(type="image/jpeg" srcset="~/assets/sample/house.jpg")
-                img(src="~/assets/sample/house.jpg" alt="hero")
-            .sample__gradient
-            p.sample__item-text {{ $t('sample.house') }}
-        n-link.sample__item.item1( :to="localePath('/commerce/all')")
-            picture
-                source(type="image/webp" srcset="~/assets/sample/commerce.webp")
-                source(type="image/jpeg" srcset="~/assets/sample/commerce.jpg")
-                img(src="~/assets/sample/commerce.jpg" alt="hero")
-            .sample__gradient
-            p.sample__item-text {{ $t('sample.commerce') }}
-        n-link.sample__item.item2( :to="localePath('/purchase/parking')")
-            picture
-                source(type="image/webp" srcset="~/assets/sample/parking.webp")
-                source(type="image/jpeg" srcset="~/assets/sample/parking.jpg")
-                img(src="~/assets/sample/parking.jpg" alt="hero")
-            .sample__gradient
-            p.sample__item-text {{ $t('sample.parking') }}
-        n-link.sample__item.item2( :to="localePath('/purchase/storage')")
-            picture
-                source(type="image/webp" srcset="~/assets/sample/storage.webp")
-                source(type="image/jpeg" srcset="~/assets/sample/storage.jpg")
-                img(src="~/assets/sample/storage.jpg" alt="hero")
-            .sample__gradient
-            p.sample__item-text {{ $t('sample.storage') }}
-        n-link.sample__item.item2( :to="localePath('/purchase/stead')")
-            picture
-                source(type="image/webp" srcset="~/assets/sample/plot.webp")
-                source(type="image/jpeg" srcset="~/assets/sample/plot.jpg")
-                img(src="~/assets/sample/plot.jpg" alt="hero")
-            .sample__gradient
-            p.sample__item-text {{ $t('sample.stead') }}
+.sample
+    n-link.sample__item.item0( :to="localePath('/purchase/house')" )
+        picture
+            source(type="image/webp" srcset="~/assets/sample/house.webp")
+            source(type="image/jpeg" srcset="~/assets/sample/house.jpg")
+            img(src="~/assets/sample/house.jpg" alt="hero")
+        .sample__gradient
+        p.sample__item-text {{ $t('sample.house') }}
+    n-link.sample__item.item1( :to="localePath('/commerce/all')")
+        picture
+            source(type="image/webp" srcset="~/assets/sample/commerce.webp")
+            source(type="image/jpeg" srcset="~/assets/sample/commerce.jpg")
+            img(src="~/assets/sample/commerce.jpg" alt="hero")
+        .sample__gradient
+        p.sample__item-text {{ $t('sample.commerce') }}
+    n-link.sample__item.item2( :to="localePath('/purchase/parking')")
+        picture
+            source(type="image/webp" srcset="~/assets/sample/parking.webp")
+            source(type="image/jpeg" srcset="~/assets/sample/parking.jpg")
+            img(src="~/assets/sample/parking.jpg" alt="hero")
+        .sample__gradient
+        p.sample__item-text {{ $t('sample.parking') }}
+    n-link.sample__item.item2( :to="localePath('/purchase/storage')")
+        picture
+            source(type="image/webp" srcset="~/assets/sample/storage.webp")
+            source(type="image/jpeg" srcset="~/assets/sample/storage.jpg")
+            img(src="~/assets/sample/storage.jpg" alt="hero")
+        .sample__gradient
+        p.sample__item-text {{ $t('sample.storage') }}
+    n-link.sample__item.item2( :to="localePath('/purchase/stead')")
+        picture
+            source(type="image/webp" srcset="~/assets/sample/plot.webp")
+            source(type="image/jpeg" srcset="~/assets/sample/plot.jpg")
+            img(src="~/assets/sample/plot.jpg" alt="hero")
+        .sample__gradient
+        p.sample__item-text {{ $t('sample.stead') }}
 </template>
 <script>
 export default {

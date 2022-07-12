@@ -1,17 +1,17 @@
 <template lang="pug">
-    .request
-        .request__img-desctop
-            img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
-        .request__box 
-            h3.request__box-title(v-html="$t('request.title')") {{ $t('request.title') }}
-            p.request__box-label {{ $t('request.name') }}
-            input.request__box-input(type="text" v-model="name" v-on:input="validate('name')")
-            p.request__box-label {{ $t('request.number') }}
-            input.request__box-input(type="number" v-model="phone" v-on:input="validate('phone')")
-            p.error-text(v-if="errorPhone") {{ $t('request.error') }}
-            button.request__box-btn(@click="postRequestData") {{ $t('request.send') }}
-        .request__img
-            img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
+.request
+    .request__img-desctop
+        img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
+    .request__box 
+        h3.request__box-title(v-html="$t('request.title')") {{ $t('request.title') }}
+        p.request__box-label {{ $t('request.name') }}
+        input.request__box-input(type="text" v-model="name" v-on:input="validate('name')")
+        p.request__box-label {{ $t('request.number') }}
+        input.request__box-input(type="number" v-model="phone" v-on:input="validate('phone')")
+        p.error-text(v-if="errorPhone") {{ $t('request.error') }}
+        button.request__box-btn(@click="postRequestData") {{ $t('request.send') }}
+    .request__img
+        img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
 </template>
 <script>
 export default {

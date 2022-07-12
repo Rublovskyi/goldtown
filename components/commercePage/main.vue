@@ -1,19 +1,19 @@
 <template lang="pug">
-    .buy(id="cards")
-        .buy__filter(:class="{'close': showFilters}" @click="openFilters")
-            span.icon
-            span.text {{ $t('main.filters') }}
-        .buy__console(:class="{'open': showFilters}")
-            FilterWrap.buy__console-wrap(:categoryes="Categories" :typePage="type")
-        .buy__cards(v-if="CommerceData.length !== 0" )
-            .buy__cards-wraper
-                Card(v-for="(card, i) in CommerceCardsData" :key="i" :card="card")
-            .buy__pagination
-                vs-pagination( :total-pages="totalPages()" @change="changePage" :hide-prev-next="true")
-        .buy__cards(v-if="CommerceData.length === 0")
-            .buy__cards-wrap
-                p.buy__cards-icon
-                p.buy__cards-text {{ $t('main.no_options') }}
+.buy(id="cards")
+    .buy__filter(:class="{'close': showFilters}" @click="openFilters")
+        span.icon
+        span.text {{ $t('main.filters') }}
+    .buy__console(:class="{'open': showFilters}")
+        FilterWrap.buy__console-wrap(:categoryes="Categories" :typePage="type")
+    .buy__cards(v-if="CommerceData.length !== 0" )
+        .buy__cards-wraper
+            Card(v-for="(card, i) in CommerceCardsData" :key="i" :card="card")
+        .buy__pagination
+            vs-pagination( :total-pages="totalPages()" @change="changePage" :hide-prev-next="true")
+    .buy__cards(v-if="CommerceData.length === 0")
+        .buy__cards-wrap
+            p.buy__cards-icon
+            p.buy__cards-text {{ $t('main.no_options') }}
 </template>
 <script>
 import Card from "../card.vue";

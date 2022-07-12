@@ -1,43 +1,43 @@
 <template lang="pug">
-    .filter 
-        button.filter__close(@click="filterClose")
-        .filter__category
-            p.title {{ $t('filter.select_category') }}
-            n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="localePath(`/${typePage}/${category.slug}`)") 
-                span.box
-                span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
-        .filter__wrap
-            p.title {{ $t('filter.filters') }}
-            .filter__price 
-                p.filter__title {{ $t('filter.price') }}
-                .filter__price-select
-                    .filter__price-input
-                        input(type="number"  v-model="from" placeholder="Min")
-                        span.dollar $
-                    span.slash -
-                    .filter__price-input
-                        input(type="number"  v-model="to" placeholder="Max")
-                        span.dollar $
-                p.error-text {{validate('price')}}
-            .filter__type(v-if="numOfRooms.length > 0 && numOfRooms.length > 1" @click="handlerSelectRooms")
-                p.filter__title {{ $t('filter.amount_of_rooms') }}
-                p.filter__select {{rooms}}
-                ul.filter__select-list(v-if="showRooms")
-                    li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
-                p.error-text {{validate('rooms')}}
-            .filter__type(v-if="paybackArr.length > 0 && paybackArr.length > 1" @click="handlerSelectPayback")
-                p.filter__title {{ $t('filter.payback') }}
-                p.filter__select {{payback}}
-                ul.filter__select-list(v-if="showPayback")
-                    li.filter__select-item(v-for="(option, i) in paybackArr" :key="i") {{option}}
-                p.error-text {{validate('payback')}}
-            .filter__type(v-if="annualIncome.length > 0 && annualIncome.length > 1" @click="handlerSelectIncome")
-                p.filter__title {{ $t('filter.income') }} ($)
-                p.filter__select {{income}}
-                ul.filter__select-list(v-if="showIncome")
-                    li.filter__select-item(v-for="(option, i) in annualIncome" :key="i") {{option}}
-                p.error-text {{validate('annual_income')}}
-            button.filter__btn(@click="handlerFilteredData") {{ $t('filter.to_apply') }}
+.filter 
+    button.filter__close(@click="filterClose")
+    .filter__category
+        p.title {{ $t('filter.select_category') }}
+        n-link.filter__category-item( v-for="(category, i) in categoryes" :key="i" :class="{'select': category.selected}" :to="localePath(`/${typePage}/${category.slug}`)") 
+            span.box
+            span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
+    .filter__wrap
+        p.title {{ $t('filter.filters') }}
+        .filter__price 
+            p.filter__title {{ $t('filter.price') }}
+            .filter__price-select
+                .filter__price-input
+                    input(type="number"  v-model="from" placeholder="Min")
+                    span.dollar $
+                span.slash -
+                .filter__price-input
+                    input(type="number"  v-model="to" placeholder="Max")
+                    span.dollar $
+            p.error-text {{validate('price')}}
+        .filter__type(v-if="numOfRooms.length > 0 && numOfRooms.length > 1" @click="handlerSelectRooms")
+            p.filter__title {{ $t('filter.amount_of_rooms') }}
+            p.filter__select {{rooms}}
+            ul.filter__select-list(v-if="showRooms")
+                li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
+            p.error-text {{validate('rooms')}}
+        .filter__type(v-if="paybackArr.length > 0 && paybackArr.length > 1" @click="handlerSelectPayback")
+            p.filter__title {{ $t('filter.payback') }}
+            p.filter__select {{payback}}
+            ul.filter__select-list(v-if="showPayback")
+                li.filter__select-item(v-for="(option, i) in paybackArr" :key="i") {{option}}
+            p.error-text {{validate('payback')}}
+        .filter__type(v-if="annualIncome.length > 0 && annualIncome.length > 1" @click="handlerSelectIncome")
+            p.filter__title {{ $t('filter.income') }} ($)
+            p.filter__select {{income}}
+            ul.filter__select-list(v-if="showIncome")
+                li.filter__select-item(v-for="(option, i) in annualIncome" :key="i") {{option}}
+            p.error-text {{validate('annual_income')}}
+        button.filter__btn(@click="handlerFilteredData") {{ $t('filter.to_apply') }}
 </template>
 <script>
 import { mapState } from "vuex";

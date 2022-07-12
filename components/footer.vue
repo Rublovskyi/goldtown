@@ -1,35 +1,35 @@
 <template lang="pug">
-    .footer 
-        .footer__wrap
-            n-link.footer__logo(:to="localePath('/')")
-                img(src="../assets/logoLight.png" alt="Logo Gold Town")
-            .footer__mobile
-                Lang.footer__lang
-        .footer__info
-            .footer__social 
-                .footer__desc
-                    Lang.footer__lang(:type="1")
-                .footer__social-wrap
-                    a.footer__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
-                        img(src="~/assets/svg/facebook.svg" alt="facefook icon")
-                    a.footer__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
-                        img(src="~/assets/svg/instagram.svg" alt="instagram icon")
-                .footer__tablet
-                    Lang.footer__lang(:type="1")
-            .footer__wrapper
-                .footer__nums
-                    a.footer__number(href="tel:+380984732501") 
-                        span.footer__number-icon
-                        span +380(98)473-25-01
-                    a.footer__number(href="tel:+380984732501") 
-                        span.footer__number-icon
-                        span +380(98)473-25-01
-                    a.footer__number(href="tel:+380984732501") 
-                        span.footer__number-icon
-                        span +380(98)473-25-01
-                a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
-                    span.footer__address-icon
-                    span 08141, Киевская обл. <br/> Бучанский р-н. с. Святопетровское, <br/> ул. Богдана Хмельницкого 1Б.
+.footer 
+    .footer__wrap
+        n-link.footer__logo(:to="localePath('/')")
+            img(src="../assets/logoLight.png" alt="Logo Gold Town")
+        .footer__mobile
+            Lang.footer__lang
+    .footer__info
+        .footer__social 
+            .footer__desc
+                Lang.footer__lang(:type="1")
+            .footer__social-wrap
+                a.footer__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
+                    img(src="~/assets/svg/facebook.svg" alt="facefook icon")
+                a.footer__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
+                    img(src="~/assets/svg/instagram.svg" alt="instagram icon")
+            .footer__tablet
+                Lang.footer__lang(:type="1")
+        .footer__wrapper
+            .footer__nums
+                a.footer__number(href="tel:+380994712789") 
+                    span.footer__number-icon
+                    span +380(99)471-27-89 
+                a.footer__number(href="tel:+380739986959") 
+                    span.footer__number-icon
+                    span +380(73)998-69-59
+                a.footer__number(href="tel:+380679986958") 
+                    span.footer__number-icon
+                    span +380(67)998-69-58
+            a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
+                span.footer__address-icon
+                span 08141, Киевская обл. <br/> Бучанский р-н. с. Святопетровское, <br/> ул. Богдана Хмельницкого 1Б.
 </template>
 <script>
 import Lang from "~/components/lang.vue";

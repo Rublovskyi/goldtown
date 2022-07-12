@@ -92,6 +92,8 @@ export const actions = {
         `/api/products?populate=*&${query}&locale=${locale}`
       );
 
+      console.log("im hereee", response);
+
       commit("UPDATE_COMMERCE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
@@ -307,10 +309,12 @@ export const mutations = {
       return arrNewIncome.indexOf(item) == pos;
     });
 
+    console.log("uniqueArrayRooms", uniqueArrayRooms);
+
     state.Address = uniqueArrayAddress;
-    state.NumOfRooms = uniqueArrayRooms;
-    state.Payback = uniqueArrayPayback;
-    state.AnnualIncome = uniqueArrayIncome;
+    state.NumOfRooms = uniqueArrayRooms.sort();
+    state.Payback = uniqueArrayPayback.sort();
+    state.AnnualIncome = uniqueArrayIncome.sort();
   },
   UPDATE_SIMILAR_PROPOSAL(state, data) {
     let currentPease = state.CurrentPeaseData;
