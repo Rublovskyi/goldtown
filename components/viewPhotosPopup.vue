@@ -1,7 +1,8 @@
 <template lang="pug">
 .photo(v-if="photosData" @click="closePopup")
     .photo__wrap
-        img(:src="`https://api.goldtowncompany.com${photosData.currentImg}`" alt="Фото")
+        //- img(:src="`https://api.goldtowncompany.com${photosData.currentImg.attributes.url}`" alt="Фото")
+        img(:src="`https://api.goldtowncompany.com${photosData.currentImg.attributes.url}`" :srcset="`https://api.goldtowncompany.com${photosData.currentImg.attributes.formats.small.url ? photosData.currentImg.attributes.formats.small.url : photosData.currentImg.attributes.url} 320w, https://api.goldtowncompany.com${photosData.currentImg.attributes.formats.medium.url ? photosData.currentImg.attributes.formats.medium.url : photosData.currentImg.attributes.url} 768w, https://api.goldtowncompany.com${photosData.currentImg.attributes.formats.large.url ? photosData.currentImg.attributes.formats.large.url : photosData.currentImg.attributes.url} 1240w`" alt="фото")
     .photo__btns-slide(v-if="photosData.images.length > 1" @click="handlerPhotoChange")
         button.photo__btns-slide-left(data-arrow="left")
         button.photo__btns-slide-right(data-arrow="right")
@@ -44,6 +45,9 @@ export default {
         }
       }
     },
+  },
+  mounted() {
+    console.log("photosData", this.photosData);
   },
 };
 </script>

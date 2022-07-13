@@ -73,6 +73,7 @@ export default {
         },
       },
     ],
+    "@nuxtjs/sitemap",
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -82,6 +83,26 @@ export default {
   },
   gtm: {
     id: "GTM-MB7DQRJ",
+  },
+  sitemap: {
+    path: "/sitemap.xml",
+    hostname: "https://goldtowncompany.com/",
+    gzip: true,
+    i18n: true,
+    routes: async () => {
+      let routes = [];
+
+      // let blogs = await axios.get(
+      //   "https://zikzak.com.ua/hwp/wp-json/wp/v2/news?per_page=100&skip_cache=true&head_tags_skip_cache=true"
+      // );
+      // _.map(blogs.data, (post) => {
+      //   routes.push(`/blog/${post.slug}`);
+      //   routes.push(`/ru/blog/${post.slug}`);
+      //   routes.push(`/en/blog/${post.slug}`);
+      // });
+
+      return routes;
+    },
   },
 
   "google-gtag": {

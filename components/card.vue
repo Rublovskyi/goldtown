@@ -2,7 +2,9 @@
 //- .card(v-if="card")
 .card(v-if="card ||card.attributes")
     n-link.card__image(:to="localePath('/view/' + card.id)")
-        img(:src="test()" :alt="card.attributes.title")
+        //- img(:src="test()" :alt="card.attributes.title")
+        //- img(:src="makePhotoUrl('big')" :srcset="`${makePhotoUrl('small')} 320w, ${makePhotoUrl('medium')} 768w, ${makePhotoUrl('large')} 1240w`" :alt="card.attributes.title")
+        img(:src="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.url}`" :srcset="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.small.url ? card.attributes.image.data[0].attributes.formats.small.url : card.attributes.image.data[0].attributes.url} 320w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.medium.url ? card.attributes.image.data[0].attributes.formats.medium.url : card.attributes.image.data[0].attributes.url} 768w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.large.url ? card.attributes.image.data[0].attributes.formats.large.url : card.attributes.image.data[0].attributes.url} 1240w`" :alt="card.attributes.title")
     .card__info 
         .card__title(v-if="card.attributes.title || card.attributes.adress")
             h3.card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
@@ -40,10 +42,18 @@ export default {
     };
   },
   methods: {
-    test() {
+    makePhotoUrl(size) {
       if (this.card.attributes.image.data) {
         let url;
-        url = this.card.attributes.image.data[0].attributes.url;
+        // url = this.card.attributes.image.data[0].attributes.formats.large.url;
+        url =
+          size === "large"
+            ? this.card.attributes.image.data[0].attributes.formats.large.url
+            : size === "medium"
+            ? this.card.attributes.image.data[0].attributes.formats.medium.url
+            : size === "small"
+            ? this.card.attributes.image.data[0].attributes.formats.small.url
+            : this.card.attributes.image.data[0].attributes.url;
         let link = `https://api.goldtowncompany.com${url}`;
         return link;
       } else {

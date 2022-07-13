@@ -1,5 +1,5 @@
 <template lang="pug">
-.similar(v-if="CurrentPeaseData && SimilarCardsData && ViewPageGetData")
+.similar(v-if="CurrentPeaseData && SimilarCardsData && ViewPageGetData" :class="{'changeBg': changeBg}")
     p.similar__title(v-if="SimilarCardsData.length > 0") Рекомендовано для Вас
     .similar__cards
         Card(v-for="(card, i) in test()" :key="i" :card="card")
@@ -9,18 +9,24 @@ import { mapState } from "vuex";
 import Card from "~/components/card.vue";
 
 export default {
+  props: [
+    "changeBg",
+    "CurrentPeaseData",
+    "ViewPageGetData",
+    "SimilarCardsData",
+  ],
   data() {
     return {
       windowW: 768,
     };
   },
-  computed: {
-    ...mapState({
-      CurrentPeaseData: (state) => state.app.CurrentPeaseData.attributes,
-      SimilarCardsData: (state) => state.app.SimilarCardsData,
-      ViewPageGetData: (state) => state.app.ViewPageGetData,
-    }),
-  },
+  // computed: {
+  //   ...mapState({
+  //     CurrentPeaseData: (state) => state.app.CurrentPeaseData.attributes,
+  //     SimilarCardsData: (state) => state.app.SimilarCardsData,
+  //     ViewPageGetData: (state) => state.app.ViewPageGetData,
+  //   }),
+  // },
   methods: {
     test() {
       let x = [];
@@ -59,6 +65,7 @@ export default {
 <style lang="scss" scoped>
 .similar {
   padding: 18.75vw 5vw 18.75vw 5vw;
+
   &__title {
     font-weight: 500;
     font-size: 7.5vw;
@@ -80,7 +87,7 @@ export default {
     }
   }
   @media screen and (min-width: 1240px) {
-    padding: 0 5.556vw 2vw 5.556vw;
+    padding: 5vw 5.556vw 4vw 5.556vw;
     &__title {
       font-size: 2.083vw;
       margin-bottom: 2.778vw;
@@ -90,6 +97,10 @@ export default {
       grid-template-columns: repeat(4, 1fr);
       column-gap: 1.944vw;
     }
+  }
+
+  &.changeBg {
+    background-color: var(--light-bg);
   }
 }
 </style>

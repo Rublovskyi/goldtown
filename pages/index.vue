@@ -5,6 +5,8 @@
     AboutUs(id="about")
     Sample
     Request(id="request")
+    //- SimilarCards(:changeBg="true")
+    //- SimilarCards(v-if="ViewPageGetData" :changeBg="true" :CurrentPeaseData="CurrentPeaseData" :ViewPageGetData="ViewPageGetData" :SimilarCardsData="SimilarCardsData")
     RequestPopup(v-if="showPopup")
     Footer
     SuccessPopup(v-if="successPopup")
@@ -23,6 +25,9 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import Sample from "~/components/sample.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
+import SimilarCards from "~/components/view/similarCards.vue";
+
+import { mapState } from "vuex";
 
 export default {
   components: {
@@ -36,6 +41,7 @@ export default {
     SuccessPopup,
     Sample,
     ScrollUpBtn,
+    SimilarCards,
   },
   data() {
     return {
@@ -69,6 +75,13 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    ...mapState({
+      CurrentPeaseData: (state) => state.app.CurrentPeaseData.attributes,
+      ViewPageGetData: (state) => state.app.ViewPageGetData,
+      SimilarCardsData: (state) => state.app.SimilarCardsData,
+    }),
   },
 };
 </script>
