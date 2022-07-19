@@ -74,10 +74,23 @@ export default {
       },
     ],
     "@nuxtjs/sitemap",
+    "@nuxtjs/redirect-module",
   ],
+  // serverMiddleware: ["~/serverMiddleware/redirects"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  redirect: [
+    {
+      from: "/contacts",
+      to: "/",
+      statusCode: 301,
+    },
+    // {
+    // 	from: "^.*(?<!/)$",
+    // 	to: (from, req) => req.url + "/"
+    // }
+  ],
   axios: {
     baseURL: "https://api.goldtowncompany.com",
   },

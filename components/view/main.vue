@@ -3,9 +3,10 @@
     .view__wrap
         .view__images
             .view__images-wrap(v-if="info.image.data" v-for="(img, i) in images()" :key="i" :class="['type'+i]" @click="openPhotoPopup(i)")
-                img(:src="`https://api.goldtowncompany.com${img.attributes.url}`" :alt="info.title")
+                //- img(:src="`https://api.goldtowncompany.com${img.attributes.url}`" :alt="info.title")
                 //- img(:src="makePhotoUrl(img,'big')" :alt="info.title")
-                //- img(:src="`https://api.goldtowncompany.com${img.attributes.url}`" :srcset="`https://api.goldtowncompany.com${img.attributes.formats.small.url ? img.attributes.formats.small.url : img.attributes.url} 320w, https://api.goldtowncompany.com${img.attributes.formats.medium.url ? img.attributes.formats.medium.url : img.attributes.url} 768w, https://api.goldtowncompany.com${img.attributes.formats.large.url ? img.attributes.formats.large.url : img.attributes.url} 1240w`" :alt="img.attributes.title")
+                img(v-if="img.attributes.url" :src="`https://api.goldtowncompany.com${img.attributes.url}`" :srcset="`https://api.goldtowncompany.com${img.attributes.formats.small ? img.attributes.formats.small.url : img.attributes.url} 320w, https://api.goldtowncompany.com${img.attributes.formats.medium ? img.attributes.formats.medium.url : img.attributes.url} 768w, https://api.goldtowncompany.com${img.attributes.formats.large ? img.attributes.formats.large.url : img.attributes.url} 1240w`" :alt="img.attributes.title")
+                img(v-if="!img.attributes.url" :src="reserveImg")
                 //- img(:src="makePhotoUrl(img,'big')" :srcset="`${img.attributes.formats.small.url ? makePhotoUrl(img,'small') : makePhotoUrl(img,'big')} 320w, ${img.attributes.formats.medium.url ? makePhotoUrl(img,'medium') : makePhotoUrl(img,'big')} 768w, ${img.attributes.formats.large.url ? makePhotoUrl(img,'large') : makePhotoUrl(img,'big')} 1240w`" )
                 p.plus-photo(v-if="i === 2") {{amountPhoto()}} 
             .view__images-wrap.type0(v-if="!info.image.data")

@@ -3,7 +3,8 @@
     Header
     .view__wrap
         MainInfo
-        SimilarCards(v-if="ViewPageGetData")
+        //- SimilarCards(v-if="ViewPageGetData")
+        SimilarCards(v-if="ViewPageGetData" :CurrentPeaseData="CurrentPeaseData" :ViewPageGetData="ViewPageGetData" :SimilarCardsData="SimilarCardsData")
     Footer
     PhoneBtn
     ViewPhotoPopup(v-if="showPhotoPopup" :photosData="photosData")

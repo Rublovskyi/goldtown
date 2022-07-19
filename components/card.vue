@@ -1,10 +1,11 @@
 <template lang="pug">
 //- .card(v-if="card")
-.card(v-if="card ||card.attributes")
-    n-link.card__image(:to="localePath('/view/' + card.id)")
+.card(v-if="card || card.attributes")
+    n-link.card__image(:to="localePath('/' + card.attributes.purchase_type + '/view/' + card.attributes.alt_slug)")
         //- img(:src="test()" :alt="card.attributes.title")
         //- img(:src="makePhotoUrl('big')" :srcset="`${makePhotoUrl('small')} 320w, ${makePhotoUrl('medium')} 768w, ${makePhotoUrl('large')} 1240w`" :alt="card.attributes.title")
-        img(:src="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.url}`" :srcset="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.small.url ? card.attributes.image.data[0].attributes.formats.small.url : card.attributes.image.data[0].attributes.url} 320w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.medium.url ? card.attributes.image.data[0].attributes.formats.medium.url : card.attributes.image.data[0].attributes.url} 768w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.large.url ? card.attributes.image.data[0].attributes.formats.large.url : card.attributes.image.data[0].attributes.url} 1240w`" :alt="card.attributes.title")
+        img(v-if="card.attributes.image.data" :src="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.url}`" :srcset="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.small ? card.attributes.image.data[0].attributes.formats.small.url : card.attributes.image.data[0].attributes.url} 320w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.medium ? card.attributes.image.data[0].attributes.formats.medium.url : card.attributes.image.data[0].attributes.url} 768w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.large ? card.attributes.image.data[0].attributes.formats.large.url : card.attributes.image.data[0].attributes.url} 1240w`" :alt="card.attributes.title")
+        img(v-if="!card.attributes.image.data" :src="reserveImg")
     .card__info 
         .card__title(v-if="card.attributes.title || card.attributes.adress")
             h3.card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
@@ -31,7 +32,7 @@
             p.card__item(v-if="card.attributes.annual_income") 
                 span.title  {{ $t('card.annual_income') }}($): 
                 span.amount {{card.attributes.annual_income}}
-        n-link.card__btn-more( :to="localePath('/view/'  + card.id)" )  {{ $t('card.more') }}
+        n-link.card__btn-more( :to="localePath('/' + card.attributes.purchase_type + '/view/' + card.attributes.alt_slug)" )  {{ $t('card.more') }}
 </template>
 <script>
 export default {
@@ -41,25 +42,8 @@ export default {
       reserveImg: require("~/assets/test.jpeg"),
     };
   },
-  methods: {
-    makePhotoUrl(size) {
-      if (this.card.attributes.image.data) {
-        let url;
-        // url = this.card.attributes.image.data[0].attributes.formats.large.url;
-        url =
-          size === "large"
-            ? this.card.attributes.image.data[0].attributes.formats.large.url
-            : size === "medium"
-            ? this.card.attributes.image.data[0].attributes.formats.medium.url
-            : size === "small"
-            ? this.card.attributes.image.data[0].attributes.formats.small.url
-            : this.card.attributes.image.data[0].attributes.url;
-        let link = `https://api.goldtowncompany.com${url}`;
-        return link;
-      } else {
-        return this.reserveImg;
-      }
-    },
+  mounted() {
+    console.log(this.card);
   },
 };
 </script>

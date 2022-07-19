@@ -6,11 +6,13 @@
     .buy__console(:class="{'open': showFilters}")
         FilterWrap.buy__console-wrap(:categoryes="Categories" :typePage="type")
     .buy__cards(v-if="PurchaseData.length !== 0" )
+        //- BreadCrumbs(:info="infoCrambs")
         .buy__cards-wraper
             Card(v-for="(card, i) in PurchaseCardsData" :key="i" :card="card")
         .buy__pagination
             vs-pagination( :total-pages="totalPages()" @change="changePage" :hide-prev-next="true")
     .buy__cards(v-if="PurchaseData.length === 0")
+        //- BreadCrumbs(:info="infoCrambs")
         .buy__cards-wrap
             p.buy__cards-icon
             p.buy__cards-text {{ $t('main.no_options') }}
@@ -18,6 +20,7 @@
 <script>
 import Card from "../card.vue";
 import FilterWrap from "~/components/FilterWrap.vue";
+import BreadCrumbs from "~/components/breadCrambs.vue";
 import { mapState } from "vuex";
 
 export default {
@@ -54,11 +57,25 @@ export default {
       page: 0,
       disabledNext: false,
       showFilters: false,
+      infoCrambs: {
+        links: [
+          {
+            name: "головна",
+            link: "/",
+          },
+          {
+            name: "commerce",
+            link: "/",
+          },
+        ],
+        currentPageName: "current",
+      },
     };
   },
   components: {
     Card,
     FilterWrap,
+    BreadCrumbs,
     // Paginate,
   },
 };

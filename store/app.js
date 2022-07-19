@@ -1,5 +1,6 @@
 export const actions = {
   async getDataPurchase({ commit }, { slug, locale }) {
+    console.log(slug);
     const qs = require("qs");
 
     let filters = {
@@ -12,22 +13,22 @@ export const actions = {
 
     if (slug == "storage") {
       filters.filters.product_type = {
-        $eq: "Комора",
+        $eq: "storage",
       };
     }
     if (slug == "house") {
       filters.filters.product_type = {
-        $eq: "Квартира",
+        $eq: "house",
       };
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Паркомісце",
+        $eq: "parking",
       };
     }
     if (slug == "stead") {
       filters.filters.product_type = {
-        $eq: "Земельна ділянка",
+        $eq: "stead",
       };
     }
 
@@ -60,27 +61,27 @@ export const actions = {
     };
     if (slug == "storage") {
       filters.filters.product_type = {
-        $eq: "Комора",
+        $eq: "storage",
       };
     }
     if (slug == "house") {
       filters.filters.product_type = {
-        $eq: "Квартира",
+        $eq: "house",
       };
     }
     if (slug == "parking") {
       filters.filters.product_type = {
-        $eq: "Паркомісце",
+        $eq: "parking",
       };
     }
     if (slug == "stead") {
       filters.filters.product_type = {
-        $eq: "Земельна ділянка",
+        $eq: "stead",
       };
     }
     if (slug == "commercial-premises") {
       filters.filters.product_type = {
-        $eq: "Комерційні приміщення",
+        $eq: "commercial-premises",
       };
     }
 
@@ -197,7 +198,7 @@ export const actions = {
     const query = qs.stringify(
       {
         filters: {
-          id: {
+          alt_slug: {
             $eq: slug,
           },
         },
@@ -245,6 +246,28 @@ export const actions = {
     } catch (err) {
       console.log(err);
     }
+  },
+  async testAsync({ commit }, data) {
+    const qs = require("qs");
+
+    let filters = {
+      filters: {
+        purchase_type: {
+          $eq: data.type,
+        },
+        product_type: {
+          $eq: data.filter,
+        },
+      },
+    };
+    let query = qs.stringify(filters, {
+      encodeValuesOnly: true, // prettify url
+    });
+    const response = await this.$axios.get(
+      `/api/products?populate=*&${query}&locale=${data.locale}`
+    );
+
+    console.log(response);
   },
 };
 export const mutations = {
