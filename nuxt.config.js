@@ -42,7 +42,10 @@ export default {
   css: ["@styles/main.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~plugins/vs-pagination", mode: "client" }],
+  plugins: [
+    { src: "~plugins/vs-pagination", mode: "client" },
+    // { src: "~/plugins/redirects.js" },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -80,26 +83,19 @@ export default {
     "@nuxtjs/sitemap",
     "@nuxtjs/redirect-module",
   ],
-  // serverMiddleware: ["~/serverMiddleware/redirects"],
+  serverMiddleware: ["~/serverMiddleware/redirects"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  redirect: [
-    {
-      from: "/purchase/all",
-      to: "/purchase/house",
-      statusCode: 301,
-    },
-    {
-      from: "https://goldtowncompany.com/",
-      to: "http://gt.org.ua/",
-      statusCode: 301,
-    },
-    // {
-    // 	from: "^.*(?<!/)$",
-    // 	to: (from, req) => req.url + "/"
-    // }
-  ],
+  redirect: {
+    rules: [
+      {
+        from: "/purchase/all",
+        to: "/purchase/house",
+        statusCode: 301,
+      },
+    ],
+  },
   axios: {
     baseURL: "https://api.goldtowncompany.com",
   },
@@ -121,14 +117,14 @@ export default {
       //   routes.push(`/blog/${post.slug}`);
       //   routes.push(`/ru/blog/${post.slug}`);
       //   routes.push(`/en/blog/${post.slug}`);
-      // });
+      // })
 
       return routes;
     },
     // redirect: [
     //   {
     //     from: "/contacts",
-    //     to: "/",
+    //     to: "/commerce/all",
     //     statusCode: 301,
     //   },
     // ],

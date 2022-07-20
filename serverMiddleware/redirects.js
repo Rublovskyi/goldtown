@@ -1,27 +1,13 @@
-// const redirects = [{ from: "/contacts", to: "/" }];
+module.exports = function (req, res, next) {
+  const host = req.headers.host;
+  const url = req.url;
+  const env = "https://api.goldtowncompany.com";
+  const forceDomain = "http://gt.org.ua";
 
-// module.exports = function (req, res, next) {
-//   const host = req.headers.host;
-//   const fullUrl = req.url;
-//   var url = req.url.split("?")[0];
-//   var urlParams = null;
-//   if (req.url.includes("?")) {
-//     urlParams = "?" + req.url.split("?")[1];
-//   }
+  if (env === "production" && host !== "") {
+    res.writeHead(301, { Location: forceDomain + url });
+    return res.end();
+  }
 
-//   const redirect = redirects.find((r) => r.from === url);
-//   if (redirect) {
-//     var newLocation;
-//     if (urlParams) {
-//       newLocation = redirect.to + urlParams;
-//     } else {
-//       newLocation = redirect.to;
-//     }
-//     res.writeHead(301, {
-//       Location: newLocation,
-//     });
-//     res.end();
-//   } else {
-//     next();
-//   }
-// };
+  return next();
+};
