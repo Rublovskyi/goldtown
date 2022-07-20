@@ -4,13 +4,16 @@ module.exports = function (req, res, next) {
   const env = "https://api.goldtowncompany.com";
   const forceDomain = "http://gt.org.ua";
 
-  console.log("host", host, url, env);
-
-  if (env === "production" && host !== "www.gt.org.ua") {
-    res.writeHead(301, { Location: forceDomain + url });
-    console.log("im hereeeeee");
-    return res.end();
+  if (host == "www.gt.org.ua" || host == "https://goldtowncompany.com") {
+    //   res.writeHead(301, { Location: forceDomain + url });
+    redirect(req, forceDomain + req.href);
+    // return res.end();
   }
 
-  return next();
+  // if (req.headers.host == "www.old-site.net") {
+  //   redirect(req, "http://newsite.com" + req.href);
+  //   return;
+  // }
+
+  //   return next();
 };

@@ -42,10 +42,7 @@ export default {
   css: ["@styles/main.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: "~plugins/vs-pagination", mode: "client" },
-    // { src: "~/plugins/redirects.js" },
-  ],
+  plugins: [{ src: "~plugins/vs-pagination", mode: "client" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
