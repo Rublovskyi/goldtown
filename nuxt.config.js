@@ -24,11 +24,15 @@ export default {
       },
       {
         property: "og:url",
-        content: "https://goldtowncompany.com/",
+        content: "http://gt.org.ua/",
       },
       {
         property: "og:type",
         content: "website",
+      },
+      {
+        name: "facebook-domain-verification",
+        content: "sxcn3qo36qjwihq5f7placcdo4a5gu",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
@@ -63,7 +67,7 @@ export default {
           { code: "ua", iso: "uk-UA" },
         ],
         defaultLocale: "ua",
-        baseUrl: "https://goldtowncompany.com",
+        baseUrl: "http://gt.org.ua",
         vueI18n: {
           fallbackLocale: "ua",
           messages: {
@@ -82,8 +86,13 @@ export default {
   build: {},
   redirect: [
     {
-      from: "/contacts",
-      to: "/",
+      from: "/purchase/all",
+      to: "/purchase/house",
+      statusCode: 301,
+    },
+    {
+      from: "https://goldtowncompany.com/",
+      to: "http://gt.org.ua/",
       statusCode: 301,
     },
     // {
@@ -99,7 +108,7 @@ export default {
   },
   sitemap: {
     path: "/sitemap.xml",
-    hostname: "https://goldtowncompany.com/",
+    hostname: "http://gt.org.ua/",
     gzip: true,
     i18n: true,
     routes: async () => {
@@ -116,6 +125,13 @@ export default {
 
       return routes;
     },
+    // redirect: [
+    //   {
+    //     from: "/contacts",
+    //     to: "/",
+    //     statusCode: 301,
+    //   },
+    // ],
   },
 
   "google-gtag": {
@@ -126,7 +142,7 @@ export default {
       anonymize_ip: true, // anonymize IP
       send_page_view: false, // might be necessary to avoid duplicated page track on page reload
       linker: {
-        domains: ["goldtowncompany.com"],
+        domains: ["gt.org.ua"],
       },
     },
     debug: true, // enable to track in dev mode

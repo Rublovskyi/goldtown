@@ -306,18 +306,27 @@ export const mutations = {
     let arrNewPayback = [];
     let arrNewIncome = [];
     data.forEach((el) => {
-      if (el.attributes.adress) {
-        arrNewAddress.push(el.attributes.adress);
-      }
-      if (el.attributes.number_of_rooms) {
-        arrNewRooms.push(el.attributes.number_of_rooms);
-      }
-      if (el.attributes.payback) {
-        arrNewPayback.push(el.attributes.payback);
-      }
-      if (el.attributes.annual_income) {
-        arrNewIncome.push(el.attributes.annual_income);
-      }
+      // if (el.attributes.adress) {
+      //   arrNewAddress.push(el.attributes.adress);
+      // }
+      // if (el.attributes.number_of_rooms) {
+      //   arrNewRooms.push(el.attributes.number_of_rooms);
+      // }
+      // if (el.attributes.payback) {
+      //   arrNewPayback.push(el.attributes.payback);
+      // }
+      // if (el.attributes.annual_income) {
+      //   arrNewIncome.push(el.attributes.annual_income);
+      // }
+
+      el.attributes.adress ? arrNewAddress.push(el.attributes.adress) : false;
+      el.attributes.number_of_rooms
+        ? arrNewRooms.push(el.attributes.number_of_rooms)
+        : false;
+      el.attributes.payback ? arrNewPayback.push(el.attributes.payback) : false;
+      el.attributes.annual_income
+        ? arrNewIncome.push(el.attributes.annual_income)
+        : false;
     });
     let uniqueArrayAddress = arrNewAddress.filter(function (item, pos) {
       return arrNewAddress.indexOf(item) == pos;

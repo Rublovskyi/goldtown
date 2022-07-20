@@ -1,8 +1,9 @@
-Host: https://goldtowncompany.com/
+Host: https://gt.org.ua/
 
-Sitemap: https://goldtowncompany.com/sitemap.xml
+Sitemap: https://gt.org.ua/sitemap.xml
 
 User-agent: * 
+Disallow: /
 Disallow: /components/
 Disallow: /plugins/
 Disallow: /lang/
