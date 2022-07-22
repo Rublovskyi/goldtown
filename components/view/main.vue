@@ -406,7 +406,7 @@ export default {
       border-radius: 0.417vw;
       font-weight: 400;
       margin-top: 2.604vw;
-      width: 24.74vw;
+      width: 25.74vw;
       margin-left: auto;
 
       &:hover {
