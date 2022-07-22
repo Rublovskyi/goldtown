@@ -80,17 +80,16 @@ export default {
     "@nuxtjs/sitemap",
     "@nuxtjs/redirect-module",
   ],
-  // serverMiddleware: ["~/serverMiddleware/redirects"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   redirect: {
     rules: [
-      {
-        from: "/purchase/all",
-        to: "/purchase/house",
-        statusCode: 301,
-      },
+      // {
+      //   from: "/purchase/all",
+      //   to: "/purchase/house",
+      //   statusCode: 301,
+      // },
     ],
   },
   axios: {
