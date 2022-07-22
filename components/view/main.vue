@@ -49,6 +49,8 @@
                     img(src="~/assets/svg/facebook-black.svg" alt="facefook icon")
                 a.view__social-item(href="https://www.instagram.com/gt.org.ua/"  target="_blank")
                     img(src="~/assets/svg/instagram-black.svg" alt="instagram icon")
+            .view__btn-request(@click="makeRequest") 
+                span {{ $t('hero.button_text') }}
 
 </template>
 <script>
@@ -119,6 +121,9 @@ export default {
       } else {
         return this.reserveImg;
       }
+    },
+    makeRequest() {
+      this.$parent.showPopup = true;
     },
   },
 };
@@ -367,6 +372,57 @@ export default {
         margin-right: 1vw;
         margin-bottom: 0.4vw;
       }
+    }
+  }
+
+  &__btn-request {
+    padding: 5vw 7.5vw;
+    background-color: var(--accent-main-color);
+
+    color: #fff;
+
+    font-size: 5vw;
+    transition: all 700ms ease;
+    border-radius: 1.875vw;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 6.25vw;
+
+    &:hover {
+      background-color: var(--hover-color);
+      color: #fff;
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 2.083vw 4.167vw;
+      background-color: var(--accent-main-color);
+
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 2.083vw;
+      transition: all 700ms ease;
+      border-radius: 0.417vw;
+      font-weight: 400;
+      margin-top: 2.604vw;
+      width: 24.74vw;
+      margin-left: auto;
+
+      &:hover {
+        background-color: var(--hover-color);
+        color: #fff;
+      }
+    }
+    @media screen and (min-width: 1240px) {
+      padding: 1.042vw 2.389vw;
+      font-size: 1.181vw;
+      transition: all 700ms ease;
+      border-radius: 0.417vw;
+      font-weight: 400;
+      margin-top: 1.613vw;
+      width: 14.113vw;
+      margin-left: auto;
     }
   }
 }

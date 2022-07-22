@@ -104,6 +104,8 @@ export const actions = {
   async getFilteredDataPurchase({ commit }, { slug, data, type, locale }) {
     const qs = require("qs");
 
+    console.log(data);
+
     let filters = {
       filters: {
         purchase_type: {
@@ -112,31 +114,12 @@ export const actions = {
       },
     };
 
-    if (slug == "storage") {
+    if (slug !== "all") {
       filters.filters.product_type = {
-        $eq: "Комора",
+        $eq: slug,
       };
     }
-    if (slug == "house") {
-      filters.filters.product_type = {
-        $eq: "Квартира",
-      };
-    }
-    if (slug == "parking") {
-      filters.filters.product_type = {
-        $eq: "Паркомісце",
-      };
-    }
-    if (slug == "stead") {
-      filters.filters.product_type = {
-        $eq: "Земельна ділянка",
-      };
-    }
-    if (slug == "commercial-premises") {
-      filters.filters.product_type = {
-        $eq: "Комерційні приміщення",
-      };
-    }
+
     if (data.from !== "" && data.to === "") {
       filters.filters.price = {
         $gte: data.from,
@@ -154,25 +137,12 @@ export const actions = {
       };
     }
 
-    if (data.address !== "") {
-      filters.filters.adress = {
-        $eq: data.address,
-      };
-    }
-    if (data.rooms !== "") {
-      filters.filters.number_of_rooms = {
-        $eq: data.rooms,
-      };
-    }
-    if (data.payback !== "") {
-      filters.filters.payback = {
-        $eq: data.payback,
-      };
-    }
-    if (data.annual_income !== "") {
-      filters.filters.annual_income = {
-        $eq: data.annual_income,
-      };
+    for (let key in data) {
+      if (key !== "to" && key !== "from") {
+        filters.filters[`${key}`] = {
+          $eq: data[key],
+        };
+      }
     }
 
     let query = qs.stringify(filters, {
@@ -247,28 +217,6 @@ export const actions = {
       console.log(err);
     }
   },
-  async testAsync({ commit }, data) {
-    const qs = require("qs");
-
-    let filters = {
-      filters: {
-        purchase_type: {
-          $eq: data.type,
-        },
-        product_type: {
-          $eq: data.filter,
-        },
-      },
-    };
-    let query = qs.stringify(filters, {
-      encodeValuesOnly: true, // prettify url
-    });
-    const response = await this.$axios.get(
-      `/api/products?populate=*&${query}&locale=${data.locale}`
-    );
-
-    console.log(response);
-  },
 };
 export const mutations = {
   UPDATE_PUECHASE_DATA(state, { response, slug }) {
@@ -301,52 +249,118 @@ export const mutations = {
     state.ViewPageGetData = true;
   },
   UPDATE_FILTERS(state, data) {
-    let arrNewAddress = [];
-    let arrNewRooms = [];
-    let arrNewPayback = [];
-    let arrNewIncome = [];
+    state.Filters = [];
+
+    let arrNewRooms = {
+      name: "number_of_rooms",
+      arr: [],
+    };
+    let arrNewPayback = {
+      name: "payback",
+      arr: [],
+    };
+    let arrNewIncome = {
+      name: "annual_income",
+      arr: [],
+    };
+    let arrNewResidence = {
+      name: "Residential_quarter",
+      arr: [],
+    };
+
+    let arrTypeOfHouse = {
+      name: "type_of_house",
+      arr: [],
+    };
+    let arrKyivRegion = {
+      name: "kyiv_or_region",
+      arr: [],
+    };
+
+    let arrDistrict = {
+      name: "District",
+      arr: [],
+    };
+
     data.forEach((el) => {
-      // if (el.attributes.adress) {
-      //   arrNewAddress.push(el.attributes.adress);
-      // }
-      // if (el.attributes.number_of_rooms) {
-      //   arrNewRooms.push(el.attributes.number_of_rooms);
-      // }
-      // if (el.attributes.payback) {
-      //   arrNewPayback.push(el.attributes.payback);
-      // }
-      // if (el.attributes.annual_income) {
-      //   arrNewIncome.push(el.attributes.annual_income);
-      // }
-
-      el.attributes.adress ? arrNewAddress.push(el.attributes.adress) : false;
       el.attributes.number_of_rooms
-        ? arrNewRooms.push(el.attributes.number_of_rooms)
+        ? arrNewRooms.arr.push(el.attributes.number_of_rooms)
         : false;
-      el.attributes.payback ? arrNewPayback.push(el.attributes.payback) : false;
+
+      el.attributes.payback
+        ? arrNewPayback.arr.push(el.attributes.payback)
+        : false;
+
       el.attributes.annual_income
-        ? arrNewIncome.push(el.attributes.annual_income)
+        ? arrNewIncome.arr.push(el.attributes.annual_income)
+        : false;
+
+      el.attributes.Residential_quarter
+        ? arrNewResidence.arr.push(el.attributes.Residential_quarter)
+        : false;
+
+      el.attributes.type_of_house
+        ? arrTypeOfHouse.arr.push(el.attributes.type_of_house)
+        : false;
+
+      el.attributes.kyiv_or_region
+        ? arrKyivRegion.arr.push(el.attributes.kyiv_or_region)
+        : false;
+
+      el.attributes.District
+        ? arrDistrict.arr.push(el.attributes.District)
         : false;
     });
-    let uniqueArrayAddress = arrNewAddress.filter(function (item, pos) {
-      return arrNewAddress.indexOf(item) == pos;
-    });
-    let uniqueArrayRooms = arrNewRooms.filter(function (item, pos) {
-      return arrNewRooms.indexOf(item) == pos;
-    });
-    let uniqueArrayPayback = arrNewPayback.filter(function (item, pos) {
-      return arrNewPayback.indexOf(item) == pos;
-    });
-    let uniqueArrayIncome = arrNewIncome.filter(function (item, pos) {
-      return arrNewIncome.indexOf(item) == pos;
+
+    arrNewRooms.arr = arrNewRooms.arr
+      .filter(function (item, pos) {
+        return arrNewRooms.arr.indexOf(item) == pos;
+      })
+      .sort(function (a, b) {
+        return a - b;
+      });
+
+    arrNewPayback.arr = arrNewPayback.arr
+      .filter(function (item, pos) {
+        return arrNewPayback.arr.indexOf(item) == pos;
+      })
+      .sort(function (a, b) {
+        return a - b;
+      });
+    // arrNewPayback.arr = uniqueArrayPayback.sort();
+
+    arrNewIncome.arr = arrNewIncome.arr
+      .filter(function (item, pos) {
+        return arrNewIncome.arr.indexOf(item) == pos;
+      })
+      .sort(function (a, b) {
+        return a - b;
+      });
+
+    arrNewResidence.arr = arrNewResidence.arr.filter(function (item, pos) {
+      return arrNewResidence.arr.indexOf(item) == pos;
     });
 
-    console.log("uniqueArrayRooms", uniqueArrayRooms);
+    arrTypeOfHouse.arr = arrTypeOfHouse.arr.filter(function (item, pos) {
+      return arrTypeOfHouse.arr.indexOf(item) == pos;
+    });
 
-    state.Address = uniqueArrayAddress;
-    state.NumOfRooms = uniqueArrayRooms.sort();
-    state.Payback = uniqueArrayPayback.sort();
-    state.AnnualIncome = uniqueArrayIncome.sort();
+    arrKyivRegion.arr = arrKyivRegion.arr.filter(function (item, pos) {
+      return arrKyivRegion.arr.indexOf(item) == pos;
+    });
+    arrDistrict.arr = arrDistrict.arr.filter(function (item, pos) {
+      return arrDistrict.arr.indexOf(item) == pos;
+    });
+
+    state.Filters.push(arrNewIncome);
+    state.Filters.push(arrNewResidence);
+    state.Filters.push(arrNewPayback);
+    state.Filters.push(arrNewRooms);
+    state.Filters.push(arrTypeOfHouse);
+    state.Filters.push(arrKyivRegion);
+    state.Filters.push(arrDistrict);
+
+    console.log("hrfghdcftyhj", state.Filters);
   },
   UPDATE_SIMILAR_PROPOSAL(state, data) {
     let currentPease = state.CurrentPeaseData;
@@ -458,4 +472,6 @@ export const state = () => ({
   ViewPageGetData: false,
   PurchaseCardsData: [],
   CommerceCardsData: [],
+  Residence: [],
+  Filters: [],
 });

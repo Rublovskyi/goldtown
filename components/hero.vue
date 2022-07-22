@@ -195,9 +195,9 @@ export default {
         background-color: var(--hover-color);
         color: #fff;
       }
-      &:hover .hero__btn-icon {
-        background-image: url(../assets/svg/arrowRightLight.svg);
-      }
+      // &:hover .hero__btn-icon {
+      //   background-image: url(../assets/svg/arrowRightLight.svg);
+      // }
     }
   }
 }

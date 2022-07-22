@@ -49,6 +49,12 @@ export default {
   },
   mounted() {
     this.slug = this.$route.params.slug;
+
+    let testslug = this.slug;
+    let test = testslug.split("_");
+
+    console.log("testtest", test);
+
     let locale = this._i18n.locale;
 
     if (locale === "ru") {

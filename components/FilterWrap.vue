@@ -19,28 +19,32 @@
                     input(type="number"  v-model="to" placeholder="Max")
                     span.dollar $
             p.error-text {{validate('price')}}
-        .filter__type(v-if="numOfRooms.length > 0 && numOfRooms.length > 1" @click="handlerSelectRooms")
-            p.filter__title {{ $t('filter.amount_of_rooms') }}
-            p.filter__select {{rooms}}
-            ul.filter__select-list(v-if="showRooms")
-                li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
-            p.error-text {{validate('rooms')}}
-        .filter__type(v-if="paybackArr.length > 0 && paybackArr.length > 1" @click="handlerSelectPayback")
-            p.filter__title {{ $t('filter.payback') }}
-            p.filter__select {{payback}}
-            ul.filter__select-list(v-if="showPayback")
-                li.filter__select-item(v-for="(option, i) in paybackArr" :key="i") {{option}}
-            p.error-text {{validate('payback')}}
-        .filter__type(v-if="annualIncome.length > 0 && annualIncome.length > 1" @click="handlerSelectIncome")
-            p.filter__title {{ $t('filter.income') }} ($)
-            p.filter__select {{income}}
-            ul.filter__select-list(v-if="showIncome")
-                li.filter__select-item(v-for="(option, i) in annualIncome" :key="i") {{option}}
-            p.error-text {{validate('annual_income')}}
+        //- .filter__type(v-if="numOfRooms.length > 0 && numOfRooms.length > 1" @click="handlerSelectRooms")
+        //-     p.filter__title {{ $t('filter.amount_of_rooms') }}
+        //-     p.filter__select {{rooms}}
+        //-     ul.filter__select-list(v-if="showRooms")
+        //-         li.filter__select-item(v-for="(option, i) in numOfRooms" :key="i") {{option}}
+        //-     //- p.error-text {{validate('rooms')}}
+        //- .filter__type(v-if="paybackArr.length > 0 && paybackArr.length > 1" @click="handlerSelectPayback")
+        //-     p.filter__title {{ $t('filter.payback') }}
+        //-     p.filter__select {{payback}}
+        //-     ul.filter__select-list(v-if="showPayback")
+        //-         li.filter__select-item(v-for="(option, i) in paybackArr" :key="i") {{option}}
+        //-     //- p.error-text {{validate('payback')}}
+        //- .filter__type(v-if="annualIncome.length > 0 && annualIncome.length > 1" @click="handlerSelectIncome")
+        //-     p.filter__title {{ $t('filter.income') }} ($)
+        //-     p.filter__select {{income}}
+        //-     ul.filter__select-list(v-if="showIncome")
+        //-         li.filter__select-item(v-for="(option, i) in annualIncome" :key="i") {{option}}
+        //-     //- p.error-text {{validate('annual_income')}}
+        //////////////////////////
+        //- .filter_test(v-for="(item,i) in filters" :key="i")
+        //-     filterSelect(:info="item")
         button.filter__btn(@click="handlerFilteredData") {{ $t('filter.to_apply') }}
 </template>
 <script>
 import { mapState } from "vuex";
+import filterSelect from "~/components/filterSelect.vue";
 
 export default {
   props: ["categoryes", "typePage"],
@@ -63,6 +67,7 @@ export default {
       errorTextPayback: "",
       errorTextIncome: "",
       locale: "ua",
+      newArrToget: {},
     };
   },
   computed: {
@@ -71,48 +76,59 @@ export default {
       numOfRooms: (state) => state.app.NumOfRooms,
       paybackArr: (state) => state.app.Payback,
       annualIncome: (state) => state.app.AnnualIncome,
+      filters: (state) => state.app.Filters,
     }),
   },
   methods: {
-    handlerSelectAddress(e) {
-      if (this.showAddress) {
-        this.showAddress = false;
-      } else {
-        this.showAddress = true;
-      }
-      if (e.target.className === "filter__select-item") {
-        this.address = e.target.textContent;
-      }
-    },
-    handlerSelectRooms(e) {
-      if (this.showRooms) {
-        this.showRooms = false;
-      } else {
-        this.showRooms = true;
-      }
-      if (e.target.className === "filter__select-item") {
-        this.rooms = e.target.textContent;
-      }
-    },
-    handlerSelectPayback(e) {
-      if (this.showPayback) {
-        this.showPayback = false;
-      } else {
-        this.showPayback = true;
-      }
-      if (e.target.className === "filter__select-item") {
-        this.payback = e.target.textContent;
-      }
-    },
-    handlerSelectIncome(e) {
-      if (this.showIncome) {
-        this.showIncome = false;
-      } else {
-        this.showIncome = true;
-      }
-      if (e.target.className === "filter__select-item") {
-        this.income = e.target.textContent;
-      }
+    // handlerSelectAddress(e) {
+    //   if (this.showAddress) {
+    //     this.showAddress = false;
+    //   } else {
+    //     this.showAddress = true;
+    //   }
+    //   if (e.target.className === "filter__select-item") {
+    //     this.address = e.target.textContent;
+    //   }
+    // },
+    // handlerSelectRooms(e) {
+    //   if (this.showRooms) {
+    //     this.showRooms = false;
+    //   } else {
+    //     this.showRooms = true;
+    //   }
+    //   if (e.target.className === "filter__select-item") {
+    //     this.rooms = e.target.textContent;
+    //   }
+    // },
+    // handlerSelectPayback(e) {
+    //   if (this.showPayback) {
+    //     this.showPayback = false;
+    //   } else {
+    //     this.showPayback = true;
+    //   }
+    //   if (e.target.className === "filter__select-item") {
+    //     this.payback = e.target.textContent;
+    //   }
+    // },
+    // handlerSelectIncome(e) {
+    //   if (this.showIncome) {
+    //     this.showIncome = false;
+    //   } else {
+    //     this.showIncome = true;
+    //   }
+    //   if (e.target.className === "filter__select-item") {
+    //     this.income = e.target.textContent;
+    //   }
+    // },
+    hendlerSelect(name, selectedItem) {
+      // console.log("im hererere", name, selectedItem);
+      let x = {
+        name,
+        selectedItem,
+      };
+      this.newArrToget[`${x.name}`] = x.selectedItem;
+
+      console.log("this.newArrToget", this.newArrToget);
     },
     validate(type) {
       if (type === "price") {
@@ -130,19 +146,20 @@ export default {
           this.errorTextPrice = "";
         }
         return this.errorTextPrice;
-      } else if (type === "address") {
-        this.errorTextAddress = "";
-        return this.errorTextAddress;
-      } else if (type === "rooms") {
-        this.errorTextRooms = "";
-        return this.errorTextRooms;
-      } else if (type === "payback") {
-        this.errorTextPayback = "";
-        return this.errorTextPayback;
-      } else if (type === "annual_income") {
-        this.errorTextIncome = "";
-        return this.errorTextIncome;
       }
+      // else if (type === "address") {
+      //   this.errorTextAddress = "";
+      //   return this.errorTextAddress;
+      // } else if (type === "rooms") {
+      //   this.errorTextRooms = "";
+      //   return this.errorTextRooms;
+      // } else if (type === "payback") {
+      //   this.errorTextPayback = "";
+      //   return this.errorTextPayback;
+      // } else if (type === "annual_income") {
+      //   this.errorTextIncome = "";
+      //   return this.errorTextIncome;
+      // }
     },
     handlerFilteredData() {
       let locale = this._i18n.locale;
@@ -154,15 +171,13 @@ export default {
       }
       let slug = this.$route.params.slug;
       let type = this.typePage;
+
       if (this.errorTextPrice === "") {
-        let data = {
-          from: this.from,
-          to: this.to,
-          address: this.address,
-          rooms: this.rooms,
-          payback: this.payback,
-          annual_income: this.income,
-        };
+        this.newArrToget.from = this.from;
+        this.newArrToget.to = this.to;
+
+        let data = this.newArrToget;
+
         this.$store.dispatch("app/getFilteredDataPurchase", {
           slug,
           data,
@@ -175,6 +190,9 @@ export default {
     filterClose() {
       this.$parent.showFilters = false;
     },
+  },
+  components: {
+    filterSelect,
   },
   mounted() {
     this.locale = this._i18n.locale;
