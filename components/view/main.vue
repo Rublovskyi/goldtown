@@ -421,8 +421,9 @@ export default {
       border-radius: 0.417vw;
       font-weight: 400;
       margin-top: 1.613vw;
-      width: 14.113vw;
+      width: 14.513vw;
       margin-left: auto;
+      text-align: center;
     }
   }
 }
