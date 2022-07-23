@@ -278,7 +278,7 @@ export const mutations = {
     };
 
     let arrDistrict = {
-      name: "District",
+      name: "district",
       arr: [],
     };
 
@@ -307,8 +307,8 @@ export const mutations = {
         ? arrKyivRegion.arr.push(el.attributes.kyiv_or_region)
         : false;
 
-      el.attributes.District
-        ? arrDistrict.arr.push(el.attributes.District)
+      el.attributes.district
+        ? arrDistrict.arr.push(el.attributes.district)
         : false;
     });
 
@@ -352,10 +352,10 @@ export const mutations = {
       return arrDistrict.arr.indexOf(item) == pos;
     });
 
-    state.Filters.push(arrNewIncome);
-    state.Filters.push(arrNewResidence);
-    state.Filters.push(arrNewPayback);
     state.Filters.push(arrNewRooms);
+    state.Filters.push(arrNewResidence);
+    state.Filters.push(arrNewIncome);
+    state.Filters.push(arrNewPayback);
     state.Filters.push(arrTypeOfHouse);
     state.Filters.push(arrKyivRegion);
     state.Filters.push(arrDistrict);

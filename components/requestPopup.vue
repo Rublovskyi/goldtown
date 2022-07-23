@@ -1,7 +1,7 @@
 <template lang="pug">
 .popup(@click="closePopup")
     .popup__wrap
-        h3.popup__title(v-html="$t('request.title')") {{ $t('request.title') }}
+        h3.popup__title(:v-html="$t('request.title')") {{ $t('request.title') }}
         p.popup__label {{ $t('request.name') }}
         input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
         p.popup__label {{ $t('request.number') }}

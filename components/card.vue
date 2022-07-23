@@ -32,6 +32,9 @@
             p.card__item(v-if="card.attributes.annual_income") 
                 span.title  {{ $t('card.annual_income') }}($): 
                 span.amount {{card.attributes.annual_income}}
+            p.card__item(v-if="card.attributes.Instalment") 
+                span.title  {{ $t('filtersSelect.Instalment') }}: 
+                span.amount {{card.attributes.Instalment}} {{ $t('month') }}
         n-link.card__btn-more( :to="localePath('/' + card.attributes.purchase_type + '/view/' + card.attributes.alt_slug)" )  {{ $t('card.more') }}
 </template>
 <script>

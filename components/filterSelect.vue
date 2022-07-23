@@ -1,6 +1,6 @@
 <template lang="pug">
 .filter__type(v-if="info && info.arr.length > 1" @click="handlerSelect")
-    p.filter__title {{info.name}}
+    p.filter__title {{info.name === "number_of_rooms" ? $t('filtersSelect.number_of_rooms') : info.name === 'payback' ? $t('filtersSelect.payback') : info.name === 'annual_income' ? $t('filtersSelect.annual_income') : info.name === 'Residential_quarter' ? $t('filtersSelect.Residential_quarter') : info.name === 'type_of_house' ? $t('filtersSelect.type_of_house') : info.name === 'kyiv_or_region' ? $t('filtersSelect.kyiv_or_region') : info.name === 'district' ? $t('filtersSelect.district') : "" }}
     p.filter__select {{selected}}
     ul.filter__select-list(v-if="show")
         li.filter__select-item(v-for="(option, i) in info.arr" :key="i") {{option}}

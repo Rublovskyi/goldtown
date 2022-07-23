@@ -29,7 +29,7 @@
                     span +380(67)998-69-58
             a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
                 span.footer__address-icon
-                span 08141, Киевская обл. <br/> Бучанский р-н. с. Святопетровское, <br/> ул. Богдана Хмельницкого 1Б.
+                p(v-html="$t('contacts.address')") 
 </template>
 <script>
 import Lang from "~/components/lang.vue";
@@ -37,6 +37,11 @@ export default {
   components: {
     Lang,
   },
+  // data() {
+  //   return {
+  //     address: $t("contacts.address"),
+  //   };
+  // },
 };
 </script>
 <style lang="scss" scoped>
@@ -250,12 +255,16 @@ export default {
         transform: scale(1.1);
       }
     }
+    // &__address {
+    //   width: 27.995vw;
+    // }
     &__wrapper {
       // display: grid;
       // grid-template-columns: 1fr 1fr;
       // gap: 1vw;
       display: flex;
       align-items: flex-start;
+      // grid-template-columns: 1fr 1fr;
     }
     &__number {
       &:not(:last-child) {
@@ -324,6 +333,10 @@ export default {
         margin-right: 0.486vw;
       }
     }
+
+    // &__address {
+    //   width: 270px;
+    // }
     &__number {
       &:not(:last-child) {
         margin-bottom: 1.111vw;
