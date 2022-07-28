@@ -78,6 +78,7 @@ export default {
       });
     },
     makeRequest() {
+      this.$gtag("make request", "request");
       this.$parent.showPopup = true;
     },
   },

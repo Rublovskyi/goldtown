@@ -39,8 +39,6 @@ export default {
       }
     },
     async postRequestData() {
-      console.log("this", this.$gtag);
-
       if (this.phone === "") {
         this.errorPhone = true;
       } else if (this.errorPhone) {
