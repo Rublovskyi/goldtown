@@ -1,7 +1,7 @@
 <template lang="pug">
 .popup(@click="closePopup")
     .popup__wrap
-        h3.popup__title(:v-html="$t('request.title')") {{ $t('request.title') }}
+        h3.popup__title(v-html="$t('request.title')") 
         p.popup__label {{ $t('request.name') }}
         input.popup__input(type="text" v-model="name"  v-on:input="validate('name')" )
         p.popup__label {{ $t('request.number') }}
@@ -39,6 +39,8 @@ export default {
       }
     },
     async postRequestData() {
+      console.log("this", this.$gtag);
+
       if (this.phone === "") {
         this.errorPhone = true;
       } else if (this.errorPhone) {
@@ -50,6 +52,7 @@ export default {
             phone: this.phone,
           },
         };
+        this.$gtag("request btn click", data);
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
