@@ -1,19 +1,33 @@
 <template lang="pug">
-.info
+.info(v-if="information && type && info")
     h1.info__title {{info.title}}
-    p.info__text {{info.text}}
+    p.info__text(v-html="info.text") {{info.text}}
     .info__wrap(v-for="(part, i ) in info.about" :key="i")
         h2.info__wrap-title {{part.title}}
         p.info__wrap-subtitle {{part.subtitle}}
         p.info__wrap-listtitle {{part.listtitle}}
         ul.info__wrap-list 
             li.info__wrap-item(v-for="(item,i) in part.list" :key="i") {{item}}
-        p.info__wrap-text {{part.text}}
+        p.info__wrap-text(v-html="part.text") {{part.text}}
 
 </template>
 <script>
 export default {
-  props: ["info"],
+  props: ["information", "type"],
+  data() {
+    return {
+      info: {},
+    };
+  },
+  mounted() {
+    console.log("th", this.$route.params.slug);
+    if (this.$route.params.slug === "all") {
+      this.info = this.information.all;
+    } else if (this.$route.params.slug === "house") {
+      console.log("this.info", this.info);
+      this.info = this.information.house;
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -29,6 +43,11 @@ export default {
   &__text {
     margin-bottom: 20px;
     font-size: 20px;
+
+    ::v-deep p {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
   }
 
   &__wrap {
@@ -67,7 +86,12 @@ export default {
       }
     }
     &-text {
-      font-size: 16px;
+      font-size: 20px;
+
+      ::v-deep p {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
     }
 
     &:not(:last-child) {
