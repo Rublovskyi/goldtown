@@ -51,6 +51,7 @@ export default {
           },
         };
         // this.$gtag("request btn click", data);
+        ga("btn_request_click", data);
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
