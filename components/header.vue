@@ -78,7 +78,7 @@ export default {
       });
     },
     makeRequest() {
-      this.$gtag("make request", "request");
+      // this.$gtag("make request", "request");
       this.$parent.showPopup = true;
     },
   },

@@ -50,7 +50,7 @@ export default {
             phone: this.phone,
           },
         };
-        this.$gtag("request btn click", data);
+        // this.$gtag("request btn click", data);
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
