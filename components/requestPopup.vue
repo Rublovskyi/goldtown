@@ -51,7 +51,7 @@ export default {
           },
         };
         // this.$gtag("request btn click", data);
-        this.$gtag("event", "begin_checkout", data);
+        this.$gtag("event", "request_send", data);
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
