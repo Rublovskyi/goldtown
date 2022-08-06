@@ -11,14 +11,17 @@ export default {
     };
   },
   mounted() {
-    if (this.$route.params.slug === undefined) {
+    console.log("this.$route.params.slug ", this.$route.params.slug);
+    if (this.$route.params.slug === "") {
       this.info = this.information.all;
+    } else if (this.$route.params.slug === "1-k-apartment") {
+      this.info = this.information.kimnatnakvartira1;
+      return;
+    } else if (this.$route.params.slug === "2-k-apartment") {
+      this.info = this.information.kimnatnakvartira2;
+      return;
     } else if (this.$route.params.slug === "house") {
       this.info = this.information.house;
-    } else if (this.$route.params.slug === "1-kimnatna-kvartira") {
-      this.info = this.information.kimnatnakvartira1;
-    } else if (this.$route.params.slug === "2-kimnatna-kvartira") {
-      this.info = this.information.kimnatnakvartira2;
     } else {
       this.info = "";
     }

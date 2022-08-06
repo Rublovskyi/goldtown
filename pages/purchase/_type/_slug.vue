@@ -2,7 +2,7 @@
 .buy(id="topOfPage")
     Header.header(:show="pageType")
     Houses.houses
-    BlockTest(:type="slug" :information="info")
+    BlockTest(v-if="slug" :type="slug" :information="info")
     Footer
     PhoneBtn
     RequestPopup(v-if="showPopup")
@@ -57,9 +57,12 @@ export default {
     },
   },
   mounted() {
-    let slug = (this.slug = this.$route.params.slug);
+    this.slug = this.$route.params.slug;
+    let slug = this.$route.params.slug;
+
     // let slug = this.$route.params.slug;
-    let type = (this.type = this.$route.params.type);
+    this.type = this.$route.params.type;
+    let type = this.$route.params.type;
     let locale = this._i18n.locale;
     let purchase = this.pageType;
 
