@@ -79,11 +79,6 @@ export const actions = {
         $eq: "stead",
       };
     }
-    if (slug == "commercial-premises") {
-      filters.filters.product_type = {
-        $eq: "commercial-premises",
-      };
-    }
 
     const query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
@@ -217,31 +212,89 @@ export const actions = {
       console.log(err);
     }
   },
+
+  async getDataPurchaseTest({ commit }, { slug, locale, type, purchase }) {
+    console.log(slug);
+    const qs = require("qs");
+
+    let filters = {
+      filters: {
+        purchase_type: {
+          $eq: purchase,
+        },
+        product_type: {
+          $eq: type,
+        },
+      },
+    };
+
+    if (slug == "1-k-apartment" || slug == "2-k-apartment") {
+      let x = slug[0];
+      // console.log("x", x);
+      filters.filters.Number_of_rooms = {
+        $eq: x,
+      };
+    }
+    if (slug == "townhouse") {
+      filters.filters.type_of_house = {
+        $eq: "Таунхаус",
+      };
+    }
+
+    let query = qs.stringify(filters, {
+      encodeValuesOnly: true, // prettify url
+    });
+
+    try {
+      const response = await this.$axios.get(
+        `/api/products?populate=*&${query}&locale=${locale}`
+      );
+
+      console.log("im hereee", response);
+
+      commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
+      commit("UPDATE_FILTERS", response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
 export const mutations = {
   UPDATE_PUECHASE_DATA(state, { response, slug }) {
     state.PurchaseData = response.data.data.reverse();
-
-    if (slug) {
-      state.PurchaseCategories.forEach((el) => {
-        el.selected = false;
-        if (el.slug === slug) {
-          el.selected = true;
-        }
-      });
-    }
+    state.PurchaseCategories.forEach((el) => {
+      el.selected = false;
+      if (el.slug === slug) {
+        el.selected = true;
+      } else if (el.slug.length === 0 && !slug) {
+        el.selected = true;
+      }
+    });
+    state.PurchaseCardsData = state.PurchaseData.slice(0, 6);
+  },
+  UPDATE_PUECHASE_DATA_TEST(state, { response, type }) {
+    state.PurchaseData = response.data.data.reverse();
+    state.PurchaseCategories.forEach((el) => {
+      el.selected = false;
+      if (el.slug === type) {
+        el.selected = true;
+      } else if (el.slug.length === 0 && !type) {
+        el.selected = true;
+      }
+    });
     state.PurchaseCardsData = state.PurchaseData.slice(0, 6);
   },
   UPDATE_COMMERCE_DATA(state, { response, slug }) {
     state.CommerceData = response.data.data.reverse();
-    if (slug) {
-      state.CommerceCaregoryes.forEach((el) => {
-        el.selected = false;
-        if (el.slug === slug) {
-          el.selected = true;
-        }
-      });
-    }
+    state.CommerceCaregoryes.forEach((el) => {
+      el.selected = false;
+      if (el.slug === slug) {
+        el.selected = true;
+      } else if (el.slug.length === 0 && !slug) {
+        el.selected = true;
+      }
+    });
+
     state.CommerceCardsData = state.CommerceData.slice(0, 6);
   },
   UPDATE_CURRENT_PEASE_DATA(state, data) {
@@ -402,7 +455,7 @@ export const state = () => ({
     {
       nameUa: "Всі варіанти",
       nameRu: "Все варианты",
-      slug: "all",
+      slug: "",
       selected: false,
     },
     {
@@ -440,7 +493,7 @@ export const state = () => ({
     {
       nameUa: "Все варіанти",
       nameRu: "Все варианты",
-      slug: "all",
+      slug: "",
       selected: false,
     },
     {

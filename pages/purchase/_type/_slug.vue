@@ -1,31 +1,34 @@
 <template lang="pug">
-    .buyBussiness(id="topOfPage")
-        Header.header(:show="pageType")
-        Houses.houses
-        Footer
-        PhoneBtn
-        RequestPopup(v-if="showPopup")
-        SuccessPopup(v-if="successPopup")
-        ScrollUpBtn(ref="scrollBtn")
+.buy(id="topOfPage")
+    Header.header(:show="pageType")
+    Houses.houses
+    BlockTest(:type="slug" :information="info")
+    Footer
+    PhoneBtn
+    RequestPopup(v-if="showPopup")
+    SuccessPopup(v-if="successPopup")
+    ScrollUpBtn(ref="scrollBtn")
 </template>
 
 <script>
 import Header from "~/components/header.vue";
-import Houses from "~/components/commercePage/main.vue";
 import Footer from "~/components/footer.vue";
+import Houses from "~/components/purchasePage/main.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
-
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
+import BlockTest from "~/components/BlockTest.vue";
 
 export default {
   data() {
     return {
-      pageType: "commerce",
-      slug: "all",
+      pageType: "purchase",
+      slug: "",
+      type: "",
       showPopup: false,
       successPopup: false,
+      info: require("~/assets/info.json"),
     };
   },
   components: {
@@ -36,10 +39,16 @@ export default {
     RequestPopup,
     SuccessPopup,
     ScrollUpBtn,
+    BlockTest,
   },
   methods: {
-    getData(data) {
-      this.$store.dispatch("app/getDataCommerce", data);
+    getData({ slug, locale, type, purchase }) {
+      this.$store.dispatch("app/getDataPurchaseTest", {
+        slug,
+        locale,
+        type,
+        purchase,
+      });
     },
     goto() {
       document.getElementById("topOfPage").scrollIntoView({
@@ -48,14 +57,11 @@ export default {
     },
   },
   mounted() {
-    this.slug = this.$route.params.slug;
-
-    // let testslug = this.slug;
-    // let test = testslug.split("_");
-
-    // console.log("testtest", test);
-
+    let slug = (this.slug = this.$route.params.slug);
+    // let slug = this.$route.params.slug;
+    let type = (this.type = this.$route.params.type);
     let locale = this._i18n.locale;
+    let purchase = this.pageType;
 
     if (locale === "ru") {
       locale = "ru";
@@ -63,31 +69,21 @@ export default {
       locale = "en";
     }
 
-    let data = {
-      slug: this.slug,
-      locale: locale,
-    };
-
-    this.getData(data);
+    this.getData({ slug, locale, type, purchase });
   },
   head() {
     return {
-      title: this.$t(`commerce_slug_meta.${this.slug}.title`),
+      title: this.$t(`purchase_slug_meta.${this.type}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`commerce_slug_meta.${this.slug}.description`),
+          content: this.$t(`purchase_slug_meta.${this.type}.description`),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`commerce_slug_meta.${this.slug}.title`),
-        },
-        {
-          hid: "h1",
-          name: "h1",
-          content: this.$t(`commerce_slug_meta.${this.slug}.h1`),
+          content: this.$t(`purchase_slug_meta.${this.type}.title`),
         },
       ],
     };
@@ -95,13 +91,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.buyBussiness {
-  background-color: var(--light-bg);
+.header {
+  position: relative;
 }
 .houses {
   min-height: 90vh;
-}
-.header {
-  position: relative;
 }
 </style>

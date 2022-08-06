@@ -8,7 +8,7 @@
             span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
     .filter__wrap
         p.title {{ $t('filter.filters') }}
-        //- .filter__category-item(:class="{'select': Instalment}")
+        //- .filter__category-item.instalmet(:class="{'select': Instalment}" @click="selectInstalment")
         //-     span.box
         //-     span.text {{$t('filtersSelect.Instalment')}}
         .filter__price 
@@ -85,6 +85,11 @@ export default {
         locale = "en";
       }
       let slug = this.$route.params.slug;
+
+      if (this.$route.params.type) {
+        slug = this.$route.params.type;
+      }
+
       let type = this.typePage;
 
       if (this.errorTextPrice === "") {
@@ -104,6 +109,9 @@ export default {
     },
     filterClose() {
       this.$parent.showFilters = false;
+    },
+    selectInstalment() {
+      this.Instalment = !this.Instalment;
     },
   },
   components: {
@@ -342,6 +350,14 @@ export default {
       margin-top: 2.083vw;
       border-radius: 0.694vw;
       font-size: 1.111vw;
+    }
+  }
+
+  & .instalmet {
+    &.select {
+      & .box {
+        background-color: var(--accent-main-color);
+      }
     }
   }
 }

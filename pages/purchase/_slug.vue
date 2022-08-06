@@ -2,7 +2,7 @@
 .buy(id="topOfPage")
     Header.header(:show="pageType")
     Houses.houses
-    InfoBlock(:type="slug" :information="info")
+    BlockTest(:type="slug" :information="info")
     Footer
     PhoneBtn
     RequestPopup(v-if="showPopup")
@@ -18,13 +18,13 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
-import InfoBlock from "~/components/infoBlock.vue";
+import BlockTest from "~/components/BlockTest.vue";
 
 export default {
   data() {
     return {
       pageType: "purchase",
-      slug: "all",
+      slug: "",
       showPopup: false,
       successPopup: false,
       info: require("~/assets/info.json"),
@@ -38,7 +38,7 @@ export default {
     RequestPopup,
     SuccessPopup,
     ScrollUpBtn,
-    InfoBlock,
+    BlockTest,
   },
   methods: {
     getData(data) {
@@ -80,11 +80,6 @@ export default {
           hid: "title",
           name: "title",
           content: this.$t(`purchase_slug_meta.${this.slug}.title`),
-        },
-        {
-          hid: "h1",
-          name: "h1",
-          content: this.$t(`purchase_slug_meta.${this.slug}.h1`),
         },
       ],
     };
