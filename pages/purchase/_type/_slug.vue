@@ -2,7 +2,7 @@
 .buy(id="topOfPage")
     Header.header(:show="pageType")
     Houses.houses
-    BlockTest(v-if="slug" :type="slug" :information="info")
+    BlockTest(:type="slug" :information="info")
     Footer
     PhoneBtn
     RequestPopup(v-if="showPopup")

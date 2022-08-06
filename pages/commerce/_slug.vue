@@ -26,6 +26,7 @@ export default {
       slug: "all",
       showPopup: false,
       successPopup: false,
+      meta: "",
     };
   },
   components: {
@@ -50,6 +51,12 @@ export default {
   mounted() {
     this.slug = this.$route.params.slug;
 
+    this.meta = this.$route.params.slug;
+
+    if (!this.$route.params.slug) {
+      this.meta = "all";
+    }
+
     // let testslug = this.slug;
     // let test = testslug.split("_");
 
@@ -72,22 +79,17 @@ export default {
   },
   head() {
     return {
-      title: this.$t(`commerce_slug_meta.${this.slug}.title`),
+      title: this.$t(`commerce_slug_meta.${this.meta}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`commerce_slug_meta.${this.slug}.description`),
+          content: this.$t(`commerce_slug_meta.${this.meta}.description`),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`commerce_slug_meta.${this.slug}.title`),
-        },
-        {
-          hid: "h1",
-          name: "h1",
-          content: this.$t(`commerce_slug_meta.${this.slug}.h1`),
+          content: this.$t(`commerce_slug_meta.${this.meta}.title`),
         },
       ],
     };

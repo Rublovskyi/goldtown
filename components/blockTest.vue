@@ -12,7 +12,7 @@ export default {
   },
   mounted() {
     console.log("this.$route.params.slug ", this.$route.params.slug);
-    if (this.$route.params.slug === "") {
+    if (this.$route.params.slug === undefined) {
       this.info = this.information.all;
     } else if (this.$route.params.slug === "1-k-apartment") {
       this.info = this.information.kimnatnakvartira1;
@@ -20,7 +20,10 @@ export default {
     } else if (this.$route.params.slug === "2-k-apartment") {
       this.info = this.information.kimnatnakvartira2;
       return;
-    } else if (this.$route.params.slug === "house") {
+    } else if (
+      this.$route.params.slug === "house" ||
+      this.$route.params.type === "house"
+    ) {
       this.info = this.information.house;
     } else {
       this.info = "";

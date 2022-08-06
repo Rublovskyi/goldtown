@@ -25,6 +25,7 @@ export default {
     return {
       pageType: "purchase",
       slug: "",
+      meta: "",
       showPopup: false,
       successPopup: false,
       info: require("~/assets/info.json"),
@@ -52,6 +53,12 @@ export default {
   },
   mounted() {
     this.slug = this.$route.params.slug;
+    this.meta = this.$route.params.slug;
+
+    if (!this.$route.params.slug) {
+      this.meta = "all";
+    }
+
     let locale = this._i18n.locale;
 
     if (locale === "ru") {
@@ -69,17 +76,17 @@ export default {
   },
   head() {
     return {
-      title: this.$t(`purchase_slug_meta.${this.slug}.title`),
+      title: this.$t(`purchase_slug_meta.${this.meta}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`purchase_slug_meta.${this.slug}.description`),
+          content: this.$t(`purchase_slug_meta.${this.meta}.description`),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`purchase_slug_meta.${this.slug}.title`),
+          content: this.$t(`purchase_slug_meta.${this.meta}.title`),
         },
       ],
     };
