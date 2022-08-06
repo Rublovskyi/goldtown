@@ -18,7 +18,7 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
-import BlockTest from "~/components/BlockTest.vue";
+import BlockTest from "~/components/blockTest.vue";
 
 export default {
   data() {
