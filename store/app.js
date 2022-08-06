@@ -1,6 +1,5 @@
 export const actions = {
   async getDataPurchase({ commit }, { slug, locale }) {
-    console.log(slug);
     const qs = require("qs");
 
     let filters = {
@@ -41,7 +40,7 @@ export const actions = {
         `/api/products?populate=*&${query}&locale=${locale}`
       );
 
-      console.log("im hereee", response);
+      // console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
@@ -88,7 +87,7 @@ export const actions = {
         `/api/products?populate=*&${query}&locale=${locale}`
       );
 
-      console.log("im hereee", response);
+      // console.log("im hereee", response);
 
       commit("UPDATE_COMMERCE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
@@ -214,7 +213,6 @@ export const actions = {
   },
 
   async getDataPurchaseTest({ commit }, { slug, locale, type, purchase }) {
-    console.log(slug);
     const qs = require("qs");
 
     let filters = {
@@ -240,6 +238,19 @@ export const actions = {
         $eq: "Таунхаус",
       };
     }
+    if (slug == "apartment-with-pool") {
+      filters.filters.pool = {
+        $eq: true,
+      };
+    }
+    if (slug == "townhouse-with-pool") {
+      filters.filters.pool = {
+        $eq: true,
+      };
+      filters.filters.type_of_house = {
+        $eq: "Таунхаус",
+      };
+    }
 
     let query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
@@ -250,7 +261,7 @@ export const actions = {
         `/api/products?populate=*&${query}&locale=${locale}`
       );
 
-      console.log("im hereee", response);
+      // console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
       commit("UPDATE_FILTERS", response.data.data);
@@ -412,8 +423,6 @@ export const mutations = {
     state.Filters.push(arrTypeOfHouse);
     state.Filters.push(arrKyivRegion);
     state.Filters.push(arrDistrict);
-
-    console.log("hrfghdcftyhj", state.Filters);
   },
   UPDATE_SIMILAR_PROPOSAL(state, data) {
     let currentPease = state.CurrentPeaseData;

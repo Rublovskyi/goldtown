@@ -46,7 +46,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.card);
+    // console.log(this.card);
   },
 };
 </script>

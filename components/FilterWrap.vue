@@ -88,6 +88,19 @@ export default {
 
       if (this.$route.params.type) {
         slug = this.$route.params.type;
+
+        if (this.$route.params.slug === "1-k-apartment") {
+          this.newArrToget.Number_of_rooms = 1;
+        } else if (this.$route.params.slug === "2-k-apartment") {
+          this.newArrToget.Number_of_rooms = 2;
+        } else if (this.$route.params.slug === "townhouse") {
+          this.newArrToget.type_of_house = "Таунхаус";
+        } else if (this.$route.params.slug === "apartment-with-pool") {
+          this.newArrToget.pool = true;
+        } else if (this.$route.params.slug === "townhouse-with-pool") {
+          this.newArrToget.pool = true;
+          this.newArrToget.type_of_house = "Таунхаус";
+        }
       }
 
       let type = this.typePage;

@@ -11,7 +11,7 @@ export default {
     };
   },
   mounted() {
-    console.log("this.$route.params.slug ", this.$route.params.slug);
+    // console.log("this.$route.params.slug ", this.$route.params.slug);
     if (this.$route.params.slug === undefined) {
       this.info = this.information.all;
     } else if (this.$route.params.slug === "1-k-apartment") {
@@ -33,7 +33,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .info {
-  padding: 0 5vw 6.25vw 5vw;
+  padding: 2vw 5vw 6.25vw 5vw;
   background-color: var(--light-bg);
   //   background-color: #fff;
   &__text {
@@ -156,10 +156,10 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    padding: 0 4.688vw 2.106vw 4.688vw;
+    padding: 1.5vw 4.688vw 2.106vw 4.688vw;
   }
   @media screen and (min-width: 1240px) {
-    padding: 0 5.556vw 2.5vw 5.556vw;
+    padding: 2vw 5.556vw 2.5vw 5.556vw;
   }
 }
 </style>

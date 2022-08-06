@@ -25,23 +25,20 @@ export default {
         let indexCardNeeded = this.photosData.i + 1;
         if (indexCardNeeded === cardsLenght) {
           this.photosData.i = 0;
-          this.photosData.currentImg = this.photosData.images[0].attributes.url;
+          this.photosData.currentImg = this.photosData.images[0];
         } else {
           this.photosData.i = indexCardNeeded;
-          this.photosData.currentImg =
-            this.photosData.images[indexCardNeeded].attributes.url;
+          this.photosData.currentImg = this.photosData.images[indexCardNeeded];
         }
       }
       if (e.target.dataset.arrow === "left") {
         let indexCardNeeded = this.photosData.i - 1;
         if (indexCardNeeded < 0) {
           this.photosData.i = cardsLenght - 1;
-          this.photosData.currentImg =
-            this.photosData.images[cardsLenght - 1].attributes.url;
+          this.photosData.currentImg = this.photosData.images[cardsLenght - 1];
         } else {
           this.photosData.i = indexCardNeeded;
-          this.photosData.currentImg =
-            this.photosData.images[indexCardNeeded].attributes.url;
+          this.photosData.currentImg = this.photosData.images[indexCardNeeded];
         }
       }
     },
