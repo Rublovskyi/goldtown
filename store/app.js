@@ -37,10 +37,10 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}`
+        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
-      // console.log("im hereee", response);
+      console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
       commit("UPDATE_FILTERS", response.data.data);
@@ -84,7 +84,7 @@ export const actions = {
     });
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}`
+        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
       // console.log("im hereee", response);
@@ -145,7 +145,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}`
+        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
       if (type === "purchase") {
@@ -203,7 +203,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${data.locale}`
+        `/api/products?populate=*&${query}&locale=${data.locale}&pagination[limit]=-1`
       );
 
       commit("UPDATE_SIMILAR_PROPOSAL", response.data.data);
@@ -258,7 +258,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}`
+        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
       // console.log("im hereee", response);
