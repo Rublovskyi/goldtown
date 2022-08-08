@@ -83,6 +83,12 @@ export default {
         position: relative;
         padding-left: 7.813vw;
 
+        transition: transform 500ms ease;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+
         &::before {
           content: "";
           position: absolute;
@@ -172,7 +178,7 @@ export default {
         margin-right: 2.5vw;
       }
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.02);
       }
     }
     &__number {
@@ -245,6 +251,12 @@ export default {
         position: relative;
         padding-left: 2.604vw;
         margin-right: 2.604vw;
+
+        transition: transform 500ms ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
 
         &::before {
           content: "";
