@@ -9,9 +9,9 @@
             a.contacts__number(href="tel:+380739986959") 
                 span.contacts__number-icon
                 span.num +380(73)998-69-59
-            a.contacts__number(href="tel:+380679986958") 
+            a.contacts__number(href="tel:+380679986959") 
                 span.contacts__number-icon
-                span.num +380(67)998-69-58
+                span.num +380(67)998-69-59
             a.contacts__number(href="tel:+380984732501") 
                 span.contacts__number-icon
                 span.num +380(98)473-25-01

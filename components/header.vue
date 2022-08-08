@@ -19,9 +19,9 @@
                     a.header__number(href="tel:+380739986959") 
                         span.header__number-icon
                         span +380(73)998-69-59
-                    a.header__number(href="tel:+380679986958") 
+                    a.header__number(href="tel:+380679986959") 
                         span.header__number-icon
-                        span +380(67)998-69-58
+                        span +380(67)998-69-59
                     //- a.header__number(href="tel:+380984732501") 
                     //-     span.header__number-icon
                     //-     span +380(98)473-25-01

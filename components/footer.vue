@@ -6,6 +6,12 @@
         .footer__mobile
             Lang.footer__lang
     .footer__info
+        .footer__links 
+            n-link.link(:to="('/purchase/house/1-k-apartment')") 1к квартири
+            n-link.link(:to="('/purchase/house/2-k-apartment')") 2к квартири
+            n-link.link(:to="('/purchase/house/townhouse')") Таунхауси
+            n-link.link(:to="('/purchase/house/apartment-with-pool')") Квартири з басейном
+            n-link.link(:to="('/purchase/house/townhouse-with-pool')") Таунхауси з басейном
         .footer__social 
             .footer__desc
                 Lang.footer__lang(:type="1")
@@ -24,9 +30,9 @@
                 a.footer__number(href="tel:+380739986959") 
                     span.footer__number-icon
                     span +380(73)998-69-59
-                a.footer__number(href="tel:+380679986958") 
+                a.footer__number(href="tel:+380679986959") 
                     span.footer__number-icon
-                    span +380(67)998-69-58
+                    span +380(67)998-69-59
             a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
                 span.footer__address-icon
                 p(v-html="$t('contacts.address')") 
@@ -66,6 +72,34 @@ export default {
 
     &__lang {
       margin-bottom: 10px;
+    }
+    &__links {
+      margin-bottom: 5vw;
+      & .link {
+        display: block;
+        color: #fff;
+        font-size: 4vw;
+        font-weight: 400;
+        position: relative;
+        padding-left: 7.813vw;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url(../assets/svg/home3.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          width: 4.688vw;
+          height: 4.688vw;
+        }
+      }
+
+      .link:not(:last-child) {
+        margin-bottom: 2vw;
+      }
     }
     &__social {
       color: #fff;
@@ -165,7 +199,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-content: space-between;
-    gap: 10vw;
+    gap: 5vw;
 
     // display: flex;
 
@@ -194,6 +228,41 @@ export default {
     &__mobile,
     &__desc {
       display: none;
+    }
+
+    &__links {
+      margin-bottom: 1vw;
+      display: flex;
+      flex-wrap: wrap;
+      // grid-template-columns: repeat(3, 1fr);
+      padding-right: 2.604vw;
+
+      & .link {
+        display: block;
+        color: #fff;
+        font-size: 1.4vw;
+        font-weight: 400;
+        position: relative;
+        padding-left: 2.604vw;
+        margin-right: 2.604vw;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url(../assets/svg/home3.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          width: 1.563vw;
+          height: 1.563vw;
+        }
+      }
+
+      .link:not(:last-child) {
+        margin-bottom: 1vw;
+      }
     }
     &__social {
       color: #fff;
@@ -283,7 +352,8 @@ export default {
 @media screen and (min-width: 1240px) {
   .footer {
     padding: 2.639vw 5.556vw;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
+    gap: 4vw;
 
     &__logo {
       height: 3.653vw;
@@ -305,6 +375,39 @@ export default {
     &__info {
       display: flex;
       align-items: center;
+    }
+    &__links {
+      margin-bottom: 1vw;
+      display: block;
+      // grid-template-columns: repeat(3, 1fr);
+      padding-right: 1.613vw;
+
+      & .link {
+        display: block;
+        color: #fff;
+        font-size: 1.111vw;
+        font-weight: 400;
+        position: relative;
+        padding-left: 2.016vw;
+        margin-right: 0;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url(../assets/svg/home3.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          width: 1.21vw;
+          height: 1.21vw;
+        }
+      }
+
+      .link:not(:last-child) {
+        margin-bottom: 1vw;
+      }
     }
 
     &__social {
