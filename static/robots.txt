@@ -3,7 +3,6 @@ Host: https://gt.org.ua/
 Sitemap: https://gt.org.ua/sitemap.xml
 
 User-agent: * 
-Disallow: /
 Disallow: /components/
 Disallow: /plugins/
 Disallow: /lang/

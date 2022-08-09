@@ -20,10 +20,13 @@ export default {
     } else if (this.$route.params.slug === "2-k-apartment") {
       this.info = this.information.kimnatnakvartira2;
       return;
-    } else if (
-      this.$route.params.slug === "house" ||
-      this.$route.params.type === "house"
-    ) {
+    } else if (this.$route.params.slug === "townhouse") {
+      this.info = this.information.townhouse;
+    } else if (this.$route.params.slug === "apartment-with-pool") {
+      this.info = this.information.apartmentwithpool;
+    } else if (this.$route.params.slug === "townhouse-with-pool") {
+      this.info = this.information.townhousewithpool;
+    } else if (this.$route.params.type === "house") {
       this.info = this.information.house;
     } else {
       this.info = "";
@@ -57,7 +60,7 @@ export default {
   ::v-deep {
     h1 {
       margin-bottom: 6.25vw;
-      font-size: 9.375vw;
+      font-size: 6.375vw;
     }
     h2 {
       margin-bottom: 6.25vw;
@@ -96,7 +99,7 @@ export default {
     @media screen and (min-width: 768px) {
       h1 {
         margin-bottom: 2.604vw;
-        font-size: 3.906vw;
+        font-size: 2.906vw;
       }
       h2 {
         margin-bottom: 2.604vw;
@@ -126,7 +129,7 @@ export default {
     @media screen and (min-width: 1240px) {
       h1 {
         margin-bottom: 1.613vw;
-        font-size: 2.419vw;
+        font-size: 2.119vw;
       }
       h2 {
         margin-bottom: 1.613vw;

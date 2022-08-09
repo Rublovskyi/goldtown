@@ -76,17 +76,17 @@ export default {
   },
   head() {
     return {
-      title: this.$t(`purchase_slug_meta.${this.type}.title`),
+      title: this.$t(`purchase_slug_meta.${this.slug}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`purchase_slug_meta.${this.type}.description`),
+          content: this.$t(`purchase_slug_meta.${this.slug}.description`),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`purchase_slug_meta.${this.type}.title`),
+          content: this.$t(`purchase_slug_meta.${this.slug}.title`),
         },
       ],
     };
