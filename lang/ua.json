@@ -152,10 +152,11 @@
     "payback": "Окупність:",
     "annual_income": "Річний дохід:",
     "Residential_quarter": "ЖК:",
-    "type_of_house": "Тип квартири:",
+    "type_of_house": "Тип дому:",
     "kyiv_or_region": "Київ чи регіон:",
     "district": "Населений пункт:",
-    "Instalment": "Розсрочка"
+    "Instalment": "Розсрочка",
+    "pool": "Басейн"
   },
   "month": "місяців",
   "contacts": {

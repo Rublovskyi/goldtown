@@ -1,9 +1,10 @@
 <template lang="pug">
-.filter__type(v-if="info && info.arr.length > 1" @click="handlerSelect")
-    p.filter__title {{info.name === "number_of_rooms" ? $t('filtersSelect.number_of_rooms') : info.name === 'payback' ? $t('filtersSelect.payback') : info.name === 'annual_income' ? $t('filtersSelect.annual_income') : info.name === 'Residential_quarter' ? $t('filtersSelect.Residential_quarter') : info.name === 'type_of_house' ? $t('filtersSelect.type_of_house') : info.name === 'kyiv_or_region' ? $t('filtersSelect.kyiv_or_region') : info.name === 'district' ? $t('filtersSelect.district') : "" }}
+.filter__type(v-if="info" @click="handlerOpen")
+    p.filter__title {{info.name === "Number_of_rooms" ? $t('filtersSelect.number_of_rooms') : info.name === 'payback' ? $t('filtersSelect.payback') : info.name === 'annual_income' ? $t('filtersSelect.annual_income') : info.name === 'Residential_quarter' ? $t('filtersSelect.Residential_quarter') : info.name === 'Type_of_house' ? $t('filtersSelect.type_of_house') : info.name === 'kyiv_or_region' ? $t('filtersSelect.kyiv_or_region') : info.name === 'City' ? $t('filtersSelect.district') : "" }}
+    //- p.filter__title {{info.name === "residential" ? $t('filtersSelect.Residential_quarter') : ""}}
     p.filter__select {{selected}}
     ul.filter__select-list(v-if="show")
-        li.filter__select-item(v-for="(option, i) in info.arr" :key="i") {{option}}
+        li.filter__select-item( v-for="(option, i) in info.arr" :key="i" @click="handlerSelect(option.attributes.Slug, $event)") {{locale === 'ru' ? option.attributes.Name_rus : option.attributes.Name_ukr}}
 </template>
 <script>
 import { mapState } from "vuex";
@@ -14,14 +15,22 @@ export default {
     return {
       selected: "",
       show: false,
+      locale: "uk",
     };
   },
   methods: {
-    handlerSelect(e) {
+    handlerOpen(e) {
+      if (e.target.className !== "filter__select-item") {
+        this.show = !this.show;
+      }
+    },
+    handlerSelect(slug, e) {
       this.show = !this.show;
       if (e.target.className === "filter__select-item") {
         this.selected = e.target.textContent;
-        this.$parent.hendlerSelect(this.info.name, this.selected);
+
+        console.log("e.target", e);
+        this.$parent.hendlerSelect(this.info.name, slug);
       }
     },
   },
@@ -33,6 +42,9 @@ export default {
       annualIncome: (state) => state.app.AnnualIncome,
       filters: (state) => state.app.Filters,
     }),
+  },
+  mounted() {
+    this.locale = this.$i18n.localeProperties.code;
   },
 };
 </script>

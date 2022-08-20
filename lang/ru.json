@@ -152,10 +152,11 @@
     "payback": "Окупаемость:",
     "annual_income": "Годовой доход:",
     "Residential_quarter": "ЖК:",
-    "type_of_house": "Тип квартиры:",
+    "type_of_house": "Тип дома:",
     "kyiv_or_region": "Киев или регионЖ",
     "district": "Населенный пункт:",
-    "Instalment": "Рассрочка"
+    "Instalment": "Рассрочка",
+    "pool": "Бассейн"
   },
   "month": "месяцев",
   "contacts": {

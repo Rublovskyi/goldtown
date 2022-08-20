@@ -73,6 +73,8 @@ export default {
     };
 
     this.getData(data);
+
+    this.$store.dispatch("app/getFilters");
   },
   head() {
     return {

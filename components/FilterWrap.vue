@@ -8,7 +8,7 @@
             span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
     .filter__wrap
         p.title {{ $t('filter.filters') }}
-        //- .filter__category-item.instalmet(:class="{'select': Instalment}" @click="selectInstalment")
+        //- .filter__category-item.instalmet(:class="{'select': Instalment}" @click="selectoooor('Instalment')")
         //-     span.box
         //-     span.text {{$t('filtersSelect.Instalment')}}
         .filter__price 
@@ -22,8 +22,11 @@
                     input(type="number"  v-model="to" placeholder="Max")
                     span.dollar $
             p.error-text {{validate('price')}}
-        .filter_test(v-for="(item,i) in filters" :key="i")
-            filterSelect(:info="item")
+        .filter__variants(v-for="(item,i) in filters" :key="i")
+            filterSelect(:info="item" v-if="canShowFilter(item.name)")
+        .filter__category-item.instalmet(:class="{'select': pool}" @click="selectoooor('pool')" v-if="canShowFilter('pool')")
+            span.box
+            span.text {{$t('filtersSelect.pool')}}
         button.filter__btn(@click="handlerFilteredData") {{ $t('filter.to_apply') }}
 </template>
 <script>
@@ -40,6 +43,7 @@ export default {
       locale: "ua",
       newArrToget: {},
       Instalment: false,
+      pool: false,
     };
   },
   computed: {
@@ -56,7 +60,7 @@ export default {
       };
       this.newArrToget[`${x.name}`] = x.selectedItem;
 
-      // console.log("this.newArrToget", this.newArrToget);
+      console.log("this.newArrToget", this.newArrToget);
     },
     validate(type) {
       if (type === "price") {
@@ -77,54 +81,99 @@ export default {
       }
     },
     handlerFilteredData() {
-      let locale = this._i18n.locale;
-
-      if (locale === "ru") {
-        locale = "ru";
-      } else {
-        locale = "en";
+      if (this.from.length !== 0) {
+        this.newArrToget.price_from = this.from;
+      } else if (this.to.length !== 0) {
+        this.newArrToget.price_to = this.to;
       }
-      let slug = this.$route.params.slug;
 
-      if (this.$route.params.type) {
-        slug = this.$route.params.type;
+      if (this.errorTextPrice.length === 0) {
+        this.localePathRoute();
+      }
+    },
+    localePathRoute() {
+      let x = [];
 
-        if (this.$route.params.slug === "1-k-apartment") {
-          this.newArrToget.Number_of_rooms = 1;
-        } else if (this.$route.params.slug === "2-k-apartment") {
-          this.newArrToget.Number_of_rooms = 2;
-        } else if (this.$route.params.slug === "townhouse") {
-          this.newArrToget.type_of_house = "Таунхаус";
-        } else if (this.$route.params.slug === "apartment-with-pool") {
-          this.newArrToget.pool = true;
-        } else if (this.$route.params.slug === "townhouse-with-pool") {
-          this.newArrToget.pool = true;
-          this.newArrToget.type_of_house = "Таунхаус";
+      if (this.pool) {
+        x[0] = "pool";
+      }
+      if (this.Instalment) {
+        x[0] = "Instalment";
+      }
+
+      for (let key in this.newArrToget) {
+        if (this.newArrToget.hasOwnProperty(key)) {
+          x.push(`${key}=${this.newArrToget[key]}`);
         }
       }
 
-      let type = this.typePage;
+      let y = x.join("__");
 
-      if (this.errorTextPrice === "") {
-        this.newArrToget.from = this.from;
-        this.newArrToget.to = this.to;
+      console.log("itn ono", y);
 
-        let data = this.newArrToget;
-
-        this.$store.dispatch("app/getFilteredDataPurchase", {
-          slug,
-          data,
-          type,
-          locale,
+      if (this.$route.params.type) {
+        this.$router.push({
+          path: this.localePath(
+            `/${this.typePage}/${this.$route.params.type}/${y}`
+          ),
         });
-        this.$parent.showFilters = false;
+      } else {
+        this.$router.push({
+          path: this.localePath(
+            `/${this.typePage}/${this.$route.params.slug}/${y}`
+          ),
+        });
       }
     },
     filterClose() {
       this.$parent.showFilters = false;
     },
-    selectInstalment() {
-      this.Instalment = !this.Instalment;
+    selectoooor(type) {
+      if (type === "pool") {
+        this.pool = !this.pool;
+      } else {
+        this.Instalment = !this.Instalment;
+      }
+    },
+    canShowFilter(name) {
+      if (
+        name === "Number_of_rooms" ||
+        name === "Type_of_house" ||
+        name === "pool"
+      ) {
+        if (this.$route.params.type) {
+          if (
+            this.$route.params.type === "house" ||
+            this.$route.params.type === "all"
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        } else if (!this.$route.params.type) {
+          if (
+            this.$route.params.slug === "house" ||
+            this.$route.params.slug === "all"
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      } else {
+        return true;
+      }
+      // if (this.$route.params.type) {
+      //   if (this.$route.params.type !== "house") {
+      //     if (item.name === "Number_of_rooms") {
+      //       return false;
+      //     } else {
+      //       return true;
+      //     }
+      //   } else {
+      //     return true;
+      //   }
+      // }
     },
   },
   components: {
@@ -372,6 +421,10 @@ export default {
         background-color: var(--accent-main-color);
       }
     }
+  }
+
+  &__variants {
+    margin-bottom: 15px;
   }
 }
 

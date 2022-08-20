@@ -6,12 +6,12 @@
         .footer__mobile
             Lang.footer__lang
     .footer__info
-        .footer__links 
-            n-link.link(:to="('/purchase/house/1-k-apartment')") 1к квартири
-            n-link.link(:to="('/purchase/house/2-k-apartment')") 2к квартири
-            n-link.link(:to="('/purchase/house/townhouse')") Таунхауси
-            n-link.link(:to="('/purchase/house/apartment-with-pool')") Квартири з басейном
-            n-link.link(:to="('/purchase/house/townhouse-with-pool')") Таунхауси з басейном
+        //- .footer__links 
+        //-     n-link.link(:to="('/purchase/house/1-k-apartment')") 1к квартири
+        //-     n-link.link(:to="('/purchase/house/2-k-apartment')") 2к квартири
+        //-     n-link.link(:to="('/purchase/house/townhouse')") Таунхауси
+        //-     n-link.link(:to="('/purchase/house/apartment-with-pool')") Квартири з басейном
+        //-     n-link.link(:to="('/purchase/house/townhouse-with-pool')") Таунхауси з басейном
         .footer__social 
             .footer__desc
                 Lang.footer__lang(:type="1")
@@ -364,7 +364,7 @@ export default {
 @media screen and (min-width: 1240px) {
   .footer {
     padding: 2.639vw 5.556vw;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 2.7fr;
     gap: 4vw;
 
     &__logo {

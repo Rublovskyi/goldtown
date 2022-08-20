@@ -10,24 +10,9 @@ export const actions = {
       },
     };
 
-    if (slug == "storage") {
+    if (slug !== "all") {
       filters.filters.product_type = {
-        $eq: "storage",
-      };
-    }
-    if (slug == "house") {
-      filters.filters.product_type = {
-        $eq: "house",
-      };
-    }
-    if (slug == "parking") {
-      filters.filters.product_type = {
-        $eq: "parking",
-      };
-    }
-    if (slug == "stead") {
-      filters.filters.product_type = {
-        $eq: "stead",
+        $eq: slug,
       };
     }
 
@@ -37,13 +22,13 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
+        `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
       console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
-      commit("UPDATE_FILTERS", response.data.data);
+      // commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -58,24 +43,9 @@ export const actions = {
         },
       },
     };
-    if (slug == "storage") {
+    if (slug !== "all") {
       filters.filters.product_type = {
-        $eq: "storage",
-      };
-    }
-    if (slug == "house") {
-      filters.filters.product_type = {
-        $eq: "house",
-      };
-    }
-    if (slug == "parking") {
-      filters.filters.product_type = {
-        $eq: "parking",
-      };
-    }
-    if (slug == "stead") {
-      filters.filters.product_type = {
-        $eq: "stead",
+        $eq: slug,
       };
     }
 
@@ -90,7 +60,7 @@ export const actions = {
       // console.log("im hereee", response);
 
       commit("UPDATE_COMMERCE_DATA", { response, slug });
-      commit("UPDATE_FILTERS", response.data.data);
+      // commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -226,45 +196,99 @@ export const actions = {
       },
     };
 
-    if (slug == "1-k-apartment" || slug == "2-k-apartment") {
-      let x = slug[0];
-      // console.log("x", x);
-      filters.filters.Number_of_rooms = {
-        $eq: x,
-      };
-    }
-    if (slug == "townhouse") {
-      filters.filters.type_of_house = {
-        $eq: "Таунхаус",
-      };
-    }
-    if (slug == "apartment-with-pool") {
-      filters.filters.pool = {
-        $eq: true,
-      };
-    }
-    if (slug == "townhouse-with-pool") {
-      filters.filters.pool = {
-        $eq: true,
-      };
-      filters.filters.type_of_house = {
-        $eq: "Таунхаус",
-      };
-    }
+    let x = slug.split("__");
+
+    console.log("xxxxx", x);
+
+    x.forEach((el) => {
+      if (el.length !== 0) {
+        let y = el.split("=");
+
+        let name = y[0];
+        let value = y[1];
+
+        console.log("name value", name, value);
+
+        if (
+          name === "City" ||
+          name === "Residential_quarter" ||
+          name === "Type_of_house"
+        ) {
+          filters.filters = {
+            Filters: {
+              [name]: {
+                Slug: {
+                  $eq: value,
+                },
+              },
+            },
+          };
+        } else if (name === "price_from") {
+          filters.filters.price = {
+            $gte: value,
+          };
+        } else if (name === "price_to") {
+          filters.filters.price = {
+            $lte: value,
+          };
+        } else if (name === "pool") {
+          filters.filters.pool = {
+            $eq: true,
+          };
+        } else {
+          filters.filters[name] = {
+            $eq: value,
+          };
+        }
+      }
+    });
+
+    // console.log("filters", filters);
 
     let query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
     });
+
+    // console.log("query", query);
 
     try {
       const response = await this.$axios.get(
         `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
-      // console.log("im hereee", response);
+      console.log("im hereee tests", response);
 
       commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
-      commit("UPDATE_FILTERS", response.data.data);
+      // commit("UPDATE_FILTERS", response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  async getFilters({ commit }) {
+    try {
+      const residential_quarters = await this.$axios.get(
+        `/api/residential-quarters?populate=*&pagination[limit]=-1`
+      );
+      const cities = await this.$axios.get(
+        `/api/cities?populate=*&pagination[limit]=-1`
+      );
+      const type_of_houses = await this.$axios.get(
+        `/api/type-of-houses?populate=*&pagination[limit]=-1`
+      );
+
+      console.log(
+        "im hereee in filters",
+        residential_quarters
+        // cities,
+        // type_of_houses
+      );
+
+      let residential = residential_quarters.data.data;
+      let city = cities.data.data;
+      let type_of_house = type_of_houses.data.data;
+
+      // commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
+      commit("UPDATE_FILTERS", { residential, city, type_of_house });
     } catch (err) {
       console.log(err);
     }
@@ -312,117 +336,61 @@ export const mutations = {
     state.CurrentPeaseData = data;
     state.ViewPageGetData = true;
   },
-  UPDATE_FILTERS(state, data) {
-    state.Filters = [];
-
-    let arrNewRooms = {
-      name: "number_of_rooms",
-      arr: [],
-    };
-    let arrNewPayback = {
-      name: "payback",
-      arr: [],
-    };
-    let arrNewIncome = {
-      name: "annual_income",
-      arr: [],
-    };
-    let arrNewResidence = {
-      name: "Residential_quarter",
-      arr: [],
-    };
-
-    let arrTypeOfHouse = {
-      name: "type_of_house",
-      arr: [],
-    };
-    let arrKyivRegion = {
-      name: "kyiv_or_region",
-      arr: [],
-    };
-
-    let arrDistrict = {
-      name: "district",
-      arr: [],
-    };
-
-    data.forEach((el) => {
-      el.attributes.number_of_rooms
-        ? arrNewRooms.arr.push(el.attributes.number_of_rooms)
-        : false;
-
-      el.attributes.payback
-        ? arrNewPayback.arr.push(el.attributes.payback)
-        : false;
-
-      el.attributes.annual_income
-        ? arrNewIncome.arr.push(el.attributes.annual_income)
-        : false;
-
-      el.attributes.Residential_quarter
-        ? arrNewResidence.arr.push(el.attributes.Residential_quarter)
-        : false;
-
-      el.attributes.type_of_house
-        ? arrTypeOfHouse.arr.push(el.attributes.type_of_house)
-        : false;
-
-      el.attributes.kyiv_or_region
-        ? arrKyivRegion.arr.push(el.attributes.kyiv_or_region)
-        : false;
-
-      el.attributes.district
-        ? arrDistrict.arr.push(el.attributes.district)
-        : false;
-    });
-
-    arrNewRooms.arr = arrNewRooms.arr
-      .filter(function (item, pos) {
-        return arrNewRooms.arr.indexOf(item) == pos;
-      })
-      .sort(function (a, b) {
-        return a - b;
-      });
-
-    arrNewPayback.arr = arrNewPayback.arr
-      .filter(function (item, pos) {
-        return arrNewPayback.arr.indexOf(item) == pos;
-      })
-      .sort(function (a, b) {
-        return a - b;
-      });
-    // arrNewPayback.arr = uniqueArrayPayback.sort();
-
-    arrNewIncome.arr = arrNewIncome.arr
-      .filter(function (item, pos) {
-        return arrNewIncome.arr.indexOf(item) == pos;
-      })
-      .sort(function (a, b) {
-        return a - b;
-      });
-
-    arrNewResidence.arr = arrNewResidence.arr.filter(function (item, pos) {
-      return arrNewResidence.arr.indexOf(item) == pos;
-    });
-
-    arrTypeOfHouse.arr = arrTypeOfHouse.arr.filter(function (item, pos) {
-      return arrTypeOfHouse.arr.indexOf(item) == pos;
-    });
-
-    arrKyivRegion.arr = arrKyivRegion.arr.filter(function (item, pos) {
-      return arrKyivRegion.arr.indexOf(item) == pos;
-    });
-    arrDistrict.arr = arrDistrict.arr.filter(function (item, pos) {
-      return arrDistrict.arr.indexOf(item) == pos;
-    });
-
-    state.Filters.push(arrNewRooms);
-    state.Filters.push(arrNewResidence);
-    state.Filters.push(arrNewIncome);
-    state.Filters.push(arrNewPayback);
-    state.Filters.push(arrTypeOfHouse);
-    state.Filters.push(arrKyivRegion);
-    state.Filters.push(arrDistrict);
+  UPDATE_FILTERS(state, { residential, city, type_of_house }) {
+    state.Filters = [
+      {
+        name: "Residential_quarter",
+        arr: residential,
+      },
+      {
+        name: "City",
+        arr: city,
+      },
+      {
+        name: "Type_of_house",
+        arr: type_of_house,
+      },
+      {
+        name: "Number_of_rooms",
+        arr: [
+          {
+            attributes: {
+              Name_rus: "1",
+              Name_ukr: "1",
+              Slug: "1",
+            },
+          },
+          {
+            attributes: {
+              Name_rus: "2",
+              Name_ukr: "2",
+              Slug: "2",
+            },
+          },
+          {
+            attributes: {
+              Name_rus: "3",
+              Name_ukr: "3",
+              Slug: "3",
+            },
+          },
+          {
+            attributes: {
+              Name_rus: "4",
+              Name_ukr: "4",
+              Slug: "4",
+            },
+          },
+          {
+            attributes: {
+              Name_rus: "5",
+              Name_ukr: "5",
+              Slug: "5",
+            },
+          },
+        ],
+      },
+    ];
   },
   UPDATE_SIMILAR_PROPOSAL(state, data) {
     let currentPease = state.CurrentPeaseData;
@@ -464,7 +432,7 @@ export const state = () => ({
     {
       nameUa: "Всі варіанти",
       nameRu: "Все варианты",
-      slug: "",
+      slug: "all",
       selected: false,
     },
     {
@@ -502,7 +470,7 @@ export const state = () => ({
     {
       nameUa: "Все варіанти",
       nameRu: "Все варианты",
-      slug: "",
+      slug: "all",
       selected: false,
     },
     {

@@ -72,7 +72,11 @@ export default {
       locale = "en";
     }
 
+    // console.log("mounted page");
+
     this.getData({ slug, locale, type, purchase });
+
+    this.$store.dispatch("app/getFilters");
   },
   head() {
     return {
