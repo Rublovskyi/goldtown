@@ -2,7 +2,7 @@
 .buy(id="topOfPage")
     Header.header(:show="pageType")
     Houses.houses
-    BlockTest(:type="slug" :information="info")
+    blockMetaTexts(:type="slug" :information="info")
     Footer
     PhoneBtn
     RequestPopup(v-if="showPopup")
@@ -18,14 +18,14 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
-import BlockTest from "~/components/blockTest.vue";
+import blockMetaTexts from "~/components/blockMetaTexts.vue";
 
 export default {
   data() {
     return {
       pageType: "purchase",
       slug: "",
-      type: "",
+      type: "all",
       showPopup: false,
       successPopup: false,
       info: require("~/assets/info.json"),
@@ -39,11 +39,11 @@ export default {
     RequestPopup,
     SuccessPopup,
     ScrollUpBtn,
-    BlockTest,
+    blockMetaTexts,
   },
   methods: {
     getData({ slug, locale, type, purchase }) {
-      this.$store.dispatch("app/getDataPurchaseTest", {
+      this.$store.dispatch("app/getFilteredProducts", {
         slug,
         locale,
         type,
@@ -72,7 +72,7 @@ export default {
       locale = "en";
     }
 
-    // console.log("mounted page");
+    console.log("mounted page", slug);
 
     this.getData({ slug, locale, type, purchase });
 

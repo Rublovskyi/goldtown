@@ -2,6 +2,7 @@
     .buyBussiness(id="topOfPage")
         Header.header(:show="pageType")
         Houses.houses
+        //- blockMetaTexts(:type="slug" :information="info")
         Footer
         PhoneBtn
         RequestPopup(v-if="showPopup")
@@ -18,6 +19,7 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
+import blockMetaTexts from "~/components/blockMetaTexts.vue";
 
 export default {
   data() {
@@ -26,7 +28,7 @@ export default {
       slug: "all",
       showPopup: false,
       successPopup: false,
-      meta: "",
+      info: require("~/assets/info.json"),
     };
   },
   components: {
@@ -37,6 +39,7 @@ export default {
     RequestPopup,
     SuccessPopup,
     ScrollUpBtn,
+    blockMetaTexts,
   },
   methods: {
     getData(data) {
@@ -50,12 +53,6 @@ export default {
   },
   mounted() {
     this.slug = this.$route.params.slug;
-
-    this.meta = this.$route.params.slug;
-
-    if (!this.$route.params.slug) {
-      this.meta = "all";
-    }
 
     // let testslug = this.slug;
     // let test = testslug.split("_");
@@ -76,20 +73,21 @@ export default {
     };
 
     this.getData(data);
+    this.$store.dispatch("app/getFilters");
   },
   head() {
     return {
-      title: this.$t(`commerce_slug_meta.${this.meta}.title`),
+      title: this.$t(`commerce_slug_meta.${this.slug}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`commerce_slug_meta.${this.meta}.description`),
+          content: this.$t(`commerce_slug_meta.${this.slug}.description`),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`commerce_slug_meta.${this.meta}.title`),
+          content: this.$t(`commerce_slug_meta.${this.slug}.title`),
         },
       ],
     };

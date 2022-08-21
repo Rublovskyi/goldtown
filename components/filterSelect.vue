@@ -36,10 +36,6 @@ export default {
   },
   computed: {
     ...mapState({
-      addressSelect: (state) => state.app.Address,
-      numOfRooms: (state) => state.app.NumOfRooms,
-      paybackArr: (state) => state.app.Payback,
-      annualIncome: (state) => state.app.AnnualIncome,
       filters: (state) => state.app.Filters,
     }),
   },

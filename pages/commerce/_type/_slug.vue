@@ -2,7 +2,7 @@
 .buy(id="topOfPage")
     Header.header(:show="pageType")
     Houses.houses
-    blockMetaTexts(:type="slug" :information="info")
+    //- blockMetaTexts(:type="slug" :information="info")
     Footer
     PhoneBtn
     RequestPopup(v-if="showPopup")
@@ -13,7 +13,7 @@
 <script>
 import Header from "~/components/header.vue";
 import Footer from "~/components/footer.vue";
-import Houses from "~/components/purchasePage/main.vue";
+import Houses from "~/components/commercePage/main.vue";
 import PhoneBtn from "~/components/phoneBtn.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
@@ -23,8 +23,9 @@ import blockMetaTexts from "~/components/blockMetaTexts.vue";
 export default {
   data() {
     return {
-      pageType: "purchase",
+      pageType: "commerce",
       slug: "",
+      type: "all",
       showPopup: false,
       successPopup: false,
       info: require("~/assets/info.json"),
@@ -41,8 +42,13 @@ export default {
     blockMetaTexts,
   },
   methods: {
-    getData(data) {
-      this.$store.dispatch("app/getDataPurchase", data);
+    getData({ slug, locale, type, purchase }) {
+      this.$store.dispatch("app/getFilteredProducts", {
+        slug,
+        locale,
+        type,
+        purchase,
+      });
     },
     goto() {
       document.getElementById("topOfPage").scrollIntoView({
@@ -52,8 +58,13 @@ export default {
   },
   mounted() {
     this.slug = this.$route.params.slug;
+    let slug = this.$route.params.slug;
 
+    // let slug = this.$route.params.slug;
+    this.type = this.$route.params.type;
+    let type = this.$route.params.type;
     let locale = this._i18n.locale;
+    let purchase = this.pageType;
 
     if (locale === "ru") {
       locale = "ru";
@@ -61,28 +72,25 @@ export default {
       locale = "en";
     }
 
-    let data = {
-      slug: this.slug,
-      locale: locale,
-    };
+    console.log("mounted page", slug);
 
-    this.getData(data);
+    this.getData({ slug, locale, type, purchase });
 
     this.$store.dispatch("app/getFilters");
   },
   head() {
     return {
-      title: this.$t(`purchase_slug_meta.${this.slug}.title`),
+      title: this.$t(`commerce_slug_meta.${this.slug}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`purchase_slug_meta.${this.slug}.description`),
+          content: this.$t(`commerce_slug_meta.${this.slug}.description`),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`purchase_slug_meta.${this.slug}.title`),
+          content: this.$t(`commerce_slug_meta.${this.slug}.title`),
         },
       ],
     };

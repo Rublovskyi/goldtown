@@ -11,22 +11,25 @@ export default {
     };
   },
   mounted() {
-    // console.log("this.$route.params.slug ", this.$route.params.slug);
-    if (this.$route.params.slug === undefined) {
+    console.log("this.$route.params.slug ", this.$route.params.slug);
+    if (this.$route.params.slug === "all") {
       this.info = this.information.all;
-    } else if (this.$route.params.slug === "1-k-apartment") {
+    } else if (this.$route.params.slug === "Number_of_rooms=1") {
       this.info = this.information.kimnatnakvartira1;
       return;
-    } else if (this.$route.params.slug === "2-k-apartment") {
+    } else if (this.$route.params.slug === "Number_of_rooms=2") {
       this.info = this.information.kimnatnakvartira2;
       return;
-    } else if (this.$route.params.slug === "townhouse") {
+    } else if (this.$route.params.slug === "Type_of_house=townhouse") {
       this.info = this.information.townhouse;
-    } else if (this.$route.params.slug === "apartment-with-pool") {
+    } else if (this.$route.params.slug === "Type_of_house=kvartira__pool") {
       this.info = this.information.apartmentwithpool;
-    } else if (this.$route.params.slug === "townhouse-with-pool") {
+    } else if (this.$route.params.slug === "Type_of_house=townhouse__pool") {
       this.info = this.information.townhousewithpool;
-    } else if (this.$route.params.type === "house") {
+    } else if (
+      this.$route.params.type === "house" ||
+      this.$route.params.slug === "house"
+    ) {
       this.info = this.information.house;
     } else {
       this.info = "";

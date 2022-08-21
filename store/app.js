@@ -49,6 +49,8 @@ export const actions = {
       };
     }
 
+    console.log("commmmerse", filters);
+
     const query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
     });
@@ -65,68 +67,7 @@ export const actions = {
       console.log(err);
     }
   },
-  async getFilteredDataPurchase({ commit }, { slug, data, type, locale }) {
-    const qs = require("qs");
 
-    console.log(data);
-
-    let filters = {
-      filters: {
-        purchase_type: {
-          $eq: type,
-        },
-      },
-    };
-
-    if (slug !== "all") {
-      filters.filters.product_type = {
-        $eq: slug,
-      };
-    }
-
-    if (data.from !== "" && data.to === "") {
-      filters.filters.price = {
-        $gte: data.from,
-      };
-    }
-    if (data.from === "" && data.to !== "") {
-      filters.filters.price = {
-        $lte: data.to,
-      };
-    }
-    if (data.to !== "" && data.from !== "") {
-      filters.filters.price = {
-        $gte: data.from,
-        $lte: data.to,
-      };
-    }
-
-    for (let key in data) {
-      if (key !== "to" && key !== "from") {
-        filters.filters[`${key}`] = {
-          $eq: data[key],
-        };
-      }
-    }
-
-    let query = qs.stringify(filters, {
-      encodeValuesOnly: true, // prettify url
-    });
-
-    try {
-      const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
-      );
-
-      if (type === "purchase") {
-        commit("UPDATE_PUECHASE_DATA", { response, slug });
-      } else {
-        commit("UPDATE_COMMERCE_DATA", { response, slug });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  },
   async getDataCurrentPease({ commit }, { slug, locale }) {
     const qs = require("qs");
     const query = qs.stringify(
@@ -181,24 +122,29 @@ export const actions = {
       console.log(err);
     }
   },
-
-  async getDataPurchaseTest({ commit }, { slug, locale, type, purchase }) {
+  async getFilteredProducts({ commit }, { slug, locale, type, purchase }) {
     const qs = require("qs");
+
+    // getFilteredProducts;
 
     let filters = {
       filters: {
         purchase_type: {
           $eq: purchase,
         },
-        product_type: {
-          $eq: type,
-        },
+        // product_type: {
+        //   $eq: type,
+        // },
       },
     };
 
-    let x = slug.split("__");
+    if (type !== "all") {
+      filters.filters.product_type = {
+        $eq: type,
+      };
+    }
 
-    console.log("xxxxx", x);
+    let x = slug.split("__");
 
     x.forEach((el) => {
       if (el.length !== 0) {
@@ -214,12 +160,10 @@ export const actions = {
           name === "Residential_quarter" ||
           name === "Type_of_house"
         ) {
-          filters.filters = {
-            Filters: {
-              [name]: {
-                Slug: {
-                  $eq: value,
-                },
+          filters.filters.Filters = {
+            [name]: {
+              Slug: {
+                $eq: value,
               },
             },
           };
@@ -243,13 +187,11 @@ export const actions = {
       }
     });
 
-    // console.log("filters", filters);
+    console.log("djhdhd", filters);
 
     let query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
     });
-
-    // console.log("query", query);
 
     try {
       const response = await this.$axios.get(
@@ -258,7 +200,12 @@ export const actions = {
 
       console.log("im hereee tests", response);
 
-      commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
+      if (purchase === "purchase") {
+        commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
+      } else {
+        commit("UPDATE_COMMERSE_DATA_TEST", { response, type });
+      }
+
       // commit("UPDATE_FILTERS", response.data.data);
     } catch (err) {
       console.log(err);
@@ -318,6 +265,18 @@ export const mutations = {
       }
     });
     state.PurchaseCardsData = state.PurchaseData.slice(0, 6);
+  },
+  UPDATE_COMMERSE_DATA_TEST(state, { response, type }) {
+    state.CommerceData = response.data.data.reverse();
+    state.CommerceCaregoryes.forEach((el) => {
+      el.selected = false;
+      if (el.slug === type) {
+        el.selected = true;
+      } else if (el.slug.length === 0 && !type) {
+        el.selected = true;
+      }
+    });
+    state.CommerceCardsData = state.CommerceData.slice(0, 6);
   },
   UPDATE_COMMERCE_DATA(state, { response, slug }) {
     state.CommerceData = response.data.data.reverse();
@@ -424,10 +383,6 @@ export const state = () => ({
   PurchaseData: [],
   CommerceData: [],
   CurrentPeaseData: {},
-  Address: [],
-  NumOfRooms: [],
-  Payback: [],
-  AnnualIncome: [],
   CommerceCaregoryes: [
     {
       nameUa: "Всі варіанти",
@@ -462,7 +417,7 @@ export const state = () => ({
     {
       nameUa: "Комерційні приміщення",
       nameRu: "Комерческие помещения",
-      slug: "commercial-premises",
+      slug: "commercial_premises",
       selected: false,
     },
   ],
@@ -502,6 +457,154 @@ export const state = () => ({
   ViewPageGetData: false,
   PurchaseCardsData: [],
   CommerceCardsData: [],
-  Residence: [],
   Filters: [],
 });
+
+////// util
+// async getFilteredDataPurchase({ commit }, { slug, data, type, locale }) {
+//     const qs = require("qs");
+
+//     console.log(data);
+
+//     let filters = {
+//       filters: {
+//         purchase_type: {
+//           $eq: type,
+//         },
+//       },
+//     };
+
+//     if (slug !== "all") {
+//       filters.filters.product_type = {
+//         $eq: slug,
+//       };
+//     }
+
+//     if (data.from !== "" && data.to === "") {
+//       filters.filters.price = {
+//         $gte: data.from,
+//       };
+//     }
+//     if (data.from === "" && data.to !== "") {
+//       filters.filters.price = {
+//         $lte: data.to,
+//       };
+//     }
+//     if (data.to !== "" && data.from !== "") {
+//       filters.filters.price = {
+//         $gte: data.from,
+//         $lte: data.to,
+//       };
+//     }
+
+//     for (let key in data) {
+//       if (key !== "to" && key !== "from") {
+//         filters.filters[`${key}`] = {
+//           $eq: data[key],
+//         };
+//       }
+//     }
+
+//     let query = qs.stringify(filters, {
+//       encodeValuesOnly: true, // prettify url
+//     });
+
+//     try {
+//       const response = await this.$axios.get(
+//         `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
+//       );
+
+//       if (type === "purchase") {
+//         commit("UPDATE_PUECHASE_DATA", { response, slug });
+//       } else {
+//         commit("UPDATE_COMMERCE_DATA", { response, slug });
+//       }
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   },
+
+// async getDataCommerseTest({ commit }, { slug, locale, type, purchase }) {
+//     const qs = require("qs");
+
+//     console.log("purchase", purchase);
+
+//     let filters = {
+//       filters: {
+//         purchase_type: {
+//           $eq: purchase,
+//         },
+//         // product_type: {
+//         //   $eq: type,
+//         // },
+//       },
+//     };
+
+//     if (type !== "all") {
+//       filters.filters.product_type = {
+//         $eq: type,
+//       };
+//     }
+
+//     let x = slug.split("__");
+
+//     x.forEach((el) => {
+//       if (el.length !== 0) {
+//         let y = el.split("=");
+
+//         let name = y[0];
+//         let value = y[1];
+
+//         console.log("name value", name, value);
+
+//         if (
+//           name === "City" ||
+//           name === "Residential_quarter" ||
+//           name === "Type_of_house"
+//         ) {
+//           filters.filters.Filters = {
+//             [name]: {
+//               Slug: {
+//                 $eq: value,
+//               },
+//             },
+//           };
+//         } else if (name === "price_from") {
+//           filters.filters.price = {
+//             $gte: value,
+//           };
+//         } else if (name === "price_to") {
+//           filters.filters.price = {
+//             $lte: value,
+//           };
+//         } else if (name === "pool") {
+//           filters.filters.pool = {
+//             $eq: true,
+//           };
+//         } else {
+//           filters.filters[name] = {
+//             $eq: value,
+//           };
+//         }
+//       }
+//     });
+
+//     console.log("djhdhd", filters);
+
+//     let query = qs.stringify(filters, {
+//       encodeValuesOnly: true, // prettify url
+//     });
+
+//     try {
+//       const response = await this.$axios.get(
+//         `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
+//       );
+
+//       console.log("im hereee tests", response);
+
+//       commit("UPDATE_COMMERSE_DATA_TEST", { response, type });
+//       // commit("UPDATE_FILTERS", response.data.data);
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   },

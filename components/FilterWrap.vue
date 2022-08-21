@@ -94,22 +94,23 @@ export default {
     localePathRoute() {
       let x = [];
 
-      if (this.pool) {
-        x[0] = "pool";
-      }
-      if (this.Instalment) {
-        x[0] = "Instalment";
-      }
-
       for (let key in this.newArrToget) {
         if (this.newArrToget.hasOwnProperty(key)) {
           x.push(`${key}=${this.newArrToget[key]}`);
         }
       }
 
+      if (this.pool) {
+        x.push("pool");
+      }
+      if (this.Instalment) {
+        // x[0] = "Instalment";
+        x.push("Instalment");
+      }
+
       let y = x.join("__");
 
-      console.log("itn ono", y);
+      console.log("itn ono", y, this.typePage);
 
       if (this.$route.params.type) {
         this.$router.push({
