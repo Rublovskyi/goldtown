@@ -51,16 +51,26 @@ export default {
     padding: 3.906vw 4.688vw 2vw 4.688vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 25vw;
   }
   @media screen and (min-width: 1240px) {
     padding: 3.906vw 4.688vw 2vw 4.688vw;
+    gap: 6.452vw;
   }
 
   &__title {
-    font-size: 22px;
-    margin-bottom: 25px;
+    font-size: 6.875vw;
+    margin-bottom: 7.813vw;
     font-weight: 500;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.865vw;
+      margin-bottom: 3.255vw;
+    }
+    @media screen and (min-width: 1240px) {
+      font-size: 1.774vw;
+      margin-bottom: 2.016vw;
+    }
   }
 
   &__wrap {
@@ -71,23 +81,29 @@ export default {
 
   & iframe {
     width: 100%;
-    height: 220px;
+    height: 68.75vw;
 
     @media screen and (min-width: 768px) {
       width: 100%;
-      height: 320px;
+      height: 41.667vw;
     }
     @media screen and (min-width: 1240px) {
-      width: 600px;
-      height: 450px;
+      width: 48.387vw;
+      height: 36.29vw;
     }
   }
 
   &__nums {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 3.125vw;
     justify-content: flex-start;
+    @media screen and (min-width: 768px) {
+      gap: 1.302vw;
+    }
+    @media screen and (min-width: 1240px) {
+      gap: 0.806vw;
+    }
   }
 
   &__number,
@@ -141,8 +157,15 @@ export default {
       //   color: var(--hover-color);
     }
   }
-  &__address {
-    margin-bottom: 15px;
+  &__address,
+  &__mail {
+    margin-bottom: 4.688vw;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 1.953vw;
+    }
+    @media screen and (min-width: 1240px) {
+      margin-bottom: 1.21vw;
+    }
   }
   &__number-icon {
     background-image: url(../assets/svg/mobile.svg);
@@ -154,33 +177,53 @@ export default {
     background-image: url(../assets/svg/letter_icon.svg);
   }
 
-  &__mail {
-    margin-bottom: 15px;
-  }
-
   &__works {
-    margin: 20px 0;
+    margin: 6.25vw 0;
     &-schadule {
       display: flex;
 
       & .days {
-        font-size: 13px;
-        margin-right: 10px;
-        width: 40px;
+        font-size: 4.063vw;
+        margin-right: 3.125vw;
+        width: 12.5vw;
       }
       & .time {
-        font-size: 13px;
+        font-size: 4.063vw;
         font-weight: 500;
       }
       & :not(:last-child) {
-        margin-bottom: 5px;
+        margin-bottom: 1.563vw;
       }
     }
     @media screen and (min-width: 768px) {
-      margin: 25px 0;
+      margin: 3.255vw 0;
+
+      & .days {
+        font-size: 1.693vw;
+        margin-right: 1.302vw;
+        width: 5.208vw;
+      }
+      & .time {
+        font-size: 1.693vw;
+      }
+      & :not(:last-child) {
+        margin-bottom: 0.651vw;
+      }
     }
     @media screen and (min-width: 1240px) {
-      margin: 25px 0;
+      margin: 2.016vw 0;
+
+      & .days {
+        font-size: 1.048vw;
+        margin-right: 0.806vw;
+        width: 3.226vw;
+      }
+      & .time {
+        font-size: 1.048vw;
+      }
+      & :not(:last-child) {
+        margin-bottom: 0.403vw;
+      }
     }
   }
 }

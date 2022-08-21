@@ -48,7 +48,7 @@ export default {
     display: block;
     color: inherit;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1240px) {
       &:hover {
         opacity: 0.5;
       }
