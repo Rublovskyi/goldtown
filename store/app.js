@@ -56,7 +56,7 @@ export const actions = {
     });
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
+        `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
       // console.log("im hereee", response);
@@ -240,6 +240,19 @@ export const actions = {
       console.log(err);
     }
   },
+  async getBlogData({ commit }) {
+    try {
+      const responce = await this.$axios.get(
+        `/api/construction?populate[0]=Blocks&populate[1]=Blocks.Image&pagination[limit]=-1`
+      );
+
+      console.log("responce blog", responce.data.data.attributes.Blocks);
+
+      commit("UPDATE_BLOG_DATA", responce.data.data.attributes.Blocks);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
 export const mutations = {
   UPDATE_PUECHASE_DATA(state, { response, slug }) {
@@ -377,6 +390,9 @@ export const mutations = {
     let y = h + 6;
     state.CommerceCardsData = state.CommerceData.slice(h, y);
   },
+  UPDATE_BLOG_DATA(state, data) {
+    state.Blog = data;
+  },
 };
 export const state = () => ({
   lang: "en",
@@ -458,6 +474,7 @@ export const state = () => ({
   PurchaseCardsData: [],
   CommerceCardsData: [],
   Filters: [],
+  Blog: [],
 });
 
 ////// util

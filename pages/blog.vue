@@ -1,11 +1,11 @@
 <template lang="pug">
-.contacts 
-    Header(:show="'contacts'")
-    ContactsBlock
-    Footer
+.blog
+    Header(:show="'blog'")
+    Blog
     PhoneBtn
     RequestPopup(v-if="showPopup")
     SuccessPopup(v-if="successPopup")
+    Footer
 </template>
 <script>
 import Header from "~/components/header.vue";
@@ -13,22 +13,21 @@ import PhoneBtn from "~/components/phoneBtn.vue";
 import Footer from "~/components/footer.vue";
 import RequestPopup from "~/components/requestPopup.vue";
 import SuccessPopup from "~/components/successPopup.vue";
-import ContactsBlock from "~/components/contactsBlock.vue";
-
+import Blog from "~/components/blog.vue";
 export default {
-  data() {
-    return {
-      showPopup: false,
-      successPopup: false,
-    };
-  },
   components: {
     Header,
     PhoneBtn,
     Footer,
     RequestPopup,
     SuccessPopup,
-    ContactsBlock,
+    Blog,
+  },
+  data() {
+    return {
+      showPopup: false,
+      successPopup: false,
+    };
   },
   methods: {
     goto() {
@@ -36,6 +35,9 @@ export default {
         behavior: "smooth",
       });
     },
+  },
+  mounted() {
+    this.$store.dispatch("app/getBlogData");
   },
 };
 </script>

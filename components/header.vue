@@ -10,6 +10,7 @@
                 n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
                 //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
                 p.header__item(@click="makeRequest") {{ $t('header.request') }}
+                n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
                 n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") Контакти
             .header__num-lang
                 .header__numbers
