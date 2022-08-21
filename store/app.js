@@ -179,6 +179,10 @@ export const actions = {
           filters.filters.pool = {
             $eq: true,
           };
+        } else if (name === "Instalment") {
+          filters.filters.pool = {
+            $notNull: true,
+          };
         } else {
           filters.filters[name] = {
             $eq: value,

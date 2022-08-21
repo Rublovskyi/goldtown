@@ -8,9 +8,9 @@
             span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
     .filter__wrap
         p.title {{ $t('filter.filters') }}
-        //- .filter__category-item.instalmet(:class="{'select': Instalment}" @click="selectoooor('Instalment')")
-        //-     span.box
-        //-     span.text {{$t('filtersSelect.Instalment')}}
+        .filter__category-item.instalmet(:class="{'select': Instalment}" @click="selectoooor('Instalment')")
+            span.box
+            span.text {{$t('filtersSelect.Instalment')}}
         .filter__price 
             p.filter__title {{ $t('filter.price') }}
             .filter__price-select
