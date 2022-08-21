@@ -5,10 +5,10 @@
         .blog__img
             img(v-if="item.Image.data" :src="`https://api.goldtowncompany.com${item.Image.data.attributes.url}`" :srcset="`https://api.goldtowncompany.com${item.Image.data.attributes.formats.small ? item.Image.data.attributes.formats.small.url : item.Image.data.attributes.url} 320w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.medium ? item.Image.data.attributes.formats.medium.url : item.Image.data.attributes.url} 768w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.large ? item.Image.data.attributes.formats.large.url : item.Image.data.attributes.url} 1240w`")
         .blog__data
-            p.blog__data-title {{item.Title}}
-            p.blog__data-desc.scrollbar {{item.Description}}
-            .video.video-ok(v-html="item.Video_url")
-        .video.video-tab(v-html="item.Video_url")
+            p.blog__data-title(v-if="item.Title") {{item.Title}}
+            p.blog__data-desc.scrollbar(v-if="item.Description") {{item.Description}}
+            .video.video-ok(v-if="item.Video_url" v-html="item.Video_url")
+        .video.video-tab(v-if="item.Video_url" v-html="item.Video_url")
         
 </template>
 <script>
@@ -25,6 +25,7 @@ export default {
 <style lang="scss" scoped>
 .blog {
   padding: 9.375vw 5vw 7vw 5vw;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 
   @media screen and (min-width: 768px) {
     padding: 3.906vw 4.688vw 2vw 4.688vw;
@@ -50,15 +51,20 @@ export default {
 
   &__wrap {
     &:not(:last-child) {
-      margin-bottom: 17.188vw;
+      margin-bottom: 12.5vw;
     }
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    padding-bottom: 12.5vw;
 
     @media screen and (min-width: 768px) {
       display: grid;
       grid-template-columns: 2fr 3fr;
+      padding-bottom: 5.208vw;
 
       &:not(:last-child) {
-        margin-bottom: 7.161vw;
+        margin-bottom: 5.208vw;
       }
     }
 
@@ -84,8 +90,10 @@ export default {
       grid-template-columns: 1fr 5fr;
       gap: 4.032vw;
 
+      padding-bottom: 3.226vw;
+
       &:not(:last-child) {
-        margin-bottom: 4.435vw;
+        margin-bottom: 3.226vw;
       }
     }
   }
@@ -113,7 +121,7 @@ export default {
       margin-bottom: 0;
     }
     @media screen and (min-width: 1240px) {
-      width: 40.323vw;
+      width: 33.323vw;
       height: 40.323vw;
       border-radius: 0.556vw;
     }
@@ -126,7 +134,7 @@ export default {
       font-weight: 600;
     }
     &-desc {
-      margin-bottom: 15.625vw;
+      margin-bottom: 9.625vw;
 
       height: 46.875vw;
       overflow-y: scroll;
