@@ -11,7 +11,7 @@ export default {
     };
   },
   mounted() {
-    console.log("this.$route.params.slug ", this.$route.params.slug);
+    // console.log("this.$route.params.slug ", this.$route.params.slug);
     if (this.$route.params.slug === "all") {
       this.info = this.information.all;
     } else if (this.$route.params.slug === "number_of_rooms=1") {

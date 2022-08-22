@@ -60,7 +60,7 @@ export default {
       };
       this.newArrToget[`${x.name}`] = x.selectedItem;
 
-      console.log("this.newArrToget", this.newArrToget);
+      // console.log("this.newArrToget", this.newArrToget);
     },
     validate(type) {
       if (type === "price") {
@@ -83,7 +83,8 @@ export default {
     handlerFilteredData() {
       if (this.from.length !== 0) {
         this.newArrToget.price_from = this.from;
-      } else if (this.to.length !== 0) {
+      }
+      if (this.to.length !== 0) {
         this.newArrToget.price_to = this.to;
       }
 
@@ -108,9 +109,9 @@ export default {
         x.push("instalment");
       }
 
-      let y = x.join("__");
+      let y = x.join("&");
 
-      console.log("itn ono", y, this.typePage);
+      // console.log("itn ono", y, this.typePage);
 
       if (this.$route.params.type) {
         this.$router.push({
@@ -176,12 +177,39 @@ export default {
       //   }
       // }
     },
+    findSelectedFilters() {
+      console.log("route params type can show filt", this.$route.params.slug);
+      let x = this.$route.params.slug.split("&");
+
+      x.forEach((el) => {
+        let y = el.split("=");
+
+        let name = y[0];
+        let value = y[1];
+
+        if (name === "pool") {
+          this.pool = true;
+        } else if (name === "instalment") {
+          this.instalment = true;
+        }
+      });
+    },
+    clearFilterField(filter) {
+      console.log("clear", filter, this.newArrToget);
+
+      delete this.newArrToget[filter];
+      console.log("clear", filter, this.newArrToget);
+    },
   },
   components: {
     filterSelect,
   },
   mounted() {
     this.locale = this._i18n.locale;
+
+    if (this.$route.params.type) {
+      this.findSelectedFilters();
+    }
   },
 };
 </script>

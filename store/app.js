@@ -49,8 +49,6 @@ export const actions = {
       };
     }
 
-    console.log("commmmerse", filters);
-
     const query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
     });
@@ -144,7 +142,7 @@ export const actions = {
       };
     }
 
-    let x = slug.split("__");
+    let x = slug.split("&");
 
     x.forEach((el) => {
       if (el.length !== 0) {
@@ -153,7 +151,7 @@ export const actions = {
         let name = y[0];
         let value = y[1];
 
-        console.log("name value", name, value);
+        // console.log("name value", name, value);
 
         if (
           name === "city" ||
@@ -180,7 +178,7 @@ export const actions = {
             $eq: true,
           };
         } else if (name === "instalment") {
-          filters.filters.pool = {
+          filters.filters.instalment = {
             $notNull: true,
           };
         } else {
@@ -202,7 +200,7 @@ export const actions = {
         `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
-      console.log("im hereee tests", response);
+      // console.log("im hereee tests", response);
 
       if (purchase === "purchase") {
         commit("UPDATE_PUECHASE_DATA_TEST", { response, type });
@@ -250,7 +248,7 @@ export const actions = {
         `/api/construction?populate[0]=Blocks&populate[1]=Blocks.Image&pagination[limit]=-1`
       );
 
-      console.log("responce blog", responce.data.data.attributes.Blocks);
+      // console.log("responce blog", responce.data.data.attributes.Blocks);
 
       commit("UPDATE_BLOG_DATA", responce.data.data.attributes.Blocks);
     } catch (err) {
@@ -317,17 +315,21 @@ export const mutations = {
       {
         name: "residential_quarter",
         arr: residential,
+        selected: "",
       },
       {
         name: "city",
         arr: city,
+        selected: "",
       },
       {
         name: "type_of_house",
         arr: type_of_house,
+        selected: "",
       },
       {
         name: "number_of_rooms",
+        selected: "",
         arr: [
           {
             attributes: {
@@ -367,6 +369,8 @@ export const mutations = {
         ],
       },
     ];
+
+    console.log("filter selec ", state.Filters);
   },
   UPDATE_SIMILAR_PROPOSAL(state, data) {
     let currentPease = state.CurrentPeaseData;

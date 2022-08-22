@@ -20,11 +20,11 @@ export default {
     };
   },
   mounted() {
-    console.log("th", this.$route.params.slug);
+    // console.log("th", this.$route.params.slug);
     if (this.$route.params.slug === "all") {
       this.info = this.information.all;
     } else if (this.$route.params.slug === "house") {
-      console.log("this.info", this.info);
+      // console.log("this.info", this.info);
       this.info = this.information.house;
     }
   },

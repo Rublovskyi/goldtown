@@ -65,9 +65,7 @@ export default {
       info: (state) => state.app.CurrentPeaseData.attributes,
     }),
   },
-  mounted() {
-    console.log("main this info", this.info);
-  },
+
   data() {
     return {
       testImg: require("~/assets/noPhoto.png"),
@@ -103,7 +101,6 @@ export default {
       document.body.style.overflow = "hidden";
     },
     makePhotoUrl(img, size) {
-      console.log("imgimgimg", img);
       if (img) {
         let url;
         // url = this.card.attributes.image.data[0].attributes.formats.large.url;
@@ -117,8 +114,6 @@ export default {
             : img.attributes.url;
 
         let link = `https://api.goldtowncompany.com${url}`;
-
-        console.log(link);
 
         return link;
       } else {

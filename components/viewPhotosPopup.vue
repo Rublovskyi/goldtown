@@ -43,9 +43,6 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log("photosData", this.photosData);
-  },
 };
 </script>
 <style lang="scss" scoped>
