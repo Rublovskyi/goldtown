@@ -130,6 +130,7 @@ export const actions = {
         purchase_type: {
           $eq: purchase,
         },
+        Filters: {},
         // product_type: {
         //   $eq: type,
         // },
@@ -151,18 +152,16 @@ export const actions = {
         let name = y[0];
         let value = y[1];
 
-        // console.log("name value", name, value);
+        console.log("name value", name, value);
 
         if (
           name === "city" ||
           name === "residential_quarter" ||
           name === "type_of_house"
         ) {
-          filters.filters.Filters = {
-            [name]: {
-              Slug: {
-                $eq: value,
-              },
+          filters.filters.Filters[name] = {
+            Slug: {
+              $eq: value,
             },
           };
         } else if (name === "price_from") {
@@ -194,6 +193,8 @@ export const actions = {
     let query = qs.stringify(filters, {
       encodeValuesOnly: true, // prettify url
     });
+
+    console.log("query", query);
 
     try {
       const response = await this.$axios.get(
