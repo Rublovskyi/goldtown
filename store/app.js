@@ -85,7 +85,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}`
+        `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}`
       );
 
       console.log("response", response);
@@ -114,7 +114,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${data.locale}&pagination[limit]=-1`
+        `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${data.locale}&pagination[limit]=-1`
       );
 
       commit("UPDATE_SIMILAR_PROPOSAL", response.data.data);
@@ -156,9 +156,9 @@ export const actions = {
         console.log("name value", name, value);
 
         if (
-          name === "City" ||
-          name === "Residential_quarter" ||
-          name === "Type_of_house"
+          name === "city" ||
+          name === "residential_quarter" ||
+          name === "type_of_house"
         ) {
           filters.filters.Filters = {
             [name]: {
@@ -179,7 +179,7 @@ export const actions = {
           filters.filters.pool = {
             $eq: true,
           };
-        } else if (name === "Instalment") {
+        } else if (name === "instalment") {
           filters.filters.pool = {
             $notNull: true,
           };
@@ -199,7 +199,7 @@ export const actions = {
 
     try {
       const response = await this.$axios.get(
-        `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
+        `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
       console.log("im hereee tests", response);
@@ -315,19 +315,19 @@ export const mutations = {
   UPDATE_FILTERS(state, { residential, city, type_of_house }) {
     state.Filters = [
       {
-        name: "Residential_quarter",
+        name: "residential_quarter",
         arr: residential,
       },
       {
-        name: "City",
+        name: "city",
         arr: city,
       },
       {
-        name: "Type_of_house",
+        name: "type_of_house",
         arr: type_of_house,
       },
       {
-        name: "Number_of_rooms",
+        name: "number_of_rooms",
         arr: [
           {
             attributes: {

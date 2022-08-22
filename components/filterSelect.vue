@@ -1,6 +1,6 @@
 <template lang="pug">
 .filter__type(v-if="info" @click="handlerOpen")
-    p.filter__title {{info.name === "Number_of_rooms" ? $t('filtersSelect.number_of_rooms') : info.name === 'payback' ? $t('filtersSelect.payback') : info.name === 'annual_income' ? $t('filtersSelect.annual_income') : info.name === 'Residential_quarter' ? $t('filtersSelect.Residential_quarter') : info.name === 'Type_of_house' ? $t('filtersSelect.type_of_house') : info.name === 'kyiv_or_region' ? $t('filtersSelect.kyiv_or_region') : info.name === 'City' ? $t('filtersSelect.district') : "" }}
+    p.filter__title {{info.name === "number_of_rooms" ? $t('filtersSelect.number_of_rooms') : info.name === 'payback' ? $t('filtersSelect.payback') : info.name === 'annual_income' ? $t('filtersSelect.annual_income') : info.name === 'residential_quarter' ? $t('filtersSelect.residential_quarter') : info.name === 'type_of_house' ? $t('filtersSelect.type_of_house') : info.name === 'kyiv_or_region' ? $t('filtersSelect.kyiv_or_region') : info.name === 'city' ? $t('filtersSelect.district') : "" }}
     //- p.filter__title {{info.name === "residential" ? $t('filtersSelect.Residential_quarter') : ""}}
     p.filter__select {{selected}}
     ul.filter__select-list(v-if="show")

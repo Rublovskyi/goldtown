@@ -14,10 +14,10 @@ export default {
     console.log("this.$route.params.slug ", this.$route.params.slug);
     if (this.$route.params.slug === "all") {
       this.info = this.information.all;
-    } else if (this.$route.params.slug === "Number_of_rooms=1") {
+    } else if (this.$route.params.slug === "number_of_rooms=1") {
       this.info = this.information.kimnatnakvartira1;
       return;
-    } else if (this.$route.params.slug === "Number_of_rooms=2") {
+    } else if (this.$route.params.slug === "number_of_rooms=2") {
       this.info = this.information.kimnatnakvartira2;
       return;
     } else if (this.$route.params.slug === "Type_of_house=townhouse") {

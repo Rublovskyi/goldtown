@@ -8,9 +8,9 @@
             span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
     .filter__wrap
         p.title {{ $t('filter.filters') }}
-        .filter__category-item.instalmet(:class="{'select': Instalment}" @click="selectoooor('Instalment')")
+        .filter__category-item.instalmet(:class="{'select': instalment}" @click="selectoooor('instalment')")
             span.box
-            span.text {{$t('filtersSelect.Instalment')}}
+            span.text {{$t('filtersSelect.instalment')}}
         .filter__price 
             p.filter__title {{ $t('filter.price') }}
             .filter__price-select
@@ -42,7 +42,7 @@ export default {
       errorTextPrice: "",
       locale: "ua",
       newArrToget: {},
-      Instalment: false,
+      instalment: false,
       pool: false,
     };
   },
@@ -103,9 +103,9 @@ export default {
       if (this.pool) {
         x.push("pool");
       }
-      if (this.Instalment) {
+      if (this.instalment) {
         // x[0] = "Instalment";
-        x.push("Instalment");
+        x.push("instalment");
       }
 
       let y = x.join("__");
@@ -133,13 +133,13 @@ export default {
       if (type === "pool") {
         this.pool = !this.pool;
       } else {
-        this.Instalment = !this.Instalment;
+        this.instalment = !this.instalment;
       }
     },
     canShowFilter(name) {
       if (
-        name === "Number_of_rooms" ||
-        name === "Type_of_house" ||
+        name === "number_of_rooms" ||
+        name === "type_of_house" ||
         name === "pool"
       ) {
         if (this.$route.params.type) {

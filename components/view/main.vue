@@ -43,9 +43,9 @@
                 p.view__data-type(v-if="info.adress") 
                     span.title {{ $t('card.address') }}:
                     span.amount {{info.adress}}
-                p.view__data-type(v-if="info.Instalment") 
-                    span.title {{ $t('filtersSelect.Instalment') }}:
-                    span.amount {{info.Instalment}} {{ $t('month') }}
+                p.view__data-type(v-if="info.instalment") 
+                    span.title {{ $t('filtersSelect.instalment') }}:
+                    span.amount {{info.instalment}} {{ $t('month') }}
             p.view__desc(v-if="info.sub_title") {{info.sub_title}}
             .view__social
                 a.view__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
