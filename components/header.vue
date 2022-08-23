@@ -11,6 +11,7 @@
                 //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
                 p.header__item(@click="makeRequest") {{ $t('header.request') }}
                 n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
+                n-link.header__item(:class="{'show': show === 'construction'}" :to="localePath('/goldtownbud')") Строительство
                 n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") Контакти
             .header__num-lang
                 .header__numbers
@@ -364,7 +365,7 @@ export default {
 @media screen and (min-width: 1240px) {
   .header {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 80%;
     align-items: center;
     color: var(--primary-color);
     padding: 0.5vw 5.556vw;

@@ -1,6 +1,6 @@
 <template lang="pug">
 .blog(v-if="Blog")
-    .blog__title Блог тайтл
+    h1.blog__title Блог тайтл
     .blog__wrap(v-for="(item, i) in Blog" :key="i")
         .blog__img
             img(v-if="item.Image.data" :src="`https://api.goldtowncompany.com${item.Image.data.attributes.url}`" :srcset="`https://api.goldtowncompany.com${item.Image.data.attributes.formats.small ? item.Image.data.attributes.formats.small.url : item.Image.data.attributes.url} 320w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.medium ? item.Image.data.attributes.formats.medium.url : item.Image.data.attributes.url} 768w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.large ? item.Image.data.attributes.formats.large.url : item.Image.data.attributes.url} 1240w`")
@@ -87,7 +87,7 @@ export default {
     }
     @media screen and (min-width: 1240px) {
       display: grid;
-      grid-template-columns: 1fr 5fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 4.032vw;
 
       padding-bottom: 3.226vw;
@@ -121,8 +121,8 @@ export default {
       margin-bottom: 0;
     }
     @media screen and (min-width: 1240px) {
-      width: 33.323vw;
-      height: 40.323vw;
+      width: 100%;
+      height: 20.323vw;
       border-radius: 0.556vw;
     }
   }
@@ -148,13 +148,13 @@ export default {
     @media screen and (min-width: 768px) {
       &-title {
         margin-bottom: 15px;
-        font-size: 20px;
+        font-size: 18px;
       }
       &-desc {
         height: 19.531vw;
         margin-bottom: 6.51vw;
         padding-right: 3.255vw;
-        font-size: 2.083vw;
+        font-size: 1.083vw;
       }
     }
     @media screen and (min-width: 1240px) {
@@ -163,8 +163,8 @@ export default {
         font-size: 1.613vw;
       }
       &-desc {
-        height: 8.065vw;
-        margin-bottom: 4.032vw;
+        height: 17.065vw;
+        margin-bottom: 0;
         padding-right: 2.016vw;
         font-size: 1.29vw;
       }
@@ -188,7 +188,11 @@ export default {
       }
 
       @media screen and (min-width: 768px) {
-        height: 41.016vw;
+        height: 27.016vw;
+        width: 50vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         &-tab {
           display: block;
         }
@@ -198,12 +202,13 @@ export default {
         }
       }
       @media screen and (min-width: 1240px) {
-        height: 25.403vw;
+        height: 20.403vw;
+        width: 30.403vw;
         &-tab {
-          display: none;
+          display: block;
         }
         &-ok {
-          display: block;
+          display: none;
         }
       }
     }
