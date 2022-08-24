@@ -28,8 +28,8 @@ export default {
           img: require("~/assets/visualization.png"),
         },
         {
-          title_ukr: "Побудувати все у встановлений термін",
           title_ru: "Построить всё в установленный срок",
+          title_ukr: "Побудувати все у встановлений термін",
           img: require("~/assets/build_ontime.png"),
         },
         {
