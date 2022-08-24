@@ -7,12 +7,13 @@
             .header__list
                 //- p.header__item( @click="replase('about')") {{ $t('header.about_us') }}
                 n-link.header__item( :to="localePath('/purchase/all')" :class="{'show': show === 'purchase'}") {{ $t('header.purchase') }}
-                n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
+                n-link.header__item(:class="{'show': show === 'construction'}" :to="localePath('/goldtownbud')") {{$t('header.bud')}}
+                //- n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
                 //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
                 p.header__item(@click="makeRequest") {{ $t('header.request') }}
                 n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
-                n-link.header__item(:class="{'show': show === 'construction'}" :to="localePath('/goldtownbud')") Строительство
-                n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") Контакти
+                n-link.header__item(:class="{'show': show === 'about_us'}" :to="localePath('/about_us')") {{ $t('header.about_us') }}
+                n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") {{$t('header.contacts')}}
             .header__num-lang
                 .header__numbers
                     a.header__number(href="tel:+380994712789") 
@@ -158,6 +159,7 @@ export default {
       background-color: var(--primary-color);
       overflow: scroll;
       padding: 29.688vw 0 0 5.625vw;
+      z-index: 150;
     }
     &__menu-close {
       position: absolute;

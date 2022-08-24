@@ -1,6 +1,6 @@
 <template lang="pug">
-.construction
-    Header(:show="'construction'")
+.construction(id="topOfPage")
+    Header.header(:show="'construction'")
     Hero
     Services
     Projects
@@ -9,6 +9,7 @@
     RequestPopup(v-if="showPopup")
     SuccessPopup(v-if="successPopup")
     Footer
+    ScrollUpBtn(ref="scrollBtn")
 </template>
 <script>
 import Header from "~/components/header.vue";
@@ -20,6 +21,7 @@ import Projects from "~/components/construction/projects";
 import Request from "~/components/request.vue";
 import Hero from "~/components/construction/hero.vue";
 import Services from "~/components/construction/services.vue";
+import ScrollUpBtn from "~/components/scrollUpBtn.vue";
 
 export default {
   components: {
@@ -32,6 +34,7 @@ export default {
     Request,
     Hero,
     Services,
+    ScrollUpBtn,
   },
   data() {
     return {
@@ -51,3 +54,11 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.construction {
+  position: relative;
+}
+.header {
+  position: fixed;
+}
+</style>

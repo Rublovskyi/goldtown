@@ -1,7 +1,7 @@
 <template lang="pug">
 .construction 
     .construction__projects 
-        .construction__projects-title Выполненные нами проекты
+        .construction__projects-title {{$t('bud.projects_done')}} :
         .construction__projects-list 
             .construction__projects-item(v-for="(item, i) in projects" :key="i" ) 
                 .construction__projects-img
@@ -54,37 +54,61 @@ export default {
   }
 
   &__projects {
-    margin-top: 35px;
-    padding: 0 5vw 0 5vw;
+    // margin-top: 35px;
+    padding: 10vw 5vw 10vw 5vw;
 
     @media screen and (min-width: 768px) {
-      padding: 0 4.688vw 0 4.688vw;
+      padding: 6vw 4.688vw 6vw 4.688vw;
     }
     @media screen and (min-width: 1240px) {
       padding: 8.333vw 4.688vw 8.333vw 4.688vw;
     }
     background-color: var(--light-bg);
     &-title {
-      margin-bottom: 20px;
-      font-weight: 400;
-      font-size: 2.083vw;
+      font-size: 7.5vw;
+      margin-bottom: 9.375vw;
       padding-left: 10px;
+      @media screen and (min-width: 768px) {
+        padding-left: 10px;
+        font-size: 3.125vw;
+        margin-bottom: 5.208vw;
+      }
+      @media screen and (min-width: 1240px) {
+        margin-bottom: 20px;
+        font-size: 2.083vw;
+        padding-left: 10px;
+      }
     }
     &-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      @media screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      @media screen and (min-width: 1240px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
     }
     &-item {
       background-color: #fff;
+      overflow: hidden;
 
-      //   border-radius: 1.875vw;
+      margin-bottom: 15px;
+      border-radius: 3.125vw;
+      @media screen and (min-width: 768px) {
+        margin-bottom: 0;
+        border-radius: 1.302vw;
+      }
+      @media screen and (min-width: 1240px) {
+        border-radius: 0.694vw;
+      }
     }
     &-img {
       width: 100%;
       height: 250px;
       overflow: hidden;
-      margin-bottom: 20px;
       //   border-radius: 1.875vw;
       & img {
         width: 100%;
@@ -92,13 +116,37 @@ export default {
         object-fit: cover;
         object-position: center;
       }
+
+      @media screen and (min-width: 768px) {
+        height: 250px;
+      }
+      @media screen and (min-width: 1240px) {
+        height: 250px;
+      }
     }
     &-text {
-      font-size: 18px;
+      font-size: 14px;
       padding: 20px;
 
       & .text {
         margin-bottom: 10px;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+        padding: 20px;
+
+        & .text {
+          margin-bottom: 10px;
+        }
+      }
+      @media screen and (min-width: 1240px) {
+        font-size: 18px;
+        padding: 20px;
+
+        & .text {
+          margin-bottom: 10px;
+        }
       }
     }
   }

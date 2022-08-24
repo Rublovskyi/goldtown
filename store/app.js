@@ -4,9 +4,9 @@ export const actions = {
 
     let filters = {
       filters: {
-        purchase_type: {
-          $eq: "purchase",
-        },
+        // purchase_type: {
+        //   $eq: "purchase",
+        // },
       },
     };
 
@@ -97,9 +97,9 @@ export const actions = {
 
     let filters = {
       filters: {
-        purchase_type: {
-          $eq: data.type,
-        },
+        // purchase_type: {
+        //   $eq: data.type,
+        // },
         product_type: {
           $eq: data.filter,
         },
@@ -127,9 +127,9 @@ export const actions = {
 
     let filters = {
       filters: {
-        purchase_type: {
-          $eq: purchase,
-        },
+        // purchase_type: {
+        //   $eq: purchase,
+        // },
         Filters: {},
         // product_type: {
         //   $eq: type,
@@ -477,6 +477,12 @@ export const state = () => ({
       slug: "stead",
       selected: false,
     },
+    {
+      nameUa: "Комерційні приміщення",
+      nameRu: "Комерческие помещения",
+      slug: "commercial_premises",
+      selected: false,
+    },
   ],
   SimilarCardsData: [],
   ViewPageGetData: false,
@@ -485,152 +491,3 @@ export const state = () => ({
   Filters: [],
   Blog: [],
 });
-
-////// util
-// async getFilteredDataPurchase({ commit }, { slug, data, type, locale }) {
-//     const qs = require("qs");
-
-//     console.log(data);
-
-//     let filters = {
-//       filters: {
-//         purchase_type: {
-//           $eq: type,
-//         },
-//       },
-//     };
-
-//     if (slug !== "all") {
-//       filters.filters.product_type = {
-//         $eq: slug,
-//       };
-//     }
-
-//     if (data.from !== "" && data.to === "") {
-//       filters.filters.price = {
-//         $gte: data.from,
-//       };
-//     }
-//     if (data.from === "" && data.to !== "") {
-//       filters.filters.price = {
-//         $lte: data.to,
-//       };
-//     }
-//     if (data.to !== "" && data.from !== "") {
-//       filters.filters.price = {
-//         $gte: data.from,
-//         $lte: data.to,
-//       };
-//     }
-
-//     for (let key in data) {
-//       if (key !== "to" && key !== "from") {
-//         filters.filters[`${key}`] = {
-//           $eq: data[key],
-//         };
-//       }
-//     }
-
-//     let query = qs.stringify(filters, {
-//       encodeValuesOnly: true, // prettify url
-//     });
-
-//     try {
-//       const response = await this.$axios.get(
-//         `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
-//       );
-
-//       if (type === "purchase") {
-//         commit("UPDATE_PUECHASE_DATA", { response, slug });
-//       } else {
-//         commit("UPDATE_COMMERCE_DATA", { response, slug });
-//       }
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   },
-
-// async getDataCommerseTest({ commit }, { slug, locale, type, purchase }) {
-//     const qs = require("qs");
-
-//     console.log("purchase", purchase);
-
-//     let filters = {
-//       filters: {
-//         purchase_type: {
-//           $eq: purchase,
-//         },
-//         // product_type: {
-//         //   $eq: type,
-//         // },
-//       },
-//     };
-
-//     if (type !== "all") {
-//       filters.filters.product_type = {
-//         $eq: type,
-//       };
-//     }
-
-//     let x = slug.split("__");
-
-//     x.forEach((el) => {
-//       if (el.length !== 0) {
-//         let y = el.split("=");
-
-//         let name = y[0];
-//         let value = y[1];
-
-//         console.log("name value", name, value);
-
-//         if (
-//           name === "City" ||
-//           name === "Residential_quarter" ||
-//           name === "Type_of_house"
-//         ) {
-//           filters.filters.Filters = {
-//             [name]: {
-//               Slug: {
-//                 $eq: value,
-//               },
-//             },
-//           };
-//         } else if (name === "price_from") {
-//           filters.filters.price = {
-//             $gte: value,
-//           };
-//         } else if (name === "price_to") {
-//           filters.filters.price = {
-//             $lte: value,
-//           };
-//         } else if (name === "pool") {
-//           filters.filters.pool = {
-//             $eq: true,
-//           };
-//         } else {
-//           filters.filters[name] = {
-//             $eq: value,
-//           };
-//         }
-//       }
-//     });
-
-//     console.log("djhdhd", filters);
-
-//     let query = qs.stringify(filters, {
-//       encodeValuesOnly: true, // prettify url
-//     });
-
-//     try {
-//       const response = await this.$axios.get(
-//         `/api/products?populate=*&${query}&locale=${locale}&pagination[limit]=-1`
-//       );
-
-//       console.log("im hereee tests", response);
-
-//       commit("UPDATE_COMMERSE_DATA_TEST", { response, type });
-//       // commit("UPDATE_FILTERS", response.data.data);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   },

@@ -1,11 +1,11 @@
 <template lang="pug">
 .services
-    .services__title Наши услуги:
+    .services__title {{$t('bud.our_servises')}}:
     .services__list
         .services__item(v-for="(item, i) in list_services" :key="i" :class="['item'+ i]") 
-            img(src="~/assets/sample/house.jpg")
+            img(:src="item.img")
             .services__gradient
-            p.title {{item.title}}
+            p.title {{$i18n.locale === 'ru' ? item.title_ru : item.title_ukr}}
 </template>
 <script>
 export default {
@@ -13,24 +13,29 @@ export default {
     return {
       list_services: [
         {
-          title: "Подбор земельного участка",
-          img: "",
+          title_ukr: "Підбір земельної ділянки",
+          title_ru: "Подбор земельного участка",
+          img: require("~/assets/land_plot_selection_1.png"),
         },
         {
-          title: "Создание проекта и визуализацию будущего обьекта",
-          img: "",
+          title_ukr: "Розробка дизайну",
+          title_ru: "Разработка дизайна",
+          img: require("~/assets/design_devel.png"),
         },
         {
-          title: "Воплотить все возможные желания заказчика",
-          img: "",
+          title_ukr: "Створення проекту та візуалізацію майбутнього об‘єкту",
+          title_ru: "Создание проекта и визуализацию будущего объекта",
+          img: require("~/assets/visualization.png"),
         },
         {
-          title: "Разработка дизайна",
-          img: "",
+          title_ukr: "Побудувати все у встановлений термін",
+          title_ru: "Построить всё в установленный срок",
+          img: require("~/assets/build_ontime.png"),
         },
         {
-          title: "Построить все в установленый срок",
-          img: "",
+          title_ukr: "Втілити всі можливі бажання замовника",
+          title_ru: "Воплотить все возможные желания заказчика",
+          img: require("~/assets/make_wish.png"),
         },
       ],
     };
@@ -39,31 +44,48 @@ export default {
 </script>
 <style lang="scss" scoped>
 .services {
-  padding: 0 5vw 0 5vw;
+  padding: 10vw 5vw 10vw 5vw;
 
   @media screen and (min-width: 768px) {
-    padding: 0 4.688vw 0 4.688vw;
+    padding: 6vw 4.688vw 6vw 4.688vw;
   }
   @media screen and (min-width: 1240px) {
     padding: 8.333vw 4.688vw 8.333vw 4.688vw;
   }
   &__title {
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-size: 2.083vw;
+    font-size: 7.5vw;
+    margin-bottom: 9.375vw;
     padding-left: 10px;
+    @media screen and (min-width: 768px) {
+      padding-left: 10px;
+      font-size: 3.125vw;
+      margin-bottom: 5.208vw;
+    }
+    @media screen and (min-width: 1240px) {
+      margin-bottom: 20px;
+      font-size: 2.083vw;
+      padding-left: 10px;
+    }
   }
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.389vw;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.389vw;
+    }
+    @media screen and (min-width: 1240px) {
+    }
   }
   &__item {
     border-radius: 1.875vw;
     position: relative;
-    height: 10vw;
+    height: 40vw;
     overflow: hidden;
     border: 1px solid black;
+    transition: all 500ms ease;
 
     & img {
       width: 100%;
@@ -73,22 +95,16 @@ export default {
     }
 
     &.item0 {
-      height: 21.3vw;
+      height: 61.3vw;
       grid-column-start: 1;
-      grid-column-end: 2;
+      grid-column-end: 3;
       grid-row-start: 1;
-      grid-row-end: 3;
+      grid-row-end: 2;
 
       & .title {
-        font-size: 25px;
+        font-size: 20px;
       }
     }
-    transition: all 500ms ease;
-    &:hover {
-      transform: scale(1.02);
-    }
-
-    position: relative;
 
     & .title {
       display: block;
@@ -96,7 +112,7 @@ export default {
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      font-size: 17px;
+      font-size: 13px;
       // color: var(--light-color);
       color: var(--primary-color);
       text-align: center;
@@ -105,9 +121,51 @@ export default {
 
       width: 100%;
 
-      padding: 10px 30px;
+      padding: 8px 10px;
       // background-color: rgba(0, 0, 0, 0.7);
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+    @media screen and (min-width: 768px) {
+      height: 13.5vw;
+      &.item0 {
+        height: 28.3vw;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        & .title {
+          font-size: 20px;
+        }
+      }
+
+      & .title {
+        padding: 10px 30px;
+        font-size: 13px;
+      }
+    }
+    @media screen and (min-width: 1240px) {
+      height: 10vw;
+      &.item0 {
+        height: 21.3vw;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        & .title {
+          font-size: 25px;
+        }
+      }
+
+      & .title {
+        padding: 10px 30px;
+        font-size: 17px;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.02);
     }
   }
   &__gradient {

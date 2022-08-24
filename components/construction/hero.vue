@@ -5,7 +5,7 @@
     .hero__data
         .hero__wrap
             h1.hero__title GoldTownBud
-            p.hero__text  Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor
+            p.hero__text  {{$t('bud.hero_subtitle')}}
             button.hero__btn(@click="makeRequest")
                 span {{ $t('hero.button_text') }}
                 //- span.hero__btn-icon 
@@ -35,7 +35,7 @@ export default {
 
     height: 100vh;
     position: relative;
-    padding-top: 25vw;
+    // padding-top: 25vw;
 
     &__photo {
       height: 100%;
@@ -172,7 +172,7 @@ export default {
       font-weight: 400;
 
       margin-bottom: 5.208vw;
-      width: 54.818vw;
+      width: 44.818vw;
     }
     &__btn {
       padding: 2.083vw 4.167vw;
@@ -220,7 +220,7 @@ export default {
       font-size: 1.389vw;
       line-height: 1.3;
       margin-bottom: 2.778vw;
-      width: 29.236vw;
+      width: 25.236vw;
     }
     &__btn {
       padding: 1.042vw 2.389vw;
