@@ -23,8 +23,8 @@ export default {
           img: require("~/assets/design_devel.png"),
         },
         {
-          title_ukr: "Створення проекту та візуалізацію майбутнього об‘єкту",
-          title_ru: "Создание проекта и визуализацию будущего объекта",
+          title_ukr: "Створення проекту та візуалізацію об‘єкту",
+          title_ru: "Создание проекта и визуализацию объекта",
           img: require("~/assets/visualization.png"),
         },
         {
@@ -55,28 +55,29 @@ export default {
   &__title {
     font-size: 7.5vw;
     margin-bottom: 9.375vw;
-    padding-left: 10px;
+    padding-left: 3.125vw;
     @media screen and (min-width: 768px) {
-      padding-left: 10px;
       font-size: 3.125vw;
       margin-bottom: 5.208vw;
+      padding-left: 1.302vw;
     }
     @media screen and (min-width: 1240px) {
-      margin-bottom: 20px;
       font-size: 2.083vw;
-      padding-left: 10px;
+      margin-bottom: 1.613vw;
+      padding-left: 0.806vw;
     }
   }
   &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 4.688vw;
 
     @media screen and (min-width: 768px) {
       grid-template-columns: repeat(3, 1fr);
       gap: 1.389vw;
     }
     @media screen and (min-width: 1240px) {
+      gap: 0.806vw;
     }
   }
   &__item {
@@ -87,13 +88,6 @@ export default {
     border: 1px solid black;
     transition: all 500ms ease;
 
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
     &.item0 {
       height: 61.3vw;
       grid-column-start: 1;
@@ -102,7 +96,7 @@ export default {
       grid-row-end: 2;
 
       & .title {
-        font-size: 20px;
+        font-size: 6.25vw;
       }
     }
 
@@ -112,7 +106,7 @@ export default {
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      font-size: 13px;
+      font-size: 4.063vw;
       // color: var(--light-color);
       color: var(--primary-color);
       text-align: center;
@@ -121,7 +115,7 @@ export default {
 
       width: 100%;
 
-      padding: 8px 10px;
+      padding: 2.5vw 3.125vw;
       // background-color: rgba(0, 0, 0, 0.7);
       background-color: rgba(255, 255, 255, 0.7);
     }
@@ -135,13 +129,13 @@ export default {
         grid-row-end: 3;
 
         & .title {
-          font-size: 20px;
+          font-size: 2.604vw;
         }
       }
 
       & .title {
-        padding: 10px 30px;
-        font-size: 13px;
+        padding: 1.302vw 3.906vw;
+        font-size: 1.693vw;
       }
     }
     @media screen and (min-width: 1240px) {
@@ -154,14 +148,20 @@ export default {
         grid-row-end: 3;
 
         & .title {
-          font-size: 25px;
+          font-size: 2.016vw;
         }
       }
 
       & .title {
-        padding: 10px 30px;
-        font-size: 17px;
+        padding: 0.806vw 2.419vw;
+        font-size: 1.371vw;
       }
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     &:hover {

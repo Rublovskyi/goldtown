@@ -7,7 +7,7 @@
             img(src="~/assets/sample/house.jpg" alt="hero")
         .sample__gradient
         p.sample__item-text {{ $t('sample.house') }}
-    n-link.sample__item.item1( :to="localePath('/commerce/all')")
+    n-link.sample__item.item1( :to="localePath('/purchase/commercial_premises')")
         picture
             source(type="image/webp" srcset="~/assets/sample/commerce.webp")
             source(type="image/jpeg" srcset="~/assets/sample/commerce.jpg")

@@ -1,6 +1,6 @@
 <template lang="pug">
 .blog(v-if="Blog")
-    h1.blog__title Блог тайтл
+    h1.blog__title Блог
     .blog__wrap(v-for="(item, i) in Blog" :key="i")
         .blog__img
             img(v-if="item.Image.data" :src="`https://api.goldtowncompany.com${item.Image.data.attributes.url}`" :srcset="`https://api.goldtowncompany.com${item.Image.data.attributes.formats.small ? item.Image.data.attributes.formats.small.url : item.Image.data.attributes.url} 320w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.medium ? item.Image.data.attributes.formats.medium.url : item.Image.data.attributes.url} 768w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.large ? item.Image.data.attributes.formats.large.url : item.Image.data.attributes.url} 1240w`")
@@ -175,6 +175,7 @@ export default {
     .video {
       width: 100%;
       height: 67.188vw;
+      border-radius: 1.875vw;
       overflow: hidden;
       & iframe {
         width: 100% !important;
@@ -193,6 +194,7 @@ export default {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        border-radius: 1.042vw;
         &-tab {
           display: block;
         }
@@ -204,6 +206,7 @@ export default {
       @media screen and (min-width: 1240px) {
         height: 20.403vw;
         width: 30.403vw;
+        border-radius: 0.556vw;
         &-tab {
           display: block;
         }

@@ -22,28 +22,28 @@ export default {
           tel_href: "380679986959",
           tel: "+38(067)998-69-59",
           position: "Директор агентства",
-          img: require("~/assets/team/men2.jpg"),
+          img: require("~/assets/team/m3.jpg"),
         },
         {
           name: "Гроза <br> Віталій Юрійович",
           tel_href: "380994712789",
           tel: "+38(099)471-27-89",
           position: "Менеджер з продажу <br> та оренди житлової нерухомості",
-          img: require("~/assets/team/men1.jpg"),
+          img: require("~/assets/team/m1.jpg"),
         },
         {
           name: "Косов <br> Владислав Віталійович",
           tel_href: "380639986959",
           tel: "+38(063)998-69-59",
           position: "Менеджер з продажу <br> та оренди комерційних приміщень",
-          img: require("~/assets/team/men3.jpg"),
+          img: require("~/assets/team/m2.jpg"),
         },
         {
           name: "Рубльовський <br> Ярослав Вадимович",
           tel_href: "380739986959",
           tel: "+38(073)998-69-59",
           position: "Менеджер з продажу житлової  нерухомості",
-          img: require("~/assets/team/men4.jpg"),
+          img: require("~/assets/team/m4.jpg"),
         },
       ],
     };
@@ -56,8 +56,11 @@ export default {
   @media screen and (min-width: 768px) {
     padding: 2.604vw 5.953vw 2.719vw 5.953vw;
   }
+  // @media screen and (min-width: 1240px) {
+  //   padding: 1.389vw 7.389vw 1.222vw 7.389vw;
+  // }
   @media screen and (min-width: 1240px) {
-    padding: 1.389vw 7.389vw 1.222vw 7.389vw;
+    padding: 1.389vw 10.389vw 1.222vw 10.389vw;
   }
 
   &__title {
@@ -77,40 +80,33 @@ export default {
   }
   &__img {
     width: 100%;
-    // height: 350px;
     height: 100%;
     overflow: hidden;
-    @media screen and (min-width: 768px) {
-      //   height: 350px;
-    }
-    @media screen and (min-width: 1240px) {
-      //   height: 400px;
-    }
+
     & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: top;
     }
   }
   &__list {
     position: relative;
     & .team__item:not(:last-child) {
-      margin-bottom: 20px;
+      margin-bottom: 6.25vw;
     }
     @media screen and (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      //   gap: 35px;
-      row-gap: 15px;
-      column-gap: 30px;
+      row-gap: 1.953vw;
+      column-gap: 3.906vw;
       & .team__item:not(:last-child) {
         margin-bottom: 0;
       }
     }
     @media screen and (min-width: 1240px) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1.21vw;
     }
   }
   &__item {
@@ -118,21 +114,42 @@ export default {
     border: 1px solid var(--primary-color);
     overflow: hidden;
     position: relative;
-    height: 350px;
+    height: 109.375vw;
 
     @media screen and (min-width: 768px) {
       border-radius: 1.302vw;
 
-      height: 350px;
+      height: 45.573vw;
     }
     @media screen and (min-width: 1240px) {
       border-radius: 0.694vw;
-      height: 290px;
+      // height: 23.387vw;
+      height: 20.387vw;
+
       &.card0 {
-        height: 600px;
+        // height: 48.387vw;
+        height: 42.387vw;
         grid-column-start: 1;
-        grid-column-end: 2;
+        grid-column-end: 4;
         grid-row-start: 1;
+        grid-row-end: 3;
+      }
+      &.card1 {
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      &.card2 {
+        grid-column-start: 6;
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      &.card3 {
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 2;
         grid-row-end: 3;
       }
     }
@@ -158,25 +175,27 @@ export default {
   &__name {
     font-size: 4.25vw;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 3.125vw;
     @media screen and (min-width: 768px) {
       font-size: 2.204vw;
+      margin-bottom: 1.302vw;
     }
     @media screen and (min-width: 1240px) {
       font-size: 1.089vw;
-      margin-bottom: 5px;
+      margin-bottom: 0.403vw;
     }
   }
   &__position {
     font-weight: 500;
     color: rgba(54, 54, 54, 0.8);
     font-size: 3vw;
-    margin-bottom: 5px;
+    margin-bottom: 1.563vw;
     text-decoration-line: underline;
     color: #fff;
 
     @media screen and (min-width: 768px) {
       font-size: 1.483vw;
+      margin-bottom: 0.651vw;
     }
     @media screen and (min-width: 1240px) {
       font-size: 0.811vw;
@@ -188,18 +207,25 @@ export default {
     color: rgba(54, 54, 54, 0.8);
     font-size: 3vw;
     color: #fff;
-    @media screen and (min-width: 768px) {
-      font-size: 1.483vw;
-    }
-    @media screen and (min-width: 1240px) {
-      font-size: 0.811vw;
-    }
 
     & .num {
       transition: all 500ms ease;
-      padding-left: 7px;
+      padding-left: 2.188vw;
       &:hover {
         color: var(--hover-color);
+      }
+    }
+    @media screen and (min-width: 768px) {
+      font-size: 1.483vw;
+
+      & .num {
+        padding-left: 0.911vw;
+      }
+    }
+    @media screen and (min-width: 1240px) {
+      font-size: 0.811vw;
+      & .num {
+        padding-left: 0.565vw;
       }
     }
   }
