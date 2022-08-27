@@ -12,6 +12,7 @@ export default {
   },
   mounted() {
     // console.log("this.$route.params.slug ", this.$route.params.slug);
+    console.log("djdjjd", this.$route.params.slug);
     if (this.$route.params.slug === "all") {
       this.info = this.information.all;
     } else if (this.$route.params.slug === "number_of_rooms=1") {
@@ -20,11 +21,12 @@ export default {
     } else if (this.$route.params.slug === "number_of_rooms=2") {
       this.info = this.information.kimnatnakvartira2;
       return;
-    } else if (this.$route.params.slug === "Type_of_house=townhouse") {
+    } else if (this.$route.params.slug === "type_of_house=townhouse") {
       this.info = this.information.townhouse;
-    } else if (this.$route.params.slug === "Type_of_house=kvartira__pool") {
+    } else if (this.$route.params.slug === "type_of_house=kvartira&pool") {
+      console.log("djdkvartira with pooljjd");
       this.info = this.information.apartmentwithpool;
-    } else if (this.$route.params.slug === "Type_of_house=townhouse__pool") {
+    } else if (this.$route.params.slug === "type_of_house=townhouse&pool") {
       this.info = this.information.townhousewithpool;
     } else if (
       this.$route.params.type === "house" ||

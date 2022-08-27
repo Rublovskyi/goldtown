@@ -60,6 +60,8 @@ export default {
     this.slug = this.$route.params.slug;
     let slug = this.$route.params.slug;
 
+    console.log("this.slug", this.slug);
+
     // let slug = this.$route.params.slug;
     this.type = this.$route.params.type;
     let type = this.$route.params.type;
@@ -78,17 +80,21 @@ export default {
   },
   head() {
     return {
-      title: this.$t(`purchase_slug_meta.${this.slug}.title`),
+      title: this.$t(`purchase_slug_meta.${this.$route.params.slug}.title`),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t(`purchase_slug_meta.${this.slug}.description`),
+          content: this.$t(
+            `purchase_slug_meta.${this.$route.params.slug}.description`
+          ),
         },
         {
           hid: "title",
           name: "title",
-          content: this.$t(`purchase_slug_meta.${this.slug}.title`),
+          content: this.$t(
+            `purchase_slug_meta.${this.$route.params.slug}.title`
+          ),
         },
       ],
     };
