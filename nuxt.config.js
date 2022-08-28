@@ -42,7 +42,11 @@ export default {
   css: ["@styles/main.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~plugins/vs-pagination", mode: "client" }],
+  plugins: [
+    { src: "~plugins/vs-pagination", mode: "client" },
+    // { src: "~plugins/connect-fb", mode: "client" },
+    // { src: "~plugins/fb", mode: "client" },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -79,6 +83,7 @@ export default {
     ],
     "@nuxtjs/sitemap",
     "@nuxtjs/redirect-module",
+    "nuxt-facebook-pixel-module",
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -148,5 +153,12 @@ export default {
         },
       },
     ],
+  },
+  facebook: {
+    /* module options */
+    track: "PageView",
+    pixelId: "FACEBOOK_PIXEL_ID",
+    autoPageView: true,
+    disabled: false,
   },
 };
