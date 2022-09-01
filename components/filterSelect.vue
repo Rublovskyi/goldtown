@@ -163,16 +163,16 @@ export default {
 
       z-index: 100;
       min-height: 9.375vw;
-      max-height: 25vw;
+      max-height: 64vw;
       overflow: scroll;
 
       @media screen and (min-width: 768px) {
         min-height: 3.906vw;
-        max-height: 10.417vw;
+        max-height: 22.417vw;
       }
       @media screen and (min-width: 1240px) {
         min-height: 2.083vw;
-        max-height: 5.556vw;
+        max-height: 14.356vw;
       }
     }
     &-item {

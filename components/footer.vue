@@ -2,7 +2,8 @@
 .footer 
     .footer__wrap
         n-link.footer__logo(:to="localePath('/')")
-            img(src="../assets/logoLight.png" alt="Logo Gold Town")
+            //- img(src="../assets/logoLight.png" alt="Logo Gold Town")
+            img(src="../assets/Logo_new.png" alt="Logo Gold Town")
         .footer__mobile
             Lang.footer__lang
     .footer__info
@@ -140,7 +141,7 @@ export default {
     &__logo {
       display: block;
       height: 12.5vw;
-      width: 49.375vw;
+      width: 17.375vw;
       transition: all 700ms ease;
       & img {
         height: 100%;
@@ -216,8 +217,9 @@ export default {
     position: relative;
     z-index: 120;
     &__logo {
-      height: 6.51vw;
-      width: 10.307vw;
+      display: block;
+      height: 13.51vw;
+      width: 19.51vw;
       transition: all 700ms ease;
       overflow: hidden;
 
@@ -368,7 +370,7 @@ export default {
     gap: 4vw;
 
     &__logo {
-      height: 3.653vw;
+      height: 6.653vw;
       width: 12.431vw;
     }
 

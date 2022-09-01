@@ -1,7 +1,8 @@
 <template lang="pug">
 .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
     n-link.header__logo(:to="localePath('/')")
-        img(src="../assets/Logo.png" alt="Logo Gold Town")
+        //- img(src="../assets/Logo.png" alt="Logo Gold Town")
+        img(src="../assets/Logo_new.png" alt="Logo Gold Town")
     .header__wrap(:class="{'show': showMenu}")
         .header__menu
             .header__list
@@ -112,7 +113,7 @@ export default {
     z-index: 200;
     &__logo {
       height: 12.5vw;
-      width: 49.375vw;
+      width: 18.375vw;
       transition: all 700ms ease;
       & img {
         height: 100%;
@@ -249,7 +250,7 @@ export default {
     z-index: 200;
     &__logo {
       height: 5.208vw;
-      width: 20.573vw;
+      width: 8.573vw;
       transition: all 700ms ease;
       & img {
         height: 100%;

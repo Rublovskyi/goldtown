@@ -31,6 +31,8 @@ export default {
   transition: all 1000ms ease;
   z-index: 121;
 
+  animation: glowing 1s ease 0.2s infinite;
+
   @media screen and (min-width: 768px) {
     bottom: 4.722vw;
     padding: 2.083vw;
@@ -119,6 +121,21 @@ export default {
         margin-right: 1.042vw;
       }
     }
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-color: var(--accent-main-color);
+    box-shadow: 0 0 3px var(--accent-main-color);
+  }
+  50% {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 10px var(--hover-color);
+  }
+  100% {
+    background-color: var(--accent-main-color);
+    box-shadow: 0 0 3px var(--accent-main-color);
   }
 }
 </style>
