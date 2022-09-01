@@ -402,6 +402,16 @@ export const mutations = {
   UPDATE_BLOG_DATA(state, data) {
     state.Blog = data;
   },
+  UPDATE_PREVIEW(state, data) {
+    if (data) {
+      state.PreviewShow = true;
+    } else {
+      state.PreviewShow = false;
+    }
+  },
+  UPDATE_SHOWED_VIDEO(state) {
+    state.VideoShowed = true;
+  },
 };
 export const state = () => ({
   lang: "en",
@@ -490,4 +500,6 @@ export const state = () => ({
   CommerceCardsData: [],
   Filters: [],
   Blog: [],
+  PreviewShow: false,
+  VideoShowed: false,
 });

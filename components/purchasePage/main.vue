@@ -13,7 +13,7 @@
             vs-pagination( :total-pages="totalPages()" @change="changePage" :hide-prev-next="true")
     .buy__cards(v-if="PurchaseData.length === 0")
         //- BreadCrumbs(:info="infoCrambs")
-        .buy__cards-wrap
+        .buy__cards-wrap.nocards
             p.buy__cards-icon
             p.buy__cards-text {{ $t('main.no_options') }}
 </template>
@@ -224,6 +224,9 @@ export default {
       left: 50%;
       transform: translateX(-50%);
 
+      &.nocards {
+        text-align: center;
+      }
       @media screen and (min-width: 1240px) {
         top: 13.889vw;
         left: auto;

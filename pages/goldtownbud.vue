@@ -11,6 +11,7 @@
     SuccessPopup(v-if="successPopup")
     Footer
     ScrollUpBtn(ref="scrollBtn")
+    //- Preview(v-if="!VideoShowed")
 </template>
 <script>
 import Header from "~/components/header.vue";
