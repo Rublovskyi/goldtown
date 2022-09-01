@@ -12,6 +12,7 @@
     SuccessPopup(v-if="successPopup")
     PhoneBtn
     ScrollUpBtn(ref="scrollBtn")
+    Preview(v-if="!VideoShowed")
 </template>
 <script>
 import Header from "~/components/header.vue";
@@ -26,6 +27,8 @@ import SuccessPopup from "~/components/successPopup.vue";
 import Sample from "~/components/sample.vue";
 import ScrollUpBtn from "~/components/scrollUpBtn.vue";
 import SimilarCards from "~/components/view/similarCards.vue";
+
+import Preview from "~/components/preview.vue";
 
 import { mapState } from "vuex";
 
@@ -42,6 +45,7 @@ export default {
     Sample,
     ScrollUpBtn,
     SimilarCards,
+    Preview,
   },
   data() {
     return {
@@ -58,6 +62,15 @@ export default {
   },
   mounted() {
     this.$refs.header.scrollViewHeader();
+
+    this.$store.commit("app/UPDATE_PREVIEW", true);
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+      this.$store.commit("app/UPDATE_PREVIEW", false);
+      this.$store.commit("app/UPDATE_SHOWED_VIDEO");
+      document.body.style.overflow = "";
+    }, 9000);
   },
   head() {
     return {
@@ -81,6 +94,7 @@ export default {
       CurrentPeaseData: (state) => state.app.CurrentPeaseData.attributes,
       ViewPageGetData: (state) => state.app.ViewPageGetData,
       SimilarCardsData: (state) => state.app.SimilarCardsData,
+      VideoShowed: (state) => state.app.VideoShowed,
     }),
   },
 };

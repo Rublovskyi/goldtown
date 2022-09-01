@@ -5,6 +5,7 @@
                             ref="video"
                             muted="muted"
                             preload="auto"
+                            loop
                             )
 </template>
 <script>
