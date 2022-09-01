@@ -20,10 +20,12 @@ export default {
   },
   mounted() {
     this.$store.commit("app/UPDATE_PREVIEW", true);
+    document.body.style.overflow = "hidden";
 
     setTimeout(() => {
       this.$store.commit("app/UPDATE_PREVIEW", false);
       this.$store.commit("app/UPDATE_SHOWED_VIDEO");
+      document.body.style.overflow = "";
     }, 9000);
   },
 };
