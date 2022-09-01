@@ -35,7 +35,7 @@ export default {
         content: "sxcn3qo36qjwihq5f7placcdo4a5gu",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.jpg" }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
