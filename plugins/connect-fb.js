@@ -31,7 +31,7 @@ export default ({ app, store }) => {
       "script",
       "https://connect.facebook.net/en_US/fbevents.js"
     );
-    fbq("init");
+    fbq("init", "611050420400005");
     app.router.afterEach((to, from) => {
       /*
        ** Fire a page view on each route change
