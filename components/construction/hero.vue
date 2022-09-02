@@ -1,7 +1,7 @@
 <template lang="pug">
 .hero 
     .hero__photo 
-        img( src="~/assets/construction.jpg")
+        img( src="~/assets/design_devel.png")
     .hero__data
         .hero__wrap
             h1.hero__title GoldTownBud
@@ -35,6 +35,8 @@ export default {
 
     height: 100vh;
     position: relative;
+
+    padding-top: 23vw;
     // padding-top: 25vw;
 
     &__photo {
@@ -45,7 +47,7 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: top;
       }
     }
     &__data {
@@ -117,6 +119,8 @@ export default {
     // background-size: cover;
     // background-repeat: no-repeat;
 
+    padding-top: 9vw;
+
     height: 100vh;
     position: relative;
     // padding-top: 13.021vw;
@@ -129,7 +133,7 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: top;
       }
     }
     &__data {
@@ -208,6 +212,9 @@ export default {
     // &__data {
     //   // padding: 0 5.417vw;
     // }
+
+    padding-top: 5vw;
+
     &__wrap {
       padding: 0 5.417vw;
     }

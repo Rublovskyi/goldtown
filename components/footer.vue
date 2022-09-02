@@ -34,9 +34,13 @@
                 a.footer__number(href="tel:+380679986959") 
                     span.footer__number-icon
                     span +380(67)998-69-59
-            a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
-                span.footer__address-icon
-                p(v-html="$t('contacts.address')") 
+            .footer__data
+                a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
+                    span.footer__address-icon 
+                    p(v-html="$t('contacts.address')") 
+                a.footer__mail(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
+                    span.footer__mail-icon 
+                    p goldtown.v@gmail.com
 </template>
 <script>
 import Lang from "~/components/lang.vue";
@@ -157,7 +161,8 @@ export default {
       margin-top: 9.375vw;
     }
     &__number,
-    &__address {
+    &__address,
+    &__mail {
       color: #fff;
       display: flex;
       align-items: center;
@@ -182,7 +187,8 @@ export default {
         transform: scale(1.02);
       }
     }
-    &__number {
+    &__number,
+    &__address {
       margin-bottom: 2.125vw;
       // font-size: 4vw;
 
@@ -196,6 +202,9 @@ export default {
     }
     &__address-icon {
       background-image: url(../assets/svg/carbon_location.svg);
+    }
+    &__mail-icon {
+      background-image: url(../assets/svg/letter_icon-w.svg);
     }
   }
 }
@@ -313,7 +322,8 @@ export default {
       }
     }
     &__number,
-    &__address {
+    &__address,
+    &__mail {
       color: #fff;
       display: flex;
       align-items: center;
@@ -349,6 +359,9 @@ export default {
       align-items: flex-start;
       // grid-template-columns: 1fr 1fr;
     }
+    &__address {
+      margin-bottom: 1.302vw;
+    }
     &__number {
       &:not(:last-child) {
         margin-bottom: 1.302vw;
@@ -360,6 +373,9 @@ export default {
     }
     &__address-icon {
       background-image: url(../assets/svg/carbon_location.svg);
+    }
+    &__mail-icon {
+      background-image: url(../assets/svg/letter_icon-w.svg);
     }
   }
 }
@@ -442,13 +458,17 @@ export default {
       align-items: center;
     }
     &__number,
-    &__address {
+    &__address,
+    &__mail {
       font-size: 1.111vw;
       &-icon {
         width: 1.242vw;
         height: 1.242vw;
         margin-right: 0.486vw;
       }
+    }
+    &__address {
+      margin-bottom: 1.111vw;
     }
 
     // &__address {

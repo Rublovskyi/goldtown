@@ -25,9 +25,9 @@
             .contacts__works-schadule
                 p.days нд: 
                 p.time {{$t('contacts.weekend')}}
-        a.contacts__mail(href="mailto:goldtowncompanygr@gmail.com")
+        a.contacts__mail(href="mailto:goldtown.v@gmail.com")
             span.contacts__mail-icon 
-            span goldtowncompanygr@gmail.com
+            span goldtown.v@gmail.com
         a.contacts__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
             span.contacts__address-icon
             p.text(v-html="$t('contacts.address')") 
