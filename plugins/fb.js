@@ -31,7 +31,7 @@ export default ({ app, store }) => {
       "script",
       "https://connect.facebook.net/en_US/fbevents.js"
     );
-    fbq("init", "getPixel");
+    fbq("init", "getPixel()");
     app.router.afterEach((to, from) => {
       /*
        ** Fire a page view on each route change
