@@ -52,6 +52,7 @@ export default {
         };
         // this.$gtag("request btn click", data);
         this.$gtag("event", "request_send", data);
+        this.leadTrack();
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
@@ -65,6 +66,9 @@ export default {
     clearInputs() {
       this.phone = "";
       this.name = "";
+    },
+    leadTrack() {
+      fbq("track", "Lead");
     },
   },
 };
