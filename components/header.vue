@@ -11,7 +11,7 @@
                 n-link.header__item(:class="{'show': show === 'construction'}" :to="localePath('/goldtownbud')") {{$t('header.bud')}}
                 //- n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
                 //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
-                n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
+                //- n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
                 n-link.header__item(:class="{'show': show === 'about_us'}" :to="localePath('/about_us')") {{ $t('header.about_us') }}
                 n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") {{$t('header.contacts')}}
                 p.header__item(@click="makeRequest") {{ $t('header.request') }}
