@@ -50,12 +50,14 @@ export default {
             phone: this.phone,
           },
         };
-        // this.$gtag("request btn click", data);
-        this.$gtag("event", "request_send", data);
-        this.leadTrack();
+
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
+          if (response) {
+            this.$gtag("event", "request_send", data);
+            this.leadTrack();
+          }
           this.$parent.showPopup = false;
           this.$parent.successPopup = true;
         } catch (err) {

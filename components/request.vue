@@ -48,9 +48,14 @@ export default {
             phone: this.phone,
           },
         };
+
         try {
           const response = await this.$axios.post(`/api/clients`, data);
           this.clearInputs();
+          if (response) {
+            this.$gtag("event", "request_send", data);
+            this.leadTrack();
+          }
           this.$parent.showPopup = false;
           this.$parent.successPopup = true;
         } catch (err) {
@@ -61,6 +66,9 @@ export default {
     clearInputs() {
       this.phone = "";
       this.name = "";
+    },
+    leadTrack() {
+      fbq("track", "Lead");
     },
   },
 };
