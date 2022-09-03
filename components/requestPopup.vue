@@ -51,7 +51,6 @@ export default {
           },
         };
         // this.$gtag("request btn click", data);
-        console.log("if valid done gtag event");
         this.$gtag("event", "request_send", data);
         try {
           const response = await this.$axios.post(`/api/clients`, data);

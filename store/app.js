@@ -25,7 +25,7 @@ export const actions = {
         `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
-      console.log("im hereee", response);
+      // console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
       // commit("UPDATE_FILTERS", response.data.data);
@@ -86,7 +86,7 @@ export const actions = {
         `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}`
       );
 
-      console.log("response", response);
+      // console.log("response", response);
       commit("UPDATE_CURRENT_PEASE_DATA", response.data.data[0]);
     } catch (err) {
       console.log(err);

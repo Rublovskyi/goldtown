@@ -60,9 +60,14 @@ export default {
         behavior: "smooth",
       });
     },
+    leadTrack() {
+      fbq("track", "PageView");
+    },
   },
   mounted() {
     this.$refs.header.scrollViewHeader();
+
+    this.leadTrack();
 
     // console.log("this", this);
 

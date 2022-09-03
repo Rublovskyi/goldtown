@@ -8,17 +8,6 @@ export default ({ app, store }) => {
    ** Initialize Facebook Pixel Script
    */
 
-  var date = new Date();
-  date.setTime(date.getTime() + 5 * 24 * 60 * 60 * 1000);
-  if (!"{pixel}".match("{")) {
-    document.cookie = "pixel={pixel}; " + "expires=" + date.toUTCString() + "";
-  }
-
-  var matches = document.cookie.match(
-    new RegExp("(?:^|; )" + "pixel" + "=([^;]*)")
-  );
-  var pixel = matches ? decodeURIComponent(matches[1]) : undefined;
-
   if (process.browser) {
     !(function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
