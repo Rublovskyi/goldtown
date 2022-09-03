@@ -5,7 +5,7 @@
     Services
     WhyUs
     //- Projects
-    Request(id="request")
+    Request(id="request" :changeimg="true")
     PhoneBtn
     RequestPopup(v-if="showPopup")
     SuccessPopup(v-if="successPopup")

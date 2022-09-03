@@ -157,7 +157,7 @@ export default {
   // facebook: {
   //   /* module options */
   //   track: "PageView",
-  //   pixelId: "FACEBOOK_PIXEL_ID",
+  //   pixelId: "",
   //   autoPageView: true,
   //   disabled: false,
   // },

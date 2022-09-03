@@ -1,7 +1,7 @@
 <template lang="pug">
 .blog(v-if="Blog")
     h1.blog__title Блог
-    .blog__wrap(v-for="(item, i) in Blog" :key="i")
+    .blog__wrap(v-for="(item, i) in BlogCurrentPage" :key="i" id="cards")
         .blog__img
             img(v-if="item.Image.data" :src="`https://api.goldtowncompany.com${item.Image.data.attributes.url}`" :srcset="`https://api.goldtowncompany.com${item.Image.data.attributes.formats.small ? item.Image.data.attributes.formats.small.url : item.Image.data.attributes.url} 320w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.medium ? item.Image.data.attributes.formats.medium.url : item.Image.data.attributes.url} 768w, https://api.goldtowncompany.com${item.Image.data.attributes.formats.large ? item.Image.data.attributes.formats.large.url : item.Image.data.attributes.url} 1240w`")
         .blog__data
@@ -9,7 +9,8 @@
             p.blog__data-desc.scrollbar(v-if="item.Description") {{item.Description}}
             .video.video-ok(v-if="item.Video_url" v-html="item.Video_url")
         .video.video-tab(v-if="item.Video_url" v-html="item.Video_url")
-        
+    .buy__pagination(v-if="totalPages > 1")
+        vs-pagination( :total-pages="totalPages" @change="changePage" :hide-prev-next="true")
 </template>
 <script>
 import { mapState } from "vuex";
@@ -18,7 +19,32 @@ export default {
   computed: {
     ...mapState({
       Blog: (state) => state.app.Blog,
+      BlogCurrentPage: (state) => state.app.BlogCurrentPage,
     }),
+    totalPages() {
+      let x = this.Blog.length / 7;
+      let y = Math.ceil(x);
+
+      console.log("y", y);
+      return y;
+    },
+  },
+  data() {
+    return {
+      page: 0,
+    };
+  },
+  methods: {
+    changePage(page) {
+      this.page = page - 1;
+      this.$store.commit("app/PAGINATION_BLOG", this.page);
+      this.goto();
+    },
+    goto() {
+      document.getElementById("cards").scrollIntoView({
+        behavior: "smooth",
+      });
+    },
   },
 };
 </script>

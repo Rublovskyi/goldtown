@@ -14,6 +14,7 @@
     ScrollUpBtn(ref="scrollBtn")
     //- Preview(v-if="!VideoShowed")
 </template>
+
 <script>
 import Header from "~/components/header.vue";
 
@@ -62,6 +63,8 @@ export default {
   },
   mounted() {
     this.$refs.header.scrollViewHeader();
+
+    // console.log("this", this);
 
     // this.$store.commit("app/UPDATE_PREVIEW", true);
     // document.body.style.overflow = "hidden";

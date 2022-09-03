@@ -1,7 +1,8 @@
 <template lang="pug">
 .request
     .request__img-desctop
-        img(src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
+        img(v-if="!changeimg" src="~/assets/requestImg.svg" :alt="$t('request.img_alt')")
+        img(v-if="changeimg" src="~/assets/request-bug.png" :alt="$t('request.img_alt')")
     .request__box 
         h3.request__box-title(v-html="$t('request.title')")
         p.request__box-label {{ $t('request.name') }}
@@ -15,6 +16,7 @@
 </template>
 <script>
 export default {
+  props: ["changeimg"],
   data() {
     return {
       name: "",

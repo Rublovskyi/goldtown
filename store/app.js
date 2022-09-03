@@ -401,6 +401,13 @@ export const mutations = {
   },
   UPDATE_BLOG_DATA(state, data) {
     state.Blog = data;
+
+    state.BlogCurrentPage = state.Blog.slice(0, 7);
+  },
+  PAGINATION_BLOG(state, page) {
+    let h = page * 7;
+    let y = h + 7;
+    state.BlogCurrentPage = state.Blog.slice(h, y);
   },
   UPDATE_PREVIEW(state, data) {
     if (data) {
@@ -500,6 +507,7 @@ export const state = () => ({
   CommerceCardsData: [],
   Filters: [],
   Blog: [],
+  BlogCurrentPage: [],
   PreviewShow: false,
   VideoShowed: false,
 });

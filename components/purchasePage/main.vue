@@ -9,8 +9,8 @@
         //- BreadCrumbs(:info="infoCrambs")
         .buy__cards-wraper
             Card(v-for="(card, i) in PurchaseCardsData" :key="i" :card="card")
-        .buy__pagination
-            vs-pagination( :total-pages="totalPages()" @change="changePage" :hide-prev-next="true")
+        .buy__pagination(v-if="totalPages > 1")
+            vs-pagination( :total-pages="totalPages" @change="changePage" :hide-prev-next="true")
     .buy__cards(v-if="PurchaseData.length === 0")
         //- BreadCrumbs(:info="infoCrambs")
         .buy__cards-wrap.nocards
@@ -30,6 +30,11 @@ export default {
       Categories: (state) => state.app.PurchaseCategories,
       PurchaseCardsData: (state) => state.app.PurchaseCardsData,
     }),
+    totalPages() {
+      let x = this.PurchaseData.length / 6;
+      let y = Math.ceil(x);
+      return y;
+    },
   },
   methods: {
     changePage(page) {
@@ -37,11 +42,7 @@ export default {
       this.$store.commit("app/PAGINATION_PUECHASE", this.page);
       this.goto();
     },
-    totalPages() {
-      let x = this.PurchaseData.length / 6;
-      let y = Math.ceil(x);
-      return y;
-    },
+
     openFilters() {
       this.showFilters = true;
     },
