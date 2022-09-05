@@ -51,7 +51,6 @@ export default {
 
     let data = {
       locale: locale,
-      type: this.CurrentPeaseData.purchase_type,
       filter: this.CurrentPeaseData.product_type,
     };
     this.$store.dispatch("app/getSimilarProposal", data);

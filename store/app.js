@@ -3,11 +3,7 @@ export const actions = {
     const qs = require("qs");
 
     let filters = {
-      filters: {
-        // purchase_type: {
-        //   $eq: "purchase",
-        // },
-      },
+      filters: {},
     };
 
     if (slug !== "all") {
@@ -20,12 +16,14 @@ export const actions = {
       encodeValuesOnly: true, // prettify url
     });
 
+    console.log("query", query);
+
     try {
       const response = await this.$axios.get(
         `/api/products?populate[0]=Filters&populate[1]=Filters.City&populate[2]=Filters.Residential_quarter&populate[3]=Filters.Type_of_house&populate[4]=Filters.District&populate[5]=image&${query}&locale=${locale}&pagination[limit]=-1`
       );
 
-      // console.log("im hereee", response);
+      console.log("im hereee", response);
 
       commit("UPDATE_PUECHASE_DATA", { response, slug });
       // commit("UPDATE_FILTERS", response.data.data);
@@ -38,9 +36,9 @@ export const actions = {
 
     let filters = {
       filters: {
-        purchase_type: {
-          $eq: "commerce",
-        },
+        // purchase_type: {
+        //   $eq: "commerce",
+        // },
       },
     };
     if (slug !== "all") {
@@ -97,9 +95,6 @@ export const actions = {
 
     let filters = {
       filters: {
-        // purchase_type: {
-        //   $eq: data.type,
-        // },
         product_type: {
           $eq: data.filter,
         },
@@ -127,9 +122,6 @@ export const actions = {
 
     let filters = {
       filters: {
-        // purchase_type: {
-        //   $eq: purchase,
-        // },
         Filters: {},
         // product_type: {
         //   $eq: type,
@@ -179,6 +171,10 @@ export const actions = {
         } else if (name === "instalment") {
           filters.filters.instalment = {
             $notNull: true,
+          };
+        } else if (name === "finished") {
+          filters.filters.finished = {
+            $eq: true,
           };
         } else {
           filters.filters[name] = {
@@ -498,6 +494,12 @@ export const state = () => ({
       nameUa: "Комерційні приміщення",
       nameRu: "Комерческие помещения",
       slug: "commercial_premises",
+      selected: false,
+    },
+    {
+      nameUa: "Оренда",
+      nameRu: "Аренда",
+      slug: "rent",
       selected: false,
     },
   ],

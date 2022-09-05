@@ -1,7 +1,7 @@
 <template lang="pug">
 //- .card(v-if="card")
 .card(v-if="card || card.attributes")
-    n-link.card__image(:to="localePath('/' + card.attributes.purchase_type + '/view/' + card.attributes.alt_slug)")
+    n-link.card__image(:to="localePath('/purchase/view/' + card.attributes.alt_slug)")
         //- img(:src="test()" :alt="card.attributes.title")
         //- img(:src="makePhotoUrl('big')" :srcset="`${makePhotoUrl('small')} 320w, ${makePhotoUrl('medium')} 768w, ${makePhotoUrl('large')} 1240w`" :alt="card.attributes.title")
         img(v-if="card.attributes.image.data" :src="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.url}`" :srcset="`https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.small ? card.attributes.image.data[0].attributes.formats.small.url : card.attributes.image.data[0].attributes.url} 320w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.medium ? card.attributes.image.data[0].attributes.formats.medium.url : card.attributes.image.data[0].attributes.url} 768w, https://api.goldtowncompany.com${card.attributes.image.data[0].attributes.formats.large ? card.attributes.image.data[0].attributes.formats.large.url : card.attributes.image.data[0].attributes.url} 1240w`" :alt="card.attributes.title")
@@ -10,9 +10,9 @@
         .card__title(v-if="card.attributes.title || card.attributes.adress")
             h3.card__subtitle(v-if="card.attributes.title") {{card.attributes.title}}
             p.card__address(v-if="card.attributes.adress") {{card.attributes.adress}}
-        p.card__price(v-if="card.attributes.purchase_type === 'purchase' && card.attributes.price") {{card.attributes.price}} $
-        p.card__price-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.price")  {{card.attributes.price}} $
-        p.card__annual-commerse(v-if="card.attributes.purchase_type === 'commerce' && card.attributes.payback") {{card.attributes.payback}} {{ $t('card.payback') }}
+        p.card__price(v-if="!card.attributes.payback && card.attributes.price") {{card.attributes.price}} $
+        p.card__price-commerse(v-if="card.attributes.payback && card.attributes.price")  {{card.attributes.price}} $
+        p.card__annual-commerse(v-if="card.attributes.payback") {{card.attributes.payback}} {{ $t('card.payback') }}
         .card__list
             p.card__item(v-if="card.attributes.number_of_rooms")
                 span.title  {{ $t('card.number_of_rooms') }}: 
@@ -35,7 +35,7 @@
             p.card__item(v-if="card.attributes.instalment") 
                 span.title  {{ $t('filtersSelect.instalment') }}: 
                 span.amount {{card.attributes.instalment}} {{ $t('month') }}
-        n-link.card__btn-more( :to="localePath('/' + card.attributes.purchase_type + '/view/' + card.attributes.alt_slug)" )  {{ $t('card.more') }}
+        n-link.card__btn-more( :to="localePath('/purchase/view/' + card.attributes.alt_slug)" )  {{ $t('card.more') }}
 </template>
 <script>
 export default {
@@ -46,7 +46,7 @@ export default {
     };
   },
   mounted() {
-    // console.log(this.card);
+    console.log(this.card);
   },
 };
 </script>

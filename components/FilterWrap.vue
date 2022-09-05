@@ -8,6 +8,9 @@
             span.text {{locale === "ru" ? category.nameRu : category.nameUa}}
     .filter__wrap
         p.title {{ $t('filter.filters') }}
+        .filter__category-item.instalmet(:class="{'select': finished}" @click="selectoooor('finished')")
+            span.box
+            span.text {{$t('filtersSelect.finished')}}
         .filter__category-item.instalmet(:class="{'select': instalment}" @click="selectoooor('instalment')")
             span.box
             span.text {{$t('filtersSelect.instalment')}}
@@ -44,6 +47,7 @@ export default {
       newArrToget: {},
       instalment: false,
       pool: false,
+      finished: false,
     };
   },
   computed: {
@@ -108,6 +112,10 @@ export default {
         // x[0] = "Instalment";
         x.push("instalment");
       }
+      if (this.finished) {
+        // x[0] = "Instalment";
+        x.push("finished");
+      }
 
       let y = x.join("&");
 
@@ -133,9 +141,13 @@ export default {
     selectoooor(type) {
       if (type === "pool") {
         this.pool = !this.pool;
+      } else if (type === "finished") {
+        this.finished = !this.finished;
       } else {
         this.instalment = !this.instalment;
       }
+
+      // finished;
     },
     canShowFilter(name) {
       if (
@@ -191,6 +203,8 @@ export default {
           this.pool = true;
         } else if (name === "instalment") {
           this.instalment = true;
+        } else if (name === "finished") {
+          this.finished = true;
         }
       });
     },
