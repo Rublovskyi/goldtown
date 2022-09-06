@@ -137,7 +137,8 @@ export default {
       anonymize_ip: true, // anonymize IP
       send_page_view: false, // might be necessary to avoid duplicated page track on page reload
       linker: {
-        domains: ["gt.org.ua", "goldtown.kiev.ua", "goldtowncompany.com"],
+        // domains: ["gt.org.ua", "goldtown.kiev.ua", "goldtowncompany.com"],
+        domains: ["goldtowncompany.com"],
       },
     },
     debug: true, // enable to track in dev mode
