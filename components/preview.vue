@@ -1,6 +1,6 @@
 <template lang="pug">
 .preview(:class="{'ended': ended}")
-    video.preview__video(src="~/assets/gold-town-video.mp4"
+    video.preview__video(src="~/assets/gold-town-video-test.mp4"
                             width="100%"
                             ref="video"
                             muted="muted"

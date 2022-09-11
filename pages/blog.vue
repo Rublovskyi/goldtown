@@ -41,7 +41,14 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("app/getBlogData");
+    let locale = this._i18n.locale;
+
+    if (locale === "ru") {
+      locale = "ru";
+    } else {
+      locale = "en";
+    }
+    this.$store.dispatch("app/getBlogData", locale);
   },
 };
 </script>

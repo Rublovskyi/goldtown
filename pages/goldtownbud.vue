@@ -54,7 +54,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("app/getBlogData");
+    // this.$store.dispatch("app/getBlogData");
   },
 };
 </script>

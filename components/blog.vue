@@ -57,7 +57,7 @@ export default {
     padding: 3.906vw 4.688vw 2vw 4.688vw;
   }
   @media screen and (min-width: 1240px) {
-    padding: 3.906vw 4.688vw 2vw 4.688vw;
+    padding: 3.906vw 8.688vw 2vw 8.688vw;
   }
 
   &__title {
@@ -85,35 +85,43 @@ export default {
     padding-bottom: 12.5vw;
 
     @media screen and (min-width: 768px) {
+      // display: grid;
+      // grid-template-columns: 2fr 3fr;
+      // padding-bottom: 5.208vw;
+
       display: grid;
-      grid-template-columns: 2fr 3fr;
-      padding-bottom: 5.208vw;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      gap: 20px;
+
+      padding-bottom: 20px;
 
       &:not(:last-child) {
-        margin-bottom: 5.208vw;
+        margin-bottom: 20px;
       }
     }
 
     @media screen and (min-width: 768px) and (max-width: 1239.98px) {
-      column-gap: 6.51vw;
-      row-gap: 2.604vw;
-      & .video {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 2;
-        grid-row-end: 3;
-      }
+      // column-gap: 6.51vw;
+      // row-gap: 2.604vw;
 
-      & .blog__data {
-        grid-column-start: 2;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 3;
-      }
+      // & .video {
+      //   grid-column-start: 1;
+      //   grid-column-end: 4;
+      //   grid-row-start: 2;
+      //   grid-row-end: 3;
+      // }
+
+      // & .blog__data {
+      //   grid-column-start: 2;
+      //   grid-column-end: 4;
+      //   grid-row-start: 1;
+      //   grid-row-end: 3;
+      // }
     }
     @media screen and (min-width: 1240px) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      // display: grid;
+      // grid-template-columns: 1fr 1fr 1fr;
       gap: 4.032vw;
 
       padding-bottom: 3.226vw;
@@ -175,16 +183,18 @@ export default {
       &-title {
         margin-bottom: 15px;
         font-size: 18px;
+        text-align: center;
       }
       &-desc {
         height: 19.531vw;
-        margin-bottom: 6.51vw;
+        margin-bottom: 0;
         padding-right: 3.255vw;
         font-size: 1.083vw;
       }
     }
     @media screen and (min-width: 1240px) {
       &-title {
+        text-align: start !important;
         margin-bottom: 1.21vw;
         font-size: 1.613vw;
       }
@@ -192,7 +202,7 @@ export default {
         height: 17.065vw;
         margin-bottom: 0;
         padding-right: 2.016vw;
-        font-size: 1.29vw;
+        font-size: 1.19vw;
       }
     }
   }
@@ -216,7 +226,7 @@ export default {
 
       @media screen and (min-width: 768px) {
         height: 27.016vw;
-        width: 50vw;
+        width: 30vw;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -231,7 +241,7 @@ export default {
       }
       @media screen and (min-width: 1240px) {
         height: 20.403vw;
-        width: 30.403vw;
+        width: 25.403vw;
         border-radius: 0.556vw;
         &-tab {
           display: block;

@@ -239,10 +239,10 @@ export const actions = {
       console.log(err);
     }
   },
-  async getBlogData({ commit }) {
+  async getBlogData({ commit }, locale) {
     try {
       const responce = await this.$axios.get(
-        `/api/construction?populate[0]=Blocks&populate[1]=Blocks.Image&pagination[limit]=-1`
+        `/api/construction?populate[0]=Blocks&populate[1]=Blocks.Image&pagination[limit]=-1&locale=${locale}`
       );
 
       // console.log("responce blog", responce.data.data.attributes.Blocks);
