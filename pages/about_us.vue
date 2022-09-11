@@ -1,8 +1,8 @@
 <template lang="pug">
 .about(id="topOfPage")
     Header.header(:show="'about_us'")
-    OurTeam
     AboutUsTexts
+    OurTeam
     ContactsBlock
     RequestPopup(v-if="showPopup")
     Footer

@@ -15,20 +15,44 @@ export default {
       ended: false,
     };
   },
-
   methods: {
     videoShow: async function () {
       console.log("video goo");
+      let video = this.$refs.video;
+      // console.log("video.readyState", video.readyState);
       await this.$refs.video.play();
+      // console.log("video.readyState", video.readyState);
       this.$refs.video.play();
+
+      // console.log("video.readyState", video.readyState);
 
       setTimeout(() => {
         this.ended = true;
       }, 8000);
+
+      // if (video.readyState >= 3) {
+      //   setTimeout(() => {
+      //     this.ended = true;
+      //   }, 8000);
+      //   setTimeout(() => {
+      //     this.$store.commit("app/UPDATE_PREVIEW", false);
+      //     this.$store.commit("app/UPDATE_SHOWED_VIDEO");
+      //     document.body.style.overflow = "";
+      //   }, 9000);
+      // }
     },
   },
   mounted() {
     this.videoShow();
+
+    let video = this.$refs.video;
+
+    // console.log("video.readyState", video.readyState);
+
+    // if (video.readyState === 4) {
+    //   // it's loaded
+    //   console.log("hello loaded video");
+    // }
   },
 };
 </script>

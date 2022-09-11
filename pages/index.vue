@@ -12,7 +12,7 @@
     SuccessPopup(v-if="successPopup")
     PhoneBtn
     ScrollUpBtn(ref="scrollBtn")
-    Preview(v-if="!VideoShowed")
+    //- Preview(v-if="!VideoShowed")
 </template>
 
 <script>
@@ -71,14 +71,14 @@ export default {
 
     // console.log("this", this);
 
-    this.$store.commit("app/UPDATE_PREVIEW", true);
-    document.body.style.overflow = "hidden";
+    // this.$store.commit("app/UPDATE_PREVIEW", true);
+    // document.body.style.overflow = "hidden";
 
-    setTimeout(() => {
-      this.$store.commit("app/UPDATE_PREVIEW", false);
-      this.$store.commit("app/UPDATE_SHOWED_VIDEO");
-      document.body.style.overflow = "";
-    }, 9000);
+    // setTimeout(() => {
+    //   this.$store.commit("app/UPDATE_PREVIEW", false);
+    //   this.$store.commit("app/UPDATE_SHOWED_VIDEO");
+    //   document.body.style.overflow = "";
+    // }, 9000);
   },
   head() {
     return {
