@@ -2,6 +2,7 @@
 .main-page(id="topOfPage")
     Header.header(ref="header")
     Hero
+    p {{conG}}
     AboutUs(id="about")
     Sample
     Request(id="request")
@@ -12,7 +13,7 @@
     SuccessPopup(v-if="successPopup")
     PhoneBtn
     ScrollUpBtn(ref="scrollBtn")
-    .test(v-if="!VideoShowed && PreviewShow")
+    //- .test(v-if="!VideoShowed && PreviewShow")
       Preview
 </template>
 
@@ -53,6 +54,7 @@ export default {
     return {
       showPopup: false,
       successPopup: false,
+      conG: 0,
     };
   },
   methods: {
@@ -70,23 +72,23 @@ export default {
 
     this.leadTrack();
 
-    const connection = navigator.connection;
+    this.conG = navigator.connection.effectiveType;
 
-    console.log("connection.effectiveType", connection.effectiveType);
+    // console.log("connection.effectiveType", connection.effectiveType);
 
-    if (connection) {
-      if (
-        connection.effectiveType === "4g" ||
-        connection.effectiveType === "3g"
-      ) {
-        console.log(
-          "connection.effectiveType inside",
-          connection.effectiveType === "4g"
-        );
-        this.$store.commit("app/UPDATE_PREVIEW", true);
-        document.body.style.overflow = "hidden";
-      }
-    }
+    // if (connection) {
+    //   if (
+    //     connection.effectiveType === "4g" ||
+    //     connection.effectiveType === "3g"
+    //   ) {
+    //     console.log(
+    //       "connection.effectiveType inside",
+    //       connection.effectiveType === "4g"
+    //     );
+    //     this.$store.commit("app/UPDATE_PREVIEW", true);
+    //     document.body.style.overflow = "hidden";
+    //   }
+    // }
   },
   head() {
     return {
