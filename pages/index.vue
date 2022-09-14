@@ -75,7 +75,10 @@ export default {
     console.log("connection.effectiveType", connection.effectiveType);
 
     if (connection) {
-      if (connection.effectiveType === "4g") {
+      if (
+        connection.effectiveType === "4g" ||
+        connection.effectiveType === "3g"
+      ) {
         console.log(
           "connection.effectiveType inside",
           connection.effectiveType === "4g"
