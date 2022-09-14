@@ -2,7 +2,6 @@
 .main-page(id="topOfPage")
     Header.header(ref="header")
     Hero
-    p {{conG}}
     AboutUs(id="about")
     Sample
     Request(id="request")
@@ -13,8 +12,6 @@
     SuccessPopup(v-if="successPopup")
     PhoneBtn
     ScrollUpBtn(ref="scrollBtn")
-    //- .test(v-if="!VideoShowed && PreviewShow")
-      Preview
 </template>
 
 <script>
@@ -54,7 +51,6 @@ export default {
     return {
       showPopup: false,
       successPopup: false,
-      conG: 0,
     };
   },
   methods: {
@@ -72,7 +68,7 @@ export default {
 
     this.leadTrack();
 
-    this.conG = navigator.connection.effectiveType;
+    // this.conG = navigator.connection.effectiveType;
 
     // console.log("connection.effectiveType", connection.effectiveType);
 

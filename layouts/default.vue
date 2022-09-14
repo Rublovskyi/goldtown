@@ -2,7 +2,7 @@
 .layout
     .content
         Nuxt
-        Preview(v-if="!VideoShowed && PreviewShow")
+        //- Preview(v-if="!VideoShowed && PreviewShow")
 </template>
 
 <script>
@@ -20,21 +20,21 @@ export default {
     }),
   },
   mounted() {
-    const connection = navigator.connection;
-
-    if (connection && !this.VideoShowed) {
-      if (
-        connection.effectiveType === "4g" ||
-        connection.effectiveType === "3g"
-      ) {
-        console.log(
-          "connection.effectiveType inside",
-          connection.effectiveType === "4g"
-        );
-        this.$store.commit("app/UPDATE_PREVIEW", true);
-        document.body.style.overflow = "hidden";
-      }
-    }
+    // console.log("navigator", navigator);
+    // const connection = navigator.connection;
+    // if (connection && !this.VideoShowed) {
+    //   if (
+    //     connection.effectiveType === "4g" ||
+    //     connection.effectiveType === "3g"
+    //   ) {
+    //     console.log(
+    //       "connection.effectiveType inside",
+    //       connection.effectiveType === "4g"
+    //     );
+    //     this.$store.commit("app/UPDATE_PREVIEW", true);
+    //     document.body.style.overflow = "hidden";
+    //   }
+    // }
   },
 };
 </script>
