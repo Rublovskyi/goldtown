@@ -12,7 +12,8 @@
     SuccessPopup(v-if="successPopup")
     PhoneBtn
     ScrollUpBtn(ref="scrollBtn")
-    //- Preview(v-if="!VideoShowed")
+    .test(v-if="!VideoShowed && PreviewShow")
+      Preview
 </template>
 
 <script>
@@ -69,16 +70,20 @@ export default {
 
     this.leadTrack();
 
-    // console.log("this", this);
+    const connection = navigator.connection;
 
-    // this.$store.commit("app/UPDATE_PREVIEW", true);
-    // document.body.style.overflow = "hidden";
+    console.log("connection.effectiveType", connection.effectiveType);
 
-    // setTimeout(() => {
-    //   this.$store.commit("app/UPDATE_PREVIEW", false);
-    //   this.$store.commit("app/UPDATE_SHOWED_VIDEO");
-    //   document.body.style.overflow = "";
-    // }, 9000);
+    if (connection) {
+      if (connection.effectiveType === "4g") {
+        console.log(
+          "connection.effectiveType inside",
+          connection.effectiveType === "4g"
+        );
+        this.$store.commit("app/UPDATE_PREVIEW", true);
+        document.body.style.overflow = "hidden";
+      }
+    }
   },
   head() {
     return {
@@ -103,6 +108,7 @@ export default {
       ViewPageGetData: (state) => state.app.ViewPageGetData,
       SimilarCardsData: (state) => state.app.SimilarCardsData,
       VideoShowed: (state) => state.app.VideoShowed,
+      PreviewShow: (state) => state.app.PreviewShow,
     }),
   },
 };

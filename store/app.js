@@ -411,6 +411,8 @@ export const mutations = {
     } else {
       state.PreviewShow = false;
     }
+
+    console.log("state.PreviewShow", state.PreviewShow);
   },
   UPDATE_SHOWED_VIDEO(state) {
     state.VideoShowed = true;
