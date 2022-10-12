@@ -3,18 +3,21 @@
     .contacts__wrap
         .contacts__title {{$t('contacts.contacts')}}
         .contacts__nums
-            a.contacts__number(href="tel:+380994712789") 
+            //- a.contacts__number(href="tel:+380994712789") 
+            //-     span.contacts__number-icon
+            //-     span.num +380(99)471-27-89 
+            //- a.contacts__number(href="tel:+380739986959") 
+            //-     span.contacts__number-icon
+            //-     span.num +380(73)998-69-59
+            //- a.contacts__number(href="tel:+380679986959") 
+            //-     span.contacts__number-icon
+            //-     span.num +380(67)998-69-59
+            //- a.contacts__number(href="tel:+380984732501") 
+            //-     span.contacts__number-icon
+            //-     span.num +380(98)473-25-01
+            a.contacts__number(href="tel:+380639986959") 
                 span.contacts__number-icon
-                span.num +380(99)471-27-89 
-            a.contacts__number(href="tel:+380739986959") 
-                span.contacts__number-icon
-                span.num +380(73)998-69-59
-            a.contacts__number(href="tel:+380679986959") 
-                span.contacts__number-icon
-                span.num +380(67)998-69-59
-            a.contacts__number(href="tel:+380984732501") 
-                span.contacts__number-icon
-                span.num +380(98)473-25-01
+                span.num +380(63)998-69-59
         .contacts__works 
             .contacts__works-schadule
                 p.days пн-пт: 

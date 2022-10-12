@@ -12,23 +12,26 @@
                 //- n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
                 //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
                 n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
-                n-link.header__item(:class="{'show': show === 'about_us'}" :to="localePath('/about_us')") {{ $t('header.about_us') }}
+                //- n-link.header__item(:class="{'show': show === 'about_us'}" :to="localePath('/about_us')") {{ $t('header.about_us') }}
                 n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") {{$t('header.contacts')}}
                 p.header__item(@click="makeRequest") {{ $t('header.request') }}
             .header__num-lang
                 .header__numbers
-                    a.header__number(href="tel:+380994712789") 
-                        span.header__number-icon
-                        span  +380(99)471-27-89 
-                    a.header__number(href="tel:+380739986959") 
-                        span.header__number-icon
-                        span +380(73)998-69-59
-                    a.header__number(href="tel:+380679986959") 
-                        span.header__number-icon
-                        span +380(67)998-69-59
+                    //- a.header__number(href="tel:+380994712789") 
+                    //-     span.header__number-icon
+                    //-     span  +380(99)471-27-89 
+                    //- a.header__number(href="tel:+380739986959") 
+                    //-     span.header__number-icon
+                    //-     span +380(73)998-69-59
+                    //- a.header__number(href="tel:+380679986959") 
+                    //-     span.header__number-icon
+                    //-     span +380(67)998-69-59
                     //- a.header__number(href="tel:+380984732501") 
                     //-     span.header__number-icon
                     //-     span +380(98)473-25-01
+                    a.header__number(href="tel:+380639986959") 
+                        span.header__number-icon
+                        span +380(63)998-69-59
                 .header__lang.header__lang-desc
                     Lang(:type="2")
                 .header__lang.header__lang-menu
@@ -389,7 +392,7 @@ export default {
     }
 
     &__lang {
-      margin-top: 10px;
+      // margin-top: 10px;
       &-menu {
         display: none;
       }
@@ -438,6 +441,11 @@ export default {
     &__item:hover {
       color: var(--hover-color);
     }
+
+    &__num-lang {
+      align-items: center;
+    }
+
     &__number {
       color: var(--primary-color);
       display: flex;

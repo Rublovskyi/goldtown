@@ -25,15 +25,18 @@
                 Lang.footer__lang(:type="1")
         .footer__wrapper
             .footer__nums
-                a.footer__number(href="tel:+380994712789") 
+                //- a.footer__number(href="tel:+380994712789") 
+                //-     span.footer__number-icon
+                //-     span +380(99)471-27-89 
+                //- a.footer__number(href="tel:+380739986959") 
+                //-     span.footer__number-icon
+                //-     span +380(73)998-69-59
+                //- a.footer__number(href="tel:+380679986959") 
+                //-     span.footer__number-icon
+                //-     span +380(67)998-69-59
+                a.footer__number(href="tel:+380639986959") 
                     span.footer__number-icon
-                    span +380(99)471-27-89 
-                a.footer__number(href="tel:+380739986959") 
-                    span.footer__number-icon
-                    span +380(73)998-69-59
-                a.footer__number(href="tel:+380679986959") 
-                    span.footer__number-icon
-                    span +380(67)998-69-59
+                    span +380(63)998-69-59
             .footer__data
                 a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
                     span.footer__address-icon 

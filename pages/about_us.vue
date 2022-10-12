@@ -2,7 +2,7 @@
 .about(id="topOfPage")
     Header.header(:show="'about_us'")
     AboutUsTexts
-    OurTeam
+    //- OurTeam
     ContactsBlock
     RequestPopup(v-if="showPopup")
     Footer
