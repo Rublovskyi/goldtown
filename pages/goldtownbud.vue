@@ -1,6 +1,6 @@
 <template lang="pug">
 .construction(id="topOfPage")
-    Header.header(:show="'construction'")
+    Header(:show="'construction'")
     Hero
     Services
     WhyUs

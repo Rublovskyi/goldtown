@@ -32,7 +32,7 @@ export default {
   //   left: 0;
 
   &.black {
-    color: #000;
+    color: #fff;
   }
 
   &__item {

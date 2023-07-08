@@ -2,7 +2,7 @@
 .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
     n-link.header__logo(:to="localePath('/')")
         //- img(src="../assets/Logo.png" alt="Logo Gold Town")
-        img(src="../assets/Logo_new.png" alt="Logo Gold Town")
+        img(src="../assets/Logo-new_06-07-2023.png" alt="Logo Gold Town")
     .header__wrap(:class="{'show': showMenu}")
         .header__menu
             .header__list
@@ -11,7 +11,7 @@
                 n-link.header__item(:class="{'show': show === 'construction'}" :to="localePath('/goldtownbud')") {{$t('header.bud')}}
                 //- n-link.header__item( :to="localePath('/commerce/all')" :class="{'show': show === 'commerce'}") {{ $t('header.commerce') }}
                 //- p.header__item( @click="replase('request')") {{ $t('header.request') }}
-                n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
+                //- n-link.header__item(:class="{'show': show === 'blog'}" :to="localePath('/blog')") Блог
                 //- n-link.header__item(:class="{'show': show === 'about_us'}" :to="localePath('/about_us')") {{ $t('header.about_us') }}
                 n-link.header__item(:class="{'show': show === 'contacts'}" :to="localePath('/contacts')") {{$t('header.contacts')}}
                 p.header__item(@click="makeRequest") {{ $t('header.request') }}
@@ -26,12 +26,15 @@
                     //- a.header__number(href="tel:+380679986959") 
                     //-     span.header__number-icon
                     //-     span +380(67)998-69-59
-                    //- a.header__number(href="tel:+380984732501.") 
+                    //- a.header__number(href="tel:+380984732501") 
                     //-     span.header__number-icon
                     //-     span +380(98)473-25-01
-                    a.header__number(href="tel:+380639986959") 
+                    //- a.header__number(href="tel:+380639986959") 
+                    //-     span.header__number-icon
+                    //-     span +380(63)998-69-59
+                    a.header__number(href="tel:+380639986955") 
                         span.header__number-icon
-                        span +380(63)998-69-59
+                        span +380(63)998-69-55 
                 .header__lang.header__lang-desc
                     Lang(:type="2")
                 .header__lang.header__lang-menu
@@ -106,7 +109,7 @@ export default {
     align-items: center;
     color: var(--primary-color);
     padding: 6.25vw 5vw;
-    background-color: #fff;
+    background-color: var(--bg-logo-color);
     transition: all 500ms ease;
 
     // position: fixed;
@@ -198,7 +201,7 @@ export default {
       line-height: 1.25;
       color: #fff;
       &.show {
-        color: var(--accent-main-color);
+        color: var(--accent-menu-color);
       }
     }
     &__item:hover {
@@ -243,7 +246,7 @@ export default {
     align-items: center;
     color: var(--primary-color);
     padding: 2.106vw 4.688vw;
-    background-color: #fff;
+background-color: var(--bg-logo-color);
     transition: all 500ms ease;
 
     // position: fixed;
@@ -316,6 +319,7 @@ export default {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
+      
     }
     &__item:not(:last-child) {
       margin-bottom: 4.688vw;
@@ -330,11 +334,11 @@ export default {
       line-height: 1.25;
       color: #fff;
       &.show {
-        color: var(--accent-main-color);
+        color: var(--accent-menu-color);
       }
     }
     &__item:hover {
-      color: var(--hover-color);
+      color: var(--accent-menu-color);
     }
     &__numbers {
       margin-top: 8.073vw;
@@ -359,7 +363,7 @@ export default {
         margin-right: 1.042vw;
       }
       &:hover {
-        color: var(--hover-color);
+        color: var(--accent-menu-color);
       }
       &:hover &-icon {
         background-image: url(../assets/svg/mobileHover.svg);
@@ -373,9 +377,9 @@ export default {
     display: grid;
     grid-template-columns: 20% 80%;
     align-items: center;
-    color: var(--primary-color);
+    color: var(--light-color);
     padding: 0.5vw 5.556vw;
-    background-color: #fff;
+background-color: var(--bg-logo-color);
     transition: all 500ms ease;
 
     // position: fixed;
@@ -433,13 +437,13 @@ export default {
       font-weight: 400;
       font-size: 1.111vw;
       line-height: 1.25;
-      color: var(--primary-color);
+      color: var(--light-color);
       &.show {
-        color: var(--accent-main-color);
+        color: var(--accent-menu-color);
       }
     }
     &__item:hover {
-      color: var(--hover-color);
+      color: var(--accent-menu-color);
     }
 
     &__num-lang {
@@ -447,7 +451,7 @@ export default {
     }
 
     &__number {
-      color: var(--primary-color);
+      color: var(--light-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -458,14 +462,14 @@ export default {
         display: block;
         width: 1.067vw;
         height: 1.067vw;
-        background-image: url(../assets/svg/mobile.svg);
+        background-image: url(../assets/svg/mobileLight.svg);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
         margin-right: 0.486vw;
       }
       &:hover {
-        color: var(--hover-color);
+        color: var(--accent-menu-color);
       }
       &:hover &-icon {
         background-image: url(../assets/svg/mobileHover.svg);

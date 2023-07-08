@@ -240,7 +240,8 @@ export default {
   }
 
   @media screen and (min-width: 1240px) {
-    padding: 2.778vw 2.361vw 2.778vw 2.361vw;
+    padding: 40px 34px;
+    /* padding: 2.778vw 2.361vw 2.778vw 2.361vw; */
     border-radius: 0;
   }
   &__close {
@@ -339,7 +340,7 @@ export default {
       margin-bottom: 3.906vw;
     }
     @media screen and (min-width: 1240px) {
-      font-size: 1.667vw;
+      font-size: 1.58vw;
       margin-bottom: 2.083vw;
     }
   }
@@ -455,6 +456,7 @@ export default {
       margin-top: 2.083vw;
       border-radius: 0.694vw;
       font-size: 1.111vw;
+      /* font-size: 16px; */
     }
   }
 

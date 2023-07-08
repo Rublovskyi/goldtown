@@ -391,7 +391,7 @@ export default {
       height: auto;
 
       &-wrap {
-        width: 22.833vw;
+        width: 15.833vw;
         position: relative;
         top: 0;
         left: 0;

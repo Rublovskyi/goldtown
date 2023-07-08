@@ -1,7 +1,8 @@
 <template lang="pug">
 .layout
-    .content
-        Nuxt
+    .container
+        .content
+            Nuxt
         //- Preview(v-if="!VideoShowed && PreviewShow")
 </template>
 

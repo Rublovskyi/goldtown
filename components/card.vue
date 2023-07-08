@@ -64,10 +64,11 @@ export default {
     min-height: 65.104vw;
   }
 
-  @media screen and (min-width: 1240px) {
-    border-radius: 0.694vw;
-    min-height: 34.722vw;
-  }
+    @media screen and (min-width: 1240px) {
+      border-radius: 0.694vw;
+      min-height: 505px;
+      /* min-height: 34.722vw; */
+    }
 
   &__image {
     width: 100%;
@@ -127,6 +128,7 @@ export default {
     }
     @media screen and (min-width: 1240px) {
       padding: 1.389vw 1.389vw 6.222vw 1.389vw;
+      /* padding: 20px 20px 89px; */
     }
   }
 
@@ -266,9 +268,12 @@ export default {
       bottom: 2.604vw;
     }
     @media screen and (min-width: 1240px) {
-      padding: 1.111vw 5.372vw;
+      padding: 16px 77px;
+      /* padding: 1.111vw 5.372vw; */
       font-size: 1.583vw;
       margin-top: 2.083vw;
+      /* font-size: 23px; */
+      /* margin-top: 30px; */
       border-radius: 0.417vw;
       bottom: 1.204vw;
     }

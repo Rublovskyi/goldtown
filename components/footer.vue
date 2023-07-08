@@ -3,7 +3,7 @@
     .footer__wrap
         n-link.footer__logo(:to="localePath('/')")
             //- img(src="../assets/logoLight.png" alt="Logo Gold Town")
-            img(src="../assets/Logo_new.png" alt="Logo Gold Town")
+            img(src="../assets/Logo-new_06-07-2023.png" alt="Logo Gold Town")
         .footer__mobile
             Lang.footer__lang
     .footer__info
@@ -17,7 +17,7 @@
             .footer__desc
                 Lang.footer__lang(:type="1")
             .footer__social-wrap
-                a.footer__social-item(href="https://www.facebook.com/goldtown.company"  target="_blank")
+                a.footer__social-item(href="https://www.facebook.com/profile.php?id=100094212323029"  target="_blank")
                     img(src="~/assets/svg/facebook.svg" alt="facefook icon")
                 a.footer__social-item(href="https://instagram.com/gold_town.ua/"  target="_blank")
                     img(src="~/assets/svg/instagram.svg" alt="instagram icon")
@@ -34,9 +34,12 @@
                 //- a.footer__number(href="tel:+380679986959") 
                 //-     span.footer__number-icon
                 //-     span +380(67)998-69-59
-                a.footer__number(href="tel:+380639986959") 
+                //- a.footer__number(href="tel:+380639986959") 
+                //-     span.footer__number-icon
+                //-     span +380(63)998-69-59.
+                a.footer__number(href="tel:+380639986955") 
                     span.footer__number-icon
-                    span +380(63)998-69-59
+                    span +380(63)998-69-55 
             .footer__data
                 a.footer__address(href="https://goo.gl/maps/KnUsTrPfS5usf9u79") 
                     span.footer__address-icon 
@@ -62,7 +65,7 @@ export default {
 @media screen and (max-width: 767.98px) {
   .footer {
     // height: 218px;
-    background-color: var(--primary-color);
+    background-color: var(--bg-logo-color);
     padding: 9.375vw 5vw;
     position: relative;
     z-index: 120;
@@ -214,7 +217,7 @@ export default {
 @media screen and (min-width: 768px) {
   .footer {
     // height: 12vh;
-    background-color: var(--primary-color);
+    background-color: var(--bg-logo-color);
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-content: space-between;
@@ -384,7 +387,7 @@ export default {
 }
 @media screen and (min-width: 1240px) {
   .footer {
-    padding: 2.639vw 5.556vw;
+    padding: 2.639vw 3.556vw;
     grid-template-columns: 1fr 2.7fr;
     gap: 4vw;
 

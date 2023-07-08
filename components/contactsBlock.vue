@@ -15,9 +15,12 @@
             //- a.contacts__number(href="tel:+380984732501") 
             //-     span.contacts__number-icon
             //-     span.num +380(98)473-25-01
-            a.contacts__number(href="tel:+380639986959") 
+            //- a.contacts__number(href="tel:+380639986959") 
+            //-     span.contacts__number-icon
+            //-     span.num +380(63)998-69-59
+            a.contacts__number(href="tel:+380639986955") 
                 span.contacts__number-icon
-                span.num +380(63)998-69-59
+                span.num +380(63)998-69-55
         .contacts__works 
             .contacts__works-schadule
                 p.days пн-пт: 
@@ -57,7 +60,7 @@ export default {
     gap: 25vw;
   }
   @media screen and (min-width: 1240px) {
-    padding: 3.906vw 4.688vw 2vw 4.688vw;
+    padding: 3.906vw 2.688vw 2vw 2.688vw;
     gap: 6.452vw;
   }
 
@@ -77,6 +80,7 @@ export default {
   }
 
   &__wrap {
+   
     // @media screen and (min-width: 1240px) {
     //   margin-right: 80px;
     // }
@@ -91,8 +95,8 @@ export default {
       height: 41.667vw;
     }
     @media screen and (min-width: 1240px) {
-      width: 48.387vw;
-      height: 36.29vw;
+      width: 39.387vw;
+      height: 30.29vw;
     }
   }
 

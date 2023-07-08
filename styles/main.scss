@@ -3,10 +3,12 @@
 :root {
   --primary-color: #363636;
   --accent-main-color: #9f141c;
+  --accent-menu-color: #dbc966;
   --light-color: #ffffff;
   --hover-color: #cd000c;
   --text-team-name: #fdecdc;
   --light-bg: #e2e2e2;
+  --bg-logo-color: #692122;
 }
 
 body {
@@ -48,17 +50,21 @@ body {
 }
 
 .container {
-  width: 414px;
+  // width: 414px;
   margin: 0 auto;
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   width: 768px;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   width: 1440px;
+  // }
   @media screen and (min-width: 1920px) {
-    width: 1920px;
+    max-width: 1960px;
   }
+
+  // @media screen and (min-width: 2320px) {
+  //   width: 2320px;
+  // }
 }
 
 input[type="number"]::-webkit-outer-spin-button,
