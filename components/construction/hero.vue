@@ -212,7 +212,6 @@ export default {
     // &__data {
     //   // padding: 0 5.417vw;
     // }
-
     padding-top: 5vw;
 
     &__wrap {
@@ -238,4 +237,11 @@ export default {
     }
   }
 }
+
+  @media screen and (min-width: 2540px) {
+    .hero{
+    /* margin-top:9.3%; */
+
+    }
+  }
 </style>

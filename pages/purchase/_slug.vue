@@ -92,8 +92,20 @@ export default {
 <style lang="scss" scoped>
 .header {
   position: relative;
+  
+   @media screen and (min-width: 2540px) {
+   position: fixed;
+    top: 0;
+    z-index: 1050;
+  }
+  
 }
-.houses {
+.houses {  
   min-height: 90vh;
+
+ @media screen and (min-width: 2540px) {
+   margin-top: 8.5%;
+  }
 }
+
 </style>

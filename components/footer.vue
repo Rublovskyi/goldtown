@@ -3,7 +3,7 @@
     .footer__wrap
         n-link.footer__logo(:to="localePath('/')")
             //- img(src="../assets/logoLight.png" alt="Logo Gold Town")
-            img(src="../assets/Logo-new_06-07-2023.png" alt="Logo Gold Town")
+            img(src="../assets/Logo_new.png" alt="Logo Gold Town")
         .footer__mobile
             Lang.footer__lang
     .footer__info
@@ -385,11 +385,15 @@ export default {
     }
   }
 }
+
+
 @media screen and (min-width: 1240px) {
   .footer {
     padding: 2.639vw 3.556vw;
     grid-template-columns: 1fr 2.7fr;
     gap: 4vw;
+
+    
 
     &__logo {
       height: 6.653vw;
@@ -457,7 +461,8 @@ export default {
         margin-bottom: 0.4vw;
       }
       &-wrap {
-        margin-right: 2vw;
+        /* margin-right: 2vw; */
+        margin-right: 1vw;
       }
     }
     &__wrapper {
@@ -487,4 +492,14 @@ export default {
     }
   }
 }
+
+@media screen and (min-width: 2540px) {
+   .footer {
+    width: 105vw;
+    left: -21%;
+    
+     }
+    }
+
+
 </style>

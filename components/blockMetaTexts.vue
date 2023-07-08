@@ -169,5 +169,8 @@ export default {
   @media screen and (min-width: 1240px) {
     padding: 2vw 5.556vw 2.5vw 5.556vw;
   }
+  /* @media screen and (min-width: 2540px) {
+    margin-bottom: 9.3%;
+  } */
 }
 </style>

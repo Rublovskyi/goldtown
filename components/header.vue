@@ -2,7 +2,7 @@
 .header(:class="{'show': showMenu, 'headerUnvisible': headerUnvisible}")
     n-link.header__logo(:to="localePath('/')")
         //- img(src="../assets/Logo.png" alt="Logo Gold Town")
-        img(src="../assets/Logo-new_06-07-2023.png" alt="Logo Gold Town")
+        img(src="../assets/Logo_new.png" alt="Logo Gold Town")
     .header__wrap(:class="{'show': showMenu}")
         .header__menu
             .header__list
@@ -382,7 +382,7 @@ background-color: var(--bg-logo-color);
 background-color: var(--bg-logo-color);
     transition: all 500ms ease;
 
-    // position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;

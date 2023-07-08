@@ -64,6 +64,10 @@ export default {
     gap: 6.452vw;
   }
 
+  @media screen and (min-width: 2540px) {
+   margin: 8.3% 0 6.5%;
+  }
+
   &__title {
     font-size: 6.875vw;
     margin-bottom: 7.813vw;

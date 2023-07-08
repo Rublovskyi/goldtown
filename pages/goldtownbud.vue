@@ -9,8 +9,8 @@
     PhoneBtn
     RequestPopup(v-if="showPopup")
     SuccessPopup(v-if="successPopup")
-    Footer
     ScrollUpBtn(ref="scrollBtn")
+    Footer
 </template>
 <script>
 import Header from "~/components/header.vue";
