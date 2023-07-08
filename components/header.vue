@@ -26,7 +26,7 @@
                     //- a.header__number(href="tel:+380679986959") 
                     //-     span.header__number-icon
                     //-     span +380(67)998-69-59
-                    //- a.header__number(href="tel:+380984732501") 
+                    //- a.header__number(href="tel:+380984732501.") 
                     //-     span.header__number-icon
                     //-     span +380(98)473-25-01
                     a.header__number(href="tel:+380639986959") 
